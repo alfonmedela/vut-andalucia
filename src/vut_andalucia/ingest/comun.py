@@ -122,13 +122,39 @@ def _ordinales(pieza: tuple[str | None, list[str]]) -> list[tuple[str | None, li
     return [(f"{base}.{a}" if a else base, ps) for a, ps in grupos]
 
 
-def cita(base: str, apartado: str | None, corta: str) -> str:
-    """«art. 17.12 LPH», «art. 20.Uno.23.º Ley 37/1992», «disp. adic. 2.ª, apdo. 1 …»."""
+def _numerados(pieza: tuple[str | None, list[str]]) -> list[tuple[str | None, list[str]]]:
+    """Trocea un apartado «Uno.» largo por sus números («1.», «2.»): «uno.2»."""
+    apartado, parrafos = pieza
+    if apartado is None or len("\n".join(parrafos)) <= MAX_CHARS_APARTADO:
+        return [pieza]
+    # El primer párrafo («Uno. Se aplicará el tipo…») es la cabecera del apartado.
+    # Basta un número: en algunas versiones del art. 91.Dos solo hay un «1.» con sus
+    # ordinales, que deben quedar como Dos.1.1.º y no como Dos.1.º.
+    grupos = apartados(parrafos[1:])
+    if not any(a for a, _ in grupos):
+        return [pieza]
+    cabecera = [parrafos[0]]
+    salida: list[tuple[str | None, list[str]]] = []
+    for a, ps in grupos:
+        if a is None:
+            cabecera += ps
+        else:
+            salida.append((f"{apartado}.{a}", ps))
+    return [(apartado, cabecera), *salida]
+
+
+def cita(base: str, apartado: str | None, corta: str, ordinal: bool | None = None) -> str:
+    """«art. 17.12 LPH», «art. 20.Uno.23.º Ley 37/1992», «disp. adic. 2.ª, apdo. 1 …».
+
+    `ordinal`: el último nivel es un ordinal («23.º»). Si no se indica, se supone que lo es
+    cuando el apartado está anidado."""
     if apartado is None:
         return f"{base} {corta}"
     partes = [p.capitalize() if p.isalpha() else p for p in apartado.split(".")]
-    if len(partes) > 1 and partes[-1].isdigit():
-        partes[-1] += ".º"  # el último nivel de un apartado anidado es un ordinal
+    if ordinal is None:
+        ordinal = len(partes) > 1
+    if ordinal and partes[-1].isdigit():
+        partes[-1] += ".º"
     sep = "." if base.startswith("art.") else ", apdo. "
     return f"{base}{sep}{'.'.join(partes)} {corta}"
 
@@ -150,15 +176,25 @@ def fragmentos_de_version(
 ) -> Iterator[Fragmento]:
     """Convierte el texto de una versión de un precepto en uno o varios fragmentos."""
     cuerpo = "\n".join(parrafos)
-    grupos = apartados(parrafos)
-    trocear = len(cuerpo) > MAX_CHARS_SIN_TROCEAR and sum(1 for a, _ in grupos if a) >= 2
-    if not trocear and len(cuerpo) > MAX_CHARS_SIN_TROCEAR:
-        # Leyes tributarias: «Uno.», «Dos.»… en lugar de «1.», «2.».
-        grupos = _por_patron(parrafos, _APARTADO_PALABRA, lambda m: m.group(1).lower())
-        trocear = sum(1 for a, _ in grupos if a) >= 2
+    largo = len(cuerpo) > MAX_CHARS_SIN_TROCEAR
+    # Leyes tributarias: «Uno.», «Dos.»… por encima de «1.», «2.» (art. 91 de la Ley del IVA:
+    # Uno.2.2.º). Si los hay, mandan; dentro de cada uno se trocea por números.
+    grupos = _por_patron(parrafos, _APARTADO_PALABRA, lambda m: m.group(1).lower())
+    trocear = largo and sum(1 for a, _ in grupos if a) >= 2
+    if trocear:
+        grupos = [sub for g in grupos for sub in _numerados(g)]
+    else:
+        grupos = apartados(parrafos)
+        trocear = largo and sum(1 for a, _ in grupos if a) >= 2
     piezas = grupos if trocear else [(None, parrafos)]
-    piezas = [sub for pieza in piezas for sub in _ordinales(pieza)]
-    for apartado, ps in piezas:
+    ordinales: set[str] = set()
+    piezas_finales: list[tuple[str | None, list[str]]] = []
+    for pieza in piezas:
+        subpiezas = _ordinales(pieza)
+        if len(subpiezas) > 1:
+            ordinales.update(a for a, _ in subpiezas if a and a != (pieza[0] or "0"))
+        piezas_finales += subpiezas
+    for apartado, ps in piezas_finales:
         sufijo = f".{apartado}" if apartado else ""
         if trocear and apartado is None:
             sufijo = ".0"
@@ -167,7 +203,7 @@ def fragmentos_de_version(
             norma_id=norma.id,
             bloque_id=bloque_id,
             apartado=apartado,
-            cita=cita(base_cita, apartado, norma.corta),
+            cita=cita(base_cita, apartado, norma.corta, ordinal=apartado in ordinales),
             encabezado=encabezado,
             ruta=ruta,
             texto="\n".join(ps),
