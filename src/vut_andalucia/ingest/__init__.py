@@ -148,9 +148,13 @@ def avisar_decretos_ley(lote: list[Lote], client: httpx.Client) -> list[Lote]:
         try:
             meta = boe.metadatos(ident, client)
         except boe.BOEError as e:
-            # Algunas versiones citan ids internos que la API no resuelve: se avisa en el log
-            # porque no se puede comprobar si esa redacción viene de un decreto-ley.
+            # Algunas versiones citan ids internos que la API no resuelve. No se puede saber si
+            # esa redacción viene de un decreto-ley sin convalidar, y eso se dice en la cita.
             log.warning("No se pudo comprobar la norma modificadora %s: %s", ident, e)
+            avisos[ident] = (
+                f"No se pudo comprobar en el BOE la norma que dio esta redacción ({ident}); "
+                "si fuera un decreto-ley, podría estar pendiente de convalidación."
+            )
             continue
         aviso = boe.pendiente_de_convalidacion(meta, boe.posteriores(ident, client))
         if aviso:

@@ -202,10 +202,21 @@ _MESES = {
     )
 }
 _EFECTOS = re.compile(
-    r"con efectos? (?:desde |a partir |de |del )?(?:el |la fecha |del )?(?:de )?"
-    r"(\d{1,2})(?:º)? de (" + "|".join(_MESES) + r") de (\d{4})",
+    r"con efectos?\s+(?:desde\s+|a\s+partir\s+(?:de\s+)?|de\s+|del\s+)?"
+    r"(?:el\s+|la\s+fecha\s+(?:de\s+)?)?(?:d[ií]a\s+)?"
+    r"(\d{1,2})(?:º|\.º)?\s+de\s+(" + "|".join(_MESES) + r")\s+(?:de\s+)?(\d{4})",
     re.I,
 )
+_NOTA_CON_REF = re.compile(r"(.*?)Ref\.\s*((?:BOE|BOJA|DOUE)-[\w-]+?)(?=[#\s.,;]|$)", re.S)
+
+
+def notas_de_version(version: ET.Element) -> list[tuple[str, str]]:
+    """(texto de la nota, identificador de la norma a la que remite) por cada nota."""
+    salida = []
+    for bq in version.iter("blockquote"):
+        for m in _NOTA_CON_REF.finditer(_texto(bq)):
+            salida.append((m.group(1).strip(" ."), m.group(2)))
+    return salida
 
 
 def efectos_de_version(version: ET.Element) -> tuple[dt.date | None, str | None]:
@@ -215,26 +226,30 @@ def efectos_de_version(version: ET.Element) -> tuple[dt.date | None, str | None]
     puede diferir sus efectos («Se modifica, con efectos de 1 de diciembre de 2026…»). Esa
     información solo está en las notas de la versión. Devuelve (fecha desde la que el nuevo
     texto produce efectos, aviso para el usuario), o (None, None) si no hay diferimiento.
+    Si una nota de esta versión habla de efectos pero no se entiende su fecha, no se calla:
+    se devuelve un aviso.
     """
     norma = version.get("id_norma") or ""
     vigencia = version.get("fecha_vigencia") or ""
     if not norma or not vigencia:
         return None, None
-    notas = " ".join(_texto(bq) for bq in version.iter("blockquote"))
-    # Cada nota termina en «Ref. BOE-A-…»; solo cuentan las de la norma de esta versión.
-    trozos = [t for t in re.split(r"(?<=Ref\. )(?=\S)", notas)]
-    propias = []
-    for i in range(1, len(trozos)):
-        if trozos[i].startswith(norma):
-            propias.append(trozos[i - 1].rsplit(". ", 1)[-1] if i > 1 else trozos[0])
+    propias = [texto for texto, ref in notas_de_version(version) if ref == norma]
     fechas = set()
+    sin_fecha = False
     for nota in propias:
         m = _EFECTOS.search(nota)
         if m:
             fechas.add(dt.date(int(m.group(3)), _MESES[m.group(2).lower()], int(m.group(1))))
+        elif re.search(r"\befectos?\b", nota, re.I):
+            sin_fecha = True
+    inicio = dt.datetime.strptime(vigencia, "%Y%m%d").date()
+    if sin_fecha and not fechas:
+        return None, (
+            f"La nota oficial de esta redacción ({norma}) indica efectos distintos de su "
+            "entrada en vigor; revisa la norma para conocer la fecha exacta."
+        )
     if not fechas:
         return None, None
-    inicio = dt.datetime.strptime(vigencia, "%Y%m%d").date()
     if len(fechas) > 1:
         lista = ", ".join(sorted(f.strftime("%d/%m/%Y") for f in fechas))
         return None, f"Parte de esta redacción tiene efectos diferidos ({lista}); revisa la norma."

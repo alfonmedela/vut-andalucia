@@ -40,8 +40,8 @@ class Fuente:
     # Cómo la nombra la gente («ley de arrendamientos urbanos», «iva»): si la pregunta la
     # menciona, sus fragmentos suben en la búsqueda.
     alias: tuple[str, ...] = ()
-    # Cómo trocear un documento: por artículos (defecto), por preguntas (FAQ oficiales) o
-    # por fundamentos de derecho (sentencias).
+    # Cómo trocear un documento: por artículos (defecto), por preguntas (FAQ oficiales), por
+    # fundamentos de derecho (sentencias) o como texto corrido en partes (anuncios, resúmenes).
     troceo: str = "articulos"
     # En un boletín con muchos anuncios, el texto del anuncio que interesa: empieza en
     # `extracto` y acaba en `extracto_fin` (o en la raya que separa anuncios en los BOP).
@@ -83,7 +83,7 @@ def _fuente(datos: dict[str, Any]) -> Fuente:
         raise CatalogoInvalido(f"{ident}: una fuente municipal necesita `municipio`")
     if datos["fuente"] in ("boja", "eurlex", "documento") and not valores.get("origen"):
         raise CatalogoInvalido(f"{ident}: la fuente {datos['fuente']} necesita `origen`")
-    if valores.get("troceo", "articulos") not in ("articulos", "preguntas", "fundamentos"):
+    if valores.get("troceo", "articulos") not in ("articulos", "preguntas", "fundamentos", "texto"):
         raise CatalogoInvalido(f"{ident}: troceo desconocido {valores['troceo']!r}")
     if datos["fuente"] in ("eurlex", "documento", "boe_diario") and not valores.get("desde"):
         raise CatalogoInvalido(f"{ident}: indica `desde` (la fuente no publica la vigencia)")

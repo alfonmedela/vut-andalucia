@@ -45,6 +45,7 @@ _ORDINALES_FJ = {
 
 
 MAX_BYTES_COPIA = 2_000_000
+MAX_BYTES_DOCUMENTO = 40_000_000
 NAVEGADOR = (
     "Mozilla/5.0 (compatible; vut-andalucia/0.1; +https://github.com/alfonmedela/vut-andalucia)"
 )
@@ -55,9 +56,13 @@ class DocumentoError(RuntimeError):
 
 
 def _local(origen: str, dir_fuentes: Path) -> Path:
-    """Ruta donde se guarda (o se espera) la copia del documento."""
+    """Ruta donde se guarda (o se espera) la copia del documento, siempre dentro de la carpeta."""
+    base = (dir_fuentes / "documentos").resolve()
     if origen.startswith("local:"):
-        return dir_fuentes / "documentos" / origen.removeprefix("local:")
+        ruta = (base / origen.removeprefix("local:")).resolve()
+        if not ruta.is_relative_to(base):
+            raise DocumentoError(f"Ruta local fuera de la carpeta de documentos: {origen}")
+        return ruta
     nombre = Path(urlparse(origen).path).name or "documento"
     huella = hashlib.sha256(origen.encode()).hexdigest()[:10]
     return dir_fuentes / "documentos" / f"{huella}-{nombre}"
@@ -74,10 +79,16 @@ def obtener(origen: str, client: httpx.Client, dir_fuentes: Path) -> bytes:
         return ruta.read_bytes()
     if origen.startswith("local:"):
         raise DocumentoError(f"No existe la copia local {ruta}")
+    if not origen.startswith("https://"):
+        raise DocumentoError(f"Solo se descargan documentos por https: {origen}")
     # Algunas sedes oficiales rechazan clientes que no se identifican como navegador.
     r = client.get(origen, follow_redirects=True, headers={"User-Agent": NAVEGADOR})
+    if r.url.scheme != "https":
+        raise DocumentoError(f"{origen} redirigió a una dirección no segura: {r.url}")
     if r.status_code != 200 or not r.content:
         raise DocumentoError(f"{origen} respondió {r.status_code}")
+    if len(r.content) > MAX_BYTES_DOCUMENTO:
+        raise DocumentoError(f"{origen} supera {MAX_BYTES_DOCUMENTO // 1_000_000} MB")
     # Se guarda copia de lo que cabe en el repositorio; de un boletín entero de varios MB solo
     # importa un anuncio, y su huella queda en el manifiesto.
     if len(r.content) <= MAX_BYTES_COPIA:
@@ -248,8 +259,8 @@ def parsear(bruto: bytes, norma: Norma, fuente: Fuente) -> list[Fragmento]:
     ps = parrafos(texto)
     sentencia = fuente.troceo == "fundamentos" or norma.clase.value == "jurisprudencia"
     bloques = _preguntas(ps) if fuente.troceo == "preguntas" else _bloques(ps, sentencia)
-    if len(bloques) <= 1 and fuente.cita:
-        bloques = [("texto", fuente.cita, ps)]
+    if fuente.troceo == "texto" or (len(bloques) <= 1 and fuente.cita):
+        bloques = [("texto", fuente.cita or "texto", ps)]
     bloques = [parte for b in bloques for parte in _partes(*b)]
     fragmentos: list[Fragmento] = []
     for ident, base, cuerpo in bloques:

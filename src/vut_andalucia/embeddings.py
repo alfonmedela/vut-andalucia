@@ -32,8 +32,42 @@ class EmbeddingsError(RuntimeError):
     pass
 
 
-def texto_para_embedding(f: Fragmento) -> str:
-    return f"{f.cita}. {f.encabezado}\n{f.texto}"[:MAX_CHARS]
+def contexto_de(corpus: Corpus) -> dict[str, str]:
+    """Por norma: abreviatura, título y alias. El articulado no dice «IVA» ni «pisos
+    turísticos», pero quien pregunta sí; sin esto el vector no lo relaciona."""
+    from vut_andalucia.sources import CATALOGO
+
+    alias = {f.id: f.alias for f in CATALOGO}
+    return {
+        n.id: f"{n.corta} ({', '.join(alias.get(n.id, ()))}). {n.titulo}"
+        for n in corpus.normas.values()
+    }
+
+
+def texto_para_embedding(f: Fragmento, contexto: str = "") -> str:
+    return f"{contexto}\n{f.cita}. {f.encabezado}\n{' › '.join(f.ruta)}\n{f.texto}"
+
+
+TRAMO = 1400  # caracteres de texto por vector en fragmentos largos
+SOLAPE = 300
+
+
+def tramos(texto: str) -> list[str]:
+    """Un fragmento largo se vectoriza por tramos solapados: así lo que está al final (p. ej. la
+    regla de las 30 noches del art. 20.Uno.23.º LIVA) no queda fuera de lo que ve el modelo.
+    Cada tramo lleva la cabecera (norma, cita, rúbrica) para no perder el contexto."""
+    if len(texto) <= MAX_CHARS:
+        return [texto]
+    lineas = texto.split("\n")
+    cabecera = "\n".join(lineas[:3])
+    cuerpo = "\n".join(lineas[3:])
+    salida, i = [], 0
+    while i < len(cuerpo):
+        salida.append(f"{cabecera}\n{cuerpo[i : i + TRAMO]}")
+        if i + TRAMO >= len(cuerpo):
+            break
+        i += TRAMO - SOLAPE
+    return salida
 
 
 def huella(texto: str) -> str:
@@ -41,7 +75,7 @@ def huella(texto: str) -> str:
 
 
 class ClienteOllama:
-    def __init__(self, url: str | None = None, modelo: str = MODELO, timeout: float = 60) -> None:
+    def __init__(self, url: str | None = None, modelo: str = MODELO, timeout: float = 15) -> None:
         self.url = (url or os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434")).rstrip("/")
         self.modelo = modelo
         self._client = httpx.Client(timeout=timeout)
@@ -55,7 +89,10 @@ class ClienteOllama:
             raise EmbeddingsError(f"Ollama no responde en {self.url}: {e}") from e
         if r.status_code != 200:
             raise EmbeddingsError(f"Ollama respondió {r.status_code}: {r.text[:200]}")
-        datos = r.json().get("embeddings")
+        try:
+            datos = r.json().get("embeddings")
+        except ValueError as e:
+            raise EmbeddingsError(f"Ollama devolvió una respuesta que no es JSON: {e}") from e
         if not isinstance(datos, list) or len(datos) != len(textos):
             raise EmbeddingsError("Ollama devolvió un número de vectores distinto del pedido")
         m = np.asarray(datos, dtype=np.float32)
@@ -72,21 +109,37 @@ class IndiceDenso:
 
     def vigente_para(self, corpus: Corpus) -> IndiceDenso:
         """Solo los vectores cuyo texto sigue siendo el del corpus; avisa de los demás."""
-        actuales = {f.id: huella(texto_para_embedding(f)) for f in corpus.fragmentos}
-        filas = [n for n, i in enumerate(self.ids) if actuales.get(i) == self.huellas.get(i)]
-        faltan = len(actuales) - len(filas)
+        ctx = contexto_de(corpus)
+        actuales = {
+            f.id: huella(texto_para_embedding(f, ctx.get(f.norma_id, "")))
+            for f in corpus.fragmentos
+        }
+
+        def base(i: str) -> str:
+            return i.split("::", 1)[0]
+
+        filas = [
+            n for n, i in enumerate(self.ids) if actuales.get(base(i)) == self.huellas.get(base(i))
+        ]
+        faltan = len(actuales) - len({base(self.ids[n]) for n in filas})
         if faltan:
             log.warning("%d fragmentos sin embedding al día: ejecuta `vut embed`", faltan)
         return IndiceDenso(
             ids=[self.ids[n] for n in filas],
             matriz=self.matriz[filas],
             modelo=self.modelo,
-            huellas={self.ids[n]: self.huellas[self.ids[n]] for n in filas},
+            huellas={base(self.ids[n]): self.huellas[base(self.ids[n])] for n in filas},
         )
 
     def similitudes(self, vector: npt.NDArray[np.float32]) -> dict[str, float]:
+        """Similitud por fragmento: la del mejor de sus tramos («id::n» → «id»)."""
         puntos = self.matriz @ vector
-        return dict(zip(self.ids, puntos.tolist(), strict=True))
+        salida: dict[str, float] = {}
+        for ident, p in zip(self.ids, puntos.tolist(), strict=True):
+            base = ident.split("::", 1)[0]
+            if p > salida.get(base, -1.0):
+                salida[base] = p
+        return salida
 
 
 def _rutas(directorio: Path, modelo: str) -> tuple[Path, Path]:
@@ -108,18 +161,24 @@ def construir(
     if previo is not None and ruta_meta.exists():
         huellas_previas = json.loads(ruta_meta.read_text(encoding="utf-8"))["huellas"]
         reutilizables = {i: previo.matriz[n] for n, i in enumerate(previo.ids)}
-    ids, filas, huellas = [], [], {}
+    ids: list[str] = []
+    filas: list[npt.NDArray[np.float32]] = []
+    huellas: dict[str, str] = {}
     pendientes: list[tuple[int, str]] = []
+    ctx = contexto_de(corpus)
     for f in corpus.fragmentos:
-        texto = texto_para_embedding(f)
+        texto = texto_para_embedding(f, ctx.get(f.norma_id, ""))
         h = huella(texto)
-        ids.append(f.id)
         huellas[f.id] = h
-        if f.id in reutilizables and huellas_previas.get(f.id) == h:
-            filas.append(reutilizables[f.id])
-        else:
-            filas.append(np.zeros(0, dtype=np.float32))
-            pendientes.append((len(filas) - 1, texto))
+        partes = tramos(texto)
+        for n, parte in enumerate(partes):
+            ident = f.id if len(partes) == 1 else f"{f.id}::{n}"
+            ids.append(ident)
+            if ident in reutilizables and huellas_previas.get(f.id) == h:
+                filas.append(reutilizables[ident])
+            else:
+                filas.append(np.zeros(0, dtype=np.float32))
+                pendientes.append((len(filas) - 1, parte))
     for i in range(0, len(pendientes), lote):
         trozo = pendientes[i : i + lote]
         vectores = cliente.vectores([t for _, t in trozo])
@@ -153,7 +212,7 @@ def cargar(
 
 
 def fragmentos_sin_vector(corpus: Corpus, indice: IndiceDenso) -> list[str]:
-    conocidos = set(indice.ids)
+    conocidos = {i.split("::", 1)[0] for i in indice.ids}
     return [f.id for f in corpus.fragmentos if f.id not in conocidos]
 
 
@@ -171,14 +230,15 @@ class VectorizadorConCache:
         )
 
     def vectores(self, textos: list[str]) -> npt.NDArray[np.float32]:
-        faltan = [t for t in textos if t not in self._cache]
+        claves = [f"{MODELO}::{t}" for t in textos]
+        faltan = [t for t, c in zip(textos, claves, strict=True) if c not in self._cache]
         if faltan:
             if not (self.grabar and self.cliente):
                 raise EmbeddingsError(f"{len(faltan)} consulta(s) sin vector grabado en caché")
             for t, v in zip(faltan, self.cliente.vectores(faltan), strict=True):
-                self._cache[t] = [round(float(x), 5) for x in v]
+                self._cache[f"{MODELO}::{t}"] = [round(float(x), 5) for x in v]
             self.ruta.parent.mkdir(parents=True, exist_ok=True)
             self.ruta.write_text(
                 json.dumps(self._cache, ensure_ascii=False, sort_keys=True), encoding="utf-8"
             )
-        return np.asarray([self._cache[t] for t in textos], dtype=np.float32)
+        return np.asarray([self._cache[c] for c in claves], dtype=np.float32)

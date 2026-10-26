@@ -15,7 +15,7 @@
       "estado": null
     },
     "sha256": "2198c17080e39747912cfc13ccf6c6fb16af71a1036790cf3d14918c391f83f7",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 161
   },
   "BOE-A-1992-28740": {
@@ -34,8 +34,8 @@
       "estado": null
     },
     "sha256": "5fb06ddd1015fb9b42fb76f8fccfaddd5335ca4ce488b085197f0aa658a8d34d",
-    "descargado": "2026-10-26T14:27:20Z",
-    "fragmentos": 74
+    "descargado": "2026-10-26T14:43:58Z",
+    "fragmentos": 236
   },
   "BOE-A-1993-25359": {
     "norma": {
@@ -53,7 +53,7 @@
       "estado": null
     },
     "sha256": "673d582aad8765280cf575c43f378eeba2177cfd26aa278c42b1455b71d869c1",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 12
   },
   "BOE-A-1994-26003": {
@@ -72,7 +72,7 @@
       "estado": null
     },
     "sha256": "58db8fbfc38dd0bbe1d2bae25bf85208e19962f110fcd4bce907989e7db80eda",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 420
   },
   "BOE-A-2004-4214": {
@@ -91,7 +91,7 @@
       "estado": null
     },
     "sha256": "3b35305780b077a74c8a2ad13429b6995d7c6d7138c27a8818bf7c21075012a8",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 27
   },
   "BOE-A-2006-20764": {
@@ -110,7 +110,7 @@
       "estado": null
     },
     "sha256": "6b0386e50079383b556016c2fb96dbf4114cf63de6e39da9bc23c13c0c5cf889",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 31
   },
   "BOE-A-2007-15984": {
@@ -129,7 +129,7 @@
       "estado": null
     },
     "sha256": "b9b28f846de05a5711a5be7a9879f8fda7ca4fbec5e603af5bd0b1ccf2f1c234",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 27
   },
   "BOE-A-2012-876": {
@@ -148,7 +148,7 @@
       "estado": null
     },
     "sha256": "e01cd31edaef3513e485a4e90405c60c05000dc2d7b83b46cac72729683e8a7d",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 304
   },
   "BOE-A-2015-3442": {
@@ -167,8 +167,8 @@
       "estado": null
     },
     "sha256": "ceb57fdb3939cbd0f938258752e5c31a321557cb91d5d5d62eb8e1a40af68c9e",
-    "descargado": "2026-10-26T14:27:20Z",
-    "fragmentos": 1
+    "descargado": "2026-10-26T14:43:58Z",
+    "fragmentos": 69
   },
   "BOE-A-2021-10163": {
     "norma": {
@@ -186,7 +186,7 @@
       "estado": null
     },
     "sha256": "12eed885f37491aba6ad21907ea916cdd1c2ba5212a207d1d6ecbef8d3e25692",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 12
   },
   "BOE-A-2021-17461": {
@@ -205,7 +205,7 @@
       "estado": null
     },
     "sha256": "956d7ee95d74cc7ac6ccea8c6dd791e5271433d6b35ae255af24a3eb92ef316d",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 23
   },
   "BOE-A-2021-17915": {
@@ -224,7 +224,7 @@
       "estado": null
     },
     "sha256": "1730fa0cf35e70e7a556b0f6c4ce92afbf9ef2fbbcc93f2b83a864a02d16323c",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 5
   },
   "BOE-A-2021-20916": {
@@ -243,7 +243,7 @@
       "estado": null
     },
     "sha256": "97479f0d9851512345b27c95cb245582a6c746c91776ce423ff175fb273bbf58",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 10
   },
   "BOE-A-2024-26931": {
@@ -262,7 +262,7 @@
       "estado": "Anulado en parte por las sentencias del Tribunal Supremo de 19 y 21 de mayo y 1 de junio de 2026, que anulan el procedimiento de registro único y la obligación de inscribirse en el Registro de la Propiedad para obtener el número de registro."
     },
     "sha256": "df08993b3733b9ea704394888857537200c08a5a01de918cbf84f5637c8d8b92",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 58
   },
   "BOE-A-2025-12679": {
@@ -281,7 +281,7 @@
       "estado": null
     },
     "sha256": "27bfd4cf4b460592e08c10883f70d43c501a04d14afe0e6a92e34819854832e9",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 8
   },
   "BOE-A-2026-12300": {
@@ -300,7 +300,7 @@
       "estado": null
     },
     "sha256": "01f975ecf64dc6c98e6d267bcb794eeb3cee48f1e7645d20cb00ddeeb50a9204",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 1
   },
   "BOE-A-2026-13893": {
@@ -319,7 +319,7 @@
       "estado": null
     },
     "sha256": "d43a402f8986ac6dd0b7cbcc58adc5dd69069267cf290adf7261acbbaebdb308",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 1
   },
   "BOE-A-2026-15677": {
@@ -338,7 +338,7 @@
       "estado": null
     },
     "sha256": "b8a998d6934e9d23f61204974004581bbff53ea29d7d5bf60ab0c1d688e3b47a",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 1
   },
   "BOE-A-2026-423": {
@@ -357,7 +357,7 @@
       "estado": null
     },
     "sha256": "42dcdca5ef9d00fbdbd7e0c1afbff20115220de8570afa69daf463917a7d410a",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 27
   },
   "BOJA-D-2002-20": {
@@ -376,7 +376,7 @@
       "estado": null
     },
     "sha256": "bff10f63d8055aae572e8ca7bb1894853682bb546b7eb0cf7365c480f9d1bc38",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 92
   },
   "BOJA-D-2003-144": {
@@ -395,7 +395,7 @@
       "estado": null
     },
     "sha256": "19181550cf5581b982f64e96e2e5a34fb01d63f185999fd56f31ecef5c7806e8",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 62
   },
   "BOJA-D-2010-194": {
@@ -414,7 +414,7 @@
       "estado": null
     },
     "sha256": "bd7aa7c7f13a01133a5be0f23cdd0eb7f6ef7f5d9870c2c0f8f3b9d3853f90cd",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 103
   },
   "BOJA-D-2014-143": {
@@ -433,7 +433,7 @@
       "estado": null
     },
     "sha256": "bbab53e07ce92d07d07be46803bbd9b4d5e6b346b83477e44d8471dc40b00051",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 94
   },
   "BOJA-D-2016-28": {
@@ -452,7 +452,7 @@
       "estado": null
     },
     "sha256": "9c1d4998c8f91c0b13206ff617d2726d4d2e784586b8622c36d758cd343d7986",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 56
   },
   "BOJA-D-2022-82": {
@@ -471,7 +471,7 @@
       "estado": null
     },
     "sha256": "3441f60cffe14755c102b3593633a59aeda9cc202cb455f83244b26d2c82526f",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 53
   },
   "BOJA-b-2025-90042": {
@@ -490,7 +490,7 @@
       "estado": null
     },
     "sha256": "2354b506e65ef20b358fda3c1a8a550ad3608eb7b9ea8476d508125eb84c536b",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 35
   },
   "CADIZ-MP10-2025": {
@@ -509,7 +509,7 @@
       "estado": "Aprobación inicial; no consta en el BOP la aprobación definitiva a fecha del corpus."
     },
     "sha256": "780b6e0bb0ac89639a52c3c82ce0398c4edf72f87cdddff09c2159e736037848",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 43
   },
   "CADIZ-MP9-2025": {
@@ -528,8 +528,8 @@
       "estado": "Aprobación inicial con suspensión; la suspensión dura como máximo tres años."
     },
     "sha256": "613d8a84ce23a7422ec84260c516f1e67747961aed4b00f3862a96eebfc79704",
-    "descargado": "2026-10-26T14:27:20Z",
-    "fragmentos": 45
+    "descargado": "2026-10-26T14:43:58Z",
+    "fragmentos": 41
   },
   "CADIZ-PGOU-2022": {
     "norma": {
@@ -547,8 +547,8 @@
       "estado": null
     },
     "sha256": "b2be0545a33525e47af050758d9f192618de95ee7ee6abc02dcf280b14a09d65",
-    "descargado": "2026-10-26T14:27:20Z",
-    "fragmentos": 57
+    "descargado": "2026-10-26T14:43:58Z",
+    "fragmentos": 44
   },
   "CELEX-32024R1028": {
     "norma": {
@@ -566,7 +566,7 @@
       "estado": "Aplicable a partir del 20 de mayo de 2026 (art. 19)."
     },
     "sha256": "098fcb0c4a5dbe3998e167f2fd9ea845a2bf604ed529cce3a2592b95ffb90526",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 58
   },
   "CHICLANA-SUSPENSION-2025": {
@@ -585,7 +585,7 @@
       "estado": null
     },
     "sha256": "c18f093b546f709b12b3de95b92280db42f85bdb8b35ab317ba38ce0fd0f1694",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 1
   },
   "GRANADA-LIMITE-2025": {
@@ -604,7 +604,7 @@
       "estado": "Copia de la página del BOP de Granada n.º 141 (CVE BOP-GRA-2025-141016), obtenida de un espejo porque granada.org rechaza las descargas automáticas. Granada tramita además innovaciones del PGOU-01 y del PEPRI Centro con aprobación inicial."
     },
     "sha256": "295ec72394ff8ba17868c0380550e01a21024f3ed1323514ef0cb6d084aaf83a",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 2
   },
   "JEREZ-PGOU-HOSPEDAJE-2026": {
@@ -623,8 +623,8 @@
       "estado": null
     },
     "sha256": "5f72826c94aaa913902b1740ec6b8c8a114de77ac250b7f6dca7f9a005efd47f",
-    "descargado": "2026-10-26T14:27:20Z",
-    "fragmentos": 17
+    "descargado": "2026-10-26T14:43:58Z",
+    "fragmentos": 16
   },
   "JUNTA-FAQ-VUT": {
     "norma": {
@@ -642,7 +642,7 @@
       "estado": "Criterio de la Administración, no es una norma. Copia del 26/10/2026."
     },
     "sha256": "ebc68ba3cfcf1fcbbf95e1d38bae127c73961cf43780bc653be46646101a085d",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 30
   },
   "MALAGA-INSTRUCCION-1-2024": {
@@ -661,8 +661,8 @@
       "estado": "Instrucción interpretativa de la Gerencia de Urbanismo, no es una norma."
     },
     "sha256": "b12ac906c959ee9d697b5dc30d1e1d92242bd94f36be7e325c9d226099cf0d97",
-    "descargado": "2026-10-26T14:27:20Z",
-    "fragmentos": 7
+    "descargado": "2026-10-26T14:43:58Z",
+    "fragmentos": 6
   },
   "MALAGA-PGOU-DA3-2025": {
     "norma": {
@@ -680,7 +680,7 @@
       "estado": "Aprobada definitivamente por el Pleno el 29/05/2025 y publicada en el BOP de Málaga n.º 150 de 06/08/2025. Desde el 23/08/2025 rige además la suspensión de nuevas VUT en todo el término municipal."
     },
     "sha256": "3957ca3538363d85ad108e4a3dff6187d17de9fa4af7a24b3f00739592d19db4",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 20
   },
   "MALAGA-PGOU-PL7-2026": {
@@ -699,8 +699,8 @@
       "estado": "Solo aprobación inicial (Pleno de 16/07/2026); no es aún norma definitiva. Lleva aparejada una suspensión de licencias en vigor desde el 25/07/2026, por un máximo de tres años."
     },
     "sha256": "77e139ae67144d421bc8f26f02e726a9780ae2edc5f8ab5eacb82a6a28c80849",
-    "descargado": "2026-10-26T14:27:20Z",
-    "fragmentos": 45
+    "descargado": "2026-10-26T14:43:58Z",
+    "fragmentos": 47
   },
   "MALAGA-SUSPENSION-2025": {
     "norma": {
@@ -718,7 +718,7 @@
       "estado": "Comunicado oficial del Ayuntamiento que resume el acuerdo de la Junta de Gobierno Local de 14/08/2025 (BOP de Málaga de 22/08/2025, no incluido porque el BOP bloquea la descarga automática). La suspensión dura como máximo tres años o hasta que se apruebe la modificación del PGOU."
     },
     "sha256": "7502b4741b4d48cfba628a411b5ba733ae0552d2c17cfb42f28077d7d227b0f1",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 10
   },
   "PUERTO-SANTA-MARIA-SUSPENSION-2025": {
@@ -737,7 +737,7 @@
       "estado": "Tres años según el anuncio; no precisa si se cuentan desde el acuerdo (07/03/2025) o desde su publicación (29/04/2025)."
     },
     "sha256": "fcd6e3aa8a23e556d8e0efd7514dcfd34e72ee58c3e05e73e0e8f43871ba3378",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 1
   },
   "SEVILLA-INSTRUCCION-2025": {
@@ -756,7 +756,7 @@
       "estado": "Criterio de la Gerencia de Urbanismo. La limitación del 10 % de VUT por barrio (Pleno de 17/10/2024, BOP n.º 210 de 28/10/2024, en vigor desde el 29/10/2024) y la Modificación Puntual 44 del PGOU no están en el corpus como texto: su publicación oficial es un PDF escaneado."
     },
     "sha256": "35ccbff3620fc8c409cd31f6cc1ec74a27b8875751bf000b812ad498ebf59de6",
-    "descargado": "2026-10-26T14:27:20Z",
+    "descargado": "2026-10-26T14:43:58Z",
     "fragmentos": 5
   }
 }

@@ -15,6 +15,7 @@ from __future__ import annotations
 import datetime as dt
 import logging
 import re
+from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -166,7 +167,9 @@ def leer_version(html: str) -> list[_Bloque]:
     return lector.bloques
 
 
-_AVISO = re.compile(r"anulad|nulidad|suspendid|suspensi[oó]n|t[ée]ngase en cuenta", re.I)
+_AVISO = re.compile(
+    r"anulad|nulidad|suspendid|suspensi[oó]n|derogad|t[ée]ngase en cuenta|v[ée]ase", re.I
+)
 
 
 def _avisos(notas: list[str]) -> str | None:
@@ -238,7 +241,7 @@ def parsear(directorio: Path, norma: Norma, url: str) -> list[Fragmento]:
     # El orden por bloque y fecha es el que espera `fusionar`.
     crudos.sort(key=lambda f: (f.base_id, f.vigente_desde))
     fragmentos = fusionar(crudos)
-    repetidos = [i for i in {f.id for f in fragmentos} if sum(g.id == i for g in fragmentos) > 1]
+    repetidos = [i for i, n in Counter(f.id for f in fragmentos).items() if n > 1]
     if repetidos:
         raise BOJAError(f"{norma.id}: identificadores repetidos: {sorted(repetidos)[:5]}")
     return fragmentos

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VUT Andalucía · Pregunta a la ley</title>
+<meta name="description" content="Pregunta lo que quieras sobre la normativa de viviendas de uso turístico en Andalucía. Cada respuesta cita el texto oficial y un verificador comprueba la cita.">
+<meta name="theme-color" content="#F3EFE7">
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/app.css">
+</head>
+<body>
+<a class="skip" href="#pregunta">Saltar a la pregunta</a>
+
+<header class="bar">
+  <div class="bar__in wrap">
+    <a class="wm" href="https://alfonsomedela.com" aria-label="Alfonso Medela"><span>Alfonso</span> <span class="wm__m">Medela</span></a>
+    <span class="bar__sep" aria-hidden="true"></span>
+    <span class="producto">VUT Andalucía</span>
+    <nav class="bar__nav" aria-label="Secciones">
+      <a href="#como">Cómo funciona</a>
+      <a href="#fuentes">Fuentes</a>
+      <a href="https://github.com/alfonmedela/vut-andalucia" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap" aria-labelledby="titulo">
+    <p class="eyebrow">Viviendas de uso turístico · Andalucía</p>
+    <h1 id="titulo">Pregunta a la ley<span class="pt" aria-hidden="true"></span></h1>
+    <p class="lede">Cada respuesta cita el texto oficial del BOE, del BOJA o de tu ayuntamiento, y un verificador comprueba que la cita está ahí, palabra por palabra. <em>Si no puede citarlo, no lo dice.</em></p>
+
+    <form class="ask" id="formulario" autocomplete="off">
+      <label class="sr-only" for="pregunta">Tu pregunta</label>
+      <textarea id="pregunta" name="pregunta" rows="2" maxlength="1200" required
+        placeholder="¿Necesito permiso de la comunidad para alquilar mi piso a turistas?"></textarea>
+      <div class="ask__controles">
+        <label class="campo">
+          <span>Municipio</span>
+          <input id="municipio" name="municipio" list="lista-municipios" placeholder="Toda Andalucía">
+          <datalist id="lista-municipios"></datalist>
+        </label>
+        <label class="campo">
+          <span>Ley vigente a</span>
+          <input id="fecha" name="fecha" type="date">
+        </label>
+        <button class="btn" id="enviar" type="submit">Preguntar</button>
+      </div>
+    </form>
+
+    <div class="ejemplos" aria-label="Preguntas de ejemplo">
+      <button type="button" class="chip" data-p="¿Puedo poner mi piso en Airbnb sin permiso de los vecinos?">Permiso de los vecinos</button>
+      <button type="button" class="chip" data-p="¿Puedo dar de alta un piso turístico nuevo en el centro de Málaga?" data-m="Málaga">Abrir en Málaga</button>
+      <button type="button" class="chip" data-p="Si vendo mi piso turístico, ¿el comprador mantiene la inscripción en el Registro de Turismo?">Vender una VUT</button>
+      <button type="button" class="chip" data-p="¿Cuántos metros cuadrados por plaza exige la Junta a una vivienda turística?">Metros por plaza</button>
+      <button type="button" class="chip" data-p="¿Tengo que cobrar IVA si alquilo mi piso a turistas por menos de 30 noches?">IVA en estancias cortas</button>
+      <button type="button" class="chip" data-p="¿Qué mayoría hacía falta en la junta para limitar los pisos turísticos?" data-f="2024-06-01">La ley en junio de 2024</button>
+    </div>
+
+    <dl class="cifras" id="cifras" aria-label="El corpus en cifras">
+      <div><dt>Fuentes oficiales</dt><dd data-cifra="fuentes">40</dd></div>
+      <div><dt>Artículos, con su historia</dt><dd data-cifra="fragmentos">2.022</dd></div>
+      <div><dt>Municipios reconocidos</dt><dd>785</dd></div>
+      <div><dt>Citas sin verificar mostradas</dt><dd>0</dd></div>
+    </dl>
+  </section>
+
+  <section class="resultado wrap" id="resultado" hidden aria-label="Respuesta">
+    <div class="col">
+      <div class="contexto" id="contexto"></div>
+      <ol class="pasos" id="pasos" aria-label="Progreso">
+        <li data-paso="buscar">Buscando en las fuentes</li>
+        <li data-paso="redactar">Redactando con citas</li>
+        <li data-paso="verificar">Verificando cada cita</li>
+      </ol>
+      <div class="respuesta" id="respuesta" aria-live="polite"></div>
+      <div class="pendientes" id="pendientes" hidden></div>
+      <div class="avisos" id="avisos"></div>
+      <details class="consultadas" id="consultadas" hidden>
+        <summary>Fuentes consultadas</summary>
+        <ol id="lista-consultadas"></ol>
+      </details>
+      <p class="pie-respuesta" id="pie-respuesta"></p>
+    </div>
+    <aside class="panel" id="panel" aria-label="Texto oficial citado" hidden>
+      <div class="panel__in" id="panel-contenido"></div>
+    </aside>
+  </section>
+
+  <section class="como wrap" id="como" aria-labelledby="como-titulo">
+    <h2 id="como-titulo">Cómo funciona<span class="pt" aria-hidden="true"></span></h2>
+    <ol class="tres">
+      <li>
+        <span class="tres__n">01</span>
+        <h3>Solo fuentes oficiales</h3>
+        <p>BOE, BOJA, la UE, el Tribunal Supremo y los boletines de cada provincia. Cada artículo guarda todas sus versiones y el día exacto en que entró en vigor.</p>
+      </li>
+      <li>
+        <span class="tres__n">02</span>
+        <h3>La ley de ese día, en ese municipio</h3>
+        <p>Busca por palabras y por significado entre lo vigente en la fecha que elijas, y suma las normas de tu ayuntamiento. Te avisa si un decreto-ley no está convalidado o una norma fue anulada.</p>
+      </li>
+      <li>
+        <span class="tres__n">03</span>
+        <h3>Cada cita, comprobada</h3>
+        <p>El modelo propone afirmaciones con una cita literal. Un programa, no otra IA, comprueba que la cita está tal cual en el texto oficial. Lo que no pasa la prueba, no se muestra.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="fuentes wrap" id="fuentes" aria-labelledby="fuentes-titulo">
+    <h2 id="fuentes-titulo">Fuentes<span class="pt" aria-hidden="true"></span></h2>
+    <p class="nota">Todas se descargan de la fuente oficial y se guardan con su huella sha256. Un municipio que no aparece no está libre de limitaciones: simplemente aún no está en el corpus, y el asistente lo dice.</p>
+    <div id="tabla-fuentes" class="tabla-fuentes"></div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="wrap pie__in">
+    <p class="pie__aviso">Información sobre la normativa, no asesoramiento jurídico. Comprueba siempre el texto oficial enlazado.</p>
+    <p>Hecho por <a class="wm wm--sm" href="https://alfonsomedela.com"><span>Alfonso</span> <span class="wm__m">Medela</span></a> · Código abierto (MIT) en <a href="https://github.com/alfonmedela/vut-andalucia">GitHub</a></p>
+  </div>
+</footer>
+
+<template id="t-error">
+  <div class="tarjeta tarjeta--error" role="alert"></div>
+</template>
+<script src="/static/app.js" defer></script>
+</body>
+</html>

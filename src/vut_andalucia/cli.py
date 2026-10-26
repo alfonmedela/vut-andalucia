@@ -196,6 +196,8 @@ def preguntar(
     lexico: Lexico = False,
 ) -> None:
     """Responde con afirmaciones respaldadas por citas literales del texto oficial."""
+    if proveedor not in ("ollama", "claude"):
+        raise typer.BadParameter(f"Proveedor desconocido: {proveedor} (ollama | claude)")
     try:
         r = responder(
             pregunta,
@@ -234,3 +236,21 @@ def evaluar(
     if salida:
         salida.write_text(texto + "\n", encoding="utf-8")
     typer.echo(texto)
+
+
+@app.command()
+def web(
+    host: Annotated[str, typer.Option(help="Interfaz de red")] = "127.0.0.1",
+    puerto: Annotated[int, typer.Option(help="Puerto")] = 8000,
+    proveedor: Annotated[str, typer.Option(help="ollama | claude")] = "ollama",
+    modelo: Annotated[str | None, typer.Option(help="p. ej. qwen3:8b")] = None,
+) -> None:
+    """Arranca la interfaz web y la API en http://127.0.0.1:8000."""
+    import os
+
+    import uvicorn
+
+    os.environ["VUT_PROVEEDOR"] = proveedor
+    if modelo:
+        os.environ["VUT_MODELO"] = modelo
+    uvicorn.run("vut_andalucia.api:app", host=host, port=puerto, log_level="info")

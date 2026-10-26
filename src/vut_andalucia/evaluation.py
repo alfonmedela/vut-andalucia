@@ -12,7 +12,7 @@ import yaml
 from pydantic import BaseModel, Field
 
 from vut_andalucia.answer import cita_exacta, responder
-from vut_andalucia.llm import LLM
+from vut_andalucia.llm import LLM, LLMError
 from vut_andalucia.retrieval import Buscador
 from vut_andalucia.text import normaliza_cita
 
@@ -47,23 +47,31 @@ def cargar_preguntas(ruta: Path) -> list[Caso]:
     return casos
 
 
-def evaluar_recuperacion(casos: list[Caso], buscador: Buscador, k: int = 5) -> dict[str, Any]:
+def evaluar_recuperacion(
+    casos: list[Caso], buscador: Buscador, k: int = 5, k_contexto: int = 10
+) -> dict[str, Any]:
+    """acierto@k: alguna fuente de referencia está entre las k primeras. cita@k_contexto: el
+    fragmento que contiene la cita de referencia llega al contexto que ve el modelo, que es
+    la métrica estricta (una norma correcta con el apartado equivocado no basta)."""
     en_ambito = [c for c in casos if c.ambito]
-    aciertos, rr, fallos = 0, 0.0, []
+    aciertos, rr, citas, fallos = 0, 0.0, 0, []
     for c in en_ambito:
-        resultados = buscador.buscar(c.pregunta, c.fecha, k, municipio=c.municipio)
-        ids = [r.fragmento.base_id for r in resultados]
+        resultados = buscador.buscar(c.pregunta, c.fecha, max(k, k_contexto), municipio=c.municipio)
+        ids = [r.fragmento.base_id for r in resultados[:k]]
         posiciones = [ids.index(f) + 1 for f in c.fuentes if f in ids]
         if posiciones:
             aciertos += 1
             rr += 1 / min(posiciones)
         else:
             fallos.append(c.id)
+        cita = normaliza_cita(c.cita or "")
+        citas += any(cita in normaliza_cita(r.fragmento.texto) for r in resultados[:k_contexto])
     n = max(len(en_ambito), 1)
     return {
         "casos": len(en_ambito),
         f"acierto@{k}": round(aciertos / n, 3),
         "mrr": round(rr / n, 3),
+        f"cita@{k_contexto}": round(citas / n, 3),
         "fallos": fallos,
     }
 
@@ -81,17 +89,54 @@ def _hechos_cubiertos(caso: Caso, afirmado: str) -> bool:
     Cada hecho debe aparecer ('a|b' admite alternativas) y ningún `no_debe` puede aparecer.
     """
     presentes = all(any(_aparece(alt, afirmado) for alt in h.split("|")) for h in caso.hechos)
-    return presentes and not any(_aparece(x, afirmado) for x in caso.no_debe)
+    return presentes and not any(_afirma(x, afirmado) for x in caso.no_debe)
+
+
+_NEGACION = re.compile(r"(?<!\w)(no|ni|nunca|tampoco|falso|incorrecto|sin que)(?!\w)[^.;]{0,40}$")
+
+
+def _afirma(frase: str, texto: str) -> bool:
+    """Como `_aparece`, pero no cuenta la frase si va negada («la venta no extingue…»).
+
+    Una respuesta que desmonta una premisa falsa suele repetir la frase errónea negándola."""
+    plano = normaliza_cita(texto)
+    f = normaliza_cita(frase)
+    patron = re.escape(f[:-1]) + r"\w*" if f.endswith("*") else re.escape(f)
+    for m in re.finditer(rf"(?<!\w){patron}(?!\w)", plano):
+        previo = plano[max(0, m.start() - 60) : m.start()]
+        if not _NEGACION.search(previo) and not _NEGACION.search(m.group(0)[:20]):
+            return True
+    return False
 
 
 def evaluar_generacion(casos: list[Caso], buscador: Buscador, llm: LLM) -> dict[str, Any]:
     resultados: list[dict[str, Any]] = []
     for c in casos:
         inicio = time.perf_counter()
-        r = responder(c.pregunta, buscador, llm, c.fecha, municipio=c.municipio)
+        try:
+            r = responder(c.pregunta, buscador, llm, c.fecha, municipio=c.municipio)
+        except LLMError as e:
+            # Un fallo del modelo cuenta como caso fallido, no tumba la evaluación entera.
+            resultados.append(
+                {"id": c.id, "tipo": c.tipo if c.ambito else "fuera_de_ambito", "ok": False,
+                 "abstiene": False, "error": str(e), "afirmaciones": 0, "descartadas": 0,
+                 "citas_no_exactas": 0, "segundos": round(time.perf_counter() - inicio, 1)}
+            )  # fmt: skip
+            continue
         segundos = time.perf_counter() - inicio
         texto = " ".join(a.texto for a in r.afirmaciones)
         citadas = {a.fragmento.base_id for a in r.afirmaciones}
+        # Una norma que reproduce literalmente la cita de referencia es igual de válida
+        # (el RD 1312/2024 copia definiciones del Reglamento UE; el Decreto 143/2014, la Ley
+        # 13/2011).
+        if c.cita:
+            ref = normaliza_cita(c.cita)
+            citadas |= {
+                b
+                for a in r.afirmaciones
+                if ref in normaliza_cita(a.fragmento.texto)
+                for b in c.fuentes[:1]
+            }
         # Control independiente del verificador: igualdad estricta salvo espacios.
         no_exactas = sum(not cita_exacta(a.cita_literal, a.fragmento.texto) for a in r.afirmaciones)
         versiones_ok = all(a.fragmento.vigente_en(c.fecha) for a in r.afirmaciones)
@@ -122,8 +167,9 @@ def evaluar_generacion(casos: list[Caso], buscador: Buscador, llm: LLM) -> dict[
         )
     propuestas = sum(x["afirmaciones"] + x["descartadas"] for x in resultados)
     verificadas = sum(x["afirmaciones"] for x in resultados)
-    en = [x for x in resultados if x["id"] in {c.id for c in casos if c.ambito}]
-    fuera = [x for x in resultados if x not in en]
+    ids_en = {c.id for c in casos if c.ambito}
+    en = [x for x in resultados if x["id"] in ids_en]
+    fuera = [x for x in resultados if x["id"] not in ids_en]
     por_tipo: dict[str, dict[str, float]] = {}
     for x in resultados:
         t = por_tipo.setdefault(x["tipo"], {"casos": 0, "ok": 0})
