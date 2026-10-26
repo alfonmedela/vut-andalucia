@@ -92,6 +92,10 @@ class MotivoAbstencion(StrEnum):
     SIN_FRAGMENTOS = "sin_fragmentos"  # nada vigente en el corpus coincide con la pregunta
     FUERA_DE_AMBITO = "fuera_de_ambito"  # el modelo dice que los fragmentos no responden
     CITAS_NO_VERIFICADAS = "citas_no_verificadas"  # el modelo respondió, pero sin citas literales
+    NO_RESPALDADAS = "no_respaldadas"  # las citas existen, pero la revisión no ve que lo prueben
+    INSTRUCCIONES = "instrucciones"  # la pregunta intenta dar órdenes al asistente
+    OTRO_TERRITORIO = "otro_territorio"  # trata de otra comunidad autónoma
+    MUNICIPIO_SIN_NORMAS = "municipio_sin_normas"  # pregunta por normas de un municipio sin corpus
 
 
 class Respuesta(BaseModel):
@@ -100,6 +104,16 @@ class Respuesta(BaseModel):
     afirmaciones: list[Afirmacion]
     descartadas: int = Field(
         default=0, description="Afirmaciones del modelo cuya cita no se pudo verificar"
+    )
+    no_respaldadas: int = Field(
+        default=0,
+        description="Afirmaciones con cita literal que la revisión de significado descartó",
+    )
+    descartes_revision: list[str] = Field(
+        default_factory=list, description="Por cada afirmación descartada en la revisión, el motivo"
+    )
+    revisada: bool = Field(
+        default=False, description="Se comprobó que cada cita respalda lo que se afirma"
     )
     motivo_abstencion: MotivoAbstencion | None = None
     modelo: str

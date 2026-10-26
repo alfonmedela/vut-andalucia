@@ -20,6 +20,12 @@ RUTA = Path(__file__).parent / "data" / "municipios.json"
 _AMBIGUOS = {
     "rota", "ojen", "lucena", "cuevas", "huelma", "pinos", "ronda", "marmolejo", "pizarra",
     "arenas", "alameda", "algarrobo", "canillas", "molvizar", "gines", "alhama",
+    # Palabras corrientes: «viviendas con fines turísticos», «el valor catastral»…
+    "fines", "valor", "cabra", "espera", "conquista", "nevada", "chimeneas", "peligros",
+    "frailes", "larva", "cala", "camas", "pilas", "posadas", "olivares", "torres", "nacimiento",
+    "colmenar", "gobernador", "pedrera", "espejo", "herrera", "rioja", "galera", "salar",
+    "salares", "dolar", "dudar", "maria", "felix", "baza", "estepa", "berrocal", "algar", "pinar",
+    "bailen", "sorbas", "vera", "niebla", "competa", "monda", "lijar", "jimena", "coin",
 }  # fmt: skip
 # «María» (Almería) no es «Santa María» ni «Virgen María».
 _PRECEDIDO_EXCLUYE = re.compile(r"(santa|virgen|santa maria de la|calle|avenida|plaza)\s+$")

@@ -23,7 +23,14 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from vut_andalucia import municipios
-from vut_andalucia.answer import K_CONTEXTO, Preparacion, avisos_de, completar, preparar
+from vut_andalucia.answer import (
+    Preparacion,
+    abstencion_previa,
+    avisos_de,
+    completar,
+    contexto_amplio,
+    preparar,
+)
 from vut_andalucia.llm import LLM, LLMError, crear
 from vut_andalucia.models import Fragmento, Norma, Respuesta
 from vut_andalucia.retrieval import Buscador
@@ -74,6 +81,9 @@ def llm() -> LLM | None:
     proveedor = os.environ.get("VUT_PROVEEDOR", "ollama")
     if proveedor == "ninguno":
         return None
+    if proveedor == "suscripcion" and PUBLICO:
+        # La suscripción de Claude es personal: una demo pública usa la API (`claude`).
+        raise LLMError("VUT_PROVEEDOR=suscripcion no se admite con VUT_PUBLICO=1")
     return crear(proveedor, os.environ.get("VUT_MODELO") or None)
 
 
@@ -225,8 +235,12 @@ async def api_preguntar(p: Pregunta, request: Request) -> StreamingResponse:
         )
     municipio = _resolver_municipio(p.municipio)
     b = buscador()
+    try:
+        amplio = contexto_amplio(llm())
+    except (LLMError, ValueError):
+        amplio = False  # el error se comunica después, en el flujo
     prep: Preparacion = await asyncio.to_thread(
-        preparar, p.pregunta.strip(), b, p.fecha, K_CONTEXTO, municipio
+        preparar, p.pregunta.strip(), b, p.fecha, None, municipio, amplio
     )
 
     async def flujo() -> AsyncIterator[str]:
@@ -238,6 +252,11 @@ async def api_preguntar(p: Pregunta, request: Request) -> StreamingResponse:
                 "busqueda": prep.busqueda,
             },
         )
+        previa = abstencion_previa(prep)
+        if previa is not None:
+            # La barrera de ámbito ya respondió: ni modelo ni cupo diario.
+            yield _evento("respuesta", _respuesta_json(previa, b.corpus.normas))
+            return
         try:
             modelo = llm()
         except (LLMError, ValueError) as e:

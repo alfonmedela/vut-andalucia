@@ -34,6 +34,13 @@ CONSULTA: tuple[tuple[re.Pattern[str], str], ...] = tuple(
         (r"\b(vend\w+|compr\w+|hered\w+|herencia|traspas\w+)\b", "cambio de titularidad"),
         (r"\b(habitacion\w*|cuartos?)\b", "habitaciones vivienda compartida"),
         (r"\b(huespedes|inquilinos|clientes|viajeros)\b", "personas usuarias"),
+        # La Ley del IVA no habla de viviendas turísticas, sino de «apartamentos o viviendas
+        # amueblados» (exención del art. 20.Uno.23.º y tipo reducido del 91.Uno.2.2.º).
+        (
+            r"\b(iva|impuesto sobre el valor anadido)\b",
+            "arrendamientos de apartamentos o viviendas amueblados exentos servicios "
+            "complementarios propios de la industria hotelera noches tipo impositivo",
+        ),
     )
 )
 

@@ -119,11 +119,21 @@
   - tres quintas partes|3/5
   - limit*|condicion*
   origen: propia
-- id: fuera-iva
+- id: iva-vut-hoy
   pregunta: ¿Qué tipo de IVA se aplica al alquiler de una vivienda turística?
   fecha: 2026-10-26
-  ambito: false
+  tipo: temporal
+  fuentes:
+  - BOE-A-1992-28740#a20.uno.23
+  cita: cuando el arrendador se obligue a la prestación de alguno de los servicios complementarios propios de la industria hotelera
+  hechos:
+  - exent*
+  - hotel*
   origen: propia
+  nota_juridica: A 26-10-2026 el arrendamiento de vivienda amueblada está exento salvo que el arrendador preste
+    servicios complementarios propios de la industria hotelera (art. 20.Uno.23.º e'). Desde el 1-12-2026 (RDL
+    29/2026, pendiente de convalidación) tampoco están exentos los de 30 noches o menos, que tributan al 10 %
+    (art. 91.Uno.2.2.º).
 - id: fuera-capital
   pregunta: ¿Cuál es la capital de Francia?
   fecha: 2026-10-26

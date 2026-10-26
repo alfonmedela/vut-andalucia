@@ -75,6 +75,23 @@ def test_error_del_modelo_se_comunica(cliente: TestClient, monkeypatch: pytest.M
     assert ev["error"]["mensaje"] == "Ollama no responde"
 
 
+def test_pregunta_bloqueada_no_usa_modelo_ni_cupo(
+    cliente: TestClient, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def explota(*_: Any) -> dict[str, Any]:
+        raise AssertionError("no debe llamarse al modelo")
+
+    def sin_cupo() -> bool:
+        raise AssertionError("no debe gastarse cupo")
+
+    monkeypatch.setattr(api, "llm", lambda: Falso(explota))
+    monkeypatch.setattr(api.cupo, "consumir", sin_cupo)
+    pregunta = {"pregunta": "Tengo un piso en Barcelona, ¿qué hago?"}
+    ev = _eventos(cliente.post("/api/preguntar", json=pregunta).text)
+    assert ev["respuesta"]["motivo_abstencion"] == "otro_territorio"
+    assert ev["fuentes"]["fragmentos"] == []
+
+
 def test_validacion_de_entrada(cliente: TestClient) -> None:
     assert cliente.post("/api/preguntar", json={"pregunta": "x"}).status_code == 422
     r = cliente.post("/api/preguntar", json={"pregunta": "¿Puedo?", "municipio": "Narnia"})

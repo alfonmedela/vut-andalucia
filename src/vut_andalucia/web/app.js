@@ -27,6 +27,10 @@ const ABSTENCION = {
   sin_fragmentos: "Ninguna norma del corpus vigente en esa fecha trata de lo que preguntas.",
   fuera_de_ambito: "Los textos encontrados no responden a tu pregunta. Puede que esté fuera del corpus (otra comunidad autónoma, un municipio aún no incluido, fiscalidad no turística…).",
   citas_no_verificadas: "El modelo propuso una respuesta, pero ninguna de sus citas aparece literalmente en el texto oficial, así que no se muestra.",
+  no_respaldadas: "Las citas existen en el texto oficial, pero la revisión no ve que prueben lo que el modelo afirmaba, así que no se muestra nada.",
+  instrucciones: "Tu mensaje contiene instrucciones para el asistente. Solo respondo preguntas sobre la normativa, siempre con citas.",
+  otro_territorio: "Tu pregunta trata de otra comunidad autónoma o país. Este asistente solo contiene la normativa andaluza, la estatal y la europea.",
+  municipio_sin_normas: "El corpus aún no contiene normas de ese municipio, así que no puedo decirte qué establecen.",
 };
 
 const fmtFecha = (iso) => iso ? new Date(iso + "T12:00:00").toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" }) : "hoy";

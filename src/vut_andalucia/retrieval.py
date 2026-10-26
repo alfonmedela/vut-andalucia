@@ -161,12 +161,22 @@ class Buscador:
         return municipio is not None and norma.municipio == municipio
 
     def buscar(
-        self, consulta: str, fecha: dt.date, k: int = 8, municipio: str | None = None
+        self,
+        consulta: str,
+        fecha: dt.date,
+        k: int = 8,
+        municipio: str | None = None,
+        max_por_fuente: int = MAX_POR_FUENTE,
     ) -> list[Resultado]:
-        return self.buscar_con_modo(consulta, fecha, k, municipio)[0]
+        return self.buscar_con_modo(consulta, fecha, k, municipio, max_por_fuente)[0]
 
     def buscar_con_modo(
-        self, consulta: str, fecha: dt.date, k: int = 8, municipio: str | None = None
+        self,
+        consulta: str,
+        fecha: dt.date,
+        k: int = 8,
+        municipio: str | None = None,
+        max_por_fuente: int = MAX_POR_FUENTE,
     ) -> tuple[list[Resultado], str]:
         """Resultados y el modo de búsqueda que se usó de verdad (híbrida, parcial o léxica)."""
         fragmentos, bm25 = self._indice(fecha)
@@ -199,7 +209,7 @@ class Buscador:
         por_fuente: dict[str, int] = {}
         for i in sorted(final, key=lambda i: final[i], reverse=True):
             fuente = fragmentos[i].norma_id
-            if por_fuente.get(fuente, 0) >= MAX_POR_FUENTE:
+            if por_fuente.get(fuente, 0) >= max_por_fuente:
                 continue
             por_fuente[fuente] = por_fuente.get(fuente, 0) + 1
             elegidos.append(i)

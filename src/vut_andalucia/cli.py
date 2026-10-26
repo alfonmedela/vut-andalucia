@@ -75,12 +75,25 @@ MENSAJES_ABSTENCION = {
         "Ninguna norma del corpus vigente en esa fecha trata de lo que preguntas."
     ),
     MotivoAbstencion.FUERA_DE_AMBITO: (
-        "Los artículos encontrados no responden a la pregunta. Puede quedar fuera del corpus "
-        "(ordenanzas municipales, fiscalidad, Decreto 28/2016, aún no incluido)."
+        "Los textos encontrados no responden a la pregunta. Puede quedar fuera del corpus "
+        "(otra comunidad autónoma, un municipio aún no incluido, fiscalidad no turística…)."
     ),
     MotivoAbstencion.CITAS_NO_VERIFICADAS: (
         "El modelo propuso una respuesta, pero ninguna de sus citas aparece literalmente en el "
         "texto oficial, así que no se muestra."
+    ),
+    MotivoAbstencion.NO_RESPALDADAS: (
+        "Las citas existen en el texto oficial, pero la revisión no ve que prueben lo que el "
+        "modelo afirmaba, así que no se muestra nada."
+    ),
+    MotivoAbstencion.INSTRUCCIONES: (
+        "La pregunta contiene instrucciones para el asistente; solo respondo sobre la normativa."
+    ),
+    MotivoAbstencion.OTRO_TERRITORIO: (
+        "La pregunta trata de otra comunidad autónoma o país, fuera de este corpus."
+    ),
+    MotivoAbstencion.MUNICIPIO_SIN_NORMAS: (
+        "El corpus no contiene normas de ese municipio, así que no puedo decir qué establecen."
     ),
 }
 
@@ -189,15 +202,17 @@ def buscar(
 def preguntar(
     pregunta: str,
     fecha: Fecha = None,
-    proveedor: Annotated[str, typer.Option(help="ollama | claude")] = "ollama",
+    proveedor: Annotated[str, typer.Option(help="ollama | claude | suscripcion")] = "ollama",
     modelo: Annotated[str | None, typer.Option(help="p. ej. qwen3:8b")] = None,
     como_json: Annotated[bool, typer.Option("--json", help="Salida JSON")] = False,
     municipio: Municipio = None,
     lexico: Lexico = False,
 ) -> None:
     """Responde con afirmaciones respaldadas por citas literales del texto oficial."""
-    if proveedor not in ("ollama", "claude"):
-        raise typer.BadParameter(f"Proveedor desconocido: {proveedor} (ollama | claude)")
+    if proveedor not in ("ollama", "claude", "suscripcion"):
+        raise typer.BadParameter(
+            f"Proveedor desconocido: {proveedor} (ollama | claude | suscripcion)"
+        )
     try:
         r = responder(
             pregunta,
@@ -218,11 +233,20 @@ def evaluar(
         "eval/preguntas.yaml"
     ),
     proveedor: Annotated[
-        str | None, typer.Option(help="ollama; sin él solo evalúa la recuperación")
+        str | None,
+        typer.Option(help="ollama | claude | suscripcion; sin él solo evalúa la recuperación"),
     ] = None,
     modelo: str | None = None,
     salida: Annotated[Path | None, typer.Option(help="Guardar el informe JSON")] = None,
     lexico: Lexico = False,
+    juez: Annotated[
+        str | None,
+        typer.Option(help="Proveedor que corrige por significado (p. ej. suscripcion)"),
+    ] = None,
+    paralelo: Annotated[int, typer.Option(help="Preguntas a la vez (modelos remotos)")] = 1,
+    sin_revision: Annotated[
+        bool, typer.Option("--sin-revision", help="Sin la revisión de significado")
+    ] = False,
 ) -> None:
     """Evalúa recuperación (siempre) y generación con citas (si se indica proveedor)."""
     from vut_andalucia.evaluation import cargar_preguntas, evaluar_generacion, evaluar_recuperacion
@@ -231,7 +255,14 @@ def evaluar(
     casos = cargar_preguntas(preguntas)
     informe: dict[str, object] = {"recuperacion": evaluar_recuperacion(casos, buscador)}
     if proveedor:
-        informe["generacion"] = evaluar_generacion(casos, buscador, crear(proveedor, modelo))
+        informe["generacion"] = evaluar_generacion(
+            casos,
+            buscador,
+            crear(proveedor, modelo),
+            juez=crear(juez) if juez else None,
+            paralelo=paralelo,
+            revisar=not sin_revision,
+        )
     texto = json.dumps(informe, ensure_ascii=False, indent=2, default=str)
     if salida:
         salida.write_text(texto + "\n", encoding="utf-8")
@@ -242,7 +273,7 @@ def evaluar(
 def web(
     host: Annotated[str, typer.Option(help="Interfaz de red")] = "127.0.0.1",
     puerto: Annotated[int, typer.Option(help="Puerto")] = 8000,
-    proveedor: Annotated[str, typer.Option(help="ollama | claude")] = "ollama",
+    proveedor: Annotated[str, typer.Option(help="ollama | claude | suscripcion")] = "ollama",
     modelo: Annotated[str | None, typer.Option(help="p. ej. qwen3:8b")] = None,
 ) -> None:
     """Arranca la interfaz web y la API en http://127.0.0.1:8000."""

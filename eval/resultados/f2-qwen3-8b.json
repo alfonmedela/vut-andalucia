@@ -1,0 +1,1996 @@
+{
+  "recuperacion": {
+    "casos": 92,
+    "acierto@5": 0.772,
+    "mrr": 0.598,
+    "cita@10": 0.63,
+    "fallos": [
+      "a-clandestina-multa",
+      "a-refrigeracion-2017",
+      "a-licencia-ocupacion-actual",
+      "a-max-dos-viviendas",
+      "a-edificio-cinco-vut",
+      "a-herencia-hermanos",
+      "a-malaga-43-barrios",
+      "a-malaga-limite-8",
+      "a-cadiz-suspension",
+      "b-lph-recargo-20-sin-actividad",
+      "b-lph-no-retroactivo-vut-anterior",
+      "b-lph-inscrita-sin-actividad",
+      "b-lph-prohibir-enero-2025",
+      "b-lph-intercambio-casas",
+      "b-iva-diciembre-2026",
+      "b-iva-noviembre-2026",
+      "b-iva-cesion-explotador",
+      "b-irpf-airbnb-reduccion",
+      "b-nra-obligatorio-no",
+      "b-nra-antes-julio-2025",
+      "b-ue-idealista-web-propia"
+    ]
+  },
+  "generacion": {
+    "modelo": "ollama:qwen3:8b",
+    "por_tipo": {
+      "normal": {
+        "casos": 33,
+        "ok": 16
+      },
+      "fuera_de_ambito": {
+        "casos": 13,
+        "ok": 4
+      },
+      "premisa_falsa": {
+        "casos": 15,
+        "ok": 3
+      },
+      "caso_limite": {
+        "casos": 21,
+        "ok": 3
+      },
+      "temporal": {
+        "casos": 14,
+        "ok": 3
+      },
+      "municipal": {
+        "casos": 9,
+        "ok": 1
+      }
+    },
+    "exactitud_en_ambito": 0.283,
+    "abstencion_fuera_de_ambito": 0.308,
+    "citas_verificadas": 0.883,
+    "citas_mostradas": 370,
+    "citas_mostradas_no_exactas": 26,
+    "casos": [
+      {
+        "id": "lph-permiso-comunidad",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 55.5,
+        "respuesta": [
+          "Sí, necesitas permiso de la comunidad de propietarios para alquilar tu piso como vivienda turística. [art. 7.3 LPH]",
+          "El acuerdo de la comunidad requiere el voto favorable de las tres quintas partes de los propietarios y de las cuotas de participación. [art. 17.12 LPH]",
+          "Si no obtienes el permiso, la comunidad puede iniciar acciones judiciales para detener la actividad. [art. 7.3 LPH]"
+        ]
+      },
+      {
+        "id": "lph-mayoria",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 2,
+        "segundos": 75.7,
+        "respuesta": [
+          "Para aprobar o prohibir los pisos turísticos en el edificio se requiere la mayoría de tres quintas partes de los propietarios. [art. 17.12 LPH]",
+          "Los acuerdos no tienen efectos retroactivos. [art. 17.12 LPH]",
+          "Esta mayoría también se requiere para establecer cuotas especiales de gastos o incrementar la participación en gastos comunes, siempre que no supere el 20 %. [art. 17.12 LPH]",
+          "El acuerdo expreso por el que se apruebe, limite, condicione o prohíba el ejercicio de la actividad a que se refiere la letra e) del artículo 5 de la Ley 29/1994, de 24 de noviembre, de Arrendamientos Urbanos, en los términos establecidos en la normativa sectorial turística, suponga o no modificación del título constitutivo o de los estatutos, requerirá el voto favorable de las tres quintas partes del total de los propietarios que, a su vez, representen las tres quintas partes de las cuotas de p [art. 17.12 LPH]"
+        ]
+      },
+      {
+        "id": "lph-cuotas-especiales",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 1,
+        "segundos": 48.0,
+        "respuesta": [
+          "La comunidad puede cobrar más gastos comunes a la vivienda turística si se cumple el requisito de mayoría absoluta de los propietarios. [art. 17.12 LPH]",
+          "El incremento de gastos comunes no puede superar el 20 %. [art. 17.12 LPH]",
+          "Los acuerdos no tienen efectos retroactivos. [art. 17.12 LPH]"
+        ]
+      },
+      {
+        "id": "lph-no-retroactivo",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 66.4,
+        "respuesta": [
+          "El acuerdo que prohíbe los pisos turísticos no tiene efectos retroactivos. [art. 17.12 LPH]",
+          "Para prohibir los pisos turísticos se requiere el voto favorable de las tres quintas partes de los propietarios. [art. 17.12 LPH]",
+          "La prohibición de pisos turísticos puede ser acordada por la junta de propietarios. [art. 7.2 LPH]"
+        ]
+      },
+      {
+        "id": "lph-actividad-previa",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 61.9,
+        "respuesta": [
+          "Sí, puede seguir ejerciendo la actividad de vivienda de uso turístico. [disp. adic. 2.ª LPH]",
+          "Debe obtener la aprobación expresa de la comunidad de propietarios. [art. 7.3 LPH]",
+          "El acuerdo de la comunidad requiere el voto favorable de las tres quintas partes de los propietarios. [art. 17.12 LPH]",
+          "Si no obtiene la aprobación, puede enfrentar acciones judiciales. [art. 7.3 LPH]"
+        ]
+      },
+      {
+        "id": "lph-cesacion",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 1,
+        "segundos": 59.5,
+        "respuesta": [
+          "El presidente de la comunidad puede requerir al vecino que cese la actividad sin aprobación. [art. 7.3 LPH]",
+          "Si el vecino no cesa la actividad, el presidente puede iniciar acciones judiciales para su cesación. [art. 7.3 LPH]",
+          "El presidente puede solicitar la cesación inmediata de la actividad prohibida si el vecino persiste. [art. 7.2 LPH]",
+          "El juez puede acordar la cesación inmediata de la actividad prohibida. [art. 7.2 LPH]",
+          "El presidente puede denegar la permanencia de los huéspedes si la actividad incumple reglas de convivencia. [art. 2.5 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "lau-excluida",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 5,
+        "descartadas": 2,
+        "citas_no_exactas": 1,
+        "segundos": 88.6,
+        "respuesta": [
+          "La Ley de Arrendamientos Urbanos (LAU) aplica al alquiler de una vivienda turística. [art. 5 LAU]",
+          "La LAU no aplica a viviendas arrendadas por más de 31 días. [art. 5 LAU]",
+          "Las viviendas de uso turístico deben cumplir con normativa turística, civil, mercantil y urbanística. [art. 2.2 Decreto 28/2016]",
+          "La LAU aplica a viviendas de uso turístico que no estén excluidas por norma específica. [art. 2.2 Decreto 28/2016]",
+          "La LAU aplica a viviendas de uso turístico que no estén excluidas por norma específica. [pregunta 13 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "lau-31-dias",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 2,
+        "descartadas": 1,
+        "citas_no_exactas": 1,
+        "segundos": 53.1,
+        "respuesta": [
+          "La duración máxima de una estancia en una vivienda de uso turístico es de doce meses. [art. 5 LAU]",
+          "Si la duración del arrendamiento de vivienda temporal excede de doce meses sin justificación en la causa de temporalidad, se entenderá celebrado como un contrato de arrendamiento de vivienda habitual. [art. 9 bis LAU]"
+        ]
+      },
+      {
+        "id": "turismo-clandestina",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 6,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 49.5,
+        "respuesta": [
+          "La prestación del servicio de alojamiento sin presentar declaración responsable se considera actividad clandestina. [art. 11 Decreto 28/2016]",
+          "La comercialización de viviendas fuera de los periodos declarados en la declaración responsable es actividad clandestina. [art. 3.1 Decreto 28/2016]",
+          "La falta de presentación de la declaración responsable califica como clandestina la prestación del servicio turístico. [art. 13.2 Decreto 143/2014]",
+          "La mediación en la contratación de servicios clandestinos es infracción grave. [art. 71.2 Ley 13/2011]",
+          "La realización o prestación clandestina de un servicio turístico es infracción grave. [art. 71.1 Ley 13/2011]",
+          "La publicidad o efectiva prestación de servicios turísticos sin cumplir con la declaración responsable es actividad clandestina. [art. 30.4 Ley 13/2011]"
+        ]
+      },
+      {
+        "id": "turismo-multa-grave",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 2,
+        "descartadas": 2,
+        "citas_no_exactas": 0,
+        "segundos": 50.8,
+        "respuesta": [
+          "La multa por una infracción grave de la Ley del Turismo de Andalucía puede llegar hasta 18.000 euros. [art. 78 Ley 13/2011]",
+          "La multa por una infracción grave puede ser hasta 25.000 euros según la Ley 5/2025 de Andalucía. [art. 117.1 Ley 5/2025]"
+        ]
+      },
+      {
+        "id": "turismo-registro-gratuito",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": true,
+        "motivo_abstencion": "citas_no_verificadas",
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 0,
+        "descartadas": 2,
+        "citas_no_exactas": 0,
+        "segundos": 33.1,
+        "respuesta": []
+      },
+      {
+        "id": "temporal-mayoria-2024",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 54.3,
+        "respuesta": [
+          "La junta de propietarios puede acordar limitar o condicionar el ejercicio de la actividad turística en viviendas. [art. 17.12 LPH]",
+          "Para acordar limitaciones o condiciones a la actividad turística se necesita la mayoría de las tres quintas partes de los propietarios. [art. 17.12 LPH]",
+          "Para otros acuerdos, como cuotas especiales o incremento de gastos, se necesita la mayoría de los propietarios. [art. 17.7 LPH]",
+          "Si no se alcanza la mayoría, el juez resolverá en equidad. [art. 17.7 LPH]"
+        ]
+      },
+      {
+        "id": "fuera-iva",
+        "tipo": "fuera_de_ambito",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 7,
+        "descartadas": 2,
+        "citas_no_exactas": 0,
+        "segundos": 101.4,
+        "respuesta": [
+          "El alquiler de una vivienda turística se aplica el tipo general del IVA del 21%. [art. 91.2.11.º Ley 37/1992]",
+          "El tipo general del IVA del 21% aplica al alquiler de viviendas turísticas, salvo excepciones específicas. [art. 5 Decreto 28/2016]",
+          "El tipo general del IVA del 21% aplica al alquiler de viviendas turísticas, salvo excepciones específicas. [art. 6.1 Decreto 28/2016]",
+          "El tipo general del IVA del 21% aplica al alquiler de viviendas turísticas, salvo excepciones específicas. [art. 1.3 Decreto 28/2016]",
+          "El tipo general del IVA del 21% aplica al alquiler de viviendas turísticas, salvo excepciones específicas. [pregunta 11 FAQ de la Junta (VUT)]",
+          "El tipo general del IVA del 21% aplica al alquiler de viviendas turísticas, salvo excepciones específicas. [pregunta 15 FAQ de la Junta (VUT)]",
+          "El tipo general del IVA del 21% aplica al alquiler de viviendas turísticas, salvo excepciones específicas. [art. 72.4 TRLRHL]"
+        ]
+      },
+      {
+        "id": "fuera-capital",
+        "tipo": "fuera_de_ambito",
+        "ok": true,
+        "abstiene": true,
+        "motivo_abstencion": "citas_no_verificadas",
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 0,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 23.9,
+        "respuesta": []
+      },
+      {
+        "id": "fuera-inyeccion",
+        "tipo": "fuera_de_ambito",
+        "ok": true,
+        "abstiene": true,
+        "motivo_abstencion": "fuera_de_ambito",
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 0,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 17.6,
+        "respuesta": []
+      },
+      {
+        "id": "a-rta-gratuito",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": true,
+        "motivo_abstencion": "citas_no_verificadas",
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 0,
+        "descartadas": 2,
+        "citas_no_exactas": 0,
+        "segundos": 35.1,
+        "respuesta": []
+      },
+      {
+        "id": "a-tramite-dr-electronica",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 5,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 103.4,
+        "respuesta": [
+          "Para empezar a alquilar tu piso como vivienda turística en Andalucía, debes presentar la declaración responsable para inicio o ejercicio de la actividad. [pregunta 1 FAQ de la Junta (VUT)]",
+          "La declaración responsable debe realizarse obligatoriamente con certificado digital. [pregunta 1 FAQ de la Junta (VUT)]",
+          "Debes inscribir tu vivienda como vivienda de uso turístico del grupo completa o por habitaciones, según el tipo de alquiler. [pregunta 11 FAQ de la Junta (VUT)]",
+          "La Consejería competente en materia de turismo comunicará la inscripción al ayuntamiento donde está ubicada la vivienda. [art. 9.3 Decreto 28/2016]",
+          "Si la vivienda no cumple con la normativa urbanística, el ayuntamiento puede solicitar la cancelación de la inscripción. [art. 9.3 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "a-licencia-provisional",
+        "tipo": "premisa_falsa",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 49.4,
+        "respuesta": [
+          "No, no puedes empezar a alquilar con la licencia provisional. [art. 9.2 Decreto 28/2016]",
+          "La inscripción como vivienda de uso turístico requiere la presentación de la Declaración Responsable y la aprobación de la comunidad de propietarios. [art. 9.1 Decreto 28/2016]",
+          "La comunidad de propietarios debe autorizar expresamente el uso turístico de la vivienda. [art. 9.1 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "a-baja-cese",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 45.6,
+        "respuesta": [
+          "Si ya no vas a explotar turísticamente tu vivienda, debes solicitar el cese definitivo de la actividad y cancelar la inscripción en el Registro de Turismo de Andalucía. [pregunta 23 FAQ de la Junta (VUT)]",
+          "Para cancelar la inscripción, debes presentar el formulario de Comunicación en línea con certificado digital homologado. [pregunta 23 FAQ de la Junta (VUT)]",
+          "Si en un futuro quieres volver a explotar tu vivienda como turístico, debes formalizar nuevamente la inscripción mediante el formulario de declaración responsable. [pregunta 23 FAQ de la Junta (VUT)]",
+          "Si ya no vas a explotar turísticamente tu vivienda, no puedes simultanear la inscripción de uso turístico con un alquiler residencial bajo contrato igual o superior al año. [pregunta 25 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "a-cancelacion-notificacion",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 1,
+        "segundos": 42.3,
+        "respuesta": [
+          "No pueden haberles dado de baja sin notificación. [art. 7.5 Decreto 143/2014]",
+          "La baja definitiva requiere un trámite formal. [pregunta 23 FAQ de la Junta (VUT)]",
+          "La notificación electrónica no es suficiente para dar de baja. [art. 7.5 Decreto 143/2014]"
+        ]
+      },
+      {
+        "id": "a-gestora-explotadora",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 47.7,
+        "respuesta": [
+          "El explotador no es el propietario, sino la empresa que presta servicios. [pregunta 21 FAQ de la Junta (VUT)]",
+          "El propietario debe realizar el trámite de cambio de titularidad si el property manager gestiona la vivienda. [pregunta 21 FAQ de la Junta (VUT)]",
+          "El propietario debe autorizar la cesión de la explotación en la comunidad de propietarios. [art. 3.2 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "a-clandestina-multa",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 63.1,
+        "respuesta": [
+          "Está obligado a presentar la declaración responsable si alquila su vivienda de forma habitual y con finalidad turística. [pregunta 5 FAQ de la Junta (VUT)]",
+          "Si no presenta la declaración responsable, su vivienda se considerará clandestina. [pregunta 5 FAQ de la Junta (VUT)]",
+          "La Consejería competente en materia de turismo puede iniciar sanciones por la infracción. [disp. trans. 2.ª Decreto 20/2002]",
+          "Puede enfrentar sanciones administrativas por incumplimiento. [disp. trans. 2.ª Decreto 20/2002]"
+        ]
+      },
+      {
+        "id": "a-multa-300000",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 7,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 111.1,
+        "respuesta": [
+          "Las multas pueden llegar hasta 150.000 euros si se considera que la infracción es muy grave. [art. 78 Ley 13/2011]",
+          "La gravedad de la infracción dependerá de factores como la habitualidad y la finalidad turística del alquiler. [pregunta 5 FAQ de la Junta (VUT)]",
+          "Si la vivienda se alquila para uso turístico sin estar inscrita, se considera infracción grave. [pregunta 5 FAQ de la Junta (VUT)]",
+          "Las multas pueden ser incrementadas hasta el triple del precio de los servicios afectados por la infracción. [art. 79.3 Ley 13/2011]",
+          "No, en Andalucía las multas por alquilar en Airbnb sin estar dado de alta como piso turístico van de 2.000 a 150.000 euros. [art. 78 Ley 13/2011]",
+          "En Andalucía, las multas por alquilar en Airbnb sin estar dado de alta como piso turístico pueden llegar hasta 120.000 euros. [art. 117.1 Ley 5/2025]",
+          "Las multas por alquilar en Airbnb sin estar dado de alta como piso turístico pueden llegar hasta 150.000 euros si se considera que la conducta es muy grave. [art. 78 Ley 13/2011]"
+        ]
+      },
+      {
+        "id": "a-inspeccion-aviso",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 55.7,
+        "respuesta": [
+          "Las inspecciones de la Junta de Andalucía a las viviendas turísticas se realizan mediante actas que tienen valor probatorio. [art. 21 Decreto 144/2003]",
+          "El personal de inspección de la Junta de Andalucía tiene la consideración de agente de la autoridad y debe exhibir una acreditación en el ejercicio de sus funciones. [art. 64.2 Ley 13/2011]",
+          "Los inspectores de turismo pueden acceder a las dependencias e instalaciones de las viviendas turísticas y examinar toda la documentación relacionada con el servicio turístico. [art. 13.1 Decreto 144/2003]",
+          "No se especifica en los fragmentos si las inspecciones se realizan con aviso previo o directamente en la vivienda. [art. 21 Decreto 144/2003]"
+        ]
+      },
+      {
+        "id": "a-hojas-reclamaciones",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 6,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 90.1,
+        "respuesta": [
+          "Es obligatorio tener las hojas de reclamaciones en soporte papel y en formato electrónico. [art. 4 Decreto 82/2022]",
+          "No puede omitir el formato papel, ya que la entrega es obligatoria, inmediata y gratuita. [art. 9.1 Decreto 82/2022]",
+          "Si no cumple, puede ser sancionado con multas que van desde 100 a 600 euros. [art. 39.2 LO 4/2015]",
+          "Es obligatorio tener las hojas de reclamaciones en soporte papel y en formato electrónico. [art. 4 Decreto 82/2022]",
+          "Las personas consumidoras pueden solicitar la hoja de quejas y reclamaciones en papel y deben entregársela inmediatamente. [art. 9.1 Decreto 82/2022]",
+          "También se deben entregar las hojas de quejas y reclamaciones en papel en el lugar donde se produzca la venta o prestación de servicios. [art. 9.2 Decreto 82/2022]"
+        ]
+      },
+      {
+        "id": "a-capacidad-maxima",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 7,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 66.1,
+        "respuesta": [
+          "La capacidad máxima de su vivienda de uso turístico depende del grupo al que pertenezca. [art. 5 Decreto 28/2016]",
+          "Si su vivienda pertenece al grupo completa, puede tener hasta 15 plazas. [art. 5 Decreto 28/2016]",
+          "Si su vivienda pertenece al grupo por habitaciones, puede tener hasta 6 plazas. [art. 5 Decreto 28/2016]",
+          "No se debe superar las 4 plazas por habitación, de las cuales dos deberán ser camas que no sean literas. [pregunta 18 FAQ de la Junta (VUT)]",
+          "Puede instalar dos plazas convertibles en el salón de las viviendas, teniendo en cuenta que computarán para calcular la capacidad máxima de la vivienda. [pregunta 18 FAQ de la Junta (VUT)]",
+          "Debe tener una superficie mínima construida de uso principal de vivienda de 25 m², según Catastro y excluyendo las zonas comunes. [pregunta 18 FAQ de la Junta (VUT)]",
+          "Si ofrece más de 5 plazas, tiene que tener 2 baños completos y 3 baños si la capacidad ofrecida es superior a 8 plazas. [pregunta 18 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "a-50m2-un-bano",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 7,
+        "descartadas": 2,
+        "citas_no_exactas": 1,
+        "segundos": 123.6,
+        "respuesta": [
+          "Puedes tener un máximo de 6 plazas. [pregunta 18 FAQ de la Junta (VUT)]",
+          "No puedes superar las 4 plazas por habitación, de las cuales dos deberán ser camas que no sean literas. [pregunta 18 FAQ de la Junta (VUT)]",
+          "Tienes que tener una superficie mínima construida de uso principal de vivienda de 25 m². [pregunta 18 FAQ de la Junta (VUT)]",
+          "La normativa municipal de Málaga suspende nuevas VUT desde el 23/08/2025. [comunicado, parte 10 Ayuntamiento de Málaga, suspensión de 2025]",
+          "Puedes instalar dos plazas convertibles en el salón de las viviendas, teniendo en cuenta que computarán para calcular la capacidad máxima de la vivienda. [pregunta 18 FAQ de la Junta (VUT)]",
+          "La superficie mínima construida de uso principal de la vivienda será de 25 m² o, en su defecto, la que determine el planeamiento urbanístico. [art. 6.1 Decreto 28/2016]",
+          "Tener una dimensión mínima construida de 14 m² por plaza conforme a la superficie construida de uso principal que conste en la sede del Catastro. [pregunta 16, parte 1 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "a-refrigeracion-actual",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 45.5,
+        "respuesta": [
+          "No es obligatorio poner aire acondicionado en todas las habitaciones de la vivienda turística. [art. 6.1 Decreto 28/2016]",
+          "Es obligatorio disponer de refrigeración centralizada o no centralizada por elementos fijos o portátiles en las habitaciones y salones, si el periodo de funcionamiento comprende los meses de mayo, junio, julio y agosto. [art. 6.1 Decreto 28/2016]",
+          "Es obligatorio disponer de calefacción centralizada o no centralizada por elementos fijos o portátiles en las habitaciones y salones, si el periodo de funcionamiento comprende los meses de diciembre, enero, febrero y marzo. [pregunta 16, parte 1 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "a-refrigeracion-2017",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 54.6,
+        "respuesta": [
+          "No se exige aire acondicionado ni calefacción en las viviendas con fines turísticos según el Decreto 28/2016. [art. 1.1 Decreto 28/2016]",
+          "No se menciona aire acondicionado ni calefacción en los requisitos mínimos comunes y específicos. [Artículo. 32 Requisitos mínimos comunes y específicos, apdo. 3 Decreto 194/2010]",
+          "No se exige aire acondicionado ni calefacción en las disposiciones adicionales del Decreto 194/2010. [disp. adic. 2.ª Decreto 194/2010]",
+          "No se menciona aire acondicionado ni calefacción en las compensaciones para establecimientos en inmuebles no protegidos. [disp. final 2.ª, apdo. 2 Decreto 143/2014]",
+          "No se exige aire acondicionado ni calefacción en las placas identificativas. [art. 22.2 Decreto 194/2010]"
+        ]
+      },
+      {
+        "id": "a-licencia-ocupacion-2023",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 41.6,
+        "respuesta": [
+          "La licencia de primera ocupación era obligatoria al inscribir la vivienda turística en abril de 2023. [art. 9.1 Decreto 28/2016]",
+          "La licencia de primera ocupación no se requiere para la inscripción, pero sí para el inicio de la actividad. [art. 38.2 Ley 13/2011]",
+          "La Junta puede exigir la licencia de primera ocupación como requisito para la actividad, incluso si no fue obligatoria al inscribir. [art. 6 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "a-licencia-ocupacion-actual",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 54.7,
+        "respuesta": [
+          "No es obligatorio presentar una licencia de primera ocupación antes de la inscripción como vivienda de uso turístico. [art. 9.1 Decreto 28/2016]",
+          "La compatibilidad con la ordenación urbanística debe manifestarse en la declaración responsable. [art. 9.1 Decreto 28/2016]",
+          "La licencia o declaración responsable de cambio de uso es exigible si la legislación urbanística lo requiere. [art. 9.1 Decreto 28/2016]",
+          "La falta de licencia o declaración responsable de cambio de uso puede llevar a la cancelación de la inscripción. [art. 9.2 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "a-tres-pisos-2019",
+        "tipo": "temporal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 81.0,
+        "respuesta": [
+          "No puede dar de alta a su nombre como viviendas con fines turísticos tres pisos situados en el mismo edificio. [art. 1.2 Decreto 28/2016]",
+          "La normativa sobre establecimientos de apartamentos turísticos aplica a tres o más viviendas en un mismo inmueble. [art. 1.2 Decreto 28/2016]",
+          "El Decreto 194/2010 define los establecimientos de apartamentos turísticos como grupos de tres o más unidades. [art. 9.2 Decreto 194/2010]",
+          "La normativa sobre viviendas con fines turísticos excluye los casos de tres o más viviendas en un mismo inmueble. [art. 1.2 Decreto 28/2016]",
+          "El Decreto 28/2016 excluye de su ámbito de aplicación los casos de tres o más viviendas en un mismo inmueble. [art. 1.2 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "a-max-dos-viviendas",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 42.9,
+        "respuesta": [
+          "No es cierto que las últimas reformas andaluzas limiten a los propietarios a explotar un máximo de dos viviendas turísticas. [art. 2.2 Decreto 28/2016]",
+          "La norma vigente permite que los Ayuntamientos establezcan limitaciones al número máximo de viviendas de uso turístico, pero no establece un límite general de dos viviendas. [art. 2.2 Decreto 28/2016]",
+          "La limitación al número máximo de viviendas de uso turístico depende de la regulación municipal, que debe ser proporcional y previamente publicada. [art. 2.2 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "a-edificio-cinco-vut",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "error": "Error de red con Ollama (ReadTimeout): timed out",
+        "afirmaciones": 0,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 300.2
+      },
+      {
+        "id": "a-habitaciones-sin-registro",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 41.4,
+        "respuesta": [
+          "No necesitas licencia turística si alquilas una habitación a turistas por estancias cortas en tu propio piso en Andalucía. [pregunta 15 FAQ de la Junta (VUT)]",
+          "Debes presentar una declaración responsable para inscribir la vivienda como VUT. [art. 9.1 Decreto 28/2016]",
+          "La vivienda debe cumplir con la normativa urbanística municipal para poder prestar el servicio de alojamiento turístico. [pregunta 16, parte 1 FAQ de la Junta (VUT)]",
+          "Si no cumplir con la normativa urbanística, los Ayuntamientos pueden solicitar la cancelación de la licencia. [pregunta 16, parte 1 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "a-habitaciones-cuantas",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 5,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 63.4,
+        "respuesta": [
+          "Puedes alquilar como vivienda de uso turístico por habitaciones, pero solo si resides en la vivienda y estás empadronado en ella. [pregunta 15 FAQ de la Junta (VUT)]",
+          "No puedes alquilar todas las habitaciones si la vivienda no se cede en su totalidad. [art. 5 Decreto 28/2016]",
+          "Debes cumplir con los requisitos de superficie mínima y servicios como baños y ventilación. [art. 6.1 Decreto 28/2016]",
+          "Si la vivienda está sometida a régimen de protección pública, no puedes alquilarla como VUT. [pregunta 22 FAQ de la Junta (VUT)]",
+          "Si la vivienda está prohibida en los estatutos de la comunidad, no puedes alquilarla como VUT. [art. 1.3 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "a-completa-y-vivir",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 1,
+        "segundos": 26.8,
+        "respuesta": [
+          "No es correcto. [pregunta 25 FAQ de la Junta (VUT)]",
+          "Debe prestar el servicio de alojamiento durante todo el año o durante el período indicado en la declaración responsable. [pregunta 25 FAQ de la Junta (VUT)]",
+          "No puede simultanear la inscripción de su vivienda de uso turístico con un alquiler residencial bajo un contrato igual o superior al año. [pregunta 25 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "a-venta-caduca",
+        "tipo": "premisa_falsa",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 33.4,
+        "respuesta": [
+          "Sí, si vendes una vivienda inscrita en el Registro de Turismo de Andalucía, el nuevo propietario debe solicitar nuevamente la licencia turística. [pregunta 27 FAQ de la Junta (VUT)]",
+          "El nuevo titular debe comunicar el cambio de titularidad mediante el formulario de Comunicación. [pregunta 27 FAQ de la Junta (VUT)]",
+          "Si no se presenta la comunicación, se puede iniciar el procedimiento de cancelación de la inscripción. [pregunta 3 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "a-herencia-hermanos",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 82.5,
+        "respuesta": [
+          "Para seguir con el alquiler turístico, el heredero que se convierta en titular de la vivienda debe comunicar el cambio de titularidad. [pregunta 27 FAQ de la Junta (VUT)]",
+          "Deben adjuntar una nota simple informativa actualizada emitida por el Registro de la Propiedad. [pregunta 3 FAQ de la Junta (VUT)]",
+          "Si la vivienda no tiene prohibida la actividad de vivienda de uso turístico según los estatutos de la comunidad de propietarios, se puede seguir explotando. [art. 9.1 Decreto 28/2016]",
+          "Si no se cumple con la documentación requerida, se puede iniciar el procedimiento de cancelación de la inscripción. [pregunta 3 FAQ de la Junta (VUT)]",
+          "Si la vivienda está en régimen de propiedad horizontal, debe haber un acuerdo de la comunidad de propietarios para el uso turístico. [art. 42.2 Ley 13/2011]"
+        ]
+      },
+      {
+        "id": "a-donacion-padre",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 1,
+        "segundos": 48.1,
+        "respuesta": [
+          "No puedes mantener la licencia turística si donas el piso a tu padre, ya que la licencia está vinculada al titular del inmueble. [art. 9.1 Decreto 28/2016]",
+          "La donación cambia el titular del inmueble, lo que afecta la titularidad de la licencia turística. [art. 9.1 Decreto 28/2016]",
+          "Debes solicitar el cese definitivo de la actividad y cancelar la inscripción si donas el piso a tu padre. [pregunta 23 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "a-rural-vtar-o-vut",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 83.1,
+        "respuesta": [
+          "Una vivienda debe ser VUT si se ofrece mediante precio el servicio de alojamiento, de forma habitual y con finalidad turística. [art. 3.1 Decreto 28/2016]",
+          "Una vivienda debe ser VTAR si se encuentra en el medio rural, se presta el servicio de alojamiento y se ofrece al público para su utilización temporal o ocasional, con fines turísticos. [art. 48 Ley 13/2011]",
+          "Si la vivienda cumple los requisitos de VTAR pero no los de VUT, se considera VUT. [art. 9.3 Decreto 20/2002]",
+          "La inscripción en el Registro de Turismo de Andalucía es obligatoria para ambas categorías. [art. 9.3 Decreto 20/2002]"
+        ]
+      },
+      {
+        "id": "a-rural-como-vut",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 59.7,
+        "respuesta": [
+          "No puede registrar la casa como vivienda de uso turístico si no cumple los requisitos de vivienda turística de alojamiento rural. [art. 9.3 Decreto 20/2002]",
+          "No puede anunciarla como alojamiento rural si no cumple los requisitos de vivienda turística de alojamiento rural. [art. 9.3 Decreto 20/2002]",
+          "Debe inscribirse en el Registro de Turismo de Andalucía. [art. 9.3 Decreto 20/2002]",
+          "Si no cumple con los requisitos mínimos de infraestructura, no puede ser inscrita como vivienda turística de alojamiento rural. [art. 19 Decreto 20/2002]",
+          "Si la casa se implanta en suelo no urbanizable, la inscripción en el Registro de Turismo de Andalucía no perjudica su tramitación como actuación de interés público. [art. 47 Ley 13/2011]"
+        ]
+      },
+      {
+        "id": "a-vtar-tres-meses-2019",
+        "tipo": "temporal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 4,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 53.7,
+        "respuesta": [
+          "No puedes alquilar tu vivienda turística de alojamiento rural todo el año. [art. 48 Ley 13/2011]",
+          "Si alquilas más de tres meses al año, podrías enfrentar sanciones. [disp. trans. 2.ª Decreto 20/2002]",
+          "Puedes alquilarla como vivienda con fines turísticos si cumple con los requisitos de la normativa. [art. 9.3 Decreto 20/2002]",
+          "Debes inscribirla en el Registro de Turismo de Andalucía antes de iniciar su actividad. [art. 9.3 Decreto 20/2002]"
+        ]
+      },
+      {
+        "id": "a-codigo-anuncio-2020",
+        "tipo": "temporal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 43.3,
+        "respuesta": [
+          "Sí, es obligatorio indicar el código de inscripción en toda publicidad o promoción realizada por cualquier medio. [art. 9.4 Decreto 28/2016]",
+          "La norma se aplica en Andalucía. [art. 9.4 Decreto 28/2016]",
+          "El código de inscripción debe figurar en el anuncio de Airbnb. [art. 9.4 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "a-entrada-independiente-andalucia",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 2,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 57.9,
+        "respuesta": [
+          "La norma que exige entrada independiente para viviendas turísticas es solo del Ayuntamiento de Málaga. [DA 3.ª, resumen ejecutivo, parte 5 PGOU de Málaga (DA 3.ª)]",
+          "Esta norma no es válida para toda Andalucía, solo para el municipio de Málaga. [DA 3.ª, resumen ejecutivo, parte 5 PGOU de Málaga (DA 3.ª)]"
+        ]
+      },
+      {
+        "id": "a-malaga-43-barrios",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 1,
+        "descartadas": 2,
+        "citas_no_exactas": 0,
+        "segundos": 75.7,
+        "respuesta": [
+          "La suspensión se aplica a todas las viviendas de uso turístico, incluyendo las que no están en los 43 barrios mencionados. [comunicado, parte 10 Ayuntamiento de Málaga, suspensión de 2025]"
+        ]
+      },
+      {
+        "id": "a-malaga-limite-8",
+        "tipo": "municipal",
+        "ok": false,
+        "abstiene": true,
+        "motivo_abstencion": "citas_no_verificadas",
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 0,
+        "descartadas": 3,
+        "citas_no_exactas": 0,
+        "segundos": 97.9,
+        "respuesta": []
+      },
+      {
+        "id": "a-malaga-entrada-independiente",
+        "tipo": "municipal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 2,
+        "descartadas": 3,
+        "citas_no_exactas": 0,
+        "segundos": 111.5,
+        "respuesta": [
+          "La norma impide sacar el registro de vivienda turística si no hay entrada independiente. [DA 3.ª, resumen ejecutivo, parte 5 PGOU de Málaga (DA 3.ª)]",
+          "Modificación del PGOU de Málaga n.º 23 (PL 51/2024), Disposición Adicional 3.ª, limitación de viviendas de uso turístico en zonas saturadas. Resumen ejecutivo [DA 3.ª, resumen ejecutivo, parte 5 PGOU de Málaga (DA 3.ª)]"
+        ]
+      },
+      {
+        "id": "a-sevilla-limite-barrios",
+        "tipo": "municipal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 2,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 105.1,
+        "respuesta": [
+          "Sevilla sigue dando licencias de pisos turísticos. [instrucción, parte 3 Gerencia de Urbanismo de Sevilla, instrucción de 2025]",
+          "El límite por barrios entró en vigor el 29 de octubre de 2024. [instrucción, parte 2 Gerencia de Urbanismo de Sevilla, instrucción de 2025]"
+        ]
+      },
+      {
+        "id": "a-sevilla-habitaciones",
+        "tipo": "municipal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": true,
+        "afirmaciones": 2,
+        "descartadas": 5,
+        "citas_no_exactas": 0,
+        "segundos": 211.1,
+        "respuesta": [
+          "La saturación de la zona no afecta directamente la posibilidad de cambiar a la modalidad por habitaciones. [pregunta 15 FAQ de la Junta (VUT)]",
+          "Debes verificar si la zona de tu vivienda está dentro de los límites establecidos por la limitación de VUT por barrio. [instrucción, parte 2 Gerencia de Urbanismo de Sevilla, instrucción de 2025]"
+        ]
+      },
+      {
+        "id": "a-granada-limite",
+        "tipo": "municipal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 110.6,
+        "respuesta": [
+          "En el Albaicín, Granada limita el número máximo de viviendas de uso turístico al 24%. [acuerdo, parte 2 Acuerdo de Granada de 30/05/2025]",
+          "Las licencias pueden ser suspendidas por el ayuntamiento por razones de interés general. [art. 6.2 Decreto-ley 1/2025]",
+          "La suspensión de licencias en el Albaicín dependerá de la normativa urbanística aplicable. [art. 9.1 Decreto 28/2016]",
+          "Granada concede licencias para pisos turísticos, pero con limitaciones. [acuerdo, parte 1 Acuerdo de Granada de 30/05/2025]"
+        ]
+      },
+      {
+        "id": "a-cadiz-suspension",
+        "tipo": "municipal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 147.7,
+        "respuesta": [
+          "No se pueden abrir nuevos pisos turísticos en el casco histórico de Cádiz. [anuncio, parte 22 Modificación Puntual n.º 9 del PGOU de Cádiz]",
+          "La norma establece que en el casco histórico solo se permite el uso de hospedaje en edificios catalogados con grado 0 y 1. [anuncio, parte 11 Modificación del PGOU de Cádiz (2022)]",
+          "La norma establece que en el casco histórico solo se permite el uso de hospedaje en edificios de uso dominante residencial. [anuncio, parte 13 Modificación del PGOU de Cádiz (2022)]",
+          "La norma establece que en el casco histórico solo se permite el uso de hospedaje en edificios de uso exclusivo. [anuncio, parte 13 Modificación del PGOU de Cádiz (2022)]"
+        ]
+      },
+      {
+        "id": "a-puerto-compra-con-vut",
+        "tipo": "municipal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 4,
+        "segundos": 50.1,
+        "respuesta": [
+          "La suspensión de licencias turísticas afecta a la compra del piso si la licencia está vigente en el momento de la compra. [anuncio Acuerdo de El Puerto de Santa María de 07/03/2025]",
+          "La suspensión no afecta a licencias ya otorgadas y vigentes. [anuncio Acuerdo de El Puerto de Santa María de 07/03/2025]",
+          "La licencia ya existente no se anula por la suspensión. [anuncio Acuerdo de El Puerto de Santa María de 07/03/2025]",
+          "La compra del piso no afecta a la vigencia de la licencia ya otorgada. [anuncio Acuerdo de El Puerto de Santa María de 07/03/2025]"
+        ]
+      },
+      {
+        "id": "a-jerez-planta-baja",
+        "tipo": "municipal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 85.6,
+        "respuesta": [
+          "En Jerez de la Frontera, las viviendas de uso turístico pueden ubicarse en pisos de un bloque, pero solo en viviendas situadas en planta baja de edificios con uso residencial de tipología plurifamiliar. [anuncio, parte 9 Modificación del PGOU de Jerez (hospedaje)]",
+          "En edificios con uso distinto al uso residencial, las viviendas de uso turístico pueden ubicarse en cualquier posición. [anuncio, parte 9 Modificación del PGOU de Jerez (hospedaje)]",
+          "En parcelas que constituyan una sola finca, podrá admitirse una vivienda y, como uso compatible, un máximo de 2 viviendas de uso turístico en cualquier posición, siempre que se mantenga una única finca en la parcela. [anuncio, parte 10 Modificación del PGOU de Jerez (hospedaje)]"
+        ]
+      },
+      {
+        "id": "a-chiclana-casco",
+        "tipo": "municipal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 89.8,
+        "respuesta": [
+          "La suspensión afecta las zonas delimitadas en el Plano de Ordenación O.02. [anuncio Acuerdo de Chiclana de 21/03/2025]",
+          "La suspensión no afecta las actuaciones que requieran rehabilitación integral o construcción de nueva planta. [anuncio Acuerdo de Chiclana de 21/03/2025]",
+          "La suspensión se aplicará hasta el 07/05/2028. [anuncio Acuerdo de Chiclana de 21/03/2025]"
+        ]
+      },
+      {
+        "id": "a-oos-marbella-locales",
+        "tipo": "fuera_de_ambito",
+        "ok": true,
+        "abstiene": true,
+        "motivo_abstencion": "citas_no_verificadas",
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 0,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 40.1,
+        "respuesta": []
+      },
+      {
+        "id": "a-oos-cordoba-suspension",
+        "tipo": "fuera_de_ambito",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 49.8,
+        "respuesta": [
+          "La suspensión de licencias turísticas abarca los distritos Centro y Sur de Córdoba. [art. 6.2 Decreto-ley 1/2025]",
+          "La suspensión de licencias turísticas puede durar hasta tres años. [art. 6.2 Decreto-ley 1/2025]",
+          "La suspensión de licencias turísticas se notifica a la Consejería competente en materia de turismo. [art. 6.2 Decreto-ley 1/2025]"
+        ]
+      },
+      {
+        "id": "a-oos-estepona",
+        "tipo": "fuera_de_ambito",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 69.3,
+        "respuesta": [
+          "No hay una moratoria municipal general de viviendas turísticas en Estepona. [art. 6.2 Decreto-ley 1/2025]",
+          "La suspensión de licencias puede aplicarse a zonas o tipologías específicas de viviendas turísticas. [art. 6.2 Decreto-ley 1/2025]",
+          "La suspensión de licencias puede aplicarse antes de la aprobación inicial del instrumento de ordenación urbanística. [art. 6.2 Decreto-ley 1/2025]",
+          "La suspensión de licencias no puede superar un plazo máximo de tres años. [art. 6.2 Decreto-ley 1/2025]",
+          "Los acuerdos de suspensión deben notificarse a la Consejería competente en materia de turismo. [art. 6.2 Decreto-ley 1/2025]"
+        ]
+      },
+      {
+        "id": "a-oos-legionela",
+        "tipo": "fuera_de_ambito",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 11,
+        "descartadas": 0,
+        "citas_no_exactas": 2,
+        "segundos": 207.1,
+        "respuesta": [
+          "No hay obligación legal de hacer revisiones periódicas de legionela al calentador eléctrico de agua caliente en viviendas de uso turístico en Andalucía. [art. 6.1 Decreto 28/2016]",
+          "No existen normas vigentes que exijan revisiones periódicas de legionela en calentadores eléctricos de agua caliente en viviendas de uso turístico en Andalucía. [art. 26.1 Decreto 194/2010]",
+          "No se menciona la obligación de revisiones periódicas de legionela en calentadores eléctricos de agua caliente en viviendas de uso turístico en Andalucía. [pregunta 16, parte 1 FAQ de la Junta (VUT)]",
+          "No existen normas vigentes que exijan revisiones periódicas de legionela en calentadores eléctricos de agua caliente en viviendas de uso turístico en Andalucía. [disp. final 2.ª, apdo. 2 Decreto 143/2014]",
+          "No existen normas vigentes que exijan revisiones periódicas de legionela en calentadores eléctricos de agua caliente en viviendas de uso turístico en Andalucía. [art. 9.2 Decreto 28/2016]",
+          "No existen normas vigentes que exijan revisiones periódicas de legionela en calentadores eléctricos de agua caliente en viviendas de uso turístico en Andalucía. [art. 9.1 Decreto 28/2016]",
+          "No existen normas vigentes que exijan revisiones periódicas de legionela en calentadores eléctricos de agua caliente en viviendas de uso turístico en Andalucía. [disp. final 3.ª, apdo. 2 Decreto 143/2014]",
+          "No existen normas vigentes que exijan revisiones periódicas de legionela en calentadores eléctricos de agua caliente en viviendas de uso turístico en Andalucía. [disp. final 1.ª, apdo. 5 Decreto 143/2014]",
+          "No existen normas vigentes que exijan revisiones periódicas de legionela en calentadores eléctricos de agua caliente en viviendas de uso turístico en Andalucía. [pregunta 25 FAQ de la Junta (VUT)]",
+          "No existen normas vigentes que exijan revisiones periódicas de legionela en calentadores eléctricos de agua caliente en viviendas de uso turístico en Andalucía. [pregunta 26 FAQ de la Junta (VUT)]",
+          "No existen normas vigentes que exijan revisiones periódicas de legionela en calentadores eléctricos de agua caliente en viviendas de uso turístico en Andalucía. [pregunta 16, parte 2 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "a-oos-valencia-venta",
+        "tipo": "fuera_de_ambito",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 82.3,
+        "respuesta": [
+          "La venta del inmueble no provoca automáticamente la baja de la vivienda turística en el registro autonómico. [art. 25.5 LAU]",
+          "La venta de la vivienda turística requiere la notificación previa en el Registro de Turismo de Andalucía. [art. 25.5 LAU]",
+          "La venta de la vivienda turística no implica su baja automática en el registro autonómico, pero sí la necesidad de notificar la transmisión. [art. 25.5 LAU]"
+        ]
+      },
+      {
+        "id": "b-lph-unanimidad-no",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 133.8,
+        "respuesta": [
+          "Si el acuerdo afecta a cuotas especiales de gastos, se requiere la misma mayoría. [art. 17.12 LPH]",
+          "El acuerdo no tendrá efectos retroactivos. [art. 17.12 LPH]",
+          "Debes cumplimentar el formulario de declaración responsable y crear el Anexo de Titularidad Compartida. [pregunta 4 FAQ de la Junta (VUT)]",
+          "No hace falta unanimidad para aprobar la modificación de la comunidad de propietarios. [art. 17.12 LPH]",
+          "Si la comunidad no aprueba el acuerdo, la licencia podría ser cancelada. [art. 9.2 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "b-lph-incumplimiento-cesacion",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 81.9,
+        "respuesta": [
+          "Si no se cumple la prohibición de pisos turísticos en la comunidad, se puede iniciar una acción judicial. [art. 7.3 LPH]",
+          "El acuerdo de la comunidad de propietarios es obligatorio para permitir el uso turístico. [art. 7.3 LPH]",
+          "Para aprobar el uso turístico, se requiere el voto favorable de las tres quintas partes de los propietarios. [art. 17.12 LPH]"
+        ]
+      },
+      {
+        "id": "b-lph-dos-tercios-no",
+        "tipo": "premisa_falsa",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 97.7,
+        "respuesta": [
+          "La norma vigente exige el voto favorable de las tres quintas partes de los propietarios, no dos tercios. [art. 17.12 LPH]",
+          "El voto favorable de las tres quintas partes de los propietarios es necesario para aprobar la inscripción de una vivienda de uso turístico. [art. 17.12 LPH]",
+          "No, desde abril no se requiere votar dos tercios a favor para dar de alta una vivienda de uso turístico. [art. 17.12 LPH]"
+        ]
+      },
+      {
+        "id": "b-lph-ley-12-2023-no",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 110.8,
+        "respuesta": [
+          "La comunidad de propietarios puede impedirte obtener la licencia VFT si no obtienes su autorización expresada. [art. 7.3 LPH]",
+          "La comunidad de propietarios requiere el voto favorable de las tres quintas partes de los propietarios para autorizar la actividad VFT. [art. 17.12 LPH]",
+          "La Ley 12/2023 de vivienda no permite a la comunidad de propietarios impedirte obtener la licencia VFT si ya has obtenido la autorización de la comunidad. [art. 9.1 Decreto 28/2016]",
+          "Si la comunidad no autoriza la actividad VFT, no podrás obtener la licencia VFT ni inscribir la vivienda en el Registro de Turismo de Andalucía. [art. 9.1 Decreto 28/2016]",
+          "La comunidad de propietarios puede impedirte obtener la licencia VFT si no obtienes su autorización expresada. [art. 7.3 LPH]"
+        ]
+      },
+      {
+        "id": "b-lph-ausentes-30-dias",
+        "tipo": "caso_limite",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 88.7,
+        "respuesta": [
+          "La votación de los ausentes se computa como favorable si no manifiestan discrepancia en 30 días. [art. 17.8 LPH]",
+          "Los ausentes que no respondan se consideran votos favorables, no en contra. [art. 17.8 LPH]",
+          "El administrador no puede contar los ausentes como votos favorables sin comunicación. [art. 17.8 LPH]",
+          "La votación no alcanza los 3/5 necesarios para la licencia turística. [art. 17.8 LPH]",
+          "Si los ausentes no responden, se consideran votos favorables, pero no alcanzan los 3/5 necesarios. [art. 17.8 LPH]"
+        ]
+      },
+      {
+        "id": "b-lph-recargo-20-sin-actividad",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 125.9,
+        "respuesta": [
+          "La comunidad puede imponerte una cuota si la vivienda está inscrita como VUT, incluso si no se ejerce la actividad. [art. 3.2 Decreto 28/2016]",
+          "La comunidad puede imponerte una cuota si la vivienda está inscrita como VUT, incluso si no se ejerce la actividad. [disp. trans. 2.ª Decreto 20/2002]",
+          "La comunidad puede imponerte una cuota si la vivienda está inscrita como VUT, incluso si no se ejerce la actividad. [disp. trans. 4.ª Decreto 20/2002]",
+          "La comunidad puede imponerte una cuota si la vivienda está inscrita como VUT, incluso si no se ejerce la actividad. [art. 3.1 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "b-lph-no-retroactivo-vut-anterior",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 76.4,
+        "respuesta": [
+          "Sí, el acuerdo de la comunidad de propietarios puede afectarte si no has obtenido su autorización para explotar la vivienda como VUT. [art. 9.1 Decreto 28/2016]",
+          "Debes verificar si la comunidad de propietarios te ha autorizado expresamente la explotación como VUT. [art. 9.1 Decreto 28/2016]",
+          "Si la comunidad te prohibió los pisos turísticos, no podrás explotar la vivienda como VUT sin su autorización. [art. 9.1 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "b-lph-inscrita-sin-actividad",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 1,
+        "segundos": 57.8,
+        "respuesta": [
+          "No es cierto que necesites autorización expresa de la comunidad para empezar a ejercer la actividad. [art. 17.3 Decreto 143/2014]",
+          "La inscripción en el Registro no es un requisito previo para el ejercicio de la actividad turística. [art. 2 Decreto 143/2014]",
+          "Si no has obtenido la licencia de obras o autorizaciones necesarias, no podrás ejercer la actividad. [art. 17.3 Decreto 143/2014]"
+        ]
+      },
+      {
+        "id": "b-lph-temporada-unanimidad",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 63.3,
+        "respuesta": [
+          "No se puede prohibir el alquiler de temporada con la misma mayoría que se prohibe el uso turístico. [pregunta 13 FAQ de la Junta (VUT)]",
+          "Para prohibir el uso turístico se requiere la mayoría de tres quintas partes de los propietarios. [art. 17.12 LPH]",
+          "Para prohibir el alquiler de temporada no existe una mayoría específica establecida en los fragmentos. [pregunta 13 FAQ de la Junta (VUT)]",
+          "La prohibición del alquiler de temporada puede estar regulada por normas urbanísticas o municipales. [art. 6.2 Decreto-ley 1/2025]"
+        ]
+      },
+      {
+        "id": "b-lph-estatutos-actividades-economicas",
+        "tipo": "caso_limite",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 90.0,
+        "respuesta": [
+          "Los estatutos que prohíben actividades económicas no impiden la autorización del alquiler turístico si se cumple el requisito de mayoría de tres quintas partes. [pregunta 13 FAQ de la Junta (VUT)]",
+          "El acuerdo no requiere unanimidad si se cumple el requisito de mayoría de tres quintas partes. [art. 17.12 LPH]",
+          "El acuerdo por el que se permite el alquiler turístico requiere el voto favorable de las tres quintas partes de los propietarios. [art. 17.12 LPH]",
+          "El acuerdo de la junta que permite el alquiler turístico es válido si se cumple el requisito de mayoría de tres quintas partes. [art. 7.3 LPH]"
+        ]
+      },
+      {
+        "id": "b-lph-prohibir-enero-2025",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 80.4,
+        "respuesta": [
+          "La inscripción como VUT no garantiza que no se pueda prohibir el uso si la comunidad lo acuerda. [art. 7.3 Decreto 194/2010]",
+          "La comunidad de propietarios puede acordar la prohibición del uso turístico si se considera que el alojamiento no cumple con los requisitos legales. [art. 41.3 Ley 13/2011]",
+          "No haber realizado el registro en la Ventanilla Única Digital no afecta la vigencia de la inscripción como VUT. [art. 7.1 RD 1312/2024]",
+          "Si la comunidad acuerda la prohibición, podría afectar el uso del alojamiento como VUT, incluso si está inscrito. [art. 1.3 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "b-lph-comunicar-comunidad-hoy",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 76.2,
+        "respuesta": [
+          "Sí, es obligatorio comunicar a la comunidad de propietarios que su vivienda está inscrita como VUT en Andalucía. [art. 7.3 LPH]",
+          "La comunidad de propietarios debe autorizar expresamente el uso de la vivienda como VUT. [art. 9.1 Decreto 28/2016]",
+          "La comunidad de propietarios debe aprobar el uso mediante un acuerdo con mayoría de tres quintas partes. [art. 17.12 LPH]"
+        ]
+      },
+      {
+        "id": "b-lph-habitaciones-oct-2026",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 6,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 118.8,
+        "respuesta": [
+          "El alquiler turístico por habitaciones no queda fuera de la exigencia de autorización de la comunidad de propietarios. [art. 7.3 LPH]",
+          "La norma aplica a la actividad de alojamiento turístico, incluyendo el alquiler por habitaciones. [art. 1.3 Decreto 28/2016]",
+          "Los propietarios que ya ejercían la actividad antes de la entrada en vigor de la nueva norma pueden seguir haciéndolo sin autorización de la comunidad. [disp. adic. 2.ª LPH]",
+          "Para el acuerdo de la comunidad se requiere el voto favorable de las tres quintas partes de los propietarios. [art. 17.12 LPH]",
+          "Los establecimientos de apartamentos turísticos ya existentes pueden eximirse de algunos requisitos. [disp. adic. 2.ª Decreto 194/2010]",
+          "Los establecimientos de apartamentos turísticos que hayan sido objeto de reforma pueden eximirse de algunos requisitos. [Artículo. 32 Requisitos mínimos comunes y específicos, apdo. 3 Decreto 194/2010]"
+        ]
+      },
+      {
+        "id": "b-lph-habitaciones-2025",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 60.9,
+        "respuesta": [
+          "El alquiler turístico por habitaciones queda fuera de la nueva exigencia de autorización de la comunidad de propietarios. [art. 7.3 LPH]",
+          "La norma no aplica a las viviendas que se alquilen sin contraprestación económica. [art. 1.2 Decreto 28/2016]",
+          "La norma no aplica a las viviendas arrendadas por más de dos meses a un mismo arrendatario. [art. 1.2 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "b-lph-intercambio-casas",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 76.3,
+        "respuesta": [
+          "La comunidad de vecinos puede prohibir hacer intercambios de piso si estas actividades son dañosas para la finca o contravienen disposiciones generales. [art. 7.2 LPH]",
+          "La comunidad debe requerir al infractor la cesación inmediata de las actividades prohibidas. [art. 7.2 LPH]",
+          "Si el infractor persiste, la comunidad puede iniciar una acción de cesación ante el juez. [art. 7.2 LPH]",
+          "La comunidad puede solicitar al juez la cesación inmediata de la actividad prohibida. [art. 7.2 LPH]",
+          "La comunidad puede exigir la cesación definitiva de la actividad prohibida y la indemnización de daños y perjuicios. [art. 7.2 LPH]"
+        ]
+      },
+      {
+        "id": "b-lph-pension-local",
+        "tipo": "caso_limite",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 152.0,
+        "respuesta": [
+          "No necesitas aprobación de 3/5 de la comunidad para convertir el local en vivienda de uso turístico. [art. 7.3 LPH]",
+          "La aprobación de la comunidad solo es obligatoria si la vivienda se convierte en vivienda de uso turístico. [art. 7.3 LPH]",
+          "Si la vivienda no se convierte en vivienda de uso turístico, no se requiere aprobación de la comunidad. [art. 7.3 LPH]",
+          "Para prohibir la actividad, se requiere unanimidad de la comunidad. [art. 17.12 LPH]",
+          "Si la vivienda no se convierte en vivienda de uso turístico, no se requiere unanimidad para prohibir la actividad. [art. 17.12 LPH]"
+        ]
+      },
+      {
+        "id": "b-lph-prohibir-basico",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 9,
+        "descartadas": 1,
+        "citas_no_exactas": 1,
+        "segundos": 261.9,
+        "respuesta": [
+          "Sí, se puede prohibir un piso turístico en tu comunidad de vecinos. [art. 7.2 LPH]",
+          "Para prohibirlo, se requiere el acuerdo de la mayoría de los propietarios. [art. 17.12 LPH]",
+          "La prohibición también puede ser solicitada por el presidente de la comunidad. [art. 7.2 LPH]",
+          "La prohibición puede durar hasta tres años si la infracción es grave. [art. 7.2 LPH]",
+          "También se puede prohibir si la vivienda está en un inmueble con prohibición en los estatutos. [art. 1.3 Decreto 28/2016]",
+          "La prohibición puede ser solicitada por los ayuntamientos si hay razones de interés general. [art. 2.2 Decreto 28/2016]",
+          "Si la sentencia es favorable, se puede privar al infractor del derecho al uso de la vivienda durante tres años. [art. 7.2 LPH]",
+          "El propietario debe obtener la aprobación de la comunidad para ejercer una actividad turística. [art. 7.3 LPH]",
+          "Para aprobar una actividad turística se necesita el voto de las tres quintas partes de los propietarios. [art. 17.12 LPH]"
+        ]
+      },
+      {
+        "id": "b-lau-31-dias",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 66.4,
+        "respuesta": [
+          "La cesión temporal de uso de una vivienda de uso turístico no puede superar los 31 días, según el artículo 5 de la Ley de Arrendamientos Urbanos (LAU). [art. 5 LAU]",
+          "En Andalucía, la vivienda de uso turístico se define como una vivienda equipada en condiciones de uso inmediato, comercializada o promocionada en canales de oferta turística, según el artículo 3 del Decreto 28/2016. [art. 3.1 Decreto 28/2016]",
+          "Si la cesión supera los 31 días, se considera actividad clandestina y puede ser sancionable, según la FAQ de la Junta. [pregunta 26 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "b-lau-temporada-codigo-civil",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 7,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 129.2,
+        "respuesta": [
+          "La VFT (vivienda de uso turístico) se regula por el Decreto 28/2016 de Andalucía, que establece que debe comercializarse en canales de oferta turística y durante periodos declarados. [art. 3.1 Decreto 28/2016]",
+          "El alquiler de larga duración se rige por la LAU (Ley de Arrendamientos Urbanos), que establece que los arrendamientos sin plazo definido se consideran celebrados por un año. [art. 9.2 LAU]",
+          "La VFT no puede tener uso residencial, mientras que el alquiler de larga duración puede tener uso residencial si se cumple el régimen legal. [art. 42.3 Ley 13/2011]",
+          "La VFT requiere inscripción en el Registro de Turismo de Andalucía, mientras que el alquiler de larga duración no requiere inscripción en ese registro. [art. 9.3 Decreto 20/2002]",
+          "La VFT se regula por el Decreto 28/2016, mientras que el alquiler de larga duración se regula por la LAU. [art. 1.1 Decreto 28/2016]",
+          "La VFT se define como vivienda equipada en condiciones de uso inmediato, ubicada en inmuebles donde se vaya a ofrecer mediante precio el servicio de alojamiento en Andalucía, de forma habitual y con fines turísticos. [art. 3.1 Decreto 28/2016]",
+          "El alquiler de larga duración se regula por la LAU y puede tener un plazo mínimo de un año sin prórroga. [art. 9.2 LAU]"
+        ]
+      },
+      {
+        "id": "b-lau-temporada-11-meses",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 79.4,
+        "respuesta": [
+          "El alquiler por temporada de 11 meses puede hacerse si se cumple la duración mínima de 31 días y no se supera la duración máxima de 12 meses en cada contrato. [art. 9 bis LAU]",
+          "Si el contrato supera los 12 meses sin justificación en la causa de temporalidad o se novan más de dos contratos consecutivos, se entenderá como contrato de vivienda habitual. [art. 9 bis LAU]",
+          "El alquiler por temporada de 11 meses no genera derecho de indemnización en favor del arrendador. [art. 11 LAU]",
+          "Si el contrato de alquiler por temporada de 11 meses se inscribe como vivienda de uso turístico, se debe hacerlo en el grupo completa si se ofrece en su totalidad. [pregunta 11 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "b-iva-exencion-hoy",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 1,
+        "segundos": 52.7,
+        "respuesta": [
+          "El alquiler turístico lleva IVA. [art. 3.1 Decreto 28/2016]",
+          "El IVA se aplica al alquiler turístico según el régimen general del IVA. [art. 2.1 Decreto 28/2016]",
+          "Los ayuntamientos pueden establecer recargos fiscales por el uso de viviendas como turísticas. [art. 72.4 TRLRHL]"
+        ]
+      },
+      {
+        "id": "b-iva-diciembre-2026",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 1,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 46.8,
+        "respuesta": [
+          "Desde el 1 de diciembre de 2026, tu piso turístico no pagará IVA. [art. 91.2.2.º Ley 37/1992]"
+        ]
+      },
+      {
+        "id": "b-iva-noviembre-2026",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 60.0,
+        "respuesta": [
+          "Desde el 1 de diciembre de 2026, tu piso turístico no pagará IVA. [art. 91.2.12.º Ley 37/1992]",
+          "En noviembre de 2026, no tienes que cobrar IVA. [art. 91.2.12.º Ley 37/1992]",
+          "Si tu vivienda tiene al menos diez alojamientos, la norma se aplica a la cesión de derechos de aprovechamiento por turno. [art. 91.2.12.º Ley 37/1992]",
+          "Si tu vivienda no tiene al menos diez alojamientos, la norma no se aplica. [art. 91.2.12.º Ley 37/1992]"
+        ]
+      },
+      {
+        "id": "b-iva-ley-2025-no",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 2,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 47.0,
+        "respuesta": [
+          "La norma vigente desde 2025-01-02 establece que los alquileres turísticos amueblados están sujetos al IVA. [disp. final 4.ª RD 1312/2024]",
+          "La aplicación del IVA a los alquileres turísticos amueblados se regirá por la definición de 'servicio de alquiler de alojamientos de corta duración' establecida en el RD 1312/2024. [art. 2.0 RD 1312/2024]"
+        ]
+      },
+      {
+        "id": "b-iva-cesion-explotador",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 82.2,
+        "respuesta": [
+          "La empresa explotadora debe figurar como titular de la explotación en el Registro de Turismo de Andalucía. [art. 3.2 Decreto 28/2016]",
+          "La empresa explotadora debe emitir factura incluyendo el número de inscripción del establecimiento en el Registro de Turismo de Andalucía. [art. 27 Decreto 194/2010]",
+          "La empresa explotadora debe cumplir con las obligaciones fiscales, incluyendo la emisión de factura con IVA y retención del 19 %. [art. 20.Uno.6.º Ley 37/1992]",
+          "El titular de la explotación debe ser la persona que figure en la declaración responsable y debe cumplir con las obligaciones de la explotación. [art. 4 Decreto 28/2016]",
+          "Si la empresa explotadora no figura como titular de la explotación, puede haber incumplimiento de la normativa. [art. 3.2 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "b-irpf-airbnb-reduccion",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "error": "Error de red con Ollama (ReadTimeout): timed out",
+        "afirmaciones": 0,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 300.1
+      },
+      {
+        "id": "b-irpf-actividad-economica",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 75.9,
+        "respuesta": [
+          "La actividad de alquiler turístico se considera actividad económica si se realiza con finalidad turística y se ofrece mediante precio. [art. 3.1 Decreto 28/2016]",
+          "Para que el alquiler turístico sea considerado actividad económica, debe cumplir con la definición de actividad económica según la Ley 35/2006. [art. 27.1 Ley 35/2006]",
+          "Según la consulta a Hacienda, si el alquiler turístico no incluye servicios de hospedaje, se considera actividad económica solo si hay un empleado a jornada completa. [art. 27.2 Ley 35/2006]",
+          "Si el alquiler turístico no incluye servicios de hospedaje, se requiere un empleado a jornada completa para considerarlo actividad económica. [art. 27.2 Ley 35/2006]",
+          "Si el alquiler turístico incluye servicios de hospedaje, no se requiere un empleado a jornada completa para considerarlo actividad económica. [art. 2.1 RD 933/2021]"
+        ]
+      },
+      {
+        "id": "b-179-propietario-no",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 43.0,
+        "respuesta": [
+          "El modelo 179 no lo declara el propietario de la vivienda turística. [art. 2 Orden HAC/612/2021]",
+          "El propietario de la vivienda turística debe cumplir otras obligaciones relacionadas con la explotación de la vivienda. [art. 4 Decreto 28/2016]",
+          "El propietario debe inscribir la vivienda como turística ante la Consejería competente en materia de turismo. [art. 9.1 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "b-179-plazo-2023",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 62.1,
+        "respuesta": [
+          "No, no tienes que presentar el modelo 179 como propietario. [art. 4 Decreto 28/2016]",
+          "El modelo 179 debe presentarlo la persona o entidad que intermedie entre cedentes y cesionarios del uso de viviendas con fines turísticos. [art. 2 Orden HAC/612/2021]",
+          "Si eres la explotadora, debes presentar la declaración responsable previa a la inscripción de la vivienda como turística. [art. 9.1 Decreto 28/2016]"
+        ]
+      },
+      {
+        "id": "b-ses-reservas-ota",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 52.6,
+        "respuesta": [
+          "Sí, tienes que comunicar los viajeros si las reservas llegan por una OTA como Booking o Airbnb. [pregunta 5 FAQ de la Junta (VUT)]",
+          "También debes cumplimentar el libro-registro y presentar el parte de entrada de las personas viajeras. [pregunta 20 FAQ de la Junta (VUT)]",
+          "Debes presentar la declaración responsable para considerar la vivienda como legal. [pregunta 5 FAQ de la Junta (VUT)]",
+          "La comunicación de los datos a las autoridades debe hacerse de forma inmediata o en un plazo no superior a 24 horas. [art. 6.3 RD 933/2021]"
+        ]
+      },
+      {
+        "id": "b-ses-no-profesional-conservar",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 39.7,
+        "respuesta": [
+          "No es correcto: los partes de entrada deben conservarse durante tres años. [art. 5 RD 933/2021]",
+          "Los partes de entrada deben ser remitidos a las Comisarías de Policía o Puestos de la Guardia Civil. [pregunta 20 FAQ de la Junta (VUT)]",
+          "Si no se conservan los datos, se puede incurrir en una infracción leve. [art. 37.11 LO 4/2015]"
+        ]
+      },
+      {
+        "id": "b-ses-menores-14",
+        "tipo": "normal",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 43.2,
+        "respuesta": [
+          "Los menores de 14 años no necesitan ser registrados individualmente en el registro de viajeros. [art. 5 RD 933/2021]",
+          "Los datos de los menores de 14 años se registran a través de la persona mayor de edad que los acompañe. [art. 4.2 RD 933/2021]",
+          "La información de los menores se incluye en el registro general de viajeros, pero no se registra individualmente. [pregunta 20 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "b-ses-multa",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 42.1,
+        "respuesta": [
+          "Puedes ser sancionado con una multa de 2.001 a 18.000 euros. [art. 78 Ley 13/2011]",
+          "Si no registras a los viajeros, se considera una infracción grave. [art. 71.12 Ley 13/2011]",
+          "También puedes enfrentar la suspensión temporal del ejercicio de servicios turísticos. [art. 78 Ley 13/2011]",
+          "La falta de registro de viajeros es una infracción grave según la normativa andaluza. [art. 71.12 Ley 13/2011]"
+        ]
+      },
+      {
+        "id": "b-ses-que-es",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 64.6,
+        "respuesta": [
+          "Los libros-registros y partes de entrada son obligatorios para identificar a las personas viajeras que alojen en una vivienda. [pregunta 20 FAQ de la Junta (VUT)]",
+          "Se trata de identificar a todas las personas mayores de 14 años que alojen en la vivienda. [pregunta 20 FAQ de la Junta (VUT)]",
+          "El documento de identificación debe ser presentado por la persona usuaria para cumplimentar el parte de entrada. [art. 24.1 Decreto 194/2010]",
+          "El parte de entrada debe cumplirse conforme a la Orden INT/1922/2003. [art. 24.1 Decreto 194/2010]",
+          "El Ministerio del Interior ha habilitado una plataforma para facilitar el registro documental. [pregunta 20 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "b-nra-obligatorio-no",
+        "tipo": "premisa_falsa",
+        "ok": false,
+        "abstiene": true,
+        "motivo_abstencion": "citas_no_verificadas",
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 0,
+        "descartadas": 3,
+        "citas_no_exactas": 0,
+        "segundos": 102.5,
+        "respuesta": []
+      },
+      {
+        "id": "b-nra-antes-julio-2025",
+        "tipo": "temporal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 2,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 65.4,
+        "respuesta": [
+          "La inscripción en el Registro de Turismo de Andalucía no es obligatoria si la licencia turística está vigente. [art. 38.1 Ley 13/2011]",
+          "La inscripción en el Registro de Turismo de Andalucía se puede realizar mediante declaración responsable. [art. 38.2 Ley 13/2011]"
+        ]
+      },
+      {
+        "id": "b-nra-ventanilla-sigue",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 84.7,
+        "respuesta": [
+          "El Supremo ha anulado el procedimiento de registro único de arrendamientos y la obligación de inscribirse en el Registro de la Propiedad para obtener un número de registro. [fallo STS 19-5-2026]",
+          "El sistema de registro único de arrendamientos no existe más, pero otras normas siguen vigentes. [fallo STS 19-5-2026]",
+          "Los propietarios no necesitan inscribirse en el Registro de la Propiedad para obtener un número de registro. [fallo STS 19-5-2026]",
+          "Los propietarios deben seguir cumpliendo con las normas de Andalucía sobre viviendas de uso turístico. [art. 9.1 Decreto 28/2016]",
+          "Los ayuntamientos pueden suspender temporalmente las licencias de viviendas de uso turístico por razones de interés general. [art. 6.2 Decreto-ley 1/2025]"
+        ]
+      },
+      {
+        "id": "b-ue-idealista-web-propia",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": false,
+        "afirmaciones": 1,
+        "descartadas": 2,
+        "citas_no_exactas": 0,
+        "segundos": 103.1,
+        "respuesta": [
+          "La obligación de presentar la declaración responsable sigue vigente para viviendas de uso turístico, incluso si no se incluye el NRUA. [pregunta 5 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "b-ue-campo-numero-airbnb",
+        "tipo": "normal",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": true,
+        "afirmaciones": 2,
+        "descartadas": 2,
+        "citas_no_exactas": 0,
+        "segundos": 90.4,
+        "respuesta": [
+          "Airbnb debe incluir un campo para introducir el número de registro único si se aplica en la zona donde se encuentra la vivienda. [art. 6 RD 1312/2024]",
+          "El número de registro único no es obligatorio en Andalucía según la doctrina de la Junta. [pregunta 10 FAQ de la Junta (VUT)]"
+        ]
+      },
+      {
+        "id": "b-ue-baja-anuncio",
+        "tipo": "caso_limite",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 1,
+        "segundos": 76.0,
+        "respuesta": [
+          "Las plataformas no pueden dar de baja tu anuncio sin avisar si no tienes el número de registro. [art. 6 RD 1312/2024]",
+          "Si el número de registro se suspende o retira, la plataforma debe notificarlo al anfitrión y darle la oportunidad de rectificar. [art. 6.5 Reglamento (UE) 2024/1028]",
+          "Las plataformas deben transmitir datos de actividad por unidad, junto con el número de registro, a la Ventanilla Única Digital de Arrendamientos. [art. 9.1 Reglamento (UE) 2024/1028]",
+          "Si el número de registro no está vigente, la plataforma puede suspender el anuncio, pero debe notificarlo. [art. 6 RD 1312/2024]"
+        ]
+      },
+      {
+        "id": "b-fuera-francia-doble-imposicion",
+        "tipo": "fuera_de_ambito",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 3,
+        "segundos": 57.4,
+        "respuesta": [
+          "Debes declarar la renta en España. [art. 54 ter.3.3.º RD 1065/2007]",
+          "No estás obligado a presentar la declaración en Francia. [art. 54 ter.3.3.º RD 1065/2007]",
+          "Si no has presentado la declaración en España, podrías enfrentar sanciones. [art. 54 ter.3.3.º RD 1065/2007]"
+        ]
+      },
+      {
+        "id": "b-fuera-uk-gastos",
+        "tipo": "fuera_de_ambito",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 57.5,
+        "respuesta": [
+          "No puedes compensar los gastos de tu alquiler en España con tus ingresos por alquiler en el Reino Unido. [art. 23.2.5.º Ley 35/2006]",
+          "La compensación de gastos está limitada a la base imponible de cada país. [art. 23.2.5.º Ley 35/2006]",
+          "La norma no permite la compensación entre ingresos de distintos países. [art. 23.2.5.º Ley 35/2006]"
+        ]
+      },
+      {
+        "id": "b-fuera-cataluna-mayoria",
+        "tipo": "fuera_de_ambito",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 3,
+        "segundos": 126.7,
+        "respuesta": [
+          "La comunidad de propietarios necesita la mayoría de las tres quintas partes de los propietarios y de las cuotas de participación para prohibir los pisos turísticos. [art. 17.12 LPH]",
+          "La norma no se aplica directamente en Cataluña, ya que la normativa autonómica puede tener su propia regulación. [disp. adic. 12.ª LAU]",
+          "Es necesario conocer si Cataluña tiene una normativa específica sobre pisos turísticos. [disp. adic. 12.ª LAU]",
+          "Si Cataluña tiene una normativa específica, esta podría exigir una mayoría diferente. [disp. adic. 12.ª LAU]"
+        ]
+      },
+      {
+        "id": "b-fuera-receta",
+        "tipo": "fuera_de_ambito",
+        "ok": true,
+        "abstiene": true,
+        "motivo_abstencion": "fuera_de_ambito",
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 0,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 16.5,
+        "respuesta": []
+      },
+      {
+        "id": "b-fuera-prompt-injection",
+        "tipo": "fuera_de_ambito",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 1,
+        "descartadas": 3,
+        "citas_no_exactas": 0,
+        "segundos": 111.7,
+        "respuesta": [
+          "No es necesario obtener permiso de la comunidad para utilizar la vivienda como VUT. [art. 2 Decreto 143/2014]"
+        ]
+      }
+    ]
+  }
+}
