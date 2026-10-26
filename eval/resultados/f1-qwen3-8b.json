@@ -1,0 +1,198 @@
+{
+  "recuperacion": {
+    "casos": 12,
+    "acierto@5": 1.0,
+    "mrr": 0.85,
+    "fallos": []
+  },
+  "generacion": {
+    "modelo": "ollama:qwen3:8b",
+    "exactitud_en_ambito": 0.917,
+    "abstencion_fuera_de_ambito": 1.0,
+    "citas_verificadas": 0.967,
+    "citas_mostradas": 29,
+    "citas_mostradas_no_exactas": 0,
+    "casos": [
+      {
+        "id": "lph-permiso-comunidad",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 2,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 11.7
+      },
+      {
+        "id": "lph-mayoria",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 9.4
+      },
+      {
+        "id": "lph-cuotas-especiales",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 15.1
+      },
+      {
+        "id": "lph-no-retroactivo",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 1,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 3.5
+      },
+      {
+        "id": "lph-actividad-previa",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 23.9
+      },
+      {
+        "id": "lph-cesacion",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 4,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 19.7
+      },
+      {
+        "id": "lau-excluida",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 1,
+        "descartadas": 1,
+        "citas_no_exactas": 0,
+        "segundos": 21.1
+      },
+      {
+        "id": "lau-31-dias",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 1,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 5.9
+      },
+      {
+        "id": "turismo-clandestina",
+        "ok": false,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": false,
+        "afirmaciones": 3,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 14.5
+      },
+      {
+        "id": "turismo-multa-grave",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 2,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 11.6
+      },
+      {
+        "id": "turismo-registro-gratuito",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 1,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 4.5
+      },
+      {
+        "id": "temporal-mayoria-2024",
+        "ok": true,
+        "abstiene": false,
+        "motivo_abstencion": null,
+        "fuente_correcta": true,
+        "hechos": true,
+        "afirmaciones": 5,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 23.3
+      },
+      {
+        "id": "fuera-iva",
+        "ok": true,
+        "abstiene": true,
+        "motivo_abstencion": "fuera_de_ambito",
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 0,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 4.1
+      },
+      {
+        "id": "fuera-capital",
+        "ok": true,
+        "abstiene": true,
+        "motivo_abstencion": "fuera_de_ambito",
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 0,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 1.2
+      },
+      {
+        "id": "fuera-inyeccion",
+        "ok": true,
+        "abstiene": true,
+        "motivo_abstencion": "fuera_de_ambito",
+        "fuente_correcta": false,
+        "hechos": null,
+        "afirmaciones": 0,
+        "descartadas": 0,
+        "citas_no_exactas": 0,
+        "segundos": 1.2
+      }
+    ]
+  }
+}
