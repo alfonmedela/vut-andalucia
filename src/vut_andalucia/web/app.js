@@ -43,20 +43,17 @@ let actual = null; // última respuesta
 // ── arranque ───────────────────────────────────────────
 async function iniciar() {
   $("#fecha").value = hoyISO();
-  document.querySelectorAll(".chip").forEach((c) => c.addEventListener("click", () => {
-    $("#pregunta").value = c.dataset.p;
-    $("#municipio").value = c.dataset.m || "";
-    $("#fecha").value = c.dataset.f || hoyISO();
-    enviar();
-  }));
+  window.addEventListener("hashchange", mostrarVista);
+  mostrarVista();
+  rotarEjemplos();
   $("#formulario").addEventListener("submit", (e) => { e.preventDefault(); enviar(); });
   $("#pregunta").addEventListener("keydown", (e) => {
     if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); enviar(); }
   });
   try {
     const [estado, lista] = await Promise.all([api("/api/estado"), api("/api/municipios")]);
-    $('[data-cifra="fuentes"]').textContent = estado.fuentes.toLocaleString("es-ES");
-    $('[data-cifra="fragmentos"]').textContent = estado.fragmentos.toLocaleString("es-ES");
+    document.querySelectorAll('[data-cifra="fuentes"]').forEach((e) => { e.textContent = estado.fuentes.toLocaleString("es-ES"); });
+    document.querySelectorAll('[data-cifra="fragmentos"]').forEach((e) => { e.textContent = estado.fragmentos.toLocaleString("es-ES"); });
     municipios = lista;
     const dl = $("#lista-municipios");
     for (const m of lista.sort((a, b) => (b.con_normas - a.con_normas) || a.nombre.localeCompare(b.nombre, "es"))) {
@@ -67,6 +64,41 @@ async function iniciar() {
   const q = new URLSearchParams(location.search).get("q");
   // Un enlace con ?q= rellena la pregunta, pero no la envía: gastar una consulta exige un clic.
   if (q) { $("#pregunta").value = q.slice(0, 1200); $("#pregunta").focus(); }
+}
+
+// ── vistas: Preguntar, Cómo funciona y Fuentes son páginas distintas ──
+const VISTAS = ["preguntar", "como", "fuentes"];
+function mostrarVista() {
+  const pedida = location.hash.slice(1);
+  const vista = VISTAS.includes(pedida) ? pedida : "preguntar";
+  document.querySelectorAll(".vista").forEach((v) => { v.hidden = v.dataset.vista !== vista; });
+  document.querySelectorAll(".bar__nav a[data-vista]").forEach((a) => {
+    if (a.dataset.vista === vista) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+  });
+  if (VISTAS.includes(pedida)) window.scrollTo({ top: 0 });
+}
+
+// Ejemplos de pregunta: rotan como texto de muestra mientras la caja está vacía.
+const EJEMPLOS = [
+  "¿Necesito permiso de la comunidad para alquilar mi piso a turistas?",
+  "¿Puedo dar de alta un piso turístico nuevo en el centro de Málaga?",
+  "Si vendo mi piso turístico, ¿el comprador mantiene la inscripción?",
+  "¿Tengo que cobrar IVA si alquilo por menos de 30 noches?",
+  "¿Cuántos metros cuadrados por plaza exige la Junta?",
+];
+function rotarEjemplos() {
+  const caja = $("#pregunta");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let i = 0;
+  setInterval(() => {
+    if (caja.value || document.activeElement === caja) return;
+    caja.classList.add("cambiando");
+    setTimeout(() => {
+      i = (i + 1) % EJEMPLOS.length;
+      caja.placeholder = EJEMPLOS[i];
+      caja.classList.remove("cambiando");
+    }, 300);
+  }, 4200);
 }
 
 async function api(url, opciones) {
@@ -81,7 +113,9 @@ async function api(url, opciones) {
 
 // ── pregunta ───────────────────────────────────────────
 async function enviar() {
-  const pregunta = $("#pregunta").value.trim();
+  let pregunta = $("#pregunta").value.trim();
+  // Caja vacía: se pregunta el ejemplo que se está mostrando.
+  if (!pregunta) { pregunta = $("#pregunta").placeholder; $("#pregunta").value = pregunta; }
   if (pregunta.length < 3) { $("#pregunta").focus(); return; }
   const nombre = $("#municipio").value.trim();
   const m = municipios.find((x) => x.nombre.toLowerCase() === nombre.toLowerCase());
@@ -140,10 +174,29 @@ async function leerEventos(cuerpo, alEvento) {
   }
 }
 
+const TEXTO_PASO = {
+  buscar: "Buscando en las fuentes",
+  redactar: "Redactando y comprobando cada cita",
+  verificar: "Verificando",
+};
+let cronometro = null;
+function terminarProgreso() {
+  $("#progreso").hidden = true;
+  clearInterval(cronometro);
+  cronometro = null;
+}
 function marcarPaso(paso) {
   const orden = ["buscar", "redactar", "verificar"];
   const lista = $("#pasos");
-  lista.classList.remove("oculto");
+  const caja = $("#progreso");
+  if (caja.hidden) {
+    caja.hidden = false;
+    const inicio = performance.now();
+    $("#cronometro").textContent = "0";
+    clearInterval(cronometro);
+    cronometro = setInterval(() => { $("#cronometro").textContent = String(Math.round((performance.now() - inicio) / 1000)); }, 500);
+  }
+  $("#paso-actual").textContent = TEXTO_PASO[paso];
   lista.querySelectorAll("li").forEach((li) => {
     const i = orden.indexOf(li.dataset.paso), j = orden.indexOf(paso);
     li.classList.toggle("hecho", i < j);
@@ -178,7 +231,7 @@ function pintarAvisos(avisos) {
 
 function pintarRespuesta(r) {
   actual = r;
-  $("#pasos").classList.add("oculto");
+  terminarProgreso();
   if (r.municipio) pintarContexto(r.pregunta, r.fecha, r.municipio.nombre, r.municipio_detectado);
   const cont = $("#respuesta");
   cont.replaceChildren();
@@ -239,7 +292,7 @@ function afinar(pregunta) {
 }
 
 function pintarSoloBusqueda(mensaje) {
-  $("#pasos").classList.add("oculto");
+  terminarProgreso();
   $("#respuesta").replaceChildren(el("div", { class: "tarjeta" }, el("p", { text: mensaje })));
   const d = $("#consultadas");
   d.open = true;
@@ -248,7 +301,7 @@ function pintarSoloBusqueda(mensaje) {
 }
 
 function pintarError(mensaje) {
-  $("#pasos").classList.add("oculto");
+  terminarProgreso();
   $("#respuesta").replaceChildren(el("div", { class: "tarjeta tarjeta--error", role: "alert" },
     el("strong", { text: "No se pudo completar la respuesta. " }), mensaje));
 }

@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="/static/app.css">
 </head>
 <body>
-<a class="skip" href="#pregunta">Saltar a la pregunta</a>
+<a class="skip" href="#preguntar">Saltar a la pregunta</a>
 
 <header class="bar">
   <div class="bar__in wrap">
@@ -23,18 +23,20 @@
     <span class="bar__sep" aria-hidden="true"></span>
     <span class="producto">VUT Andalucía</span>
     <nav class="bar__nav" aria-label="Secciones">
-      <a href="#como">Cómo funciona</a>
-      <a href="#fuentes">Fuentes</a>
+      <a href="#preguntar" data-vista="preguntar">Preguntar</a>
+      <a href="#como" data-vista="como">Cómo funciona</a>
+      <a href="#fuentes" data-vista="fuentes">Fuentes</a>
       <a href="https://github.com/alfonmedela/vut-andalucia" rel="noopener">GitHub</a>
     </nav>
   </div>
 </header>
 
 <main>
+  <div class="vista" id="preguntar" data-vista="preguntar">
   <section class="hero wrap" aria-labelledby="titulo">
     <p class="eyebrow">Viviendas de uso turístico · Andalucía</p>
-    <h1 id="titulo">Pregunta a la ley<span class="pt" aria-hidden="true"></span></h1>
-    <p class="lede">Cada respuesta cita el texto oficial del BOE, del BOJA o de tu ayuntamiento, y un verificador comprueba que la cita está ahí, palabra por palabra. <em>Si no puede citarlo, no lo dice.</em></p>
+    <h1 id="titulo">Pregunta a la <em>ley</em><span class="pt" aria-hidden="true"></span></h1>
+    <p class="lede">Respuestas con la cita exacta del BOE, el BOJA o tu ayuntamiento, comprobada palabra por palabra. <em>Si no puede citarlo, no lo dice.</em></p>
 
     <form class="ask" id="formulario" autocomplete="off">
       <label class="sr-only" for="pregunta">Tu pregunta</label>
@@ -53,32 +55,29 @@
         <button class="btn" id="enviar" type="submit">Preguntar</button>
       </div>
     </form>
-
-    <div class="ejemplos" aria-label="Preguntas de ejemplo">
-      <button type="button" class="chip" data-p="¿Puedo poner mi piso en Airbnb sin permiso de los vecinos?">Permiso de los vecinos</button>
-      <button type="button" class="chip" data-p="¿Puedo dar de alta un piso turístico nuevo en el centro de Málaga?" data-m="Málaga">Abrir en Málaga</button>
-      <button type="button" class="chip" data-p="Si vendo mi piso turístico, ¿el comprador mantiene la inscripción en el Registro de Turismo?">Vender una VUT</button>
-      <button type="button" class="chip" data-p="¿Cuántos metros cuadrados por plaza exige la Junta a una vivienda turística?">Metros por plaza</button>
-      <button type="button" class="chip" data-p="¿Tengo que cobrar IVA si alquilo mi piso a turistas por menos de 30 noches?">IVA en estancias cortas</button>
-      <button type="button" class="chip" data-p="¿Qué mayoría hacía falta en la junta para limitar los pisos turísticos?" data-f="2024-06-01">La ley en junio de 2024</button>
-    </div>
-
-    <dl class="cifras" id="cifras" aria-label="El corpus en cifras">
-      <div><dt>Fuentes oficiales</dt><dd data-cifra="fuentes">40</dd></div>
-      <div><dt>Artículos, con su historia</dt><dd data-cifra="fragmentos">2.245</dd></div>
-      <div><dt>Municipios reconocidos</dt><dd>785</dd></div>
-      <div><dt>Citas sin verificar mostradas</dt><dd>0</dd></div>
-    </dl>
   </section>
 
   <section class="resultado wrap" id="resultado" hidden aria-label="Respuesta">
     <div class="col">
       <div class="contexto" id="contexto"></div>
-      <ol class="pasos" id="pasos" aria-label="Progreso">
-        <li data-paso="buscar">Buscando en las fuentes</li>
-        <li data-paso="redactar">Redactando con citas</li>
-        <li data-paso="verificar">Verificando cada cita</li>
-      </ol>
+      <div class="progreso" id="progreso" hidden role="status">
+        <svg class="rombo-vivo" viewBox="0 0 120 120" aria-hidden="true">
+          <g class="rv-giro">
+            <polygon class="rv-eco" points="60,42 78,60 60,78 42,60"/>
+            <polygon class="rv-traza" points="60,13 107,60 60,107 13,60"/>
+            <polygon class="rv-nucleo" points="60,42 78,60 60,78 42,60"/>
+          </g>
+        </svg>
+        <div class="progreso__texto">
+          <p class="progreso__paso" id="paso-actual">Buscando en las fuentes</p>
+          <ol class="pasos" id="pasos" aria-label="Progreso">
+            <li data-paso="buscar">Buscar</li>
+            <li data-paso="redactar">Redactar con citas</li>
+            <li data-paso="verificar">Verificar y revisar</li>
+          </ol>
+          <p class="progreso__tiempo"><span id="cronometro">0</span> s</p>
+        </div>
+      </div>
       <div class="respuesta" id="respuesta" aria-live="polite"></div>
       <div class="pendientes" id="pendientes" hidden></div>
       <div class="avisos" id="avisos"></div>
@@ -92,29 +91,38 @@
       <div class="panel__in" id="panel-contenido"></div>
     </aside>
   </section>
+  </div>
 
-  <section class="como wrap" id="como" aria-labelledby="como-titulo">
+  <section class="como wrap vista" id="como" data-vista="como" aria-labelledby="como-titulo" hidden>
+    <p class="eyebrow">Método</p>
     <h2 id="como-titulo">Cómo funciona<span class="pt" aria-hidden="true"></span></h2>
+    <p class="nota">Cuatro capas, de la más fiable a la menos. Solo la tercera es una garantía absoluta; por eso la cita oficial se muestra siempre junto a cada frase.</p>
     <ol class="tres">
       <li>
         <span class="tres__n">01</span>
-        <h3>Solo fuentes oficiales</h3>
-        <p>BOE, BOJA, la UE, el Tribunal Supremo y los boletines de cada provincia. Cada artículo guarda todas sus versiones y el día exacto en que entró en vigor.</p>
+        <h3>Solo fuentes oficiales, con su historia</h3>
+        <p>BOE, BOJA, la UE, el Tribunal Supremo y los boletines de cada provincia. Cada artículo guarda todas sus versiones y el día en que entró en vigor, y la búsqueda solo ve lo vigente en la fecha y el municipio que elijas.</p>
       </li>
       <li>
         <span class="tres__n">02</span>
-        <h3>La ley de ese día, en ese municipio</h3>
-        <p>Busca por palabras y por significado entre lo vigente en la fecha que elijas, y suma las normas de tu ayuntamiento. Te avisa si un decreto-ley no está convalidado o una norma fue anulada.</p>
+        <h3>Sabe cuándo callar</h3>
+        <p>Antes de llamar al modelo, un programa detecta las preguntas sobre otra comunidad autónoma, sobre normas de un municipio que no está en el corpus o que intentan darle instrucciones, y se abstiene.</p>
       </li>
       <li>
         <span class="tres__n">03</span>
-        <h3>Cada cita, comprobada</h3>
+        <h3>Cada cita, comprobada por código</h3>
         <p>El modelo propone afirmaciones con una cita literal. Un programa, no otra IA, comprueba que la cita está tal cual en el texto oficial. Lo que no pasa la prueba, no se muestra.</p>
+      </li>
+      <li>
+        <span class="tres__n">04</span>
+        <h3>Revisión del significado</h3>
+        <p>Una segunda lectura comprueba que cada cita prueba de verdad lo que se afirma: ni más, ni otra fecha, ni otro municipio. Lo que no encaja, se descarta.</p>
       </li>
     </ol>
   </section>
 
-  <section class="fuentes wrap" id="fuentes" aria-labelledby="fuentes-titulo">
+  <section class="fuentes wrap vista" id="fuentes" data-vista="fuentes" aria-labelledby="fuentes-titulo" hidden>
+    <p class="eyebrow">Corpus · <span data-cifra="fuentes">40</span> fuentes · <span data-cifra="fragmentos">2.245</span> fragmentos con su historia</p>
     <h2 id="fuentes-titulo">Fuentes<span class="pt" aria-hidden="true"></span></h2>
     <p class="nota">Todas se descargan de la fuente oficial y se guardan con su huella sha256. Un municipio que no aparece no está libre de limitaciones: simplemente aún no está en el corpus, y el asistente lo dice.</p>
     <div id="tabla-fuentes" class="tabla-fuentes"></div>
