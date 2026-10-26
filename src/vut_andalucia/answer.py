@@ -67,9 +67,12 @@ Reglas:
    acuerdo de la comunidad…). Máximo 3. Lista vacía si no hace falta ninguno.
 5. Si la pregunta parte de una premisa falsa según los fragmentos, corrígela en la primera
    afirmación.
-6. Si los fragmentos no permiten responder, devuelve "afirmaciones": [] y
+6. Cuando los fragmentos describan medidas sucesivas (una limitación y después una
+   suspensión, una redacción y su reforma), la primera afirmación debe reflejar la que está
+   vigente en la fecha de referencia; las anteriores, como antecedente.
+7. Si los fragmentos no permiten responder, devuelve "afirmaciones": [] y
    "fuera_de_ambito": true. No uses conocimiento propio, aunque creas saber la respuesta.
-7. No des consejo personalizado ni garantías; explica lo que dice la norma."""
+8. No des consejo personalizado ni garantías; explica lo que dice la norma."""
 
 ESQUEMA: dict[str, Any] = {
     "type": "object",

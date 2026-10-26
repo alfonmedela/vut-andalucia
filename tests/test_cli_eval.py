@@ -28,7 +28,10 @@ def test_fecha_invalida() -> None:
     assert r.exit_code != 0 and "AAAA-MM-DD" in r.output
 
 
-def test_eval_solo_recuperacion(tmp_path: Path) -> None:
+def test_eval_solo_recuperacion(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    from tests.conftest import CACHE_CONSULTAS
+
+    monkeypatch.setenv("VUT_CACHE_CONSULTAS", str(CACHE_CONSULTAS))
     salida = tmp_path / "informe.json"
     r = runner.invoke(cli.app, ["eval", "--preguntas", str(RUTA), "--salida", str(salida)])
     assert r.exit_code == 0

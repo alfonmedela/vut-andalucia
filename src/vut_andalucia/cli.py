@@ -162,7 +162,7 @@ def embed() -> None:
     """Calcula los embeddings bge-m3 del corpus (necesita Ollama con `ollama pull bge-m3`)."""
     corpus = corpus_mod.cargar()
     try:
-        n = construir_embeddings(corpus, ClienteOllama())
+        n = construir_embeddings(corpus, ClienteOllama(timeout=600))
     except EmbeddingsError as e:
         typer.secho(str(e), fg="red", err=True)
         raise typer.Exit(2) from e

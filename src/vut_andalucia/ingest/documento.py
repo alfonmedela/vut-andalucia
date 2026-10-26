@@ -271,7 +271,8 @@ def parsear(bruto: bytes, norma: Norma, fuente: Fuente) -> list[Fragmento]:
                 norma=norma,
                 bloque_id=ident,
                 base_cita=base,
-                encabezado=cuerpo[0][:160],
+                # En un texto corrido, la primera frase de la parte no es un título.
+                encabezado=norma.titulo if fuente.troceo == "texto" else cuerpo[0][:160],
                 parrafos=cuerpo,
                 ruta=[],
                 desde=fuente.desde,

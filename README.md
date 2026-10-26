@@ -1,202 +1,168 @@
 <div align="center">
 
-# vut-andalucia
+# VUT Andalucía
 
-**Pregunta lo que quieras sobre la ley de pisos turísticos en Andalucía.
-Cada respuesta va con la cita literal del BOE, y si no puede citarlo, no lo dice.**
+### Pregunta a la ley.
+
+**Todo sobre pisos turísticos en Andalucía, con la cita exacta del BOE, del BOJA o de tu ayuntamiento.<br>
+Si no puede citarlo, no lo dice.**
 
 [![CI](https://github.com/alfonmedela/vut-andalucia/actions/workflows/ci.yml/badge.svg)](https://github.com/alfonmedela/vut-andalucia/actions/workflows/ci.yml)
-![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
-![LLM local](https://img.shields.io/badge/LLM-100%25%20local%20con%20Ollama-black)
-![Licencia MIT](https://img.shields.io/badge/licencia-MIT-green)
+![Fuentes oficiales](https://img.shields.io/badge/fuentes_oficiales-40-7A1E2A)
+![Municipios](https://img.shields.io/badge/municipios-785-7A1E2A)
+![LLM local](https://img.shields.io/badge/LLM-100%25%20local%20o%20Claude-1C1714)
+![Licencia MIT](https://img.shields.io/badge/licencia-MIT-1C1714)
 
-[English](README.en.md) · [Cómo funciona](#cómo-funciona) · [Evaluación](#evaluación) · [Fuentes](#fuentes-y-versiones)
+[English](README.en.md) · [Cómo funciona](#cómo-funciona) · [Qué cubre](#qué-cubre) · [Evaluación](#evaluación) · [Instalar](#instalar)
+
+<img src="docs/img/demo.gif" alt="Se pregunta qué mayoría necesita la comunidad para prohibir pisos turísticos; la respuesta cita el art. 17.12 LPH, resalta la frase exacta en el texto oficial y muestra la historia del artículo desde 2018" width="900">
 
 </div>
 
-```console
-$ vut preguntar "¿Necesito permiso de los vecinos para poner mi piso en Airbnb?"
+## Para quién
 
-Normativa vigente a 2026-10-26
+Para **propietarios, gestores, administradores de fincas y abogados** que necesitan saber qué dice
+de verdad la norma, no lo que dice un foro. Escribes la pregunta como la harías a un compañero:
 
-• Sí, necesita permiso de la comunidad de propietarios para poner su piso en Airbnb. [1]
-• El permiso requiere el voto favorable de las tres quintas partes de los propietarios. [2]
+- *¿Puedo poner mi piso en Airbnb sin permiso de los vecinos?*
+- *Si vendo el piso, ¿el comprador mantiene la inscripción en el Registro de Turismo?*
+- *¿Puedo abrir una vivienda turística nueva en el centro de Málaga?*
+- *¿Tengo que cobrar IVA si alquilo a turistas menos de 30 noches?*
 
-[1] art. 7.3 LPH · versión vigente 2025-04-03 → hoy
-    «El propietario de cada vivienda que quiera realizar el ejercicio de la actividad a que se
-    refiere la letra e) del artículo 5 de la Ley 29/1994, de 24 de noviembre, de Arrendamientos
-    Urbanos, en los términos establecidos en la normativa sectorial turística, deberá obtener
-    previamente la aprobación expresa de la comunidad de propietarios.»
-    https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906#aseptimo
-[2] art. 17.12 LPH · versión vigente 2025-04-03 → hoy
-    «requerirá el voto favorable de las tres quintas partes del total de los propietarios que,
-    a su vez, representen las tres quintas partes de las cuotas de participación.»
-    https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906#adiecisiete
+Y recibes una respuesta ordenada (**lo que dice la norma · excepciones · qué hacer · riesgos**)
+en la que cada frase lleva su cita. Al pulsarla ves el texto oficial con la frase resaltada,
+la fecha desde la que está vigente y **cómo ha cambiado ese artículo a lo largo del tiempo**.
 
-Modelo: ollama:qwen3:8b · Información sobre la normativa, no asesoramiento jurídico.
-```
-
-La misma pregunta, en otra fecha, responde con la ley de entonces:
-
-```console
-$ vut preguntar "¿Qué mayoría hacía falta en la junta para limitar los pisos turísticos?" --fecha 2024-06-01
-
-• Para limitar los pisos turísticos se necesitaba la mayoría de tres quintas partes de los propietarios. [1]
-• Esta mayoría también era necesaria para establecer cuotas especiales de gastos. [1]
-
-[1] art. 17.12 LPH · versión vigente 2019-03-06 → 2025-04-03
-    «requerirá el voto favorable de las tres quintas partes del total de los propietarios»
-    «esta misma mayoría se requerirá para el acuerdo por el que se establezcan cuotas especiales de gastos»
-```
-
-<sub>Salidas reales de `qwen3:8b` en local; las citas largas se han partido en líneas para leerlas.</sub>
-
-## Por qué existe
-
-La normativa de las viviendas de uso turístico (VUT) en Andalucía está repartida entre leyes
-autonómicas, estatales y europeas, y cambia cada pocos meses. La Ley de Propiedad Horizontal
-se reformó en abril de 2025, la LAU tuvo tres versiones del art. 5 en octubre de 2026 y el
-Tribunal Supremo anuló en mayo de 2026 el Registro Único estatal. Los chatbots genéricos
-responden con seguridad y sin fuente. Este proyecto hace lo contrario: **solo afirma lo que
-puede citar, y comprueba la cita**.
+<p align="center">
+  <img src="docs/img/respuesta.png" alt="Respuesta sobre el permiso de la comunidad con el art. 7.3 LPH resaltado en el panel de la derecha" width="900">
+</p>
 
 ## Qué lo hace distinto
 
 | | |
 |---|---|
-| **Citas verificadas al carácter** | El modelo propone afirmaciones con una cita literal. Un verificador determinista, sin LLM, comprueba que la cita aparece tal cual en el texto oficial. Las que no aparecen se descartan, y si no queda ninguna, el asistente se abstiene. |
-| **Respuestas en el tiempo** | Cada apartado guarda su rango de vigencia. `--fecha 2024-06-01` responde con la ley de ese día. Por ejemplo, el art. 17.12 LPH existió del 19/12/2018 al 24/01/2019, desapareció al decaer el RDL 21/2018, volvió el 06/03/2019 con el RDL 7/2019 y se reformó el 03/04/2025. |
-| **Solo fuentes oficiales** | Se descarga de la API de datos abiertos del BOE, con un manifiesto que guarda el ELI, la fecha y el sha256 de cada texto. Nada de blogs. |
-| **Habla como la gente, busca como el legislador** | Nadie pregunta por «la actividad de la letra e) del artículo 5 de la Ley 29/1994». Un glosario traduce «piso turístico» o «Airbnb» al término legal y marca los preceptos que regulan la figura por remisión. |
-| **100 % local** | Funciona con Ollama y un modelo de 8B en un portátil. Las preguntas no salen de tu máquina. |
-| **Evaluación pública** | Cada pregunta del set lleva su cita de referencia, y un test comprueba que esa cita sigue siendo literal en el BOE. Si cambia la ley, el CI falla. |
-
-## Empezar
-
-```bash
-# 1. Ollama y el modelo (una vez)
-ollama pull qwen3:8b
-
-# 2. El proyecto
-git clone https://github.com/alfonmedela/vut-andalucia && cd vut-andalucia
-uv sync
-
-# 3. Preguntar
-uv run vut preguntar "¿Puede la comunidad prohibir los pisos turísticos?"
-uv run vut preguntar "¿Qué mayoría hacía falta para limitar los pisos turísticos?" --fecha 2024-06-01
-uv run vut buscar "multa por alquiler turístico sin registro"   # solo recuperación, sin LLM
-```
-
-El corpus viene incluido en el paquete. `uv run vut sync` lo vuelve a descargar del BOE.
+| **Citas comprobadas, no inventadas** | El modelo propone cada afirmación con una cita literal. Un programa, no otra IA, comprueba que esa cita está tal cual en el texto oficial. Si no está, la frase no se muestra. Si no queda ninguna, el asistente lo dice en lugar de improvisar. |
+| **La ley de cada día** | Cada artículo guarda todas sus versiones. Puedes preguntar por la ley vigente hoy o por la de junio de 2024. El art. 17.12 LPH, por ejemplo, existió desde diciembre de 2018, desapareció en enero de 2019 al decaer un decreto-ley, volvió en marzo de 2019 y cambió el 3 de abril de 2025. |
+| **Avisa de lo que no se ve** | Anulaciones del Tribunal Supremo (el Registro Único de 2026), reales decretos-leyes pendientes de convalidación (el RDL 29/2026), efectos diferidos (el IVA de las estancias cortas, que se aplica desde el 1 de diciembre de 2026 aunque el BOE lo fecha en octubre). Cada aviso aparece junto a la cita afectada. |
+| **Tu municipio** | Detecta el municipio en la pregunta (o lo eliges entre los 785 de Andalucía) y suma sus normas. Si la respuesta depende del municipio y no lo has dicho, te lo pregunta. Si el corpus no tiene normas de tu municipio, lo dice: que no estén no significa que no existan. |
+| **Norma, sentencia o criterio** | Distingue lo que obliga (leyes, decretos, ordenanzas), lo que lo interpreta (sentencias) y lo que solo orienta (las preguntas frecuentes de la Junta o una instrucción municipal). |
+| **Privado y gratis** | Funciona entero en tu ordenador con Ollama, sin enviar tus preguntas a nadie. Opcionalmente, con Claude para respuestas de mayor calidad. |
 
 ## Cómo funciona
 
-```
-API del BOE ──► parser por artículo y apartado ──► corpus JSONL
-                (versiones + vigencia + sha256)         │
-                                                        ▼
-pregunta ──► glosario ──► BM25 (español, Snowball) filtrado por fecha ──► top-k fragmentos
-                                                        │
-                                                        ▼
-                     LLM (Ollama, salida JSON con esquema): afirmaciones + cita literal
-                                                        │
-                                                        ▼
-                  verificador: ¿la cita está, tal cual, en el fragmento? ──► respuesta | abstención
-```
+<p align="center"><img src="docs/img/como-funciona.svg" alt="Fuentes oficiales, cada artículo con su historia, búsqueda por fecha y municipio, el modelo propone, el verificador comprueba la cita" width="900"></p>
 
-**Decisiones de diseño**
+1. **Fuentes oficiales.** Se descargan de la API del BOE (incluidas las leyes andaluzas que consolida), del portal de textos consolidados de la Junta (BOJA), de la Oficina de Publicaciones de la UE y de los boletines provinciales. Cada texto queda registrado con su huella sha256.
+2. **Cada artículo, con su historia.** Un parser reconstruye las versiones de cada apartado y sus fechas de vigencia, y conserva las notas oficiales que importan: «téngase en cuenta que se anula…», «con efectos de 1 de diciembre de 2026…».
+3. **La ley de ese día y municipio.** La búsqueda combina palabras (BM25 en español, con un glosario que traduce «Airbnb» o «licencia» al lenguaje legal) y significado (embeddings multilingües bge-m3), solo entre lo vigente en la fecha y en el municipio.
+4. **El modelo propone.** Un LLM (qwen3 en local o Claude) redacta afirmaciones breves, cada una con su fuente y una cita literal, y lista los datos que faltan para afinar la respuesta.
+5. **El verificador decide.** Código determinista comprueba cada cita: palabras completas, sin puntos suspensivos que salten un «no». Lo que no pasa, no se muestra.
 
-- **No hay base de datos vectorial.** El derecho vigente sobre VUT son unos cientos de
-  apartados, y un BM25 en memoria se construye en milisegundos. Menos piezas significa menos
-  fallos. Los embeddings se añadirán como señal de fusión, no como sustituto.
-- **La unidad es el apartado.** Una reforma reescribe el artículo entero en el BOE aunque
-  toque una línea. Al fusionar versiones idénticas, cada apartado conserva la fecha en que su
-  texto entró de verdad en vigor.
-- **La cita la verifica el código, no un LLM.** Usar un LLM como juez de citas añade otra
-  fuente de error. La comprobación es binaria y auditable: la cita debe ser un tramo continuo
-  de palabras completas (6 como mínimo) del fragmento que dice citar. No admite elipsis
-  interiores, porque bastaría con saltarse un «no» o un «salvo» para darle la vuelta a la
-  norma. Lo que **no** garantiza es que la paráfrasis interprete bien la cita, y por eso la
-  cita se muestra siempre al lado.
-- **Abstenerse no es lo mismo que fallar.** Hay tres motivos de abstención distintos, cada uno
-  con su mensaje: nada vigente coincide, los artículos no responden, o el modelo respondió sin
-  citas literales. Un error de Ollama o una salida fuera de esquema es un error, no un
-  «la ley no dice nada».
-- **Los fragmentos son datos.** El prompt los delimita y ordena ignorar cualquier instrucción
-  que contengan. El set de evaluación incluye un intento de inyección.
+<p align="center"><img src="docs/img/municipal.png" alt="Pregunta sobre Málaga: el municipio se deduce de la pregunta y la cita sale de una fuente municipal, con aviso de su vigencia" width="900"></p>
+
+## Qué cubre
+
+**40 fuentes oficiales, 2.252 fragmentos con su historia**, a 26 de octubre de 2026.
+
+| Ámbito | Normas |
+|---|---|
+| **Andalucía** | Ley 13/2011 del Turismo · **Decreto 28/2016** de viviendas de uso turístico (4 versiones) · Decreto 143/2014 del Registro de Turismo · Decreto 194/2010 de apartamentos turísticos · **Decreto 20/2002 de turismo rural** · Decreto 82/2022 de hojas de reclamaciones · Decreto 144/2003 de la Inspección · Decreto-ley 1/2025 · Ley 5/2025 de Vivienda · LISTA · tipos del ITP · preguntas frecuentes de la Junta |
+| **Municipios** | **Málaga** (DA 3.ª del PGOU, suspensión de 2025, modificación n.º 28, Instrucción 1/2024) · **Sevilla** · **Granada** · **Cádiz** (2022, MP 9 y MP 10) · **El Puerto de Santa María** · **Chiclana** · **Jerez** |
+| **España** | LPH · LAU · RD 1312/2024 (Registro Único) y las **tres sentencias del Supremo de 2026** que lo anulan en parte · RD 933/2021 (registro de viajeros) · LO 4/2015 · **IVA** · IRPF · modelo 179 · IBI y plusvalía · ITP |
+| **Unión Europea** | Reglamento (UE) 2024/1028 de alquileres de corta duración |
+
+Detalle, motivo de cada fuente y fechas en [`fuentes.yaml`](src/vut_andalucia/data/fuentes.yaml) y en el [manifiesto](src/vut_andalucia/data/corpus/manifest.json).
 
 ## Evaluación
 
+Las preguntas del conjunto de evaluación son **reales**: salen de un grupo de propietarios
+asesorado por un abogado especialista y de foros y preguntas frecuentes públicas, anonimizadas.
+Cada una lleva su fuente correcta y una **cita de referencia que un test comprueba literal** en la
+versión vigente en su fecha. Si la ley cambia, el CI falla.
+
+**105 casos**: 92 dentro de ámbito (36 normales, 21 casos límite, 15 premisas falsas, 14 por fecha,
+9 municipales) y 10 fuera de ámbito (otras comunidades, cultura general, una inyección de prompt).
+
+| Recuperación (búsqueda híbrida, 26/10/2026) | Resultado |
+|---|---|
+| Fuente correcta entre los 5 primeros | 77 % |
+| Fuente correcta entre los 10 que ve el modelo | 79 % |
+| La frase exacta de referencia llega al modelo | 63 % |
+
+<!-- GENERACION -->
+
+Medir con preguntas reales en lugar de preguntas hechas a medida baja las cifras, y está bien que
+así sea: con el conjunto anterior, de 12 preguntas redactadas junto al sistema, la recuperación
+daba un 100 %. Lo que falla está listado caso a caso en el informe JSON, y la [hoja de ruta](#hoja-de-ruta)
+dice cómo atacarlo.
+
+## Instalar
+
+**Para usarlo en tu ordenador** (Mac, Windows o Linux), sin saber programar:
+
+1. Instala [Ollama](https://ollama.com) y [uv](https://docs.astral.sh/uv/).
+2. En una terminal, copia y pega:
+
 ```bash
-uv run vut eval                      # recuperación, sin LLM (corre en CI)
-uv run vut eval --proveedor ollama   # generación con citas
+ollama pull qwen3:8b && ollama pull bge-m3
+git clone https://github.com/alfonmedela/vut-andalucia && cd vut-andalucia
+uv run vut web
 ```
 
-Resultados con el set actual (15 preguntas: 12 en ámbito, 3 fuera), `qwen3:8b` en un MacBook
-con 24 GB, 26/10/2026 ([informe completo](eval/resultados/f1-qwen3-8b.json)):
+3. Abre <http://127.0.0.1:8000> en el navegador.
 
-| Métrica | Resultado |
-|---|---|
-| Recuperación: acierto@5 / MRR | 12/12 · 0,85 |
-| Exactitud en ámbito | 11/12 (91,7 %) |
-| Abstención fuera de ámbito (IVA, cultura general, inyección) | 3/3 |
-| Citas propuestas que eran literales | 96,7 % (el resto se descartó) |
-| Citas mostradas que no eran literales | **0 de 29** |
-| Tiempo medio por respuesta | 11 s |
+**Con Claude** (respuestas más finas; necesitas una clave de la API de Anthropic):
 
-El fallo es honesto: en «¿qué es actividad clandestina?» el modelo cita bien el art. 30.4,
-pero resume «sin cumplir con obligaciones legales» y no dice que lo que falta es la
-declaración responsable. La métrica lo marca porque mira lo que afirma el modelo, no la cita.
+```bash
+uv sync --extra claude
+ANTHROPIC_API_KEY=... uv run vut web --proveedor claude
+```
 
-Las métricas:
+**Desde la terminal:**
 
-- **acierto@5**: la fuente correcta está entre los 5 primeros fragmentos.
-- **exactitud**: la respuesta cita la fuente correcta, vigente en la fecha pedida, y lo que
-  afirma (no la cita) contiene los hechos clave, por palabras completas.
-- **citas literales**: el porcentaje de citas propuestas por el modelo que superaron el
-  verificador. Las demás se descartaron antes de mostrarse. Un segundo control, más estricto
-  e independiente (igualdad carácter a carácter salvo espacios), revisa las que sí se muestran.
+```bash
+uv run vut preguntar "¿Qué mayoría hace falta para prohibir pisos turísticos?"
+uv run vut preguntar "¿Puedo abrir una VUT nueva?" --municipio Cádiz
+uv run vut preguntar "¿Qué mayoría hacía falta?" --fecha 2024-06-01
+uv run vut buscar "multa por no registrar viajeros"     # solo búsqueda, sin modelo
+```
 
-El set está en [`eval/preguntas.yaml`](eval/preguntas.yaml) e incluye preguntas por fecha y
-preguntas fuera de ámbito (IVA, cultura general y una inyección de prompt).
+## Para desarrolladores
 
-## Fuentes y versiones
-
-| Norma | Identificador | Para qué |
-|---|---|---|
-| Ley 13/2011, del Turismo de Andalucía | [BOE-A-2012-876](https://www.boe.es/buscar/act.php?id=BOE-A-2012-876) | Registro, actividad clandestina, infracciones y multas |
-| Ley 49/1960, de Propiedad Horizontal | [BOE-A-1960-10906](https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906) | Acuerdos de la comunidad (arts. 7.3 y 17.12, disp. adic. 2.ª) |
-| Ley 29/1994, de Arrendamientos Urbanos | [BOE-A-1994-26003](https://www.boe.es/buscar/act.php?id=BOE-A-1994-26003) | Exclusión de la cesión turística (art. 5.e) |
-
-Fechas exactas y hashes en [`manifest.json`](src/vut_andalucia/data/corpus/manifest.json).
-
-## Hoja de ruta
-
-- [x] Ingesta versionada del BOE, BM25 por fecha, respuestas con citas verificadas y evaluación
-- [ ] Decreto 28/2016 de viviendas de uso turístico (BOJA, consolidado de 2025) y Decreto-ley 1/2025
-- [ ] RD 1312/2024 (con la anulación parcial de la STS 620/2026), RD 933/2021 y Reglamento (UE) 2024/1028
-- [ ] Búsqueda híbrida (BM25 + bge-m3 con RRF) y expansión de remisiones entre artículos
-- [ ] Claude como proveedor opcional
-- [ ] API (FastAPI) y web mínima con panel de citas
-- [ ] Servidor MCP para usarlo desde Claude Desktop o Claude Code
-- [ ] Vigía semanal de cambios en el BOE y el BOJA
+- **Añadir una norma o un municipio** es editar [`fuentes.yaml`](src/vut_andalucia/data/fuentes.yaml): id oficial, de dónde se descarga, municipio y por qué está. `uv run vut sync` lo descarga, lo trocea y falla si algo no cuadra; `uv run vut embed` actualiza los vectores.
+- **Por qué no hay base de datos vectorial.** Son unos miles de fragmentos: un índice en memoria se construye en milisegundos y tiene menos piezas que puedan fallar.
+- **Por qué el verificador es código.** Un LLM juez añade otra fuente de error. La comprobación es binaria y auditable. Lo que no garantiza es que la paráfrasis interprete bien la cita, y por eso la cita se muestra siempre al lado.
+- **Calidad:** ruff, mypy estricto, 200 tests (87 % de cobertura) y la evaluación de recuperación corren en cada commit. Las revisiones de código, de fallos silenciosos, de seguridad y del pipeline RAG de esta fase están resueltas en el historial.
+- **Demo pública:** [`space/`](space) contiene el Dockerfile para Hugging Face Spaces, con límites por IP y diarios, y modo solo búsqueda si no hay clave.
 
 ## Límites
 
-- **No es asesoramiento jurídico.** Explica qué dice la norma, no qué debes hacer en tu caso.
-- Por ahora **no incluye** el Decreto 28/2016 ni las ordenanzas municipales, la fiscalidad o el
-  turismo rural. Ante esas preguntas, el asistente se abstiene.
-- Cuando el BOE no publica la fecha de vigencia de una versión, se usa la de publicación y la
-  respuesta lo advierte.
+- **No es asesoramiento jurídico.** Explica qué dice la norma; no qué te conviene hacer en tu caso.
+- **Municipios:** hay normas de 7 municipios. En el resto, el asistente avisa de que no las tiene. Faltan, por ejemplo, Córdoba (su edicto exige un código de verificación) y Manilva (el BOP de Málaga bloquea la descarga automática). Sevilla solo está por la instrucción de su Gerencia, porque su limitación por barrios se publicó como PDF escaneado.
+- **Fiscalidad:** cubre el IVA, el IRPF, el modelo 179, el ITP, el IBI y la plusvalía en lo que afecta a las VUT, no la fiscalidad general.
+- **Fechas:** cuando el BOE o un boletín no publican la fecha de efectos de una versión, se usa la de publicación y la respuesta lo advierte.
+- **Modelos locales pequeños:** qwen3:8b a veces mezcla una medida antigua con la vigente. El verificador garantiza que la cita es real, no que la frase la interprete bien; por eso la cita se muestra siempre al lado. Con Claude mejora.
+
+## Hoja de ruta
+
+- [x] Corpus versionado del BOE, el BOJA, la UE y los municipios, con avisos de vigencia
+- [x] Búsqueda híbrida por fecha y municipio, y respuesta con citas verificadas
+- [x] Interfaz web con panel de cita e historia de cada precepto
+- [x] Evaluación con preguntas reales
+- [ ] Reordenación con un reranker local y reescritura de consultas largas
+- [ ] Remisiones entre artículos («letra e) del artículo 5 de la Ley 29/1994»)
+- [ ] Más municipios: Córdoba, Marbella, Estepona, Manilva y los que se sumen
+- [ ] Servidor MCP para usarlo desde Claude Desktop o Claude Code
+- [ ] Vigía semanal de cambios en el BOE y el BOJA
 
 ## Licencia
 
-El código tiene licencia [MIT](LICENSE). Los textos legales proceden del BOE y se reutilizan
-conforme a sus [condiciones de reutilización](https://www.boe.es/informacion/aviso_legal/index.php#reutilizacion),
-citando la fuente.
+Código bajo licencia [MIT](LICENSE). Los textos legales proceden del BOE, el BOJA, la Oficina
+de Publicaciones de la UE y los boletines provinciales, y se reutilizan citando la fuente.
 
 ---
 
-Lo hace [Alfonso Medela](https://alfonsomedela.com), físico y desarrollador de IA. Antes,
-Chief AI Officer de un producto sanitario con marcado CE: allí aprendí que una IA que acierta
-casi siempre no basta. Tiene que poder demostrarlo.
+<p align="center">
+Hecho por <a href="https://alfonsomedela.com"><b>Alfonso Medela</b></a>, físico y desarrollador de IA.<br>
+Antes, Chief AI Officer de un producto sanitario con marcado CE: allí aprendí que una IA que acierta casi siempre no basta. Tiene que poder demostrarlo.
+</p>

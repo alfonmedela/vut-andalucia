@@ -1,125 +1,101 @@
 <div align="center">
 
-# vut-andalucia
+# VUT Andalucía
 
-**Ask anything about holiday-rental law in Andalusia, Spain.
-Every answer comes with a verbatim quote from the official gazette — and if it can't quote it, it won't say it.**
+### Ask the law.
+
+**Everything about holiday rentals in Andalusia, Spain, with the exact quote from the official gazette or the town hall.<br>
+If it can't quote it, it won't say it.**
 
 [![CI](https://github.com/alfonmedela/vut-andalucia/actions/workflows/ci.yml/badge.svg)](https://github.com/alfonmedela/vut-andalucia/actions/workflows/ci.yml)
-![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
-![Local LLM](https://img.shields.io/badge/LLM-100%25%20local%20via%20Ollama-black)
-![MIT](https://img.shields.io/badge/license-MIT-green)
+![Official sources](https://img.shields.io/badge/official_sources-40-7A1E2A)
+![Municipalities](https://img.shields.io/badge/municipalities-785-7A1E2A)
+![LLM](https://img.shields.io/badge/LLM-100%25%20local%20or%20Claude-1C1714)
+![MIT](https://img.shields.io/badge/license-MIT-1C1714)
 
-[Español](README.md) · [How it works](#how-it-works) · [Evaluation](#evaluation) · [Sources](#sources)
+[Español](README.md) · [How it works](#how-it-works) · [Coverage](#coverage) · [Evaluation](#evaluation) · [Install](#install)
+
+<img src="docs/img/demo.gif" alt="Asking which majority a community of owners needs to ban tourist flats; the answer cites art. 17.12 of the Horizontal Property Act, highlights the exact sentence and shows the article's history since 2018" width="900">
 
 </div>
 
-> The assistant answers in Spanish, because the law is in Spanish. This page explains the
-> engineering for an international audience.
+> The assistant answers in Spanish, because the law is in Spanish. This page explains it for an
+> international audience.
 
-```console
-$ vut preguntar "¿Necesito permiso de los vecinos para poner mi piso en Airbnb?"
-  # "Do I need my neighbours' permission to list my flat on Airbnb?"
+## Who it is for
 
-• Sí, necesita permiso de la comunidad de propietarios para poner su piso en Airbnb. [1]
-• El permiso requiere el voto favorable de las tres quintas partes de los propietarios. [2]
+Owners, property managers, building administrators and lawyers who need to know what the rules
+actually say about *viviendas de uso turístico* (VUT, the Airbnb-style flats regulated in
+Andalusia). You ask as you would ask a colleague, and get a structured answer (**the rule ·
+exceptions · what to do · risks**) where every sentence carries a quote. Click it to see the
+official text with the sentence highlighted, the date it took effect and **how that article has
+changed over time**.
 
-[1] art. 7.3 LPH · versión vigente 2025-04-03 → hoy
-    «…deberá obtener previamente la aprobación expresa de la comunidad de propietarios.»
-[2] art. 17.12 LPH · versión vigente 2025-04-03 → hoy
-    «requerirá el voto favorable de las tres quintas partes del total de los propietarios…»
-```
-
-## Why
-
-Spanish short-term-rental law ("viviendas de uso turístico", VUT) is spread across regional,
-national and EU rules, and it keeps moving. The Horizontal Property Act changed in April 2025.
-The Urban Leases Act's article 5 had three versions in October 2026. The Supreme Court struck
-down the national rental registry in May 2026. Generic chatbots answer confidently and without
-sources. This project does the opposite: **it only states what it can quote, and it checks the
-quote.**
+<p align="center"><img src="docs/img/respuesta.png" alt="Answer with art. 7.3 LPH highlighted in the citation panel" width="900"></p>
 
 ## What makes it different
 
-- **Character-level verified citations.** The LLM proposes claims, each with a verbatim quote.
-  Deterministic code (no LLM) checks that the quote is a contiguous run of whole words, at
-  least 6, in the fragment it cites. Interior ellipses are rejected: skipping a single "no"
-  could invert the law. Unverified claims are dropped. If none survive, the assistant abstains.
-- **Point-in-time answers.** Every paragraph keeps its validity range, so `--fecha 2024-06-01`
-  answers with the law as it stood that day. The ingester reconstructs real legislative
-  history. For example, art. 17.12 existed from 19 Dec 2018, vanished on 24 Jan 2019 when an
-  emergency decree lapsed, came back on 6 Mar 2019, and was amended on 3 Apr 2025.
-- **Official sources only.** Texts come from the BOE open-data API, with a manifest that
-  records the ELI, version dates and sha256 of every text.
-- **Speaks like people, searches like lawmakers.** A small glossary maps "Airbnb" or "piso
-  turístico" to the statutory wording, which only ever refers to "the activity in letter e)
-  of article 5 of Law 29/1994".
-- **Runs 100% locally** with Ollama and an 8B model on a laptop.
-- **Honest abstentions.** "Nothing in force matches", "the retrieved articles don't answer"
-  and "the model answered without literal quotes" are three different outcomes. An LLM error
-  is an error, never a silent "the law says nothing".
-
-## Quickstart
-
-```bash
-ollama pull qwen3:8b
-git clone https://github.com/alfonmedela/vut-andalucia && cd vut-andalucia
-uv sync
-uv run vut preguntar "¿Puede la comunidad prohibir los pisos turísticos?"
-uv run vut preguntar "¿Qué mayoría hacía falta para limitar los pisos turísticos?" --fecha 2024-06-01
-uv run vut buscar "multa por alquiler turístico sin registro"   # retrieval only, no LLM
-```
+- **Quotes checked by code, not by another AI.** The model proposes each claim with a verbatim quote. A deterministic verifier checks that the quote is a contiguous run of whole words in the cited official text, with no ellipsis that could skip a "not". Claims that fail are dropped; if none survive, the assistant abstains.
+- **Point-in-time law.** Every article keeps all its versions, so you can ask about the law in force today or in June 2024.
+- **It tells you what you can't see.** Supreme Court annulments (the 2026 rulings on the national rental registry), emergency decrees still awaiting parliamentary confirmation, and deferred effects (Spain's new VAT on stays of 30 nights or less applies from 1 December 2026 even though the consolidated BOE dates it October). Each warning sits next to the quote it affects.
+- **Your town.** It detects the municipality in the question (or you pick one of Andalusia's 785) and adds its local rules. If the answer depends on the town and you didn't say which, it asks. If the corpus has no rules for your town, it says so.
+- **Law vs. case law vs. guidance.** Statutes and ordinances bind; court rulings interpret; the regional government's FAQ only guides. The answer labels each.
+- **Private and free.** Runs entirely on your laptop with Ollama, or with Claude for higher-quality answers.
 
 ## How it works
 
-```
-BOE API ──► per-article/paragraph parser ──► versioned JSONL corpus (+ sha256 manifest)
-question ──► glossary ──► Spanish BM25 filtered by date ──► top-k fragments
-         ──► LLM (Ollama, JSON-schema output): claims + verbatim quotes
-         ──► verifier: is the quote, as is, in the cited fragment? ──► answer | abstain
-```
+<p align="center"><img src="docs/img/como-funciona.svg" alt="Official sources, every article with its history, search by date and municipality, the model proposes, the verifier checks" width="900"></p>
 
-Design decisions:
+1. **Official sources:** the BOE open-data API (which also consolidates Andalusian laws), the Junta de Andalucía's consolidated-text portal (BOJA, via a headless browser, stored for offline rebuilds), the EU Publications Office (Cellar) and provincial gazettes. Every text is fingerprinted with sha256.
+2. **Every article with its history:** versions and validity dates per paragraph, plus the official notes that matter ("annulled insofar as…", "with effect from 1 December 2026…").
+3. **The law of that day and town:** hybrid search, Spanish BM25 with a colloquial glossary plus bge-m3 multilingual embeddings, fused with RRF, restricted to what was in force on that date and in that municipality.
+4. **The model proposes:** qwen3 (local) or Claude writes short claims, each with a source and a verbatim quote, and lists the facts it would need to refine the answer.
+5. **The verifier decides:** only verified claims are shown.
 
-- **No vector database.** The VUT corpus is a few hundred paragraphs, and an in-memory BM25
-  builds in milliseconds. Embeddings will come in as a fusion signal, not a replacement.
-- **The paragraph is the unit.** The BOE republishes the whole article on every amendment.
-  Merging identical consecutive versions gives each paragraph the date its own wording took
-  effect.
-- **Code verifies quotes, not an LLM judge.** The check is binary and auditable. What it does
-  **not** guarantee is that the paraphrase reads the quote correctly, which is why the quote
-  is always shown next to it.
+## Coverage
+
+**40 official sources, 2,252 versioned fragments** (as of 26 October 2026): Andalusia's Tourism Act and decrees on holiday flats (four versions since 2016), the tourism register, tourist apartments, rural tourism, complaint forms and inspection; local rules for **Málaga, Seville, Granada, Cádiz, El Puerto de Santa María, Chiclana and Jerez**; Spain's Horizontal Property Act, Urban Leases Act, national rental registry and the **three 2026 Supreme Court rulings** that partly annulled it, guest-registration rules, VAT, income tax, property and transfer taxes; and the EU Regulation 2024/1028 on short-term rental data. See [`fuentes.yaml`](src/vut_andalucia/data/fuentes.yaml).
 
 ## Evaluation
 
-| Metric (`qwen3:8b`, 15 questions, 26 Oct 2026) | Result |
+The evaluation questions are **real**: they come from a group of property owners advised by a
+specialist lawyer, and from public forums and FAQs, anonymised. Each one has its correct source and
+a **reference quote that a test checks verbatim** against the version in force on its date, so CI
+fails when the law changes. **105 cases**: 92 in scope (edge cases, false premises, point-in-time
+and municipal questions) and 10 out of scope (other regions, trivia, a prompt injection).
+
+| Retrieval (hybrid, 26 Oct 2026) | Result |
 |---|---|
-| Retrieval hit@5 / MRR | 12/12 · 0.85 |
-| In-scope accuracy (right source, valid on the date, key facts in the claim) | 11/12 |
-| Abstention on out-of-scope (VAT, trivia, prompt injection) | 3/3 |
-| Proposed quotes that were literal | 96.7% (the rest were dropped) |
-| Displayed quotes that were not literal | **0 of 29** |
+| Correct source in the top 5 | 77% |
+| Correct source in the 10 the model sees | 79% |
+| Exact reference sentence reaches the model | 63% |
 
-Each reference quote in [`eval/preguntas.yaml`](eval/preguntas.yaml) is itself tested against
-the current BOE text, so CI fails when the law changes.
+<!-- GENERATION -->
 
-## Sources
+With a hand-made set of 12 questions, retrieval scored 100%. Real questions are harder, and
+the numbers say so.
 
-| Law | ID |
-|---|---|
-| Ley 13/2011, Andalusian Tourism Act | [BOE-A-2012-876](https://www.boe.es/buscar/act.php?id=BOE-A-2012-876) |
-| Ley 49/1960, Horizontal Property Act | [BOE-A-1960-10906](https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906) |
-| Ley 29/1994, Urban Leases Act | [BOE-A-1994-26003](https://www.boe.es/buscar/act.php?id=BOE-A-1994-26003) |
+## Install
 
-Roadmap: Andalusian Decreto 28/2016 (BOJA), RD 1312/2024, RD 933/2021 and EU Regulation
-2024/1028; hybrid BM25 + bge-m3 retrieval; Claude as an optional provider; an API and a web
-UI; an MCP server; a weekly watcher for changes in the law.
+```bash
+ollama pull qwen3:8b && ollama pull bge-m3
+git clone https://github.com/alfonmedela/vut-andalucia && cd vut-andalucia
+uv run vut web          # then open http://127.0.0.1:8000
+```
 
-**Not legal advice.** Code under the MIT licence. Legal texts are reused from the BOE under
-its reuse terms.
+With Claude: `uv sync --extra claude` and `ANTHROPIC_API_KEY=... uv run vut web --proveedor claude`.
+CLI: `uv run vut preguntar "..." --municipio Cádiz --fecha 2024-06-01`.
+
+Adding a law or a municipality means editing [`fuentes.yaml`](src/vut_andalucia/data/fuentes.yaml)
+and running `uv run vut sync && uv run vut embed`. A Hugging Face Spaces Dockerfile lives in
+[`space/`](space).
+
+**Not legal advice.** Code under the MIT licence; legal texts are reused from their official
+sources with attribution.
 
 ---
 
-Built by [Alfonso Medela](https://alfonsomedela.com), physicist and AI engineer. I used to be
-Chief AI Officer of a CE-marked medical device, which taught me that an AI that is right most
-of the time is not enough: it has to be able to prove it.
+<p align="center">
+Built by <a href="https://alfonsomedela.com"><b>Alfonso Medela</b></a>, physicist and AI engineer.<br>
+I used to be Chief AI Officer of a CE-marked medical device, which taught me that an AI that is right most of the time is not enough: it has to be able to prove it.
+</p>

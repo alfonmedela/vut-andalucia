@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="t d">
+  <title id="t">Cómo funciona vut-andalucia</title>
+  <desc id="d">Fuentes oficiales, corpus por versiones, búsqueda por fecha y municipio, el modelo propone afirmaciones con cita literal, un verificador comprueba la cita y solo entonces se muestra; si no, el asistente se abstiene.</desc>
+  <defs>
+    <marker id="f" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#7A1E2A"/>
+    </marker>
+    <style>
+      .caja { fill: #FAF8F3; stroke: #CBC1AF; stroke-width: 1.2; }
+      .clave { fill: #FAF8F3; stroke: #7A1E2A; stroke-width: 2; }
+      .n { font: 500 13px ui-monospace, Menlo, monospace; fill: #7A1E2A; letter-spacing: .06em; }
+      .h { font: 400 23px Georgia, "Times New Roman", serif; fill: #1C1714; }
+      .p { font: 400 14px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: #4E4741; }
+      .ok { font: 600 15px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: #2F5D3A; }
+      .no { font: 600 15px -apple-system, "Helvetica Neue", Arial, sans-serif; fill: #4E4741; }
+      .linea { stroke: #7A1E2A; stroke-width: 1.6; fill: none; marker-end: url(#f); }
+    </style>
+  </defs>
+  <rect width="1200" height="360" fill="#F3EFE7"/>
+
+  <g transform="translate(24 70)">
+    <rect class="caja" width="196" height="190"/>
+    <text class="n" x="18" y="32">01</text>
+    <text class="h" x="18" y="66">Fuentes</text>
+    <text class="h" x="18" y="94">oficiales</text>
+    <text class="p" x="18" y="128">BOE · BOJA · UE</text>
+    <text class="p" x="18" y="150">Supremo · BOP</text>
+    <text class="p" x="18" y="172">ayuntamientos</text>
+  </g>
+  <path class="linea" d="M224 165 H262"/>
+
+  <g transform="translate(266 70)">
+    <rect class="caja" width="196" height="190"/>
+    <text class="n" x="18" y="32">02</text>
+    <text class="h" x="18" y="66">Cada artículo,</text>
+    <text class="h" x="18" y="94">con su historia</text>
+    <text class="p" x="18" y="128">vigente desde → hasta</text>
+    <text class="p" x="18" y="150">anulaciones, efectos</text>
+    <text class="p" x="18" y="172">diferidos, convalidación</text>
+  </g>
+  <path class="linea" d="M466 165 H504"/>
+
+  <g transform="translate(508 70)">
+    <rect class="caja" width="196" height="190"/>
+    <text class="n" x="18" y="32">03</text>
+    <text class="h" x="18" y="66">La ley de ese</text>
+    <text class="h" x="18" y="94">día y municipio</text>
+    <text class="p" x="18" y="128">búsqueda por palabras</text>
+    <text class="p" x="18" y="150">y por significado</text>
+    <text class="p" x="18" y="172">(BM25 + bge-m3)</text>
+  </g>
+  <path class="linea" d="M708 165 H746"/>
+
+  <g transform="translate(750 70)">
+    <rect class="caja" width="196" height="190"/>
+    <text class="n" x="18" y="32">04</text>
+    <text class="h" x="18" y="66">El modelo</text>
+    <text class="h" x="18" y="94">propone</text>
+    <text class="p" x="18" y="128">cada afirmación con</text>
+    <text class="p" x="18" y="150">una cita literal</text>
+    <text class="p" x="18" y="172">Ollama local o Claude</text>
+  </g>
+  <path class="linea" d="M950 165 H988"/>
+
+  <g transform="translate(992 70)">
+    <rect class="clave" width="184" height="190"/>
+    <text class="n" x="18" y="32">05</text>
+    <text class="h" x="18" y="66">Verificador</text>
+    <text class="p" x="18" y="96">código, no otra IA:</text>
+    <text class="p" x="18" y="118">¿está la cita, tal cual,</text>
+    <text class="p" x="18" y="140">en el texto oficial?</text>
+    <path d="M18 160 l5 5 l9 -11" stroke="#2F5D3A" stroke-width="2.4" fill="none"/>
+    <text class="ok" x="40" y="168">se muestra</text>
+  </g>
+
+  <text class="no" x="992" y="300">✗ si no: no se muestra.</text>
+  <text class="no" x="992" y="322">Sin citas, no hay respuesta.</text>
+  <text class="p" x="24" y="40">Viviendas de uso turístico · Andalucía</text>
+  <rect x="1152" y="26" width="9" height="9" fill="#7A1E2A" transform="rotate(45 1156.5 30.5)"/>
+</svg>

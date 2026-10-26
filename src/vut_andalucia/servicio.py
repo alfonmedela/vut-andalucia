@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from vut_andalucia import corpus as corpus_mod
@@ -16,9 +17,14 @@ def crear_buscador(
     corpus = corpus_mod.cargar(directorio)
     if not semantico:
         return Buscador(corpus)
-    return Buscador(
-        corpus, denso=embeddings.cargar(directorio), vectorizador=embeddings.ClienteOllama()
-    )
+    vectorizador: embeddings.ClienteOllama | embeddings.VectorizadorConCache
+    cache = os.environ.get("VUT_CACHE_CONSULTAS")
+    if cache:
+        # CI y reproducibilidad: vectores de consultas grabados, sin Ollama.
+        vectorizador = embeddings.VectorizadorConCache(Path(cache))
+    else:
+        vectorizador = embeddings.ClienteOllama()
+    return Buscador(corpus, denso=embeddings.cargar(directorio), vectorizador=vectorizador)
 
 
 def resolver_municipio(valor: str) -> str:

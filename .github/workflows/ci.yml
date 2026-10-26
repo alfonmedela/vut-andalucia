@@ -20,3 +20,5 @@ jobs:
       - run: uv run pytest --cov=vut_andalucia --cov-report=term-missing
       - name: Evaluación de recuperación (sin LLM)
         run: uv run vut eval
+        env:
+          VUT_CACHE_CONSULTAS: tests/fixtures/consultas-bge-m3.json
