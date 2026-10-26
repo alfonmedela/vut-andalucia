@@ -36,9 +36,6 @@ Repository = "https://github.com/alfonmedela/vut-andalucia"
 claude = [
     "anthropic>=2.3.0",
 ]
-rerank = [
-    "fastembed>=0.9.1",
-]
 
 [dependency-groups]
 dev = ["pytest>=8", "pytest-cov>=5", "ruff>=0.6", "mypy>=1.11", "types-PyYAML"]
