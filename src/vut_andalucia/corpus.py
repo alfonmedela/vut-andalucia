@@ -52,6 +52,7 @@ def guardar(
     directorio: Path,
     lote: list[tuple[Norma, list[Fragmento], bytes]],
     ahora: dt.datetime | None = None,
+    catalogo: set[str] | None = None,
 ) -> list[EntradaManifiesto]:
     """Escribe varias normas y actualiza el manifiesto al final.
 
@@ -60,6 +61,11 @@ def guardar(
     directorio.mkdir(parents=True, exist_ok=True)
     momento = ahora or dt.datetime.now(dt.UTC).replace(microsecond=0)
     manifiesto = leer_manifiesto(directorio)
+    if catalogo is not None:
+        # Una fuente que sale del catálogo sale también del corpus.
+        for retirada in set(manifiesto) - catalogo:
+            (directorio / f"{retirada}.jsonl").unlink(missing_ok=True)
+            del manifiesto[retirada]
     entradas = []
     for norma, fragmentos, bruto in lote:
         _escribir_atomico(

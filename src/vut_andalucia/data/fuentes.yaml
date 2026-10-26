@@ -1,0 +1,450 @@
+# Catálogo de fuentes oficiales del corpus.
+#
+# Cada entrada: id oficial, abreviatura para citar (corta), de dónde se descarga (fuente) y por
+# qué está aquí (motivo). Campos opcionales: territorio (ue | estatal | andalucia | municipal),
+# municipio, clase (norma | jurisprudencia | doctrina), bloques (solo esos preceptos), estado
+# (aviso de vigencia que se muestra con cada cita), origen (id en la fuente), desde/hasta.
+#
+# Toda entrada se verifica al sincronizar: si el id no existe en la fuente oficial, `vut sync`
+# falla y no escribe nada.
+
+# ── Andalucía ────────────────────────────────────────────────────────────────────────────────
+- id: BOE-A-2012-876
+  corta: Ley 13/2011
+  alias: ["ley del turismo", "ley de turismo", "ley 13/2011"]
+  fuente: boe
+  territorio: andalucia
+  motivo: Ley del Turismo de Andalucía. Registro de Turismo, deberes, actividad clandestina, infracciones y multas.
+
+- id: BOJA-D-2016-28
+  corta: Decreto 28/2016
+  alias: ["decreto 28/2016", "decreto de viviendas turísticas", "decreto de viviendas con fines turísticos"]
+  fuente: boja
+  origen: "30766"
+  territorio: andalucia
+  rango: Decreto
+  titulo: Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos y de modificación del Decreto 194/2010, de 20 de abril, de establecimientos de apartamentos turísticos
+  motivo: La norma central de las viviendas de uso turístico en Andalucía. Requisitos, plazas, inscripción, cancelación y precios.
+
+- id: BOJA-b-2025-90042
+  corta: Decreto-ley 1/2025
+  alias: ["decreto-ley 1/2025", "decreto ley 1/2025"]
+  fuente: boe
+  territorio: andalucia
+  motivo: Medidas urgentes en materia de vivienda. Art. 6, poder de los ayuntamientos para limitar o suspender las VUT; disp. final 6.ª, reforma del Decreto 28/2016.
+
+- id: BOE-A-2026-423
+  corta: Ley 5/2025
+  alias: ["ley de vivienda de andalucía", "ley 5/2025", "vivienda protegida", "vpo"]
+  fuente: boe
+  territorio: andalucia
+  bloques: [a1-11, a3-7, a7-4, a9-5, a1-29, dd]
+  motivo: Ley de Vivienda de Andalucía. Uso turístico de viviendas protegidas, planes municipales de vivienda y compatibilidad con el alquiler turístico.
+
+- id: BOE-A-2021-20916
+  corta: LISTA
+  alias: ["lista", "ley del suelo de andalucía", "ley 7/2021"]
+  fuente: boe
+  territorio: andalucia
+  bloques: [a2-3, a2-4, a3-3]
+  motivo: Ley de impulso para la sostenibilidad del territorio de Andalucía. Usos del suelo; marco urbanístico de las limitaciones municipales.
+
+- id: BOJA-D-2014-143
+  corta: Decreto 143/2014
+  alias: ["registro de turismo", "rta", "cambio de titularidad", "cambio de titular"]
+  fuente: boja
+  origen: "31059"
+  territorio: andalucia
+  rango: Decreto
+  titulo: Decreto 143/2014, de 21 de octubre, por el que se regula la organización y funcionamiento del Registro de Turismo de Andalucía
+  motivo: Registro de Turismo de Andalucía. Inscripción, anotaciones, cambios de titularidad y cancelación.
+
+- id: BOJA-D-2010-194
+  corta: Decreto 194/2010
+  alias: ["apartamentos turísticos", "decreto 194/2010", "conjunto de apartamentos"]
+  fuente: boja
+  origen: "21734"
+  territorio: andalucia
+  rango: Decreto
+  titulo: Decreto 194/2010, de 20 de abril, de establecimientos de apartamentos turísticos
+  motivo: Apartamentos turísticos. Cuándo varias viviendas de un mismo titular dejan de ser VUT y pasan a ser apartamentos.
+
+- id: BOJA-D-2002-20
+  corta: Decreto 20/2002
+  alias: ["turismo rural", "medio rural", "casa rural", "vivienda rural", "vtar", "decreto 20/2002"]
+  fuente: boja
+  origen: "19201"
+  territorio: andalucia
+  rango: Decreto
+  titulo: Decreto 20/2002, de 29 de enero, de Turismo en el Medio Rural y Turismo Activo
+  motivo: Turismo rural. Viviendas turísticas de alojamiento rural (VTAR) y casas rurales, excluidas del Decreto 28/2016.
+
+- id: BOJA-D-2022-82
+  corta: Decreto 82/2022
+  alias: ["hojas de reclamaciones", "hoja de reclamaciones", "hojas de quejas", "reclamación"]
+  fuente: boja
+  origen: "33976"
+  territorio: andalucia
+  rango: Decreto
+  titulo: Decreto 82/2022, de 17 de mayo, por el que se regulan las hojas de quejas y reclamaciones de las personas consumidoras y usuarias en Andalucía
+  motivo: Hojas de quejas y reclamaciones que toda VUT debe tener a disposición de los huéspedes.
+
+- id: BOJA-D-2003-144
+  corta: Decreto 144/2003
+  alias: ["inspección de turismo", "inspector", "inspección"]
+  fuente: boja
+  origen: "16427"
+  territorio: andalucia
+  rango: Decreto
+  titulo: Decreto 144/2003, de 3 de junio, de la Inspección de Turismo
+  motivo: Inspección de turismo. Actas, funciones de los inspectores y deberes del titular durante la inspección.
+
+- id: JUNTA-FAQ-VUT
+  corta: FAQ de la Junta (VUT)
+  alias: ["junta de andalucía", "junta", "consejería de turismo"]
+  fuente: documento
+  clase: doctrina
+  territorio: andalucia
+  troceo: preguntas
+  origen: https://www.juntadeandalucia.es/organismos/turismojusticiadesregulacionyadministracionlocal/areas/turismo/registro-turismo/establecimientos-servicios/paginas/faq-viviendas-turismo.html
+  desde: 2026-10-26
+  rango: Preguntas frecuentes
+  titulo: Preguntas frecuentes sobre viviendas de uso turístico, Consejería de Turismo de la Junta de Andalucía
+  estado: Criterio de la Administración, no es una norma. Copia del 26/10/2026.
+  motivo: Cómo aplica la Junta el Decreto 28/2016. Trámites, titularidad, cambio de titular al vender, capacidad, VPO y baja.
+
+# ── Municipios ───────────────────────────────────────────────────────────────────────────────
+# Solo actos publicados en boletines o sedes oficiales. Cuando la fuente no fija el día de
+# efectos se marca `incierta` y la respuesta lo advierte. Un municipio que no aparece aquí no
+# está libre de limitaciones: simplemente no está en el corpus (la respuesta lo dice).
+
+- id: MALAGA-PGOU-DA3-2025
+  corta: PGOU de Málaga (DA 3.ª)
+  alias: ["43 barrios", "8 %", "zonas saturadas", "barrio saturado"]
+  fuente: documento
+  territorio: municipal
+  municipio: malaga
+  origen: https://urbanismo.malaga.eu/export/sites/urbanismo/anuncios-de-planeamiento/planificacion/modificacion-de-elementos/Anuncios-Planeamiento-Modificacion/PL51_2024/03-Resumen_Ejecutivo_Mod_PGOU_VUT_DA3_AD_PL51-2024-firmada.pdf
+  desde: 2025-08-06
+  incierta: true
+  rango: Modificación del PGOU
+  titulo: Modificación del PGOU de Málaga n.º 23 (PL 51/2024), Disposición Adicional 3.ª, limitación de viviendas de uso turístico en zonas saturadas. Resumen ejecutivo
+  cita: DA 3.ª, resumen ejecutivo
+  estado: >-
+    Aprobada definitivamente por el Pleno el 29/05/2025 y publicada en el BOP de Málaga n.º 150
+    de 06/08/2025. Desde el 23/08/2025 rige además la suspensión de nuevas VUT en todo el
+    término municipal.
+  motivo: Límite del 8 % de VUT por barrio y prohibición de nuevas VUT en los barrios que lo superan.
+
+- id: MALAGA-SUSPENSION-2025
+  corta: Ayuntamiento de Málaga, suspensión de 2025
+  alias: ["suspensión", "moratoria", "todo el término municipal"]
+  fuente: documento
+  clase: doctrina
+  territorio: municipal
+  municipio: malaga
+  origen: https://www.malaga.eu/visorcontenido/ANUDocumentDisplayer/178062/COMUNICADO.pdf
+  desde: 2025-08-23
+  hasta: 2028-08-23
+  rango: Comunicado oficial
+  titulo: Comunicado del Ayuntamiento de Málaga sobre la suspensión de nuevas viviendas de uso turístico en todo el término municipal (22/08/2025)
+  cita: comunicado
+  estado: >-
+    Comunicado oficial del Ayuntamiento que resume el acuerdo de la Junta de Gobierno Local de
+    14/08/2025 (BOP de Málaga de 22/08/2025, no incluido porque el BOP bloquea la descarga
+    automática). La suspensión dura como máximo tres años o hasta que se apruebe la
+    modificación del PGOU.
+  motivo: Suspensión de nuevas VUT en todo Málaga desde el 23/08/2025, con base en el art. 6 del Decreto-ley 1/2025.
+
+- id: MALAGA-PGOU-PL7-2026
+  corta: Modificación PGOU de Málaga n.º 28
+  alias: ["hospedaje", "apartamentos turísticos en málaga", "planta baja", "local a vivienda"]
+  fuente: documento
+  territorio: municipal
+  municipio: malaga
+  origen: https://urbanismo.malaga.eu/export/sites/urbanismo/anuncios-de-planeamiento/planificacion/modificacion-de-elementos/Anuncios-Planeamiento-Modificacion/PL07-2026/06-Resumen_Ejecutivo_PL7-26.pdf
+  desde: 2026-07-25
+  incierta: true
+  rango: Modificación del PGOU (aprobación inicial)
+  titulo: Modificación pormenorizada n.º 28 del PGOU de Málaga (PL 7/2026), uso de hospedaje y cambio de uso de locales. Resumen ejecutivo
+  cita: resumen ejecutivo
+  estado: >-
+    Solo aprobación inicial (Pleno de 16/07/2026); no es aún norma definitiva. Lleva aparejada una
+    suspensión de licencias en vigor desde el 25/07/2026, por un máximo de tres años.
+  motivo: Incompatibilidad del hospedaje, incluidos apartamentos turísticos y VUT, con el suelo residencial de Málaga.
+
+- id: MALAGA-INSTRUCCION-1-2024
+  corta: Instrucción 1/2024 GMU Málaga
+  alias: ["entrada independiente", "suministros independientes", "instrucción 1/2024"]
+  fuente: documento
+  clase: doctrina
+  territorio: municipal
+  municipio: malaga
+  origen: https://urbanismo.malaga.eu/export/sites/urbanismo/.galleries/Viviendas-de-Uso-Turistico/Instruccion-1-2024-aplicacion-normativa-urbanistica-viviendas-turisticas.pdf
+  desde: 2024-06-10
+  rango: Instrucción
+  titulo: Instrucción 1/2024 de la Gerencia Municipal de Urbanismo de Málaga sobre aplicación de la normativa urbanística a la vivienda de uso turístico
+  cita: Instrucción 1/2024
+  estado: Instrucción interpretativa de la Gerencia de Urbanismo, no es una norma.
+  motivo: Exige entrada y suministros independientes para nuevas VUT en edificios con viviendas.
+
+- id: SEVILLA-INSTRUCCION-2025
+  corta: Gerencia de Urbanismo de Sevilla, instrucción de 2025
+  alias: ["10 %", "límite por barrio", "casco antiguo", "triana"]
+  fuente: documento
+  clase: doctrina
+  territorio: municipal
+  municipio: sevilla
+  origen: https://www.urbanismosevilla.org/areas/licencias/circulares-interpretativas/viviendas-de-usos-turisticos/notificacion-ce-sobre-vut-limitacion-3477-00000002.pdf/at_download/file
+  desde: 2025-12-16
+  rango: Instrucción
+  titulo: Instrucción del Gerente de Urbanismo de Sevilla (10/12/2025) sobre la limitación de VUT, conformada por la Comisión Ejecutiva el 16/12/2025
+  cita: instrucción
+  estado: >-
+    Criterio de la Gerencia de Urbanismo. La limitación del 10 % de VUT por barrio (Pleno de
+    17/10/2024, BOP n.º 210 de 28/10/2024, en vigor desde el 29/10/2024) y la Modificación Puntual
+    44 del PGOU no están en el corpus como texto: su publicación oficial es un PDF escaneado.
+  motivo: Cómo aplica Sevilla la limitación de VUT por barrios a las viviendas ya en trámite.
+
+- id: GRANADA-LIMITE-2025
+  corta: Acuerdo de Granada de 30/05/2025
+  alias: ["albaicín", "albayzín", "realejo", "centro-sagrario", "fígares", "10 %"]
+  fuente: documento
+  territorio: municipal
+  municipio: granada
+  origen: https://albayzin.info/wp-content/uploads/2025/07/Edicto-BOP-limites-VUT-2025.pdf
+  desde: 2025-07-28
+  incierta: true
+  rango: Acuerdo del Pleno
+  titulo: Acuerdo del Pleno de Granada de 30/05/2025 sobre la limitación del número máximo de viviendas de uso turístico (BOP de Granada n.º 141, 28/07/2025, CVE BOP-GRA-2025-141016)
+  cita: acuerdo
+  estado: >-
+    Copia de la página del BOP de Granada n.º 141 (CVE BOP-GRA-2025-141016), obtenida de un
+    espejo porque granada.org rechaza las descargas automáticas. Granada tramita además
+    innovaciones del PGOU-01 y del PEPRI Centro con aprobación inicial.
+  motivo: Máximo del 10 % de VUT por área estadística y ninguna nueva VUT en Centro, Albaicín y Fígares.
+
+- id: CADIZ-PGOU-2022
+  corta: Modificación del PGOU de Cádiz (2022)
+  fuente: documento
+  territorio: municipal
+  municipio: cadiz
+  origen: https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2022/10_octubre/BOP198_17-10-22.pdf
+  extracto: AYUNTAMIENTO DE CADIZ ANUNCIO El Excmo. Ayuntamiento Pleno en sesión extraordinaria celebrada el día 14 de septiembre de 2022
+  desde: 2022-10-17
+  incierta: true
+  rango: Modificación del PGOU
+  titulo: Modificación del PGOU de Cádiz para evitar la excesiva turistificación (aprobación definitiva, Pleno de 14/09/2022; BOP de Cádiz n.º 198, 17/10/2022)
+  cita: anuncio
+  motivo: Primera limitación urbanística del uso turístico en el casco de Cádiz.
+
+- id: CADIZ-MP9-2025
+  corta: Modificación Puntual n.º 9 del PGOU de Cádiz
+  alias: ["suspensión", "nuevas declaraciones"]
+  fuente: documento
+  territorio: municipal
+  municipio: cadiz
+  origen: https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2025/06_junio/BOP105_05-06-25.pdf
+  extracto: AYUNTAMIENTO DE CADIZ ANUNCIO El Excmo. Ayuntamiento Pleno en su sesión extraordinaria celebrada el día 13 de mayo de 2025
+  desde: 2025-06-05
+  hasta: 2028-06-05
+  incierta: true
+  rango: Modificación del PGOU (aprobación inicial) y suspensión
+  titulo: Modificación Puntual n.º 9 del PGOU de Cádiz, uso de hospedaje, y suspensión de nuevas viviendas de uso turístico (Pleno de 13/05/2025; BOP de Cádiz n.º 105, 05/06/2025)
+  cita: anuncio
+  estado: Aprobación inicial con suspensión; la suspensión dura como máximo tres años.
+  motivo: Suspensión de nuevas VUT en todo Cádiz e incompatibilidad del hospedaje en edificios residenciales.
+
+- id: CADIZ-MP10-2025
+  corta: Modificación Puntual n.º 10 del PGOU de Cádiz
+  fuente: documento
+  territorio: municipal
+  municipio: cadiz
+  origen: https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2025/06_junio/BOP118_24-06-25.pdf
+  extracto: AYUNTAMIENTO DE CADIZ ANUNCIO Aprobación inicial de la modificación Puntual n.º 10
+  desde: 2025-06-24
+  incierta: true
+  rango: Modificación del PGOU (aprobación inicial)
+  titulo: Modificación Puntual n.º 10 del PGOU de Cádiz, protección del suelo residencial frente al uso hospedaje (aprobación inicial, Pleno de 29/05/2025; BOP de Cádiz n.º 118, 24/06/2025)
+  cita: anuncio
+  estado: Aprobación inicial; no consta en el BOP la aprobación definitiva a fecha del corpus.
+  motivo: Protección del suelo residencial de Cádiz frente al hospedaje, incluidas las VUT.
+
+- id: PUERTO-SANTA-MARIA-SUSPENSION-2025
+  corta: Acuerdo de El Puerto de Santa María de 07/03/2025
+  alias: ["suspensión", "el puerto"]
+  fuente: documento
+  territorio: municipal
+  municipio: el-puerto-de-santa-maria
+  origen: https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2025/04_abril/BOP079_29-04-25.pdf
+  extracto: AYUNTAMIENTO DE EL PUERTO DE SANTA MARIA ANUNCIO DE INFORMACIÓN PÚBLICA
+  desde: 2025-04-29
+  hasta: 2028-03-07
+  incierta: true
+  rango: Acuerdo del Pleno
+  titulo: Suspensión de nuevas licencias de viviendas de uso turístico en El Puerto de Santa María (Pleno de 07/03/2025; BOP de Cádiz n.º 79, 29/04/2025)
+  cita: anuncio
+  estado: >-
+    Tres años según el anuncio; no precisa si se cuentan desde el acuerdo (07/03/2025) o desde
+    su publicación (29/04/2025).
+  motivo: Suspensión de nuevas VUT en todo el término municipal por tres años (art. 6 del Decreto-ley 1/2025).
+
+- id: CHICLANA-SUSPENSION-2025
+  corta: Acuerdo de Chiclana de 21/03/2025
+  alias: ["conjunto histórico", "ensanche tradicional", "zsuh"]
+  fuente: documento
+  territorio: municipal
+  municipio: chiclana-de-la-frontera
+  origen: https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2025/05_mayo/BOP084_07-05-25.pdf
+  extracto: AYUNTAMIENTO DE CHICLANA DE LA FRONTERA ANUNCIO SUSPENSIÓN DE LICENCIAS
+  desde: 2025-05-07
+  hasta: 2028-05-07
+  incierta: true
+  rango: Acuerdo de la Junta de Gobierno Local
+  titulo: Suspensión de licencias y autorizaciones de viviendas de uso turístico en el Conjunto Histórico y el Ensanche Tradicional de Chiclana (JGL de 21/03/2025; BOP de Cádiz n.º 84, 07/05/2025)
+  cita: anuncio
+  motivo: Suspensión de nuevas VUT en el centro histórico y el ensanche de Chiclana; la costa no queda afectada.
+
+- id: JEREZ-PGOU-HOSPEDAJE-2026
+  corta: Modificación del PGOU de Jerez (hospedaje)
+  alias: ["planta baja", "unifamiliar"]
+  fuente: documento
+  territorio: municipal
+  municipio: jerez-de-la-frontera
+  origen: https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2026/01_enero/BOP014_22-01-26.pdf
+  extracto: AYUNTAMIENTO DE JEREZ DE LA FRONTERA ANUNCIO El Excmo. Ayuntamiento Pleno, en sesión ordinaria, celebrada el día 28 de noviembre de 2025
+  desde: 2026-01-22
+  incierta: true
+  rango: Modificación del PGOU
+  titulo: Modificación del PGOU de Jerez de la Frontera sobre el uso hospedaje conforme a la regulación turística (aprobación definitiva, Pleno de 28/11/2025; BOP de Cádiz n.º 14, 22/01/2026)
+  cita: anuncio
+  motivo: VUT solo en planta baja en edificios plurifamiliares y límites en parcelas unifamiliares de Jerez.
+
+# ── España ───────────────────────────────────────────────────────────────────────────────────
+
+- id: BOE-A-1960-10906
+  corta: LPH
+  alias: ["propiedad horizontal", "lph", "comunidad de propietarios", "comunidad de vecinos"]
+  fuente: boe
+  motivo: Propiedad horizontal. Acuerdos de la comunidad sobre pisos turísticos (arts. 7.3 y 17.12) y cesación de actividades (art. 7.2).
+
+- id: BOE-A-1994-26003
+  corta: LAU
+  alias: ["arrendamientos urbanos", "lau", "alquiler de temporada"]
+  fuente: boe
+  motivo: Arrendamientos urbanos. Exclusión de la cesión turística (art. 5.e) y alquiler de temporada.
+
+- id: BOE-A-2024-26931
+  corta: RD 1312/2024
+  alias: ["registro único", "ventanilla única", "rd 1312/2024", "número de registro", "nra"]
+  fuente: boe
+  estado: >-
+    Anulado en parte por las sentencias del Tribunal Supremo de 19 y 21 de mayo y 1 de junio
+    de 2026, que anulan el procedimiento de registro único y la obligación de inscribirse en el
+    Registro de la Propiedad para obtener el número de registro.
+  motivo: Registro Único de Arrendamientos y Ventanilla Única Digital. Lo que sigue vigente tras las sentencias del Supremo.
+
+- id: BOE-A-2026-12300
+  corta: STS 19-5-2026
+  fuente: boe_diario
+  clase: jurisprudencia
+  cita: fallo
+  desde: 2026-05-19
+  motivo: Sentencia del Tribunal Supremo que anula en parte el RD 1312/2024 (registro único), a instancia de la Generalitat Valenciana.
+
+- id: BOE-A-2026-13893
+  corta: STS 21-5-2026
+  fuente: boe_diario
+  clase: jurisprudencia
+  cita: fallo
+  desde: 2026-05-21
+  motivo: Sentencia del Tribunal Supremo que anula en parte el RD 1312/2024, a instancia de asociaciones de apartamentos turísticos.
+
+- id: BOE-A-2026-15677
+  corta: STS 1-6-2026
+  fuente: boe_diario
+  clase: jurisprudencia
+  cita: fallo
+  desde: 2026-06-01
+  motivo: Sentencia del Tribunal Supremo que anula en parte el RD 1312/2024, a instancia de la Región de Murcia.
+
+- id: BOE-A-2021-17461
+  corta: RD 933/2021
+  alias: ["ses.hospedajes", "ses hospedajes", "registro de viajeros", "parte de viajeros", "rd 933/2021"]
+  fuente: boe
+  motivo: Registro documental de viajeros y comunicación de datos a las autoridades (SES.Hospedajes).
+
+- id: BOE-A-2015-3442
+  corta: LO 4/2015
+  alias: ["seguridad ciudadana", "registro documental"]
+  fuente: boe
+  bloques: [a25]
+  motivo: Ley de Seguridad Ciudadana. Art. 25, obligación de registro documental de hospedaje.
+
+- id: BOE-A-1992-28740
+  corta: Ley 37/1992
+  alias: ["iva", "impuesto sobre el valor añadido"]
+  fuente: boe
+  bloques: [a20]
+  motivo: Ley del IVA. Art. 20.Uno.23.º, exención del arrendamiento de viviendas y su exclusión cuando se prestan servicios propios de la industria hotelera.
+
+- id: BOE-A-2006-20764
+  corta: Ley 35/2006
+  alias: ["irpf", "renta", "declaración de la renta", "hacienda"]
+  fuente: boe
+  bloques: [a22, a23, a24, a27]
+  motivo: Ley del IRPF. Rendimientos del capital inmobiliario frente a actividad económica, y la reducción por arrendamiento de vivienda.
+
+- id: BOE-A-2007-15984
+  corta: RD 1065/2007
+  alias: ["plataformas", "dac7"]
+  fuente: boe
+  bloques: [a5-2]
+  motivo: Reglamento de gestión tributaria. Art. 54 ter, información que deben dar las plataformas sobre la cesión de viviendas de uso turístico.
+
+- id: BOE-A-2021-10163
+  corta: Orden HAC/612/2021
+  alias: ["modelo 179", "179"]
+  fuente: boe
+  motivo: Modelo 179, declaración informativa trimestral de la cesión de uso de viviendas con fines turísticos.
+
+- id: BOE-A-2025-12679
+  corta: Orden VAU/653/2025
+  fuente: boe
+  motivo: Datos que las plataformas deben enviar a la Ventanilla Única Digital de Arrendamientos.
+
+- id: BOE-A-2004-4214
+  corta: TRLRHL
+  alias: ["ibi", "plusvalía", "plusvalia", "impuesto municipal", "recargo del ibi"]
+  fuente: boe
+  bloques: [a72, a107]
+  motivo: Haciendas locales. Art. 72, tipos y recargos del IBI; art. 107, base de la plusvalía municipal al vender.
+
+- id: BOE-A-1993-25359
+  corta: TRLITPAJD
+  alias: ["itp", "transmisiones patrimoniales", "comprar un piso"]
+  fuente: boe
+  bloques: [a7, a11]
+  motivo: Impuesto sobre Transmisiones Patrimoniales al comprar un piso de segunda mano para VUT.
+
+- id: BOE-A-2021-17915
+  corta: Ley 5/2021 (Andalucía, tributos cedidos)
+  alias: ["itp en andalucía", "tipo del itp"]
+  fuente: boe
+  territorio: andalucia
+  bloques: [a4-5]
+  motivo: Tributos cedidos en Andalucía. Tipo del ITP en la compraventa de viviendas.
+
+# ── Unión Europea ────────────────────────────────────────────────────────────────────────────
+
+- id: CELEX-32024R1028
+  corta: Reglamento (UE) 2024/1028
+  alias: ["reglamento europeo", "reglamento (ue) 2024/1028", "unión europea", "ue"]
+  fuente: eurlex
+  origen: 32024R1028
+  territorio: ue
+  rango: Reglamento
+  titulo: Reglamento (UE) 2024/1028 del Parlamento Europeo y del Consejo, de 11 de abril de 2024, sobre la recogida y el intercambio de datos relativos a los servicios de alquiler de alojamientos de corta duración
+  desde: 2024-05-19
+  estado: Aplicable a partir del 20 de mayo de 2026 (art. 19).
+  motivo: Datos de los alquileres de corta duración, número de registro y obligaciones de las plataformas en toda la UE.

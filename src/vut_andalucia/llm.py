@@ -62,6 +62,77 @@ class Ollama:
         return _parsear_json(cuerpo_r.get("message", {}).get("content", ""), self.nombre)
 
 
+def esquema_estricto(esquema: dict[str, Any]) -> dict[str, Any]:
+    """La salida estructurada de Claude exige `additionalProperties: false` en cada objeto."""
+    copia: dict[str, Any] = json.loads(json.dumps(esquema))
+
+    def recorre(nodo: Any) -> None:
+        if isinstance(nodo, dict):
+            if nodo.get("type") == "object":
+                nodo.setdefault("additionalProperties", False)
+            for v in nodo.values():
+                recorre(v)
+        elif isinstance(nodo, list):
+            for v in nodo:
+                recorre(v)
+
+    recorre(copia)
+    return copia
+
+
+class Claude:
+    """Claude vía la API de Anthropic, con salida JSON garantizada por esquema.
+
+    El prompt de sistema es estable y va con `cache_control`: cada pregunta solo paga de
+    nuevo los fragmentos y la pregunta. Si el modelo rechaza la petición por política, la API
+    la reintenta en el modelo de respaldo recomendado (`fallbacks: "default"`).
+    """
+
+    def __init__(self, modelo: str | None = None, cliente: Any = None) -> None:
+        self.modelo = modelo or os.environ.get("VUT_CLAUDE_MODEL", "claude-opus-5-5")
+        self.nombre = f"claude:{self.modelo}"
+        if cliente is None:
+            try:
+                import anthropic
+            except ImportError as e:
+                raise LLMError("Para usar Claude instala el extra: `uv sync --extra claude`") from e
+            cliente = anthropic.Anthropic(timeout=180, max_retries=2)
+        self._cliente = cliente
+
+    def json(self, sistema: str, usuario: str, esquema: dict[str, Any]) -> dict[str, Any]:
+        import anthropic
+
+        try:
+            r = self._cliente.beta.messages.create(
+                model=self.modelo,
+                max_tokens=16000,
+                system=[{"type": "text", "text": sistema, "cache_control": {"type": "ephemeral"}}],
+                messages=[{"role": "user", "content": usuario}],
+                output_config={
+                    "effort": os.environ.get("VUT_CLAUDE_EFFORT", "medium"),
+                    "format": {"type": "json_schema", "schema": esquema_estricto(esquema)},
+                },
+                betas=["server-side-fallback-2026-07-01"],
+                fallbacks="default",
+            )
+        except anthropic.AuthenticationError as e:
+            raise LLMError(
+                "Claude rechazó la credencial: define ANTHROPIC_API_KEY o usa `ant auth login`"
+            ) from e
+        except anthropic.RateLimitError as e:
+            raise LLMError("Claude: límite de peticiones alcanzado; reintenta en un momento") from e
+        except anthropic.APIStatusError as e:
+            raise LLMError(f"Claude respondió {e.status_code}: {e.message}") from e
+        except anthropic.APIConnectionError as e:
+            raise LLMError(f"No se pudo conectar con la API de Claude: {e}") from e
+        if r.stop_reason == "refusal":
+            raise LLMError("Claude declinó responder a esta petición")
+        if r.stop_reason == "max_tokens":
+            raise LLMError("La respuesta de Claude se cortó por longitud (max_tokens)")
+        texto = next((b.text for b in r.content if getattr(b, "type", "") == "text"), "")
+        return _parsear_json(texto, self.nombre)
+
+
 class Falso:
     """LLM determinista para tests: aplica una función a (sistema, usuario)."""
 
@@ -86,4 +157,6 @@ def _parsear_json(contenido: str, origen: str) -> dict[str, Any]:
 def crear(proveedor: str, modelo: str | None = None) -> LLM:
     if proveedor == "ollama":
         return Ollama(modelo)
+    if proveedor == "claude":
+        return Claude(modelo)
     raise ValueError(f"Proveedor desconocido: {proveedor}")

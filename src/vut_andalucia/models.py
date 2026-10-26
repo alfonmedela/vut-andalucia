@@ -8,17 +8,36 @@ from enum import StrEnum
 from pydantic import BaseModel, Field
 
 
+class Clase(StrEnum):
+    NORMA = "norma"  # ley, decreto, reglamento, ordenanza: obliga
+    JURISPRUDENCIA = "jurisprudencia"  # sentencia: interpreta, no es norma
+    DOCTRINA = "doctrina"  # criterio administrativo (DGT, Junta): orienta, no obliga
+
+
+class Ambito(StrEnum):
+    UE = "ue"
+    ESTATAL = "estatal"
+    ANDALUCIA = "andalucia"
+    MUNICIPAL = "municipal"
+
+
 class Norma(BaseModel):
-    """Una norma del corpus (ley, decreto, reglamento) y su procedencia."""
+    """Un documento del corpus (norma, sentencia o criterio) y su procedencia."""
 
     id: str = Field(description="Identificador oficial, p. ej. BOE-A-1960-10906")
     titulo: str
     corta: str = Field(description="Abreviatura para citas, p. ej. LPH")
     rango: str
-    ambito: str
+    ambito: str = Field(description="Ámbito tal como lo publica la fuente (Estatal, Autonómico…)")
     url: str
     eli: str | None = None
-    fuente: str = Field(description="boe | boja | eurlex")
+    fuente: str = Field(description="boe | boja | eurlex | documento")
+    clase: Clase = Clase.NORMA
+    territorio: Ambito = Ambito.ESTATAL
+    municipio: str | None = Field(default=None, description="Slug del municipio si es municipal")
+    estado: str | None = Field(
+        default=None, description="Aviso sobre su vigencia, p. ej. anulación parcial por el TS"
+    )
 
 
 class Fragmento(BaseModel):
@@ -38,6 +57,10 @@ class Fragmento(BaseModel):
         default=False, description="El BOE no publica fecha de vigencia; se usa la de publicación"
     )
     modificado_por: str | None = None
+    nota: str | None = Field(
+        default=None,
+        description="Advertencia oficial que acompaña al texto (anulación parcial, aplicación…)",
+    )
     url: str
 
     @property
@@ -51,10 +74,18 @@ class Fragmento(BaseModel):
         return self.vigente_hasta is None or fecha < self.vigente_hasta
 
 
+class TipoAfirmacion(StrEnum):
+    REGLA = "regla"  # lo que dice la norma
+    EXCEPCION = "excepcion"  # salvedades, régimen transitorio, supuestos excluidos
+    PASO = "paso"  # qué hacer: trámite, plazo, órgano
+    RIESGO = "riesgo"  # sanción, cancelación, nulidad
+
+
 class Afirmacion(BaseModel):
     texto: str
     fragmento: Fragmento
     cita_literal: str
+    tipo: TipoAfirmacion = TipoAfirmacion.REGLA
 
 
 class MotivoAbstencion(StrEnum):
@@ -72,6 +103,21 @@ class Respuesta(BaseModel):
     )
     motivo_abstencion: MotivoAbstencion | None = None
     modelo: str
+    municipio: str | None = Field(default=None, description="Slug del municipio considerado")
+    municipio_detectado: bool = Field(
+        default=False, description="El municipio se dedujo de la pregunta, no se indicó aparte"
+    )
+    preguntas_pendientes: list[str] = Field(
+        default_factory=list,
+        description="Datos del caso que el asistente necesita para afinar la respuesta",
+    )
+    avisos: list[str] = Field(
+        default_factory=list, description="Advertencias que acompañan a toda la respuesta"
+    )
+    normas: dict[str, Norma] = Field(
+        default_factory=dict, description="Normas citadas, para mostrar su rango y estado"
+    )
+    busqueda: str = Field(default="léxica", description="Tipo de búsqueda que se usó")
 
     @property
     def abstiene(self) -> bool:

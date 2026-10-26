@@ -81,7 +81,7 @@
 - id: turismo-registro-gratuito
   pregunta: ¿Inscribirse en el Registro de Turismo de Andalucía cuesta dinero?
   fecha: 2026-10-26
-  fuentes: [BOE-A-2012-876#a3-9.4]
+  fuentes: [BOE-A-2012-876#a3-9.4, JUNTA-FAQ-VUT#p9]
   cita: tiene naturaleza administrativa y carácter público y gratuito
   hechos: [gratuit*|gratis|no cuesta]
 

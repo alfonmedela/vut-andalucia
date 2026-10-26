@@ -8,11 +8,53 @@
       "ambito": "Estatal",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906",
       "eli": "https://www.boe.es/eli/es/l/1960/07/21/49",
-      "fuente": "boe"
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
     },
     "sha256": "2198c17080e39747912cfc13ccf6c6fb16af71a1036790cf3d14918c391f83f7",
-    "descargado": "2026-10-26T09:41:19Z",
+    "descargado": "2026-10-26T14:27:20Z",
     "fragmentos": 161
+  },
+  "BOE-A-1992-28740": {
+    "norma": {
+      "id": "BOE-A-1992-28740",
+      "titulo": "Ley 37/1992, de 28 de diciembre, del Impuesto sobre el Valor Añadido.",
+      "corta": "Ley 37/1992",
+      "rango": "Ley",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1992-28740",
+      "eli": "https://www.boe.es/eli/es/l/1992/12/28/37",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "5fb06ddd1015fb9b42fb76f8fccfaddd5335ca4ce488b085197f0aa658a8d34d",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 74
+  },
+  "BOE-A-1993-25359": {
+    "norma": {
+      "id": "BOE-A-1993-25359",
+      "titulo": "Real Decreto Legislativo 1/1993, de 24 de septiembre, por el que se aprueba el Texto refundido de la Ley del Impuesto sobre Transmisiones Patrimoniales y Actos Jurídicos Documentados.",
+      "corta": "TRLITPAJD",
+      "rango": "Real Decreto Legislativo",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1993-25359",
+      "eli": "https://www.boe.es/eli/es/rdlg/1993/09/24/1",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "673d582aad8765280cf575c43f378eeba2177cfd26aa278c42b1455b71d869c1",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 12
   },
   "BOE-A-1994-26003": {
     "norma": {
@@ -23,11 +65,72 @@
       "ambito": "Estatal",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1994-26003",
       "eli": "https://www.boe.es/eli/es/l/1994/11/24/29",
-      "fuente": "boe"
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
     },
     "sha256": "58db8fbfc38dd0bbe1d2bae25bf85208e19962f110fcd4bce907989e7db80eda",
-    "descargado": "2026-10-26T09:41:19Z",
-    "fragmentos": 417
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 420
+  },
+  "BOE-A-2004-4214": {
+    "norma": {
+      "id": "BOE-A-2004-4214",
+      "titulo": "Real Decreto Legislativo 2/2004, de 5 de marzo, por el que se aprueba el texto refundido de la Ley Reguladora de las Haciendas Locales.",
+      "corta": "TRLRHL",
+      "rango": "Real Decreto Legislativo",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2004-4214",
+      "eli": "https://www.boe.es/eli/es/rdlg/2004/03/05/2",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "3b35305780b077a74c8a2ad13429b6995d7c6d7138c27a8818bf7c21075012a8",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 27
+  },
+  "BOE-A-2006-20764": {
+    "norma": {
+      "id": "BOE-A-2006-20764",
+      "titulo": "Ley 35/2006, de 28 de noviembre, del Impuesto sobre la Renta de las Personas Físicas y de modificación parcial de las leyes de los Impuestos sobre Sociedades, sobre la Renta de no Residentes y sobre el Patrimonio.",
+      "corta": "Ley 35/2006",
+      "rango": "Ley",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2006-20764",
+      "eli": "https://www.boe.es/eli/es/l/2006/11/28/35",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "6b0386e50079383b556016c2fb96dbf4114cf63de6e39da9bc23c13c0c5cf889",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 31
+  },
+  "BOE-A-2007-15984": {
+    "norma": {
+      "id": "BOE-A-2007-15984",
+      "titulo": "Real Decreto 1065/2007, de 27 de julio, por el que se aprueba el Reglamento General de las actuaciones y los procedimientos de gestión e inspección tributaria y de desarrollo de las normas comunes de los procedimientos de aplicación de los tributos.",
+      "corta": "RD 1065/2007",
+      "rango": "Real Decreto",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2007-15984",
+      "eli": "https://www.boe.es/eli/es/rd/2007/07/27/1065",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "b9b28f846de05a5711a5be7a9879f8fda7ca4fbec5e603af5bd0b1ccf2f1c234",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 27
   },
   "BOE-A-2012-876": {
     "norma": {
@@ -38,10 +141,622 @@
       "ambito": "Autonómico",
       "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2012-876",
       "eli": "https://www.boe.es/eli/es-an/l/2011/12/23/13",
-      "fuente": "boe"
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
     },
     "sha256": "e01cd31edaef3513e485a4e90405c60c05000dc2d7b83b46cac72729683e8a7d",
-    "descargado": "2026-10-26T09:41:19Z",
+    "descargado": "2026-10-26T14:27:20Z",
     "fragmentos": 304
+  },
+  "BOE-A-2015-3442": {
+    "norma": {
+      "id": "BOE-A-2015-3442",
+      "titulo": "Ley Orgánica 4/2015, de 30 de marzo, de protección de la seguridad ciudadana.",
+      "corta": "LO 4/2015",
+      "rango": "Ley Orgánica",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2015-3442",
+      "eli": "https://www.boe.es/eli/es/lo/2015/03/30/4",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "ceb57fdb3939cbd0f938258752e5c31a321557cb91d5d5d62eb8e1a40af68c9e",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 1
+  },
+  "BOE-A-2021-10163": {
+    "norma": {
+      "id": "BOE-A-2021-10163",
+      "titulo": "Orden HAC/612/2021, de 16 de junio, por la que se aprueba el modelo 179, \"Declaración informativa trimestral de la cesión de uso de viviendas con fines turísticos\" y se establecen las condiciones y el procedimiento para su presentación.",
+      "corta": "Orden HAC/612/2021",
+      "rango": "Orden",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2021-10163",
+      "eli": "https://www.boe.es/eli/es/o/2021/06/16/hac612",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "12eed885f37491aba6ad21907ea916cdd1c2ba5212a207d1d6ecbef8d3e25692",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 12
+  },
+  "BOE-A-2021-17461": {
+    "norma": {
+      "id": "BOE-A-2021-17461",
+      "titulo": "Real Decreto 933/2021, de 26 de octubre, por el que se establecen las obligaciones de registro documental e información de las personas físicas o jurídicas que ejercen actividades de hospedaje y alquiler de vehículos a motor.",
+      "corta": "RD 933/2021",
+      "rango": "Real Decreto",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2021-17461",
+      "eli": "https://www.boe.es/eli/es/rd/2021/10/26/933",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "956d7ee95d74cc7ac6ccea8c6dd791e5271433d6b35ae255af24a3eb92ef316d",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 23
+  },
+  "BOE-A-2021-17915": {
+    "norma": {
+      "id": "BOE-A-2021-17915",
+      "titulo": "Ley 5/2021, de 20 de octubre, de Tributos Cedidos de la Comunidad Autónoma de Andalucía.",
+      "corta": "Ley 5/2021 (Andalucía, tributos cedidos)",
+      "rango": "Ley",
+      "ambito": "Autonómico",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2021-17915",
+      "eli": "https://www.boe.es/eli/es-an/l/2021/10/20/5",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "1730fa0cf35e70e7a556b0f6c4ce92afbf9ef2fbbcc93f2b83a864a02d16323c",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 5
+  },
+  "BOE-A-2021-20916": {
+    "norma": {
+      "id": "BOE-A-2021-20916",
+      "titulo": "Ley 7/2021, de 1 de diciembre, de impulso para la sostenibilidad del territorio de Andalucía.",
+      "corta": "LISTA",
+      "rango": "Ley",
+      "ambito": "Autonómico",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2021-20916",
+      "eli": "https://www.boe.es/eli/es-an/l/2021/12/01/7",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "97479f0d9851512345b27c95cb245582a6c746c91776ce423ff175fb273bbf58",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 10
+  },
+  "BOE-A-2024-26931": {
+    "norma": {
+      "id": "BOE-A-2024-26931",
+      "titulo": "Real Decreto 1312/2024, de 23 de diciembre, por el que se regula el procedimiento de Registro Único de Arrendamientos y se crea la Ventanilla Única Digital de Arrendamientos para la recogida y el intercambio de datos relativos a los servicios de alquiler de alojamientos de corta duración.",
+      "corta": "RD 1312/2024",
+      "rango": "Real Decreto",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2024-26931",
+      "eli": "https://www.boe.es/eli/es/rd/2024/12/23/1312",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": "Anulado en parte por las sentencias del Tribunal Supremo de 19 y 21 de mayo y 1 de junio de 2026, que anulan el procedimiento de registro único y la obligación de inscribirse en el Registro de la Propiedad para obtener el número de registro."
+    },
+    "sha256": "df08993b3733b9ea704394888857537200c08a5a01de918cbf84f5637c8d8b92",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 58
+  },
+  "BOE-A-2025-12679": {
+    "norma": {
+      "id": "BOE-A-2025-12679",
+      "titulo": "Orden VAU/653/2025, de 19 de junio, por la que se determinan los plazos y el modelo para la transmisión por parte de las plataformas en línea de alquiler de corta duración de datos a la Ventanilla Única Digital de Arrendamientos, de acuerdo con el Real Decreto 1312/2024, de 23 de diciembre, por el que se regula el procedimiento de Registro Único de Arrendamientos y se crea la Ventanilla Única Digital de Arrendamientos para la recogida y el intercambio de datos relativos a los servicios de alquiler de alojamientos de corta duración.",
+      "corta": "Orden VAU/653/2025",
+      "rango": "Orden",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2025-12679",
+      "eli": "https://www.boe.es/eli/es/o/2025/06/19/vau653",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "27bfd4cf4b460592e08c10883f70d43c501a04d14afe0e6a92e34819854832e9",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 8
+  },
+  "BOE-A-2026-12300": {
+    "norma": {
+      "id": "BOE-A-2026-12300",
+      "titulo": "Sentencia de 19 de mayo de 2026, de la Sala Tercera del Tribunal Supremo, que estima parcialmente el recurso contencioso-administrativo interpuesto por la Abogada de la Generalitat Valenciana, en la representación que de ésta ostenta, contra el Real Decreto 1312/2024, de 23 de diciembre, por el que se regula el procedimiento de Registro Único de Arrendamientos y se crea la Ventanilla Única Digital de Arrendamientos para la recogida y el intercambio de datos relativos a los servicios de alquiler de alojamientos de corta duración.",
+      "corta": "STS 19-5-2026",
+      "rango": "Sentencia",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-12300",
+      "eli": null,
+      "fuente": "boe_diario",
+      "clase": "jurisprudencia",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "01f975ecf64dc6c98e6d267bcb794eeb3cee48f1e7645d20cb00ddeeb50a9204",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 1
+  },
+  "BOE-A-2026-13893": {
+    "norma": {
+      "id": "BOE-A-2026-13893",
+      "titulo": "Sentencia de 21 de mayo de 2026, de la Sala Tercera del Tribunal Supremo, que estima parcialmente el recurso contencioso-administrativo interpuesto por las entidades Associació d'Apartaments Turístics de Barcelona (Apartur) y Associació Turística d'Apartaments de Girona (ATA), en la representación que de ésta ostenta, contra el Real Decreto 1312/2024, de 23 de diciembre, por el que se regula el procedimiento de Registro Único de Arrendamientos y se crea la Ventanilla Única Digital de Arrendamientos para la recogida y el intercambio de datos relativos a los servicios de alquiler de alojamientos de corta duración; y Auto de 11 de junio de 2026, de rectificación de errores.",
+      "corta": "STS 21-5-2026",
+      "rango": "Sentencia",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-13893",
+      "eli": null,
+      "fuente": "boe_diario",
+      "clase": "jurisprudencia",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "d43a402f8986ac6dd0b7cbcc58adc5dd69069267cf290adf7261acbbaebdb308",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 1
+  },
+  "BOE-A-2026-15677": {
+    "norma": {
+      "id": "BOE-A-2026-15677",
+      "titulo": "Sentencia de 1 de junio de 2026, de la Sala Tercera del Tribunal Supremo, que estima en parte el recurso contencioso-administrativo interpuesto por la Comunidad Autónoma de la Región de Murcia, representada y defendida por el Letrado de sus servicios jurídicos, contra el Real Decreto 1312/2024, de 23 de diciembre, por el que se regula el procedimiento de Registro Único de Arrendamientos y se crea la Ventanilla Única Digital de Arrendamientos para la recogida y el intercambio de datos relativos a los servicios de alquiler de alojamientos de corta duración.",
+      "corta": "STS 1-6-2026",
+      "rango": "Sentencia",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-15677",
+      "eli": null,
+      "fuente": "boe_diario",
+      "clase": "jurisprudencia",
+      "territorio": "estatal",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "b8a998d6934e9d23f61204974004581bbff53ea29d7d5bf60ab0c1d688e3b47a",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 1
+  },
+  "BOE-A-2026-423": {
+    "norma": {
+      "id": "BOE-A-2026-423",
+      "titulo": "Ley 5/2025, de 16 de diciembre, de Vivienda de Andalucía.",
+      "corta": "Ley 5/2025",
+      "rango": "Ley",
+      "ambito": "Autonómico",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2026-423",
+      "eli": "https://www.boe.es/eli/es-an/l/2025/12/16/5",
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "42dcdca5ef9d00fbdbd7e0c1afbff20115220de8570afa69daf463917a7d410a",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 27
+  },
+  "BOJA-D-2002-20": {
+    "norma": {
+      "id": "BOJA-D-2002-20",
+      "titulo": "Decreto 20/2002, de 29 de enero, de Turismo en el Medio Rural y Turismo Activo",
+      "corta": "Decreto 20/2002",
+      "rango": "Decreto",
+      "ambito": "Autonómico",
+      "url": "https://ws040.juntadeandalucia.es/sedeboja/es/web/textos-consolidados/resumen-ficha?p_p_id=resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet&p_p_lifecycle=0&_resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet_recursoLegalAbstractoId=19201",
+      "eli": null,
+      "fuente": "boja",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "bff10f63d8055aae572e8ca7bb1894853682bb546b7eb0cf7365c480f9d1bc38",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 92
+  },
+  "BOJA-D-2003-144": {
+    "norma": {
+      "id": "BOJA-D-2003-144",
+      "titulo": "Decreto 144/2003, de 3 de junio, de la Inspección de Turismo",
+      "corta": "Decreto 144/2003",
+      "rango": "Decreto",
+      "ambito": "Autonómico",
+      "url": "https://ws040.juntadeandalucia.es/sedeboja/es/web/textos-consolidados/resumen-ficha?p_p_id=resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet&p_p_lifecycle=0&_resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet_recursoLegalAbstractoId=16427",
+      "eli": null,
+      "fuente": "boja",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "19181550cf5581b982f64e96e2e5a34fb01d63f185999fd56f31ecef5c7806e8",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 62
+  },
+  "BOJA-D-2010-194": {
+    "norma": {
+      "id": "BOJA-D-2010-194",
+      "titulo": "Decreto 194/2010, de 20 de abril, de establecimientos de apartamentos turísticos",
+      "corta": "Decreto 194/2010",
+      "rango": "Decreto",
+      "ambito": "Autonómico",
+      "url": "https://ws040.juntadeandalucia.es/sedeboja/es/web/textos-consolidados/resumen-ficha?p_p_id=resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet&p_p_lifecycle=0&_resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet_recursoLegalAbstractoId=21734",
+      "eli": null,
+      "fuente": "boja",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "bd7aa7c7f13a01133a5be0f23cdd0eb7f6ef7f5d9870c2c0f8f3b9d3853f90cd",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 103
+  },
+  "BOJA-D-2014-143": {
+    "norma": {
+      "id": "BOJA-D-2014-143",
+      "titulo": "Decreto 143/2014, de 21 de octubre, por el que se regula la organización y funcionamiento del Registro de Turismo de Andalucía",
+      "corta": "Decreto 143/2014",
+      "rango": "Decreto",
+      "ambito": "Autonómico",
+      "url": "https://ws040.juntadeandalucia.es/sedeboja/es/web/textos-consolidados/resumen-ficha?p_p_id=resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet&p_p_lifecycle=0&_resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet_recursoLegalAbstractoId=31059",
+      "eli": null,
+      "fuente": "boja",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "bbab53e07ce92d07d07be46803bbd9b4d5e6b346b83477e44d8471dc40b00051",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 94
+  },
+  "BOJA-D-2016-28": {
+    "norma": {
+      "id": "BOJA-D-2016-28",
+      "titulo": "Decreto 28/2016, de 2 de febrero, de las viviendas con fines turísticos y de modificación del Decreto 194/2010, de 20 de abril, de establecimientos de apartamentos turísticos",
+      "corta": "Decreto 28/2016",
+      "rango": "Decreto",
+      "ambito": "Autonómico",
+      "url": "https://ws040.juntadeandalucia.es/sedeboja/es/web/textos-consolidados/resumen-ficha?p_p_id=resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet&p_p_lifecycle=0&_resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet_recursoLegalAbstractoId=30766",
+      "eli": null,
+      "fuente": "boja",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "9c1d4998c8f91c0b13206ff617d2726d4d2e784586b8622c36d758cd343d7986",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 56
+  },
+  "BOJA-D-2022-82": {
+    "norma": {
+      "id": "BOJA-D-2022-82",
+      "titulo": "Decreto 82/2022, de 17 de mayo, por el que se regulan las hojas de quejas y reclamaciones de las personas consumidoras y usuarias en Andalucía",
+      "corta": "Decreto 82/2022",
+      "rango": "Decreto",
+      "ambito": "Autonómico",
+      "url": "https://ws040.juntadeandalucia.es/sedeboja/es/web/textos-consolidados/resumen-ficha?p_p_id=resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet&p_p_lifecycle=0&_resumenrecursolegal_WAR_sedebojatextoconsolidadoportlet_recursoLegalAbstractoId=33976",
+      "eli": null,
+      "fuente": "boja",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "3441f60cffe14755c102b3593633a59aeda9cc202cb455f83244b26d2c82526f",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 53
+  },
+  "BOJA-b-2025-90042": {
+    "norma": {
+      "id": "BOJA-b-2025-90042",
+      "titulo": "Decreto-ley 1/2025, de 24 de febrero, de medidas urgentes en materia de vivienda.",
+      "corta": "Decreto-ley 1/2025",
+      "rango": "Decreto-ley",
+      "ambito": "Autonómico",
+      "url": "https://www.boe.es/buscar/act.php?id=BOJA-b-2025-90042",
+      "eli": null,
+      "fuente": "boe",
+      "clase": "norma",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": null
+    },
+    "sha256": "2354b506e65ef20b358fda3c1a8a550ad3608eb7b9ea8476d508125eb84c536b",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 35
+  },
+  "CADIZ-MP10-2025": {
+    "norma": {
+      "id": "CADIZ-MP10-2025",
+      "titulo": "Modificación Puntual n.º 10 del PGOU de Cádiz, protección del suelo residencial frente al uso hospedaje (aprobación inicial, Pleno de 29/05/2025; BOP de Cádiz n.º 118, 24/06/2025)",
+      "corta": "Modificación Puntual n.º 10 del PGOU de Cádiz",
+      "rango": "Modificación del PGOU (aprobación inicial)",
+      "ambito": "municipal",
+      "url": "https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2025/06_junio/BOP118_24-06-25.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "norma",
+      "territorio": "municipal",
+      "municipio": "cadiz",
+      "estado": "Aprobación inicial; no consta en el BOP la aprobación definitiva a fecha del corpus."
+    },
+    "sha256": "780b6e0bb0ac89639a52c3c82ce0398c4edf72f87cdddff09c2159e736037848",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 43
+  },
+  "CADIZ-MP9-2025": {
+    "norma": {
+      "id": "CADIZ-MP9-2025",
+      "titulo": "Modificación Puntual n.º 9 del PGOU de Cádiz, uso de hospedaje, y suspensión de nuevas viviendas de uso turístico (Pleno de 13/05/2025; BOP de Cádiz n.º 105, 05/06/2025)",
+      "corta": "Modificación Puntual n.º 9 del PGOU de Cádiz",
+      "rango": "Modificación del PGOU (aprobación inicial) y suspensión",
+      "ambito": "municipal",
+      "url": "https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2025/06_junio/BOP105_05-06-25.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "norma",
+      "territorio": "municipal",
+      "municipio": "cadiz",
+      "estado": "Aprobación inicial con suspensión; la suspensión dura como máximo tres años."
+    },
+    "sha256": "613d8a84ce23a7422ec84260c516f1e67747961aed4b00f3862a96eebfc79704",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 45
+  },
+  "CADIZ-PGOU-2022": {
+    "norma": {
+      "id": "CADIZ-PGOU-2022",
+      "titulo": "Modificación del PGOU de Cádiz para evitar la excesiva turistificación (aprobación definitiva, Pleno de 14/09/2022; BOP de Cádiz n.º 198, 17/10/2022)",
+      "corta": "Modificación del PGOU de Cádiz (2022)",
+      "rango": "Modificación del PGOU",
+      "ambito": "municipal",
+      "url": "https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2022/10_octubre/BOP198_17-10-22.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "norma",
+      "territorio": "municipal",
+      "municipio": "cadiz",
+      "estado": null
+    },
+    "sha256": "b2be0545a33525e47af050758d9f192618de95ee7ee6abc02dcf280b14a09d65",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 57
+  },
+  "CELEX-32024R1028": {
+    "norma": {
+      "id": "CELEX-32024R1028",
+      "titulo": "Reglamento (UE) 2024/1028 del Parlamento Europeo y del Consejo, de 11 de abril de 2024, sobre la recogida y el intercambio de datos relativos a los servicios de alquiler de alojamientos de corta duración",
+      "corta": "Reglamento (UE) 2024/1028",
+      "rango": "Reglamento",
+      "ambito": "UE",
+      "url": "https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX:32024R1028",
+      "eli": null,
+      "fuente": "eurlex",
+      "clase": "norma",
+      "territorio": "ue",
+      "municipio": null,
+      "estado": "Aplicable a partir del 20 de mayo de 2026 (art. 19)."
+    },
+    "sha256": "098fcb0c4a5dbe3998e167f2fd9ea845a2bf604ed529cce3a2592b95ffb90526",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 58
+  },
+  "CHICLANA-SUSPENSION-2025": {
+    "norma": {
+      "id": "CHICLANA-SUSPENSION-2025",
+      "titulo": "Suspensión de licencias y autorizaciones de viviendas de uso turístico en el Conjunto Histórico y el Ensanche Tradicional de Chiclana (JGL de 21/03/2025; BOP de Cádiz n.º 84, 07/05/2025)",
+      "corta": "Acuerdo de Chiclana de 21/03/2025",
+      "rango": "Acuerdo de la Junta de Gobierno Local",
+      "ambito": "municipal",
+      "url": "https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2025/05_mayo/BOP084_07-05-25.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "norma",
+      "territorio": "municipal",
+      "municipio": "chiclana-de-la-frontera",
+      "estado": null
+    },
+    "sha256": "c18f093b546f709b12b3de95b92280db42f85bdb8b35ab317ba38ce0fd0f1694",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 1
+  },
+  "GRANADA-LIMITE-2025": {
+    "norma": {
+      "id": "GRANADA-LIMITE-2025",
+      "titulo": "Acuerdo del Pleno de Granada de 30/05/2025 sobre la limitación del número máximo de viviendas de uso turístico (BOP de Granada n.º 141, 28/07/2025, CVE BOP-GRA-2025-141016)",
+      "corta": "Acuerdo de Granada de 30/05/2025",
+      "rango": "Acuerdo del Pleno",
+      "ambito": "municipal",
+      "url": "https://albayzin.info/wp-content/uploads/2025/07/Edicto-BOP-limites-VUT-2025.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "norma",
+      "territorio": "municipal",
+      "municipio": "granada",
+      "estado": "Copia de la página del BOP de Granada n.º 141 (CVE BOP-GRA-2025-141016), obtenida de un espejo porque granada.org rechaza las descargas automáticas. Granada tramita además innovaciones del PGOU-01 y del PEPRI Centro con aprobación inicial."
+    },
+    "sha256": "295ec72394ff8ba17868c0380550e01a21024f3ed1323514ef0cb6d084aaf83a",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 2
+  },
+  "JEREZ-PGOU-HOSPEDAJE-2026": {
+    "norma": {
+      "id": "JEREZ-PGOU-HOSPEDAJE-2026",
+      "titulo": "Modificación del PGOU de Jerez de la Frontera sobre el uso hospedaje conforme a la regulación turística (aprobación definitiva, Pleno de 28/11/2025; BOP de Cádiz n.º 14, 22/01/2026)",
+      "corta": "Modificación del PGOU de Jerez (hospedaje)",
+      "rango": "Modificación del PGOU",
+      "ambito": "municipal",
+      "url": "https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2026/01_enero/BOP014_22-01-26.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "norma",
+      "territorio": "municipal",
+      "municipio": "jerez-de-la-frontera",
+      "estado": null
+    },
+    "sha256": "5f72826c94aaa913902b1740ec6b8c8a114de77ac250b7f6dca7f9a005efd47f",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 17
+  },
+  "JUNTA-FAQ-VUT": {
+    "norma": {
+      "id": "JUNTA-FAQ-VUT",
+      "titulo": "Preguntas frecuentes sobre viviendas de uso turístico, Consejería de Turismo de la Junta de Andalucía",
+      "corta": "FAQ de la Junta (VUT)",
+      "rango": "Preguntas frecuentes",
+      "ambito": "andalucia",
+      "url": "https://www.juntadeandalucia.es/organismos/turismojusticiadesregulacionyadministracionlocal/areas/turismo/registro-turismo/establecimientos-servicios/paginas/faq-viviendas-turismo.html",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "doctrina",
+      "territorio": "andalucia",
+      "municipio": null,
+      "estado": "Criterio de la Administración, no es una norma. Copia del 26/10/2026."
+    },
+    "sha256": "ebc68ba3cfcf1fcbbf95e1d38bae127c73961cf43780bc653be46646101a085d",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 30
+  },
+  "MALAGA-INSTRUCCION-1-2024": {
+    "norma": {
+      "id": "MALAGA-INSTRUCCION-1-2024",
+      "titulo": "Instrucción 1/2024 de la Gerencia Municipal de Urbanismo de Málaga sobre aplicación de la normativa urbanística a la vivienda de uso turístico",
+      "corta": "Instrucción 1/2024 GMU Málaga",
+      "rango": "Instrucción",
+      "ambito": "municipal",
+      "url": "https://urbanismo.malaga.eu/export/sites/urbanismo/.galleries/Viviendas-de-Uso-Turistico/Instruccion-1-2024-aplicacion-normativa-urbanistica-viviendas-turisticas.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "doctrina",
+      "territorio": "municipal",
+      "municipio": "malaga",
+      "estado": "Instrucción interpretativa de la Gerencia de Urbanismo, no es una norma."
+    },
+    "sha256": "b12ac906c959ee9d697b5dc30d1e1d92242bd94f36be7e325c9d226099cf0d97",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 7
+  },
+  "MALAGA-PGOU-DA3-2025": {
+    "norma": {
+      "id": "MALAGA-PGOU-DA3-2025",
+      "titulo": "Modificación del PGOU de Málaga n.º 23 (PL 51/2024), Disposición Adicional 3.ª, limitación de viviendas de uso turístico en zonas saturadas. Resumen ejecutivo",
+      "corta": "PGOU de Málaga (DA 3.ª)",
+      "rango": "Modificación del PGOU",
+      "ambito": "municipal",
+      "url": "https://urbanismo.malaga.eu/export/sites/urbanismo/anuncios-de-planeamiento/planificacion/modificacion-de-elementos/Anuncios-Planeamiento-Modificacion/PL51_2024/03-Resumen_Ejecutivo_Mod_PGOU_VUT_DA3_AD_PL51-2024-firmada.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "norma",
+      "territorio": "municipal",
+      "municipio": "malaga",
+      "estado": "Aprobada definitivamente por el Pleno el 29/05/2025 y publicada en el BOP de Málaga n.º 150 de 06/08/2025. Desde el 23/08/2025 rige además la suspensión de nuevas VUT en todo el término municipal."
+    },
+    "sha256": "3957ca3538363d85ad108e4a3dff6187d17de9fa4af7a24b3f00739592d19db4",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 20
+  },
+  "MALAGA-PGOU-PL7-2026": {
+    "norma": {
+      "id": "MALAGA-PGOU-PL7-2026",
+      "titulo": "Modificación pormenorizada n.º 28 del PGOU de Málaga (PL 7/2026), uso de hospedaje y cambio de uso de locales. Resumen ejecutivo",
+      "corta": "Modificación PGOU de Málaga n.º 28",
+      "rango": "Modificación del PGOU (aprobación inicial)",
+      "ambito": "municipal",
+      "url": "https://urbanismo.malaga.eu/export/sites/urbanismo/anuncios-de-planeamiento/planificacion/modificacion-de-elementos/Anuncios-Planeamiento-Modificacion/PL07-2026/06-Resumen_Ejecutivo_PL7-26.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "norma",
+      "territorio": "municipal",
+      "municipio": "malaga",
+      "estado": "Solo aprobación inicial (Pleno de 16/07/2026); no es aún norma definitiva. Lleva aparejada una suspensión de licencias en vigor desde el 25/07/2026, por un máximo de tres años."
+    },
+    "sha256": "77e139ae67144d421bc8f26f02e726a9780ae2edc5f8ab5eacb82a6a28c80849",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 45
+  },
+  "MALAGA-SUSPENSION-2025": {
+    "norma": {
+      "id": "MALAGA-SUSPENSION-2025",
+      "titulo": "Comunicado del Ayuntamiento de Málaga sobre la suspensión de nuevas viviendas de uso turístico en todo el término municipal (22/08/2025)",
+      "corta": "Ayuntamiento de Málaga, suspensión de 2025",
+      "rango": "Comunicado oficial",
+      "ambito": "municipal",
+      "url": "https://www.malaga.eu/visorcontenido/ANUDocumentDisplayer/178062/COMUNICADO.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "doctrina",
+      "territorio": "municipal",
+      "municipio": "malaga",
+      "estado": "Comunicado oficial del Ayuntamiento que resume el acuerdo de la Junta de Gobierno Local de 14/08/2025 (BOP de Málaga de 22/08/2025, no incluido porque el BOP bloquea la descarga automática). La suspensión dura como máximo tres años o hasta que se apruebe la modificación del PGOU."
+    },
+    "sha256": "7502b4741b4d48cfba628a411b5ba733ae0552d2c17cfb42f28077d7d227b0f1",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 10
+  },
+  "PUERTO-SANTA-MARIA-SUSPENSION-2025": {
+    "norma": {
+      "id": "PUERTO-SANTA-MARIA-SUSPENSION-2025",
+      "titulo": "Suspensión de nuevas licencias de viviendas de uso turístico en El Puerto de Santa María (Pleno de 07/03/2025; BOP de Cádiz n.º 79, 29/04/2025)",
+      "corta": "Acuerdo de El Puerto de Santa María de 07/03/2025",
+      "rango": "Acuerdo del Pleno",
+      "ambito": "municipal",
+      "url": "https://www.bopcadiz.es/export/sites/default/.boletines_pdf/2025/04_abril/BOP079_29-04-25.pdf",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "norma",
+      "territorio": "municipal",
+      "municipio": "el-puerto-de-santa-maria",
+      "estado": "Tres años según el anuncio; no precisa si se cuentan desde el acuerdo (07/03/2025) o desde su publicación (29/04/2025)."
+    },
+    "sha256": "fcd6e3aa8a23e556d8e0efd7514dcfd34e72ee58c3e05e73e0e8f43871ba3378",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 1
+  },
+  "SEVILLA-INSTRUCCION-2025": {
+    "norma": {
+      "id": "SEVILLA-INSTRUCCION-2025",
+      "titulo": "Instrucción del Gerente de Urbanismo de Sevilla (10/12/2025) sobre la limitación de VUT, conformada por la Comisión Ejecutiva el 16/12/2025",
+      "corta": "Gerencia de Urbanismo de Sevilla, instrucción de 2025",
+      "rango": "Instrucción",
+      "ambito": "municipal",
+      "url": "https://www.urbanismosevilla.org/areas/licencias/circulares-interpretativas/viviendas-de-usos-turisticos/notificacion-ce-sobre-vut-limitacion-3477-00000002.pdf/at_download/file",
+      "eli": null,
+      "fuente": "documento",
+      "clase": "doctrina",
+      "territorio": "municipal",
+      "municipio": "sevilla",
+      "estado": "Criterio de la Gerencia de Urbanismo. La limitación del 10 % de VUT por barrio (Pleno de 17/10/2024, BOP n.º 210 de 28/10/2024, en vigor desde el 29/10/2024) y la Modificación Puntual 44 del PGOU no están en el corpus como texto: su publicación oficial es un PDF escaneado."
+    },
+    "sha256": "35ccbff3620fc8c409cd31f6cc1ec74a27b8875751bf000b812ad498ebf59de6",
+    "descargado": "2026-10-26T14:27:20Z",
+    "fragmentos": 5
   }
 }

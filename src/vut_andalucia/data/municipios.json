@@ -1,0 +1,4712 @@
+[
+{
+"slug": "abla",
+"nombre": "Abla",
+"provincia": "Almería",
+"ine": "04001"
+},
+{
+"slug": "abrucena",
+"nombre": "Abrucena",
+"provincia": "Almería",
+"ine": "04002"
+},
+{
+"slug": "adra",
+"nombre": "Adra",
+"provincia": "Almería",
+"ine": "04003"
+},
+{
+"slug": "albanchez",
+"nombre": "Albanchez",
+"provincia": "Almería",
+"ine": "04004"
+},
+{
+"slug": "alboloduy",
+"nombre": "Alboloduy",
+"provincia": "Almería",
+"ine": "04005"
+},
+{
+"slug": "albox",
+"nombre": "Albox",
+"provincia": "Almería",
+"ine": "04006"
+},
+{
+"slug": "alcolea",
+"nombre": "Alcolea",
+"provincia": "Almería",
+"ine": "04007"
+},
+{
+"slug": "alcontar",
+"nombre": "Alcóntar",
+"provincia": "Almería",
+"ine": "04008"
+},
+{
+"slug": "alcudia-de-monteagud",
+"nombre": "Alcudia de Monteagud",
+"provincia": "Almería",
+"ine": "04009"
+},
+{
+"slug": "alhabia",
+"nombre": "Alhabia",
+"provincia": "Almería",
+"ine": "04010"
+},
+{
+"slug": "alhama-de-almeria",
+"nombre": "Alhama de Almería",
+"provincia": "Almería",
+"ine": "04011"
+},
+{
+"slug": "alicun",
+"nombre": "Alicún",
+"provincia": "Almería",
+"ine": "04012"
+},
+{
+"slug": "almeria",
+"nombre": "Almería",
+"provincia": "Almería",
+"ine": "04013"
+},
+{
+"slug": "almocita",
+"nombre": "Almócita",
+"provincia": "Almería",
+"ine": "04014"
+},
+{
+"slug": "alsodux",
+"nombre": "Alsodux",
+"provincia": "Almería",
+"ine": "04015"
+},
+{
+"slug": "antas",
+"nombre": "Antas",
+"provincia": "Almería",
+"ine": "04016"
+},
+{
+"slug": "arboleas",
+"nombre": "Arboleas",
+"provincia": "Almería",
+"ine": "04017"
+},
+{
+"slug": "armuna-de-almanzora",
+"nombre": "Armuña de Almanzora",
+"provincia": "Almería",
+"ine": "04018"
+},
+{
+"slug": "bacares",
+"nombre": "Bacares",
+"provincia": "Almería",
+"ine": "04019"
+},
+{
+"slug": "balanegra",
+"nombre": "Balanegra",
+"provincia": "Almería",
+"ine": "04904"
+},
+{
+"slug": "bayarcal",
+"nombre": "Bayárcal",
+"provincia": "Almería",
+"ine": "04020"
+},
+{
+"slug": "bayarque",
+"nombre": "Bayarque",
+"provincia": "Almería",
+"ine": "04021"
+},
+{
+"slug": "bedar",
+"nombre": "Bédar",
+"provincia": "Almería",
+"ine": "04022"
+},
+{
+"slug": "beires",
+"nombre": "Beires",
+"provincia": "Almería",
+"ine": "04023"
+},
+{
+"slug": "benahadux",
+"nombre": "Benahadux",
+"provincia": "Almería",
+"ine": "04024"
+},
+{
+"slug": "benitagla",
+"nombre": "Benitagla",
+"provincia": "Almería",
+"ine": "04026"
+},
+{
+"slug": "benizalon",
+"nombre": "Benizalón",
+"provincia": "Almería",
+"ine": "04027"
+},
+{
+"slug": "bentarique",
+"nombre": "Bentarique",
+"provincia": "Almería",
+"ine": "04028"
+},
+{
+"slug": "berja",
+"nombre": "Berja",
+"provincia": "Almería",
+"ine": "04029"
+},
+{
+"slug": "canjayar",
+"nombre": "Canjáyar",
+"provincia": "Almería",
+"ine": "04030"
+},
+{
+"slug": "cantoria",
+"nombre": "Cantoria",
+"provincia": "Almería",
+"ine": "04031"
+},
+{
+"slug": "carboneras",
+"nombre": "Carboneras",
+"provincia": "Almería",
+"ine": "04032"
+},
+{
+"slug": "castro-de-filabres",
+"nombre": "Castro de Filabres",
+"provincia": "Almería",
+"ine": "04033"
+},
+{
+"slug": "chercos",
+"nombre": "Chercos",
+"provincia": "Almería",
+"ine": "04036"
+},
+{
+"slug": "chirivel",
+"nombre": "Chirivel",
+"provincia": "Almería",
+"ine": "04037"
+},
+{
+"slug": "cobdar",
+"nombre": "Cóbdar",
+"provincia": "Almería",
+"ine": "04034"
+},
+{
+"slug": "cuevas-del-almanzora",
+"nombre": "Cuevas del Almanzora",
+"provincia": "Almería",
+"ine": "04035"
+},
+{
+"slug": "dalias",
+"nombre": "Dalías",
+"provincia": "Almería",
+"ine": "04038"
+},
+{
+"slug": "el-ejido",
+"nombre": "El Ejido",
+"provincia": "Almería",
+"ine": "04902"
+},
+{
+"slug": "enix",
+"nombre": "Enix",
+"provincia": "Almería",
+"ine": "04041"
+},
+{
+"slug": "felix",
+"nombre": "Felix",
+"provincia": "Almería",
+"ine": "04043"
+},
+{
+"slug": "fines",
+"nombre": "Fines",
+"provincia": "Almería",
+"ine": "04044"
+},
+{
+"slug": "finana",
+"nombre": "Fiñana",
+"provincia": "Almería",
+"ine": "04045"
+},
+{
+"slug": "fondon",
+"nombre": "Fondón",
+"provincia": "Almería",
+"ine": "04046"
+},
+{
+"slug": "gador",
+"nombre": "Gádor",
+"provincia": "Almería",
+"ine": "04047"
+},
+{
+"slug": "los-gallardos",
+"nombre": "Los Gallardos",
+"provincia": "Almería",
+"ine": "04048"
+},
+{
+"slug": "garrucha",
+"nombre": "Garrucha",
+"provincia": "Almería",
+"ine": "04049"
+},
+{
+"slug": "gergal",
+"nombre": "Gérgal",
+"provincia": "Almería",
+"ine": "04050"
+},
+{
+"slug": "huecija",
+"nombre": "Huécija",
+"provincia": "Almería",
+"ine": "04051"
+},
+{
+"slug": "huercal-de-almeria",
+"nombre": "Huércal de Almería",
+"provincia": "Almería",
+"ine": "04052"
+},
+{
+"slug": "huercal-overa",
+"nombre": "Huércal-Overa",
+"provincia": "Almería",
+"ine": "04053"
+},
+{
+"slug": "illar",
+"nombre": "Íllar",
+"provincia": "Almería",
+"ine": "04054"
+},
+{
+"slug": "instincion",
+"nombre": "Instinción",
+"provincia": "Almería",
+"ine": "04055"
+},
+{
+"slug": "laroya",
+"nombre": "Laroya",
+"provincia": "Almería",
+"ine": "04056"
+},
+{
+"slug": "laujar-de-andarax",
+"nombre": "Laujar de Andarax",
+"provincia": "Almería",
+"ine": "04057"
+},
+{
+"slug": "lijar",
+"nombre": "Líjar",
+"provincia": "Almería",
+"ine": "04058"
+},
+{
+"slug": "lubrin",
+"nombre": "Lubrín",
+"provincia": "Almería",
+"ine": "04059"
+},
+{
+"slug": "lucainena-de-las-torres",
+"nombre": "Lucainena de las Torres",
+"provincia": "Almería",
+"ine": "04060"
+},
+{
+"slug": "lucar",
+"nombre": "Lúcar",
+"provincia": "Almería",
+"ine": "04061"
+},
+{
+"slug": "macael",
+"nombre": "Macael",
+"provincia": "Almería",
+"ine": "04062"
+},
+{
+"slug": "maria",
+"nombre": "María",
+"provincia": "Almería",
+"ine": "04063"
+},
+{
+"slug": "mojacar",
+"nombre": "Mojácar",
+"provincia": "Almería",
+"ine": "04064"
+},
+{
+"slug": "la-mojonera",
+"nombre": "La Mojonera",
+"provincia": "Almería",
+"ine": "04903"
+},
+{
+"slug": "nacimiento",
+"nombre": "Nacimiento",
+"provincia": "Almería",
+"ine": "04065"
+},
+{
+"slug": "nijar",
+"nombre": "Níjar",
+"provincia": "Almería",
+"ine": "04066"
+},
+{
+"slug": "ohanes",
+"nombre": "Ohanes",
+"provincia": "Almería",
+"ine": "04067"
+},
+{
+"slug": "olula-de-castro",
+"nombre": "Olula de Castro",
+"provincia": "Almería",
+"ine": "04068"
+},
+{
+"slug": "olula-del-rio",
+"nombre": "Olula del Río",
+"provincia": "Almería",
+"ine": "04069"
+},
+{
+"slug": "oria",
+"nombre": "Oria",
+"provincia": "Almería",
+"ine": "04070"
+},
+{
+"slug": "padules",
+"nombre": "Padules",
+"provincia": "Almería",
+"ine": "04071"
+},
+{
+"slug": "partaloa",
+"nombre": "Partaloa",
+"provincia": "Almería",
+"ine": "04072"
+},
+{
+"slug": "paterna-del-rio",
+"nombre": "Paterna del Río",
+"provincia": "Almería",
+"ine": "04073"
+},
+{
+"slug": "pechina",
+"nombre": "Pechina",
+"provincia": "Almería",
+"ine": "04074"
+},
+{
+"slug": "pulpi",
+"nombre": "Pulpí",
+"provincia": "Almería",
+"ine": "04075"
+},
+{
+"slug": "purchena",
+"nombre": "Purchena",
+"provincia": "Almería",
+"ine": "04076"
+},
+{
+"slug": "ragol",
+"nombre": "Rágol",
+"provincia": "Almería",
+"ine": "04077"
+},
+{
+"slug": "rioja",
+"nombre": "Rioja",
+"provincia": "Almería",
+"ine": "04078"
+},
+{
+"slug": "roquetas-de-mar",
+"nombre": "Roquetas de Mar",
+"provincia": "Almería",
+"ine": "04079"
+},
+{
+"slug": "santa-cruz-de-marchena",
+"nombre": "Santa Cruz de Marchena",
+"provincia": "Almería",
+"ine": "04080"
+},
+{
+"slug": "santa-fe-de-mondujar",
+"nombre": "Santa Fe de Mondújar",
+"provincia": "Almería",
+"ine": "04081"
+},
+{
+"slug": "senes",
+"nombre": "Senés",
+"provincia": "Almería",
+"ine": "04082"
+},
+{
+"slug": "seron",
+"nombre": "Serón",
+"provincia": "Almería",
+"ine": "04083"
+},
+{
+"slug": "sierro",
+"nombre": "Sierro",
+"provincia": "Almería",
+"ine": "04084"
+},
+{
+"slug": "somontin",
+"nombre": "Somontín",
+"provincia": "Almería",
+"ine": "04085"
+},
+{
+"slug": "sorbas",
+"nombre": "Sorbas",
+"provincia": "Almería",
+"ine": "04086"
+},
+{
+"slug": "sufli",
+"nombre": "Suflí",
+"provincia": "Almería",
+"ine": "04087"
+},
+{
+"slug": "tabernas",
+"nombre": "Tabernas",
+"provincia": "Almería",
+"ine": "04088"
+},
+{
+"slug": "taberno",
+"nombre": "Taberno",
+"provincia": "Almería",
+"ine": "04089"
+},
+{
+"slug": "tahal",
+"nombre": "Tahal",
+"provincia": "Almería",
+"ine": "04090"
+},
+{
+"slug": "terque",
+"nombre": "Terque",
+"provincia": "Almería",
+"ine": "04091"
+},
+{
+"slug": "tijola",
+"nombre": "Tíjola",
+"provincia": "Almería",
+"ine": "04092"
+},
+{
+"slug": "las-tres-villas",
+"nombre": "Las Tres Villas",
+"provincia": "Almería",
+"ine": "04901"
+},
+{
+"slug": "turre",
+"nombre": "Turre",
+"provincia": "Almería",
+"ine": "04093"
+},
+{
+"slug": "turrillas",
+"nombre": "Turrillas",
+"provincia": "Almería",
+"ine": "04094"
+},
+{
+"slug": "uleila-del-campo",
+"nombre": "Uleila del Campo",
+"provincia": "Almería",
+"ine": "04095"
+},
+{
+"slug": "urracal",
+"nombre": "Urrácal",
+"provincia": "Almería",
+"ine": "04096"
+},
+{
+"slug": "velefique",
+"nombre": "Velefique",
+"provincia": "Almería",
+"ine": "04097"
+},
+{
+"slug": "velez-blanco",
+"nombre": "Vélez-Blanco",
+"provincia": "Almería",
+"ine": "04098"
+},
+{
+"slug": "velez-rubio",
+"nombre": "Vélez-Rubio",
+"provincia": "Almería",
+"ine": "04099"
+},
+{
+"slug": "vera",
+"nombre": "Vera",
+"provincia": "Almería",
+"ine": "04100"
+},
+{
+"slug": "viator",
+"nombre": "Viator",
+"provincia": "Almería",
+"ine": "04101"
+},
+{
+"slug": "vicar",
+"nombre": "Vícar",
+"provincia": "Almería",
+"ine": "04102"
+},
+{
+"slug": "zurgena",
+"nombre": "Zurgena",
+"provincia": "Almería",
+"ine": "04103"
+},
+{
+"slug": "alcala-de-los-gazules",
+"nombre": "Alcalá de los Gazules",
+"provincia": "Cádiz",
+"ine": "11001"
+},
+{
+"slug": "alcala-del-valle",
+"nombre": "Alcalá del Valle",
+"provincia": "Cádiz",
+"ine": "11002"
+},
+{
+"slug": "algar",
+"nombre": "Algar",
+"provincia": "Cádiz",
+"ine": "11003"
+},
+{
+"slug": "algeciras",
+"nombre": "Algeciras",
+"provincia": "Cádiz",
+"ine": "11004"
+},
+{
+"slug": "algodonales",
+"nombre": "Algodonales",
+"provincia": "Cádiz",
+"ine": "11005"
+},
+{
+"slug": "arcos-de-la-frontera",
+"nombre": "Arcos de la Frontera",
+"provincia": "Cádiz",
+"ine": "11006"
+},
+{
+"slug": "barbate",
+"nombre": "Barbate",
+"provincia": "Cádiz",
+"ine": "11007"
+},
+{
+"slug": "los-barrios",
+"nombre": "Los Barrios",
+"provincia": "Cádiz",
+"ine": "11008"
+},
+{
+"slug": "benalup-casas-viejas",
+"nombre": "Benalup-Casas Viejas",
+"provincia": "Cádiz",
+"ine": "11901"
+},
+{
+"slug": "benaocaz",
+"nombre": "Benaocaz",
+"provincia": "Cádiz",
+"ine": "11009"
+},
+{
+"slug": "bornos",
+"nombre": "Bornos",
+"provincia": "Cádiz",
+"ine": "11010"
+},
+{
+"slug": "el-bosque",
+"nombre": "El Bosque",
+"provincia": "Cádiz",
+"ine": "11011"
+},
+{
+"slug": "cadiz",
+"nombre": "Cádiz",
+"provincia": "Cádiz",
+"ine": "11012"
+},
+{
+"slug": "castellar-de-la-frontera",
+"nombre": "Castellar de la Frontera",
+"provincia": "Cádiz",
+"ine": "11013"
+},
+{
+"slug": "chiclana-de-la-frontera",
+"nombre": "Chiclana de la Frontera",
+"provincia": "Cádiz",
+"ine": "11015"
+},
+{
+"slug": "chipiona",
+"nombre": "Chipiona",
+"provincia": "Cádiz",
+"ine": "11016"
+},
+{
+"slug": "conil-de-la-frontera",
+"nombre": "Conil de la Frontera",
+"provincia": "Cádiz",
+"ine": "11014"
+},
+{
+"slug": "espera",
+"nombre": "Espera",
+"provincia": "Cádiz",
+"ine": "11017"
+},
+{
+"slug": "el-gastor",
+"nombre": "El Gastor",
+"provincia": "Cádiz",
+"ine": "11018"
+},
+{
+"slug": "grazalema",
+"nombre": "Grazalema",
+"provincia": "Cádiz",
+"ine": "11019"
+},
+{
+"slug": "jerez-de-la-frontera",
+"nombre": "Jerez de la Frontera",
+"provincia": "Cádiz",
+"ine": "11020"
+},
+{
+"slug": "jimena-de-la-frontera",
+"nombre": "Jimena de la Frontera",
+"provincia": "Cádiz",
+"ine": "11021"
+},
+{
+"slug": "la-linea-de-la-concepcion",
+"nombre": "La Línea de la Concepción",
+"provincia": "Cádiz",
+"ine": "11022"
+},
+{
+"slug": "medina-sidonia",
+"nombre": "Medina Sidonia",
+"provincia": "Cádiz",
+"ine": "11023"
+},
+{
+"slug": "olvera",
+"nombre": "Olvera",
+"provincia": "Cádiz",
+"ine": "11024"
+},
+{
+"slug": "paterna-de-rivera",
+"nombre": "Paterna de Rivera",
+"provincia": "Cádiz",
+"ine": "11025"
+},
+{
+"slug": "prado-del-rey",
+"nombre": "Prado del Rey",
+"provincia": "Cádiz",
+"ine": "11026"
+},
+{
+"slug": "el-puerto-de-santa-maria",
+"nombre": "El Puerto de Santa María",
+"provincia": "Cádiz",
+"ine": "11027"
+},
+{
+"slug": "puerto-real",
+"nombre": "Puerto Real",
+"provincia": "Cádiz",
+"ine": "11028"
+},
+{
+"slug": "puerto-serrano",
+"nombre": "Puerto Serrano",
+"provincia": "Cádiz",
+"ine": "11029"
+},
+{
+"slug": "rota",
+"nombre": "Rota",
+"provincia": "Cádiz",
+"ine": "11030"
+},
+{
+"slug": "san-fernando",
+"nombre": "San Fernando",
+"provincia": "Cádiz",
+"ine": "11031"
+},
+{
+"slug": "san-jose-del-valle",
+"nombre": "San José del Valle",
+"provincia": "Cádiz",
+"ine": "11902"
+},
+{
+"slug": "san-martin-del-tesorillo",
+"nombre": "San Martín del Tesorillo",
+"provincia": "Cádiz",
+"ine": "11903"
+},
+{
+"slug": "san-roque",
+"nombre": "San Roque",
+"provincia": "Cádiz",
+"ine": "11033"
+},
+{
+"slug": "sanlucar-de-barrameda",
+"nombre": "Sanlúcar de Barrameda",
+"provincia": "Cádiz",
+"ine": "11032"
+},
+{
+"slug": "setenil-de-las-bodegas",
+"nombre": "Setenil de las Bodegas",
+"provincia": "Cádiz",
+"ine": "11034"
+},
+{
+"slug": "tarifa",
+"nombre": "Tarifa",
+"provincia": "Cádiz",
+"ine": "11035"
+},
+{
+"slug": "torre-alhaquime",
+"nombre": "Torre Alháquime",
+"provincia": "Cádiz",
+"ine": "11036"
+},
+{
+"slug": "trebujena",
+"nombre": "Trebujena",
+"provincia": "Cádiz",
+"ine": "11037"
+},
+{
+"slug": "ubrique",
+"nombre": "Ubrique",
+"provincia": "Cádiz",
+"ine": "11038"
+},
+{
+"slug": "vejer-de-la-frontera",
+"nombre": "Vejer de la Frontera",
+"provincia": "Cádiz",
+"ine": "11039"
+},
+{
+"slug": "villaluenga-del-rosario",
+"nombre": "Villaluenga del Rosario",
+"provincia": "Cádiz",
+"ine": "11040"
+},
+{
+"slug": "villamartin",
+"nombre": "Villamartín",
+"provincia": "Cádiz",
+"ine": "11041"
+},
+{
+"slug": "zahara",
+"nombre": "Zahara",
+"provincia": "Cádiz",
+"ine": "11042"
+},
+{
+"slug": "adamuz",
+"nombre": "Adamuz",
+"provincia": "Córdoba",
+"ine": "14001"
+},
+{
+"slug": "aguilar-de-la-frontera",
+"nombre": "Aguilar de la Frontera",
+"provincia": "Córdoba",
+"ine": "14002"
+},
+{
+"slug": "alcaracejos",
+"nombre": "Alcaracejos",
+"provincia": "Córdoba",
+"ine": "14003"
+},
+{
+"slug": "almedinilla",
+"nombre": "Almedinilla",
+"provincia": "Córdoba",
+"ine": "14004"
+},
+{
+"slug": "almodovar-del-rio",
+"nombre": "Almodóvar del Río",
+"provincia": "Córdoba",
+"ine": "14005"
+},
+{
+"slug": "anora",
+"nombre": "Añora",
+"provincia": "Córdoba",
+"ine": "14006"
+},
+{
+"slug": "baena",
+"nombre": "Baena",
+"provincia": "Córdoba",
+"ine": "14007"
+},
+{
+"slug": "belalcazar",
+"nombre": "Belalcázar",
+"provincia": "Córdoba",
+"ine": "14008"
+},
+{
+"slug": "belmez",
+"nombre": "Belmez",
+"provincia": "Córdoba",
+"ine": "14009"
+},
+{
+"slug": "benameji",
+"nombre": "Benamejí",
+"provincia": "Córdoba",
+"ine": "14010"
+},
+{
+"slug": "los-blazquez",
+"nombre": "Los Blázquez",
+"provincia": "Córdoba",
+"ine": "14011"
+},
+{
+"slug": "bujalance",
+"nombre": "Bujalance",
+"provincia": "Córdoba",
+"ine": "14012"
+},
+{
+"slug": "cabra",
+"nombre": "Cabra",
+"provincia": "Córdoba",
+"ine": "14013"
+},
+{
+"slug": "canete-de-las-torres",
+"nombre": "Cañete de las Torres",
+"provincia": "Córdoba",
+"ine": "14014"
+},
+{
+"slug": "carcabuey",
+"nombre": "Carcabuey",
+"provincia": "Córdoba",
+"ine": "14015"
+},
+{
+"slug": "cardena",
+"nombre": "Cardeña",
+"provincia": "Córdoba",
+"ine": "14016"
+},
+{
+"slug": "la-carlota",
+"nombre": "La Carlota",
+"provincia": "Córdoba",
+"ine": "14017"
+},
+{
+"slug": "el-carpio",
+"nombre": "El Carpio",
+"provincia": "Córdoba",
+"ine": "14018"
+},
+{
+"slug": "castro-del-rio",
+"nombre": "Castro del Río",
+"provincia": "Córdoba",
+"ine": "14019"
+},
+{
+"slug": "conquista",
+"nombre": "Conquista",
+"provincia": "Córdoba",
+"ine": "14020"
+},
+{
+"slug": "cordoba",
+"nombre": "Córdoba",
+"provincia": "Córdoba",
+"ine": "14021"
+},
+{
+"slug": "dona-mencia",
+"nombre": "Doña Mencía",
+"provincia": "Córdoba",
+"ine": "14022"
+},
+{
+"slug": "dos-torres",
+"nombre": "Dos Torres",
+"provincia": "Córdoba",
+"ine": "14023"
+},
+{
+"slug": "encinas-reales",
+"nombre": "Encinas Reales",
+"provincia": "Córdoba",
+"ine": "14024"
+},
+{
+"slug": "espejo",
+"nombre": "Espejo",
+"provincia": "Córdoba",
+"ine": "14025"
+},
+{
+"slug": "espiel",
+"nombre": "Espiel",
+"provincia": "Córdoba",
+"ine": "14026"
+},
+{
+"slug": "fernan-nunez",
+"nombre": "Fernán-Núñez",
+"provincia": "Córdoba",
+"ine": "14027"
+},
+{
+"slug": "fuente-carreteros",
+"nombre": "Fuente Carreteros",
+"provincia": "Córdoba",
+"ine": "14901"
+},
+{
+"slug": "fuente-la-lancha",
+"nombre": "Fuente la Lancha",
+"provincia": "Córdoba",
+"ine": "14028"
+},
+{
+"slug": "fuente-obejuna",
+"nombre": "Fuente Obejuna",
+"provincia": "Córdoba",
+"ine": "14029"
+},
+{
+"slug": "fuente-palmera",
+"nombre": "Fuente Palmera",
+"provincia": "Córdoba",
+"ine": "14030"
+},
+{
+"slug": "fuente-tojar",
+"nombre": "Fuente-Tójar",
+"provincia": "Córdoba",
+"ine": "14031"
+},
+{
+"slug": "la-granjuela",
+"nombre": "La Granjuela",
+"provincia": "Córdoba",
+"ine": "14032"
+},
+{
+"slug": "guadalcazar",
+"nombre": "Guadalcázar",
+"provincia": "Córdoba",
+"ine": "14033"
+},
+{
+"slug": "la-guijarrosa",
+"nombre": "La Guijarrosa",
+"provincia": "Córdoba",
+"ine": "14902"
+},
+{
+"slug": "el-guijo",
+"nombre": "El Guijo",
+"provincia": "Córdoba",
+"ine": "14034"
+},
+{
+"slug": "hinojosa-del-duque",
+"nombre": "Hinojosa del Duque",
+"provincia": "Córdoba",
+"ine": "14035"
+},
+{
+"slug": "hornachuelos",
+"nombre": "Hornachuelos",
+"provincia": "Córdoba",
+"ine": "14036"
+},
+{
+"slug": "iznajar",
+"nombre": "Iznájar",
+"provincia": "Córdoba",
+"ine": "14037"
+},
+{
+"slug": "lucena",
+"nombre": "Lucena",
+"provincia": "Córdoba",
+"ine": "14038"
+},
+{
+"slug": "luque",
+"nombre": "Luque",
+"provincia": "Córdoba",
+"ine": "14039"
+},
+{
+"slug": "montalban-de-cordoba",
+"nombre": "Montalbán de Córdoba",
+"provincia": "Córdoba",
+"ine": "14040"
+},
+{
+"slug": "montemayor",
+"nombre": "Montemayor",
+"provincia": "Córdoba",
+"ine": "14041"
+},
+{
+"slug": "montilla",
+"nombre": "Montilla",
+"provincia": "Córdoba",
+"ine": "14042"
+},
+{
+"slug": "montoro",
+"nombre": "Montoro",
+"provincia": "Córdoba",
+"ine": "14043"
+},
+{
+"slug": "monturque",
+"nombre": "Monturque",
+"provincia": "Córdoba",
+"ine": "14044"
+},
+{
+"slug": "moriles",
+"nombre": "Moriles",
+"provincia": "Córdoba",
+"ine": "14045"
+},
+{
+"slug": "nueva-carteya",
+"nombre": "Nueva Carteya",
+"provincia": "Córdoba",
+"ine": "14046"
+},
+{
+"slug": "obejo",
+"nombre": "Obejo",
+"provincia": "Córdoba",
+"ine": "14047"
+},
+{
+"slug": "palenciana",
+"nombre": "Palenciana",
+"provincia": "Córdoba",
+"ine": "14048"
+},
+{
+"slug": "palma-del-rio",
+"nombre": "Palma del Río",
+"provincia": "Córdoba",
+"ine": "14049"
+},
+{
+"slug": "pedro-abad",
+"nombre": "Pedro Abad",
+"provincia": "Córdoba",
+"ine": "14050"
+},
+{
+"slug": "pedroche",
+"nombre": "Pedroche",
+"provincia": "Córdoba",
+"ine": "14051"
+},
+{
+"slug": "penarroya-pueblonuevo",
+"nombre": "Peñarroya-Pueblonuevo",
+"provincia": "Córdoba",
+"ine": "14052"
+},
+{
+"slug": "posadas",
+"nombre": "Posadas",
+"provincia": "Córdoba",
+"ine": "14053"
+},
+{
+"slug": "pozoblanco",
+"nombre": "Pozoblanco",
+"provincia": "Córdoba",
+"ine": "14054"
+},
+{
+"slug": "priego-de-cordoba",
+"nombre": "Priego de Córdoba",
+"provincia": "Córdoba",
+"ine": "14055"
+},
+{
+"slug": "puente-genil",
+"nombre": "Puente Genil",
+"provincia": "Córdoba",
+"ine": "14056"
+},
+{
+"slug": "la-rambla",
+"nombre": "La Rambla",
+"provincia": "Córdoba",
+"ine": "14057"
+},
+{
+"slug": "rute",
+"nombre": "Rute",
+"provincia": "Córdoba",
+"ine": "14058"
+},
+{
+"slug": "san-sebastian-de-los-ballesteros",
+"nombre": "San Sebastián de los Ballesteros",
+"provincia": "Córdoba",
+"ine": "14059"
+},
+{
+"slug": "santa-eufemia",
+"nombre": "Santa Eufemia",
+"provincia": "Córdoba",
+"ine": "14061"
+},
+{
+"slug": "santaella",
+"nombre": "Santaella",
+"provincia": "Córdoba",
+"ine": "14060"
+},
+{
+"slug": "torrecampo",
+"nombre": "Torrecampo",
+"provincia": "Córdoba",
+"ine": "14062"
+},
+{
+"slug": "valenzuela",
+"nombre": "Valenzuela",
+"provincia": "Córdoba",
+"ine": "14063"
+},
+{
+"slug": "valsequillo",
+"nombre": "Valsequillo",
+"provincia": "Córdoba",
+"ine": "14064"
+},
+{
+"slug": "la-victoria",
+"nombre": "La Victoria",
+"provincia": "Córdoba",
+"ine": "14065"
+},
+{
+"slug": "villa-del-rio",
+"nombre": "Villa del Río",
+"provincia": "Córdoba",
+"ine": "14066"
+},
+{
+"slug": "villafranca-de-cordoba",
+"nombre": "Villafranca de Córdoba",
+"provincia": "Córdoba",
+"ine": "14067"
+},
+{
+"slug": "villaharta",
+"nombre": "Villaharta",
+"provincia": "Córdoba",
+"ine": "14068"
+},
+{
+"slug": "villanueva-de-cordoba",
+"nombre": "Villanueva de Córdoba",
+"provincia": "Córdoba",
+"ine": "14069"
+},
+{
+"slug": "villanueva-del-duque",
+"nombre": "Villanueva del Duque",
+"provincia": "Córdoba",
+"ine": "14070"
+},
+{
+"slug": "villanueva-del-rey",
+"nombre": "Villanueva del Rey",
+"provincia": "Córdoba",
+"ine": "14071"
+},
+{
+"slug": "villaralto",
+"nombre": "Villaralto",
+"provincia": "Córdoba",
+"ine": "14072"
+},
+{
+"slug": "villaviciosa-de-cordoba",
+"nombre": "Villaviciosa de Córdoba",
+"provincia": "Córdoba",
+"ine": "14073"
+},
+{
+"slug": "el-viso",
+"nombre": "El Viso",
+"provincia": "Córdoba",
+"ine": "14074"
+},
+{
+"slug": "zuheros",
+"nombre": "Zuheros",
+"provincia": "Córdoba",
+"ine": "14075"
+},
+{
+"slug": "agron",
+"nombre": "Agrón",
+"provincia": "Granada",
+"ine": "18001"
+},
+{
+"slug": "alamedilla",
+"nombre": "Alamedilla",
+"provincia": "Granada",
+"ine": "18002"
+},
+{
+"slug": "albolote",
+"nombre": "Albolote",
+"provincia": "Granada",
+"ine": "18003"
+},
+{
+"slug": "albondon",
+"nombre": "Albondón",
+"provincia": "Granada",
+"ine": "18004"
+},
+{
+"slug": "albunan",
+"nombre": "Albuñán",
+"provincia": "Granada",
+"ine": "18005"
+},
+{
+"slug": "albunol",
+"nombre": "Albuñol",
+"provincia": "Granada",
+"ine": "18006"
+},
+{
+"slug": "albunuelas",
+"nombre": "Albuñuelas",
+"provincia": "Granada",
+"ine": "18007"
+},
+{
+"slug": "aldeire",
+"nombre": "Aldeire",
+"provincia": "Granada",
+"ine": "18010"
+},
+{
+"slug": "alfacar",
+"nombre": "Alfacar",
+"provincia": "Granada",
+"ine": "18011"
+},
+{
+"slug": "algarinejo",
+"nombre": "Algarinejo",
+"provincia": "Granada",
+"ine": "18012"
+},
+{
+"slug": "alhama-de-granada",
+"nombre": "Alhama de Granada",
+"provincia": "Granada",
+"ine": "18013"
+},
+{
+"slug": "alhendin",
+"nombre": "Alhendín",
+"provincia": "Granada",
+"ine": "18014"
+},
+{
+"slug": "alicun-de-ortega",
+"nombre": "Alicún de Ortega",
+"provincia": "Granada",
+"ine": "18015"
+},
+{
+"slug": "almegijar",
+"nombre": "Almegíjar",
+"provincia": "Granada",
+"ine": "18016"
+},
+{
+"slug": "almunecar",
+"nombre": "Almuñécar",
+"provincia": "Granada",
+"ine": "18017"
+},
+{
+"slug": "alpujarra-de-la-sierra",
+"nombre": "Alpujarra de la Sierra",
+"provincia": "Granada",
+"ine": "18904"
+},
+{
+"slug": "alquife",
+"nombre": "Alquife",
+"provincia": "Granada",
+"ine": "18018"
+},
+{
+"slug": "arenas-del-rey",
+"nombre": "Arenas del Rey",
+"provincia": "Granada",
+"ine": "18020"
+},
+{
+"slug": "armilla",
+"nombre": "Armilla",
+"provincia": "Granada",
+"ine": "18021"
+},
+{
+"slug": "atarfe",
+"nombre": "Atarfe",
+"provincia": "Granada",
+"ine": "18022"
+},
+{
+"slug": "baza",
+"nombre": "Baza",
+"provincia": "Granada",
+"ine": "18023"
+},
+{
+"slug": "beas-de-granada",
+"nombre": "Beas de Granada",
+"provincia": "Granada",
+"ine": "18024"
+},
+{
+"slug": "beas-de-guadix",
+"nombre": "Beas de Guadix",
+"provincia": "Granada",
+"ine": "18025"
+},
+{
+"slug": "benalua",
+"nombre": "Benalúa",
+"provincia": "Granada",
+"ine": "18027"
+},
+{
+"slug": "benalua-de-las-villas",
+"nombre": "Benalúa de las Villas",
+"provincia": "Granada",
+"ine": "18028"
+},
+{
+"slug": "benamaurel",
+"nombre": "Benamaurel",
+"provincia": "Granada",
+"ine": "18029"
+},
+{
+"slug": "berchules",
+"nombre": "Bérchules",
+"provincia": "Granada",
+"ine": "18030"
+},
+{
+"slug": "bubion",
+"nombre": "Bubión",
+"provincia": "Granada",
+"ine": "18032"
+},
+{
+"slug": "busquistar",
+"nombre": "Busquístar",
+"provincia": "Granada",
+"ine": "18033"
+},
+{
+"slug": "cacin",
+"nombre": "Cacín",
+"provincia": "Granada",
+"ine": "18034"
+},
+{
+"slug": "cadiar",
+"nombre": "Cádiar",
+"provincia": "Granada",
+"ine": "18035"
+},
+{
+"slug": "cajar",
+"nombre": "Cájar",
+"provincia": "Granada",
+"ine": "18036"
+},
+{
+"slug": "la-calahorra",
+"nombre": "La Calahorra",
+"provincia": "Granada",
+"ine": "18114"
+},
+{
+"slug": "calicasas",
+"nombre": "Calicasas",
+"provincia": "Granada",
+"ine": "18037"
+},
+{
+"slug": "campotejar",
+"nombre": "Campotéjar",
+"provincia": "Granada",
+"ine": "18038"
+},
+{
+"slug": "caniles",
+"nombre": "Caniles",
+"provincia": "Granada",
+"ine": "18039"
+},
+{
+"slug": "canar",
+"nombre": "Cáñar",
+"provincia": "Granada",
+"ine": "18040"
+},
+{
+"slug": "capileira",
+"nombre": "Capileira",
+"provincia": "Granada",
+"ine": "18042"
+},
+{
+"slug": "carataunas",
+"nombre": "Carataunas",
+"provincia": "Granada",
+"ine": "18043"
+},
+{
+"slug": "castaras",
+"nombre": "Cástaras",
+"provincia": "Granada",
+"ine": "18044"
+},
+{
+"slug": "castillejar",
+"nombre": "Castilléjar",
+"provincia": "Granada",
+"ine": "18045"
+},
+{
+"slug": "castril",
+"nombre": "Castril",
+"provincia": "Granada",
+"ine": "18046"
+},
+{
+"slug": "cenes-de-la-vega",
+"nombre": "Cenes de la Vega",
+"provincia": "Granada",
+"ine": "18047"
+},
+{
+"slug": "chauchina",
+"nombre": "Chauchina",
+"provincia": "Granada",
+"ine": "18059"
+},
+{
+"slug": "chimeneas",
+"nombre": "Chimeneas",
+"provincia": "Granada",
+"ine": "18061"
+},
+{
+"slug": "churriana-de-la-vega",
+"nombre": "Churriana de la Vega",
+"provincia": "Granada",
+"ine": "18062"
+},
+{
+"slug": "cijuela",
+"nombre": "Cijuela",
+"provincia": "Granada",
+"ine": "18048"
+},
+{
+"slug": "cogollos-de-guadix",
+"nombre": "Cogollos de Guadix",
+"provincia": "Granada",
+"ine": "18049"
+},
+{
+"slug": "cogollos-de-la-vega",
+"nombre": "Cogollos de la Vega",
+"provincia": "Granada",
+"ine": "18050"
+},
+{
+"slug": "colomera",
+"nombre": "Colomera",
+"provincia": "Granada",
+"ine": "18051"
+},
+{
+"slug": "cortes-de-baza",
+"nombre": "Cortes de Baza",
+"provincia": "Granada",
+"ine": "18053"
+},
+{
+"slug": "cortes-y-graena",
+"nombre": "Cortes y Graena",
+"provincia": "Granada",
+"ine": "18054"
+},
+{
+"slug": "cuevas-del-campo",
+"nombre": "Cuevas del Campo",
+"provincia": "Granada",
+"ine": "18912"
+},
+{
+"slug": "cullar",
+"nombre": "Cúllar",
+"provincia": "Granada",
+"ine": "18056"
+},
+{
+"slug": "cullar-vega",
+"nombre": "Cúllar Vega",
+"provincia": "Granada",
+"ine": "18057"
+},
+{
+"slug": "darro",
+"nombre": "Darro",
+"provincia": "Granada",
+"ine": "18063"
+},
+{
+"slug": "dehesas-de-guadix",
+"nombre": "Dehesas de Guadix",
+"provincia": "Granada",
+"ine": "18064"
+},
+{
+"slug": "dehesas-viejas",
+"nombre": "Dehesas Viejas",
+"provincia": "Granada",
+"ine": "18065"
+},
+{
+"slug": "deifontes",
+"nombre": "Deifontes",
+"provincia": "Granada",
+"ine": "18066"
+},
+{
+"slug": "diezma",
+"nombre": "Diezma",
+"provincia": "Granada",
+"ine": "18067"
+},
+{
+"slug": "dilar",
+"nombre": "Dílar",
+"provincia": "Granada",
+"ine": "18068"
+},
+{
+"slug": "dolar",
+"nombre": "Dólar",
+"provincia": "Granada",
+"ine": "18069"
+},
+{
+"slug": "domingo-perez-de-granada",
+"nombre": "Domingo Pérez de Granada",
+"provincia": "Granada",
+"ine": "18915"
+},
+{
+"slug": "dudar",
+"nombre": "Dúdar",
+"provincia": "Granada",
+"ine": "18070"
+},
+{
+"slug": "durcal",
+"nombre": "Dúrcal",
+"provincia": "Granada",
+"ine": "18071"
+},
+{
+"slug": "escuzar",
+"nombre": "Escúzar",
+"provincia": "Granada",
+"ine": "18072"
+},
+{
+"slug": "ferreira",
+"nombre": "Ferreira",
+"provincia": "Granada",
+"ine": "18074"
+},
+{
+"slug": "fonelas",
+"nombre": "Fonelas",
+"provincia": "Granada",
+"ine": "18076"
+},
+{
+"slug": "fornes",
+"nombre": "Fornes",
+"provincia": "Granada",
+"ine": "18077"
+},
+{
+"slug": "freila",
+"nombre": "Freila",
+"provincia": "Granada",
+"ine": "18078"
+},
+{
+"slug": "fuente-vaqueros",
+"nombre": "Fuente Vaqueros",
+"provincia": "Granada",
+"ine": "18079"
+},
+{
+"slug": "las-gabias",
+"nombre": "Las Gabias",
+"provincia": "Granada",
+"ine": "18905"
+},
+{
+"slug": "galera",
+"nombre": "Galera",
+"provincia": "Granada",
+"ine": "18082"
+},
+{
+"slug": "gobernador",
+"nombre": "Gobernador",
+"provincia": "Granada",
+"ine": "18083"
+},
+{
+"slug": "gojar",
+"nombre": "Gójar",
+"provincia": "Granada",
+"ine": "18084"
+},
+{
+"slug": "gor",
+"nombre": "Gor",
+"provincia": "Granada",
+"ine": "18085"
+},
+{
+"slug": "gorafe",
+"nombre": "Gorafe",
+"provincia": "Granada",
+"ine": "18086"
+},
+{
+"slug": "granada",
+"nombre": "Granada",
+"provincia": "Granada",
+"ine": "18087"
+},
+{
+"slug": "guadahortuna",
+"nombre": "Guadahortuna",
+"provincia": "Granada",
+"ine": "18088"
+},
+{
+"slug": "guadix",
+"nombre": "Guadix",
+"provincia": "Granada",
+"ine": "18089"
+},
+{
+"slug": "los-guajares",
+"nombre": "Los Guájares",
+"provincia": "Granada",
+"ine": "18906"
+},
+{
+"slug": "gualchos",
+"nombre": "Gualchos",
+"provincia": "Granada",
+"ine": "18093"
+},
+{
+"slug": "guejar-sierra",
+"nombre": "Güéjar Sierra",
+"provincia": "Granada",
+"ine": "18094"
+},
+{
+"slug": "guevejar",
+"nombre": "Güevéjar",
+"provincia": "Granada",
+"ine": "18095"
+},
+{
+"slug": "huelago",
+"nombre": "Huélago",
+"provincia": "Granada",
+"ine": "18096"
+},
+{
+"slug": "hueneja",
+"nombre": "Huéneja",
+"provincia": "Granada",
+"ine": "18097"
+},
+{
+"slug": "huescar",
+"nombre": "Huéscar",
+"provincia": "Granada",
+"ine": "18098"
+},
+{
+"slug": "huetor-de-santillan",
+"nombre": "Huétor de Santillán",
+"provincia": "Granada",
+"ine": "18099"
+},
+{
+"slug": "huetor-tajar",
+"nombre": "Huétor Tájar",
+"provincia": "Granada",
+"ine": "18100"
+},
+{
+"slug": "huetor-vega",
+"nombre": "Huétor Vega",
+"provincia": "Granada",
+"ine": "18101"
+},
+{
+"slug": "illora",
+"nombre": "Íllora",
+"provincia": "Granada",
+"ine": "18102"
+},
+{
+"slug": "itrabo",
+"nombre": "Ítrabo",
+"provincia": "Granada",
+"ine": "18103"
+},
+{
+"slug": "iznalloz",
+"nombre": "Iznalloz",
+"provincia": "Granada",
+"ine": "18105"
+},
+{
+"slug": "jatar",
+"nombre": "Játar",
+"provincia": "Granada",
+"ine": "18106"
+},
+{
+"slug": "jayena",
+"nombre": "Jayena",
+"provincia": "Granada",
+"ine": "18107"
+},
+{
+"slug": "jerez-del-marquesado",
+"nombre": "Jérez del Marquesado",
+"provincia": "Granada",
+"ine": "18108"
+},
+{
+"slug": "jete",
+"nombre": "Jete",
+"provincia": "Granada",
+"ine": "18109"
+},
+{
+"slug": "jun",
+"nombre": "Jun",
+"provincia": "Granada",
+"ine": "18111"
+},
+{
+"slug": "juviles",
+"nombre": "Juviles",
+"provincia": "Granada",
+"ine": "18112"
+},
+{
+"slug": "lachar",
+"nombre": "Láchar",
+"provincia": "Granada",
+"ine": "18115"
+},
+{
+"slug": "lanjaron",
+"nombre": "Lanjarón",
+"provincia": "Granada",
+"ine": "18116"
+},
+{
+"slug": "lanteira",
+"nombre": "Lanteira",
+"provincia": "Granada",
+"ine": "18117"
+},
+{
+"slug": "lecrin",
+"nombre": "Lecrín",
+"provincia": "Granada",
+"ine": "18119"
+},
+{
+"slug": "lentegi",
+"nombre": "Lentegí",
+"provincia": "Granada",
+"ine": "18120"
+},
+{
+"slug": "lobras",
+"nombre": "Lobras",
+"provincia": "Granada",
+"ine": "18121"
+},
+{
+"slug": "loja",
+"nombre": "Loja",
+"provincia": "Granada",
+"ine": "18122"
+},
+{
+"slug": "lugros",
+"nombre": "Lugros",
+"provincia": "Granada",
+"ine": "18123"
+},
+{
+"slug": "lujar",
+"nombre": "Lújar",
+"provincia": "Granada",
+"ine": "18124"
+},
+{
+"slug": "la-malaha",
+"nombre": "La Malahá",
+"provincia": "Granada",
+"ine": "18126"
+},
+{
+"slug": "maracena",
+"nombre": "Maracena",
+"provincia": "Granada",
+"ine": "18127"
+},
+{
+"slug": "marchal",
+"nombre": "Marchal",
+"provincia": "Granada",
+"ine": "18128"
+},
+{
+"slug": "moclin",
+"nombre": "Moclín",
+"provincia": "Granada",
+"ine": "18132"
+},
+{
+"slug": "molvizar",
+"nombre": "Molvízar",
+"provincia": "Granada",
+"ine": "18133"
+},
+{
+"slug": "monachil",
+"nombre": "Monachil",
+"provincia": "Granada",
+"ine": "18134"
+},
+{
+"slug": "montefrio",
+"nombre": "Montefrío",
+"provincia": "Granada",
+"ine": "18135"
+},
+{
+"slug": "montejicar",
+"nombre": "Montejícar",
+"provincia": "Granada",
+"ine": "18136"
+},
+{
+"slug": "montillana",
+"nombre": "Montillana",
+"provincia": "Granada",
+"ine": "18137"
+},
+{
+"slug": "moraleda-de-zafayona",
+"nombre": "Moraleda de Zafayona",
+"provincia": "Granada",
+"ine": "18138"
+},
+{
+"slug": "morelabor",
+"nombre": "Morelábor",
+"provincia": "Granada",
+"ine": "18909"
+},
+{
+"slug": "motril",
+"nombre": "Motril",
+"provincia": "Granada",
+"ine": "18140"
+},
+{
+"slug": "murtas",
+"nombre": "Murtas",
+"provincia": "Granada",
+"ine": "18141"
+},
+{
+"slug": "nevada",
+"nombre": "Nevada",
+"provincia": "Granada",
+"ine": "18903"
+},
+{
+"slug": "niguelas",
+"nombre": "Nigüelas",
+"provincia": "Granada",
+"ine": "18143"
+},
+{
+"slug": "nivar",
+"nombre": "Nívar",
+"provincia": "Granada",
+"ine": "18144"
+},
+{
+"slug": "ogijares",
+"nombre": "Ogíjares",
+"provincia": "Granada",
+"ine": "18145"
+},
+{
+"slug": "orce",
+"nombre": "Orce",
+"provincia": "Granada",
+"ine": "18146"
+},
+{
+"slug": "orgiva",
+"nombre": "Órgiva",
+"provincia": "Granada",
+"ine": "18147"
+},
+{
+"slug": "otivar",
+"nombre": "Otívar",
+"provincia": "Granada",
+"ine": "18148"
+},
+{
+"slug": "padul",
+"nombre": "Padul",
+"provincia": "Granada",
+"ine": "18150"
+},
+{
+"slug": "pampaneira",
+"nombre": "Pampaneira",
+"provincia": "Granada",
+"ine": "18151"
+},
+{
+"slug": "pedro-martinez",
+"nombre": "Pedro Martínez",
+"provincia": "Granada",
+"ine": "18152"
+},
+{
+"slug": "peligros",
+"nombre": "Peligros",
+"provincia": "Granada",
+"ine": "18153"
+},
+{
+"slug": "la-peza",
+"nombre": "La Peza",
+"provincia": "Granada",
+"ine": "18154"
+},
+{
+"slug": "el-pinar",
+"nombre": "El Pinar",
+"provincia": "Granada",
+"ine": "18910"
+},
+{
+"slug": "pinos-genil",
+"nombre": "Pinos Genil",
+"provincia": "Granada",
+"ine": "18157"
+},
+{
+"slug": "pinos-puente",
+"nombre": "Pinos Puente",
+"provincia": "Granada",
+"ine": "18158"
+},
+{
+"slug": "pinar",
+"nombre": "Píñar",
+"provincia": "Granada",
+"ine": "18159"
+},
+{
+"slug": "policar",
+"nombre": "Polícar",
+"provincia": "Granada",
+"ine": "18161"
+},
+{
+"slug": "polopos",
+"nombre": "Polopos",
+"provincia": "Granada",
+"ine": "18162"
+},
+{
+"slug": "portugos",
+"nombre": "Pórtugos",
+"provincia": "Granada",
+"ine": "18163"
+},
+{
+"slug": "puebla-de-don-fadrique",
+"nombre": "Puebla de Don Fadrique",
+"provincia": "Granada",
+"ine": "18164"
+},
+{
+"slug": "pulianas",
+"nombre": "Pulianas",
+"provincia": "Granada",
+"ine": "18165"
+},
+{
+"slug": "purullena",
+"nombre": "Purullena",
+"provincia": "Granada",
+"ine": "18167"
+},
+{
+"slug": "quentar",
+"nombre": "Quéntar",
+"provincia": "Granada",
+"ine": "18168"
+},
+{
+"slug": "rubite",
+"nombre": "Rubite",
+"provincia": "Granada",
+"ine": "18170"
+},
+{
+"slug": "salar",
+"nombre": "Salar",
+"provincia": "Granada",
+"ine": "18171"
+},
+{
+"slug": "salobrena",
+"nombre": "Salobreña",
+"provincia": "Granada",
+"ine": "18173"
+},
+{
+"slug": "santa-cruz-del-comercio",
+"nombre": "Santa Cruz del Comercio",
+"provincia": "Granada",
+"ine": "18174"
+},
+{
+"slug": "santa-fe",
+"nombre": "Santa Fe",
+"provincia": "Granada",
+"ine": "18175"
+},
+{
+"slug": "soportujar",
+"nombre": "Soportújar",
+"provincia": "Granada",
+"ine": "18176"
+},
+{
+"slug": "sorvilan",
+"nombre": "Sorvilán",
+"provincia": "Granada",
+"ine": "18177"
+},
+{
+"slug": "la-taha",
+"nombre": "La Taha",
+"provincia": "Granada",
+"ine": "18901"
+},
+{
+"slug": "torre-cardela",
+"nombre": "Torre-Cardela",
+"provincia": "Granada",
+"ine": "18178"
+},
+{
+"slug": "torrenueva-costa",
+"nombre": "Torrenueva Costa",
+"provincia": "Granada",
+"ine": "18916"
+},
+{
+"slug": "torvizcon",
+"nombre": "Torvizcón",
+"provincia": "Granada",
+"ine": "18179"
+},
+{
+"slug": "trevelez",
+"nombre": "Trevélez",
+"provincia": "Granada",
+"ine": "18180"
+},
+{
+"slug": "turon",
+"nombre": "Turón",
+"provincia": "Granada",
+"ine": "18181"
+},
+{
+"slug": "ugijar",
+"nombre": "Ugíjar",
+"provincia": "Granada",
+"ine": "18182"
+},
+{
+"slug": "valderrubio",
+"nombre": "Valderrubio",
+"provincia": "Granada",
+"ine": "18914"
+},
+{
+"slug": "valle-del-zalabi",
+"nombre": "Valle del Zalabí",
+"provincia": "Granada",
+"ine": "18907"
+},
+{
+"slug": "el-valle",
+"nombre": "El Valle",
+"provincia": "Granada",
+"ine": "18902"
+},
+{
+"slug": "valor",
+"nombre": "Válor",
+"provincia": "Granada",
+"ine": "18183"
+},
+{
+"slug": "vegas-del-genil",
+"nombre": "Vegas del Genil",
+"provincia": "Granada",
+"ine": "18911"
+},
+{
+"slug": "velez-de-benaudalla",
+"nombre": "Vélez de Benaudalla",
+"provincia": "Granada",
+"ine": "18184"
+},
+{
+"slug": "ventas-de-huelma",
+"nombre": "Ventas de Huelma",
+"provincia": "Granada",
+"ine": "18185"
+},
+{
+"slug": "villa-de-otura",
+"nombre": "Villa de Otura",
+"provincia": "Granada",
+"ine": "18149"
+},
+{
+"slug": "villamena",
+"nombre": "Villamena",
+"provincia": "Granada",
+"ine": "18908"
+},
+{
+"slug": "villanueva-de-las-torres",
+"nombre": "Villanueva de las Torres",
+"provincia": "Granada",
+"ine": "18187"
+},
+{
+"slug": "villanueva-mesia",
+"nombre": "Villanueva Mesía",
+"provincia": "Granada",
+"ine": "18188"
+},
+{
+"slug": "viznar",
+"nombre": "Víznar",
+"provincia": "Granada",
+"ine": "18189"
+},
+{
+"slug": "zafarraya",
+"nombre": "Zafarraya",
+"provincia": "Granada",
+"ine": "18192"
+},
+{
+"slug": "zagra",
+"nombre": "Zagra",
+"provincia": "Granada",
+"ine": "18913"
+},
+{
+"slug": "la-zubia",
+"nombre": "La Zubia",
+"provincia": "Granada",
+"ine": "18193"
+},
+{
+"slug": "zujar",
+"nombre": "Zújar",
+"provincia": "Granada",
+"ine": "18194"
+},
+{
+"slug": "alajar",
+"nombre": "Alájar",
+"provincia": "Huelva",
+"ine": "21001"
+},
+{
+"slug": "aljaraque",
+"nombre": "Aljaraque",
+"provincia": "Huelva",
+"ine": "21002"
+},
+{
+"slug": "el-almendro",
+"nombre": "El Almendro",
+"provincia": "Huelva",
+"ine": "21003"
+},
+{
+"slug": "almonaster-la-real",
+"nombre": "Almonaster la Real",
+"provincia": "Huelva",
+"ine": "21004"
+},
+{
+"slug": "almonte",
+"nombre": "Almonte",
+"provincia": "Huelva",
+"ine": "21005"
+},
+{
+"slug": "alosno",
+"nombre": "Alosno",
+"provincia": "Huelva",
+"ine": "21006"
+},
+{
+"slug": "aracena",
+"nombre": "Aracena",
+"provincia": "Huelva",
+"ine": "21007"
+},
+{
+"slug": "aroche",
+"nombre": "Aroche",
+"provincia": "Huelva",
+"ine": "21008"
+},
+{
+"slug": "arroyomolinos-de-leon",
+"nombre": "Arroyomolinos de León",
+"provincia": "Huelva",
+"ine": "21009"
+},
+{
+"slug": "ayamonte",
+"nombre": "Ayamonte",
+"provincia": "Huelva",
+"ine": "21010"
+},
+{
+"slug": "beas",
+"nombre": "Beas",
+"provincia": "Huelva",
+"ine": "21011"
+},
+{
+"slug": "berrocal",
+"nombre": "Berrocal",
+"provincia": "Huelva",
+"ine": "21012"
+},
+{
+"slug": "bollullos-par-del-condado",
+"nombre": "Bollullos Par del Condado",
+"provincia": "Huelva",
+"ine": "21013"
+},
+{
+"slug": "bonares",
+"nombre": "Bonares",
+"provincia": "Huelva",
+"ine": "21014"
+},
+{
+"slug": "cabezas-rubias",
+"nombre": "Cabezas Rubias",
+"provincia": "Huelva",
+"ine": "21015"
+},
+{
+"slug": "cala",
+"nombre": "Cala",
+"provincia": "Huelva",
+"ine": "21016"
+},
+{
+"slug": "calanas",
+"nombre": "Calañas",
+"provincia": "Huelva",
+"ine": "21017"
+},
+{
+"slug": "el-campillo",
+"nombre": "El Campillo",
+"provincia": "Huelva",
+"ine": "21018"
+},
+{
+"slug": "campofrio",
+"nombre": "Campofrío",
+"provincia": "Huelva",
+"ine": "21019"
+},
+{
+"slug": "canaveral-de-leon",
+"nombre": "Cañaveral de León",
+"provincia": "Huelva",
+"ine": "21020"
+},
+{
+"slug": "cartaya",
+"nombre": "Cartaya",
+"provincia": "Huelva",
+"ine": "21021"
+},
+{
+"slug": "castano-del-robledo",
+"nombre": "Castaño del Robledo",
+"provincia": "Huelva",
+"ine": "21022"
+},
+{
+"slug": "el-cerro-de-andevalo",
+"nombre": "El Cerro de Andévalo",
+"provincia": "Huelva",
+"ine": "21023"
+},
+{
+"slug": "chucena",
+"nombre": "Chucena",
+"provincia": "Huelva",
+"ine": "21030"
+},
+{
+"slug": "corteconcepcion",
+"nombre": "Corteconcepción",
+"provincia": "Huelva",
+"ine": "21024"
+},
+{
+"slug": "cortegana",
+"nombre": "Cortegana",
+"provincia": "Huelva",
+"ine": "21025"
+},
+{
+"slug": "cortelazor",
+"nombre": "Cortelazor",
+"provincia": "Huelva",
+"ine": "21026"
+},
+{
+"slug": "cumbres-de-enmedio",
+"nombre": "Cumbres de Enmedio",
+"provincia": "Huelva",
+"ine": "21027"
+},
+{
+"slug": "cumbres-de-san-bartolome",
+"nombre": "Cumbres de San Bartolomé",
+"provincia": "Huelva",
+"ine": "21028"
+},
+{
+"slug": "cumbres-mayores",
+"nombre": "Cumbres Mayores",
+"provincia": "Huelva",
+"ine": "21029"
+},
+{
+"slug": "encinasola",
+"nombre": "Encinasola",
+"provincia": "Huelva",
+"ine": "21031"
+},
+{
+"slug": "escacena-del-campo",
+"nombre": "Escacena del Campo",
+"provincia": "Huelva",
+"ine": "21032"
+},
+{
+"slug": "fuenteheridos",
+"nombre": "Fuenteheridos",
+"provincia": "Huelva",
+"ine": "21033"
+},
+{
+"slug": "galaroza",
+"nombre": "Galaroza",
+"provincia": "Huelva",
+"ine": "21034"
+},
+{
+"slug": "gibraleon",
+"nombre": "Gibraleón",
+"provincia": "Huelva",
+"ine": "21035"
+},
+{
+"slug": "la-granada-de-rio-tinto",
+"nombre": "La Granada de Río-Tinto",
+"provincia": "Huelva",
+"ine": "21036"
+},
+{
+"slug": "el-granado",
+"nombre": "El Granado",
+"provincia": "Huelva",
+"ine": "21037"
+},
+{
+"slug": "higuera-de-la-sierra",
+"nombre": "Higuera de la Sierra",
+"provincia": "Huelva",
+"ine": "21038"
+},
+{
+"slug": "hinojales",
+"nombre": "Hinojales",
+"provincia": "Huelva",
+"ine": "21039"
+},
+{
+"slug": "hinojos",
+"nombre": "Hinojos",
+"provincia": "Huelva",
+"ine": "21040"
+},
+{
+"slug": "huelva",
+"nombre": "Huelva",
+"provincia": "Huelva",
+"ine": "21041"
+},
+{
+"slug": "isla-cristina",
+"nombre": "Isla Cristina",
+"provincia": "Huelva",
+"ine": "21042"
+},
+{
+"slug": "jabugo",
+"nombre": "Jabugo",
+"provincia": "Huelva",
+"ine": "21043"
+},
+{
+"slug": "lepe",
+"nombre": "Lepe",
+"provincia": "Huelva",
+"ine": "21044"
+},
+{
+"slug": "linares-de-la-sierra",
+"nombre": "Linares de la Sierra",
+"provincia": "Huelva",
+"ine": "21045"
+},
+{
+"slug": "lucena-del-puerto",
+"nombre": "Lucena del Puerto",
+"provincia": "Huelva",
+"ine": "21046"
+},
+{
+"slug": "manzanilla",
+"nombre": "Manzanilla",
+"provincia": "Huelva",
+"ine": "21047"
+},
+{
+"slug": "los-marines",
+"nombre": "Los Marines",
+"provincia": "Huelva",
+"ine": "21048"
+},
+{
+"slug": "minas-de-riotinto",
+"nombre": "Minas de Riotinto",
+"provincia": "Huelva",
+"ine": "21049"
+},
+{
+"slug": "moguer",
+"nombre": "Moguer",
+"provincia": "Huelva",
+"ine": "21050"
+},
+{
+"slug": "la-nava",
+"nombre": "La Nava",
+"provincia": "Huelva",
+"ine": "21051"
+},
+{
+"slug": "nerva",
+"nombre": "Nerva",
+"provincia": "Huelva",
+"ine": "21052"
+},
+{
+"slug": "niebla",
+"nombre": "Niebla",
+"provincia": "Huelva",
+"ine": "21053"
+},
+{
+"slug": "la-palma-del-condado",
+"nombre": "La Palma del Condado",
+"provincia": "Huelva",
+"ine": "21054"
+},
+{
+"slug": "palos-de-la-frontera",
+"nombre": "Palos de la Frontera",
+"provincia": "Huelva",
+"ine": "21055"
+},
+{
+"slug": "paterna-del-campo",
+"nombre": "Paterna del Campo",
+"provincia": "Huelva",
+"ine": "21056"
+},
+{
+"slug": "paymogo",
+"nombre": "Paymogo",
+"provincia": "Huelva",
+"ine": "21057"
+},
+{
+"slug": "puebla-de-guzman",
+"nombre": "Puebla de Guzmán",
+"provincia": "Huelva",
+"ine": "21058"
+},
+{
+"slug": "puerto-moral",
+"nombre": "Puerto Moral",
+"provincia": "Huelva",
+"ine": "21059"
+},
+{
+"slug": "punta-umbria",
+"nombre": "Punta Umbría",
+"provincia": "Huelva",
+"ine": "21060"
+},
+{
+"slug": "rociana-del-condado",
+"nombre": "Rociana del Condado",
+"provincia": "Huelva",
+"ine": "21061"
+},
+{
+"slug": "rosal-de-la-frontera",
+"nombre": "Rosal de la Frontera",
+"provincia": "Huelva",
+"ine": "21062"
+},
+{
+"slug": "san-bartolome-de-la-torre",
+"nombre": "San Bartolomé de la Torre",
+"provincia": "Huelva",
+"ine": "21063"
+},
+{
+"slug": "san-juan-del-puerto",
+"nombre": "San Juan del Puerto",
+"provincia": "Huelva",
+"ine": "21064"
+},
+{
+"slug": "san-silvestre-de-guzman",
+"nombre": "San Silvestre de Guzmán",
+"provincia": "Huelva",
+"ine": "21066"
+},
+{
+"slug": "sanlucar-de-guadiana",
+"nombre": "Sanlúcar de Guadiana",
+"provincia": "Huelva",
+"ine": "21065"
+},
+{
+"slug": "santa-ana-la-real",
+"nombre": "Santa Ana la Real",
+"provincia": "Huelva",
+"ine": "21067"
+},
+{
+"slug": "santa-barbara-de-casa",
+"nombre": "Santa Bárbara de Casa",
+"provincia": "Huelva",
+"ine": "21068"
+},
+{
+"slug": "santa-olalla-del-cala",
+"nombre": "Santa Olalla del Cala",
+"provincia": "Huelva",
+"ine": "21069"
+},
+{
+"slug": "trigueros",
+"nombre": "Trigueros",
+"provincia": "Huelva",
+"ine": "21070"
+},
+{
+"slug": "valdelarco",
+"nombre": "Valdelarco",
+"provincia": "Huelva",
+"ine": "21071"
+},
+{
+"slug": "valverde-del-camino",
+"nombre": "Valverde del Camino",
+"provincia": "Huelva",
+"ine": "21072"
+},
+{
+"slug": "villablanca",
+"nombre": "Villablanca",
+"provincia": "Huelva",
+"ine": "21073"
+},
+{
+"slug": "villalba-del-alcor",
+"nombre": "Villalba del Alcor",
+"provincia": "Huelva",
+"ine": "21074"
+},
+{
+"slug": "villanueva-de-las-cruces",
+"nombre": "Villanueva de las Cruces",
+"provincia": "Huelva",
+"ine": "21075"
+},
+{
+"slug": "villanueva-de-los-castillejos",
+"nombre": "Villanueva de los Castillejos",
+"provincia": "Huelva",
+"ine": "21076"
+},
+{
+"slug": "villarrasa",
+"nombre": "Villarrasa",
+"provincia": "Huelva",
+"ine": "21077"
+},
+{
+"slug": "zalamea-la-real",
+"nombre": "Zalamea la Real",
+"provincia": "Huelva",
+"ine": "21078"
+},
+{
+"slug": "la-zarza-perrunal",
+"nombre": "La Zarza-Perrunal",
+"provincia": "Huelva",
+"ine": "21902"
+},
+{
+"slug": "zufre",
+"nombre": "Zufre",
+"provincia": "Huelva",
+"ine": "21079"
+},
+{
+"slug": "albanchez-de-magina",
+"nombre": "Albanchez de Mágina",
+"provincia": "Jaén",
+"ine": "23001"
+},
+{
+"slug": "alcala-la-real",
+"nombre": "Alcalá la Real",
+"provincia": "Jaén",
+"ine": "23002"
+},
+{
+"slug": "alcaudete",
+"nombre": "Alcaudete",
+"provincia": "Jaén",
+"ine": "23003"
+},
+{
+"slug": "aldeaquemada",
+"nombre": "Aldeaquemada",
+"provincia": "Jaén",
+"ine": "23004"
+},
+{
+"slug": "andujar",
+"nombre": "Andújar",
+"provincia": "Jaén",
+"ine": "23005"
+},
+{
+"slug": "arjona",
+"nombre": "Arjona",
+"provincia": "Jaén",
+"ine": "23006"
+},
+{
+"slug": "arjonilla",
+"nombre": "Arjonilla",
+"provincia": "Jaén",
+"ine": "23007"
+},
+{
+"slug": "arquillos",
+"nombre": "Arquillos",
+"provincia": "Jaén",
+"ine": "23008"
+},
+{
+"slug": "arroyo-del-ojanco",
+"nombre": "Arroyo del Ojanco",
+"provincia": "Jaén",
+"ine": "23905"
+},
+{
+"slug": "baeza",
+"nombre": "Baeza",
+"provincia": "Jaén",
+"ine": "23009"
+},
+{
+"slug": "bailen",
+"nombre": "Bailén",
+"provincia": "Jaén",
+"ine": "23010"
+},
+{
+"slug": "banos-de-la-encina",
+"nombre": "Baños de la Encina",
+"provincia": "Jaén",
+"ine": "23011"
+},
+{
+"slug": "beas-de-segura",
+"nombre": "Beas de Segura",
+"provincia": "Jaén",
+"ine": "23012"
+},
+{
+"slug": "bedmar-y-garciez",
+"nombre": "Bedmar y Garcíez",
+"provincia": "Jaén",
+"ine": "23902"
+},
+{
+"slug": "begijar",
+"nombre": "Begíjar",
+"provincia": "Jaén",
+"ine": "23014"
+},
+{
+"slug": "belmez-de-la-moraleda",
+"nombre": "Bélmez de la Moraleda",
+"provincia": "Jaén",
+"ine": "23015"
+},
+{
+"slug": "benatae",
+"nombre": "Benatae",
+"provincia": "Jaén",
+"ine": "23016"
+},
+{
+"slug": "cabra-del-santo-cristo",
+"nombre": "Cabra del Santo Cristo",
+"provincia": "Jaén",
+"ine": "23017"
+},
+{
+"slug": "cambil",
+"nombre": "Cambil",
+"provincia": "Jaén",
+"ine": "23018"
+},
+{
+"slug": "campillo-de-arenas",
+"nombre": "Campillo de Arenas",
+"provincia": "Jaén",
+"ine": "23019"
+},
+{
+"slug": "canena",
+"nombre": "Canena",
+"provincia": "Jaén",
+"ine": "23020"
+},
+{
+"slug": "carboneros",
+"nombre": "Carboneros",
+"provincia": "Jaén",
+"ine": "23021"
+},
+{
+"slug": "carcheles",
+"nombre": "Cárcheles",
+"provincia": "Jaén",
+"ine": "23901"
+},
+{
+"slug": "la-carolina",
+"nombre": "La Carolina",
+"provincia": "Jaén",
+"ine": "23024"
+},
+{
+"slug": "castellar",
+"nombre": "Castellar",
+"provincia": "Jaén",
+"ine": "23025"
+},
+{
+"slug": "castillo-de-locubin",
+"nombre": "Castillo de Locubín",
+"provincia": "Jaén",
+"ine": "23026"
+},
+{
+"slug": "cazalilla",
+"nombre": "Cazalilla",
+"provincia": "Jaén",
+"ine": "23027"
+},
+{
+"slug": "cazorla",
+"nombre": "Cazorla",
+"provincia": "Jaén",
+"ine": "23028"
+},
+{
+"slug": "chiclana-de-segura",
+"nombre": "Chiclana de Segura",
+"provincia": "Jaén",
+"ine": "23029"
+},
+{
+"slug": "chilluevar",
+"nombre": "Chilluévar",
+"provincia": "Jaén",
+"ine": "23030"
+},
+{
+"slug": "escanuela",
+"nombre": "Escañuela",
+"provincia": "Jaén",
+"ine": "23031"
+},
+{
+"slug": "espeluy",
+"nombre": "Espeluy",
+"provincia": "Jaén",
+"ine": "23032"
+},
+{
+"slug": "frailes",
+"nombre": "Frailes",
+"provincia": "Jaén",
+"ine": "23033"
+},
+{
+"slug": "fuensanta-de-martos",
+"nombre": "Fuensanta de Martos",
+"provincia": "Jaén",
+"ine": "23034"
+},
+{
+"slug": "fuerte-del-rey",
+"nombre": "Fuerte del Rey",
+"provincia": "Jaén",
+"ine": "23035"
+},
+{
+"slug": "genave",
+"nombre": "Génave",
+"provincia": "Jaén",
+"ine": "23037"
+},
+{
+"slug": "la-guardia-de-jaen",
+"nombre": "La Guardia de Jaén",
+"provincia": "Jaén",
+"ine": "23038"
+},
+{
+"slug": "guarroman",
+"nombre": "Guarromán",
+"provincia": "Jaén",
+"ine": "23039"
+},
+{
+"slug": "higuera-de-calatrava",
+"nombre": "Higuera de Calatrava",
+"provincia": "Jaén",
+"ine": "23041"
+},
+{
+"slug": "hinojares",
+"nombre": "Hinojares",
+"provincia": "Jaén",
+"ine": "23042"
+},
+{
+"slug": "hornos",
+"nombre": "Hornos",
+"provincia": "Jaén",
+"ine": "23043"
+},
+{
+"slug": "huelma",
+"nombre": "Huelma",
+"provincia": "Jaén",
+"ine": "23044"
+},
+{
+"slug": "huesa",
+"nombre": "Huesa",
+"provincia": "Jaén",
+"ine": "23045"
+},
+{
+"slug": "ibros",
+"nombre": "Ibros",
+"provincia": "Jaén",
+"ine": "23046"
+},
+{
+"slug": "la-iruela",
+"nombre": "La Iruela",
+"provincia": "Jaén",
+"ine": "23047"
+},
+{
+"slug": "iznatoraf",
+"nombre": "Iznatoraf",
+"provincia": "Jaén",
+"ine": "23048"
+},
+{
+"slug": "jabalquinto",
+"nombre": "Jabalquinto",
+"provincia": "Jaén",
+"ine": "23049"
+},
+{
+"slug": "jaen",
+"nombre": "Jaén",
+"provincia": "Jaén",
+"ine": "23050"
+},
+{
+"slug": "jamilena",
+"nombre": "Jamilena",
+"provincia": "Jaén",
+"ine": "23051"
+},
+{
+"slug": "jimena",
+"nombre": "Jimena",
+"provincia": "Jaén",
+"ine": "23052"
+},
+{
+"slug": "jodar",
+"nombre": "Jódar",
+"provincia": "Jaén",
+"ine": "23053"
+},
+{
+"slug": "lahiguera",
+"nombre": "Lahiguera",
+"provincia": "Jaén",
+"ine": "23040"
+},
+{
+"slug": "larva",
+"nombre": "Larva",
+"provincia": "Jaén",
+"ine": "23054"
+},
+{
+"slug": "linares",
+"nombre": "Linares",
+"provincia": "Jaén",
+"ine": "23055"
+},
+{
+"slug": "lopera",
+"nombre": "Lopera",
+"provincia": "Jaén",
+"ine": "23056"
+},
+{
+"slug": "lupion",
+"nombre": "Lupión",
+"provincia": "Jaén",
+"ine": "23057"
+},
+{
+"slug": "mancha-real",
+"nombre": "Mancha Real",
+"provincia": "Jaén",
+"ine": "23058"
+},
+{
+"slug": "marmolejo",
+"nombre": "Marmolejo",
+"provincia": "Jaén",
+"ine": "23059"
+},
+{
+"slug": "martos",
+"nombre": "Martos",
+"provincia": "Jaén",
+"ine": "23060"
+},
+{
+"slug": "mengibar",
+"nombre": "Mengíbar",
+"provincia": "Jaén",
+"ine": "23061"
+},
+{
+"slug": "montizon",
+"nombre": "Montizón",
+"provincia": "Jaén",
+"ine": "23062"
+},
+{
+"slug": "navas-de-san-juan",
+"nombre": "Navas de San Juan",
+"provincia": "Jaén",
+"ine": "23063"
+},
+{
+"slug": "noalejo",
+"nombre": "Noalejo",
+"provincia": "Jaén",
+"ine": "23064"
+},
+{
+"slug": "orcera",
+"nombre": "Orcera",
+"provincia": "Jaén",
+"ine": "23065"
+},
+{
+"slug": "peal-de-becerro",
+"nombre": "Peal de Becerro",
+"provincia": "Jaén",
+"ine": "23066"
+},
+{
+"slug": "pegalajar",
+"nombre": "Pegalajar",
+"provincia": "Jaén",
+"ine": "23067"
+},
+{
+"slug": "porcuna",
+"nombre": "Porcuna",
+"provincia": "Jaén",
+"ine": "23069"
+},
+{
+"slug": "pozo-alcon",
+"nombre": "Pozo Alcón",
+"provincia": "Jaén",
+"ine": "23070"
+},
+{
+"slug": "puente-de-genave",
+"nombre": "Puente de Génave",
+"provincia": "Jaén",
+"ine": "23071"
+},
+{
+"slug": "la-puerta-de-segura",
+"nombre": "La Puerta de Segura",
+"provincia": "Jaén",
+"ine": "23072"
+},
+{
+"slug": "quesada",
+"nombre": "Quesada",
+"provincia": "Jaén",
+"ine": "23073"
+},
+{
+"slug": "rus",
+"nombre": "Rus",
+"provincia": "Jaén",
+"ine": "23074"
+},
+{
+"slug": "sabiote",
+"nombre": "Sabiote",
+"provincia": "Jaén",
+"ine": "23075"
+},
+{
+"slug": "santa-elena",
+"nombre": "Santa Elena",
+"provincia": "Jaén",
+"ine": "23076"
+},
+{
+"slug": "santiago-de-calatrava",
+"nombre": "Santiago de Calatrava",
+"provincia": "Jaén",
+"ine": "23077"
+},
+{
+"slug": "santiago-pontones",
+"nombre": "Santiago-Pontones",
+"provincia": "Jaén",
+"ine": "23904"
+},
+{
+"slug": "santisteban-del-puerto",
+"nombre": "Santisteban del Puerto",
+"provincia": "Jaén",
+"ine": "23079"
+},
+{
+"slug": "santo-tome",
+"nombre": "Santo Tomé",
+"provincia": "Jaén",
+"ine": "23080"
+},
+{
+"slug": "segura-de-la-sierra",
+"nombre": "Segura de la Sierra",
+"provincia": "Jaén",
+"ine": "23081"
+},
+{
+"slug": "siles",
+"nombre": "Siles",
+"provincia": "Jaén",
+"ine": "23082"
+},
+{
+"slug": "sorihuela-del-guadalimar",
+"nombre": "Sorihuela del Guadalimar",
+"provincia": "Jaén",
+"ine": "23084"
+},
+{
+"slug": "torreblascopedro",
+"nombre": "Torreblascopedro",
+"provincia": "Jaén",
+"ine": "23085"
+},
+{
+"slug": "torredelcampo",
+"nombre": "Torredelcampo",
+"provincia": "Jaén",
+"ine": "23086"
+},
+{
+"slug": "torredonjimeno",
+"nombre": "Torredonjimeno",
+"provincia": "Jaén",
+"ine": "23087"
+},
+{
+"slug": "torreperogil",
+"nombre": "Torreperogil",
+"provincia": "Jaén",
+"ine": "23088"
+},
+{
+"slug": "torres",
+"nombre": "Torres",
+"provincia": "Jaén",
+"ine": "23090"
+},
+{
+"slug": "torres-de-albanchez",
+"nombre": "Torres de Albánchez",
+"provincia": "Jaén",
+"ine": "23091"
+},
+{
+"slug": "ubeda",
+"nombre": "Úbeda",
+"provincia": "Jaén",
+"ine": "23092"
+},
+{
+"slug": "valdepenas-de-jaen",
+"nombre": "Valdepeñas de Jaén",
+"provincia": "Jaén",
+"ine": "23093"
+},
+{
+"slug": "vilches",
+"nombre": "Vilches",
+"provincia": "Jaén",
+"ine": "23094"
+},
+{
+"slug": "villacarrillo",
+"nombre": "Villacarrillo",
+"provincia": "Jaén",
+"ine": "23095"
+},
+{
+"slug": "villanueva-de-la-reina",
+"nombre": "Villanueva de la Reina",
+"provincia": "Jaén",
+"ine": "23096"
+},
+{
+"slug": "villanueva-del-arzobispo",
+"nombre": "Villanueva del Arzobispo",
+"provincia": "Jaén",
+"ine": "23097"
+},
+{
+"slug": "villardompardo",
+"nombre": "Villardompardo",
+"provincia": "Jaén",
+"ine": "23098"
+},
+{
+"slug": "los-villares",
+"nombre": "Los Villares",
+"provincia": "Jaén",
+"ine": "23099"
+},
+{
+"slug": "villarrodrigo",
+"nombre": "Villarrodrigo",
+"provincia": "Jaén",
+"ine": "23101"
+},
+{
+"slug": "villatorres",
+"nombre": "Villatorres",
+"provincia": "Jaén",
+"ine": "23903"
+},
+{
+"slug": "alameda",
+"nombre": "Alameda",
+"provincia": "Málaga",
+"ine": "29001"
+},
+{
+"slug": "alcaucin",
+"nombre": "Alcaucín",
+"provincia": "Málaga",
+"ine": "29002"
+},
+{
+"slug": "alfarnate",
+"nombre": "Alfarnate",
+"provincia": "Málaga",
+"ine": "29003"
+},
+{
+"slug": "alfarnatejo",
+"nombre": "Alfarnatejo",
+"provincia": "Málaga",
+"ine": "29004"
+},
+{
+"slug": "algarrobo",
+"nombre": "Algarrobo",
+"provincia": "Málaga",
+"ine": "29005"
+},
+{
+"slug": "algatocin",
+"nombre": "Algatocín",
+"provincia": "Málaga",
+"ine": "29006"
+},
+{
+"slug": "alhaurin-de-la-torre",
+"nombre": "Alhaurín de la Torre",
+"provincia": "Málaga",
+"ine": "29007"
+},
+{
+"slug": "alhaurin-el-grande",
+"nombre": "Alhaurín el Grande",
+"provincia": "Málaga",
+"ine": "29008"
+},
+{
+"slug": "almachar",
+"nombre": "Almáchar",
+"provincia": "Málaga",
+"ine": "29009"
+},
+{
+"slug": "almargen",
+"nombre": "Almargen",
+"provincia": "Málaga",
+"ine": "29010"
+},
+{
+"slug": "almogia",
+"nombre": "Almogía",
+"provincia": "Málaga",
+"ine": "29011"
+},
+{
+"slug": "alora",
+"nombre": "Álora",
+"provincia": "Málaga",
+"ine": "29012"
+},
+{
+"slug": "alozaina",
+"nombre": "Alozaina",
+"provincia": "Málaga",
+"ine": "29013"
+},
+{
+"slug": "alpandeire",
+"nombre": "Alpandeire",
+"provincia": "Málaga",
+"ine": "29014"
+},
+{
+"slug": "antequera",
+"nombre": "Antequera",
+"provincia": "Málaga",
+"ine": "29015"
+},
+{
+"slug": "archez",
+"nombre": "Árchez",
+"provincia": "Málaga",
+"ine": "29016"
+},
+{
+"slug": "archidona",
+"nombre": "Archidona",
+"provincia": "Málaga",
+"ine": "29017"
+},
+{
+"slug": "ardales",
+"nombre": "Ardales",
+"provincia": "Málaga",
+"ine": "29018"
+},
+{
+"slug": "arenas",
+"nombre": "Arenas",
+"provincia": "Málaga",
+"ine": "29019"
+},
+{
+"slug": "arriate",
+"nombre": "Arriate",
+"provincia": "Málaga",
+"ine": "29020"
+},
+{
+"slug": "atajate",
+"nombre": "Atajate",
+"provincia": "Málaga",
+"ine": "29021"
+},
+{
+"slug": "benadalid",
+"nombre": "Benadalid",
+"provincia": "Málaga",
+"ine": "29022"
+},
+{
+"slug": "benahavis",
+"nombre": "Benahavís",
+"provincia": "Málaga",
+"ine": "29023"
+},
+{
+"slug": "benalauria",
+"nombre": "Benalauría",
+"provincia": "Málaga",
+"ine": "29024"
+},
+{
+"slug": "benalmadena",
+"nombre": "Benalmádena",
+"provincia": "Málaga",
+"ine": "29025"
+},
+{
+"slug": "benamargosa",
+"nombre": "Benamargosa",
+"provincia": "Málaga",
+"ine": "29026"
+},
+{
+"slug": "benamocarra",
+"nombre": "Benamocarra",
+"provincia": "Málaga",
+"ine": "29027"
+},
+{
+"slug": "benaojan",
+"nombre": "Benaoján",
+"provincia": "Málaga",
+"ine": "29028"
+},
+{
+"slug": "benarraba",
+"nombre": "Benarrabá",
+"provincia": "Málaga",
+"ine": "29029"
+},
+{
+"slug": "el-borge",
+"nombre": "El Borge",
+"provincia": "Málaga",
+"ine": "29030"
+},
+{
+"slug": "el-burgo",
+"nombre": "El Burgo",
+"provincia": "Málaga",
+"ine": "29031"
+},
+{
+"slug": "campillos",
+"nombre": "Campillos",
+"provincia": "Málaga",
+"ine": "29032"
+},
+{
+"slug": "canillas-de-aceituno",
+"nombre": "Canillas de Aceituno",
+"provincia": "Málaga",
+"ine": "29033"
+},
+{
+"slug": "canillas-de-albaida",
+"nombre": "Canillas de Albaida",
+"provincia": "Málaga",
+"ine": "29034"
+},
+{
+"slug": "canete-la-real",
+"nombre": "Cañete la Real",
+"provincia": "Málaga",
+"ine": "29035"
+},
+{
+"slug": "carratraca",
+"nombre": "Carratraca",
+"provincia": "Málaga",
+"ine": "29036"
+},
+{
+"slug": "cartajima",
+"nombre": "Cartajima",
+"provincia": "Málaga",
+"ine": "29037"
+},
+{
+"slug": "cartama",
+"nombre": "Cártama",
+"provincia": "Málaga",
+"ine": "29038"
+},
+{
+"slug": "casabermeja",
+"nombre": "Casabermeja",
+"provincia": "Málaga",
+"ine": "29039"
+},
+{
+"slug": "casarabonela",
+"nombre": "Casarabonela",
+"provincia": "Málaga",
+"ine": "29040"
+},
+{
+"slug": "casares",
+"nombre": "Casares",
+"provincia": "Málaga",
+"ine": "29041"
+},
+{
+"slug": "coin",
+"nombre": "Coín",
+"provincia": "Málaga",
+"ine": "29042"
+},
+{
+"slug": "colmenar",
+"nombre": "Colmenar",
+"provincia": "Málaga",
+"ine": "29043"
+},
+{
+"slug": "comares",
+"nombre": "Comares",
+"provincia": "Málaga",
+"ine": "29044"
+},
+{
+"slug": "competa",
+"nombre": "Cómpeta",
+"provincia": "Málaga",
+"ine": "29045"
+},
+{
+"slug": "cortes-de-la-frontera",
+"nombre": "Cortes de la Frontera",
+"provincia": "Málaga",
+"ine": "29046"
+},
+{
+"slug": "cuevas-bajas",
+"nombre": "Cuevas Bajas",
+"provincia": "Málaga",
+"ine": "29047"
+},
+{
+"slug": "cuevas-de-san-marcos",
+"nombre": "Cuevas de San Marcos",
+"provincia": "Málaga",
+"ine": "29049"
+},
+{
+"slug": "cuevas-del-becerro",
+"nombre": "Cuevas del Becerro",
+"provincia": "Málaga",
+"ine": "29048"
+},
+{
+"slug": "cutar",
+"nombre": "Cútar",
+"provincia": "Málaga",
+"ine": "29050"
+},
+{
+"slug": "estepona",
+"nombre": "Estepona",
+"provincia": "Málaga",
+"ine": "29051"
+},
+{
+"slug": "farajan",
+"nombre": "Faraján",
+"provincia": "Málaga",
+"ine": "29052"
+},
+{
+"slug": "frigiliana",
+"nombre": "Frigiliana",
+"provincia": "Málaga",
+"ine": "29053"
+},
+{
+"slug": "fuengirola",
+"nombre": "Fuengirola",
+"provincia": "Málaga",
+"ine": "29054"
+},
+{
+"slug": "fuente-de-piedra",
+"nombre": "Fuente de Piedra",
+"provincia": "Málaga",
+"ine": "29055"
+},
+{
+"slug": "gaucin",
+"nombre": "Gaucín",
+"provincia": "Málaga",
+"ine": "29056"
+},
+{
+"slug": "genalguacil",
+"nombre": "Genalguacil",
+"provincia": "Málaga",
+"ine": "29057"
+},
+{
+"slug": "guaro",
+"nombre": "Guaro",
+"provincia": "Málaga",
+"ine": "29058"
+},
+{
+"slug": "humilladero",
+"nombre": "Humilladero",
+"provincia": "Málaga",
+"ine": "29059"
+},
+{
+"slug": "igualeja",
+"nombre": "Igualeja",
+"provincia": "Málaga",
+"ine": "29060"
+},
+{
+"slug": "istan",
+"nombre": "Istán",
+"provincia": "Málaga",
+"ine": "29061"
+},
+{
+"slug": "iznate",
+"nombre": "Iznate",
+"provincia": "Málaga",
+"ine": "29062"
+},
+{
+"slug": "jimera-de-libar",
+"nombre": "Jimera de Líbar",
+"provincia": "Málaga",
+"ine": "29063"
+},
+{
+"slug": "jubrique",
+"nombre": "Jubrique",
+"provincia": "Málaga",
+"ine": "29064"
+},
+{
+"slug": "juzcar",
+"nombre": "Júzcar",
+"provincia": "Málaga",
+"ine": "29065"
+},
+{
+"slug": "macharaviaya",
+"nombre": "Macharaviaya",
+"provincia": "Málaga",
+"ine": "29066"
+},
+{
+"slug": "malaga",
+"nombre": "Málaga",
+"provincia": "Málaga",
+"ine": "29067"
+},
+{
+"slug": "manilva",
+"nombre": "Manilva",
+"provincia": "Málaga",
+"ine": "29068"
+},
+{
+"slug": "marbella",
+"nombre": "Marbella",
+"provincia": "Málaga",
+"ine": "29069"
+},
+{
+"slug": "mijas",
+"nombre": "Mijas",
+"provincia": "Málaga",
+"ine": "29070"
+},
+{
+"slug": "moclinejo",
+"nombre": "Moclinejo",
+"provincia": "Málaga",
+"ine": "29071"
+},
+{
+"slug": "mollina",
+"nombre": "Mollina",
+"provincia": "Málaga",
+"ine": "29072"
+},
+{
+"slug": "monda",
+"nombre": "Monda",
+"provincia": "Málaga",
+"ine": "29073"
+},
+{
+"slug": "montecorto",
+"nombre": "Montecorto",
+"provincia": "Málaga",
+"ine": "29903"
+},
+{
+"slug": "montejaque",
+"nombre": "Montejaque",
+"provincia": "Málaga",
+"ine": "29074"
+},
+{
+"slug": "nerja",
+"nombre": "Nerja",
+"provincia": "Málaga",
+"ine": "29075"
+},
+{
+"slug": "ojen",
+"nombre": "Ojén",
+"provincia": "Málaga",
+"ine": "29076"
+},
+{
+"slug": "parauta",
+"nombre": "Parauta",
+"provincia": "Málaga",
+"ine": "29077"
+},
+{
+"slug": "periana",
+"nombre": "Periana",
+"provincia": "Málaga",
+"ine": "29079"
+},
+{
+"slug": "pizarra",
+"nombre": "Pizarra",
+"provincia": "Málaga",
+"ine": "29080"
+},
+{
+"slug": "pujerra",
+"nombre": "Pujerra",
+"provincia": "Málaga",
+"ine": "29081"
+},
+{
+"slug": "rincon-de-la-victoria",
+"nombre": "Rincón de la Victoria",
+"provincia": "Málaga",
+"ine": "29082"
+},
+{
+"slug": "riogordo",
+"nombre": "Riogordo",
+"provincia": "Málaga",
+"ine": "29083"
+},
+{
+"slug": "ronda",
+"nombre": "Ronda",
+"provincia": "Málaga",
+"ine": "29084"
+},
+{
+"slug": "salares",
+"nombre": "Salares",
+"provincia": "Málaga",
+"ine": "29085"
+},
+{
+"slug": "sayalonga",
+"nombre": "Sayalonga",
+"provincia": "Málaga",
+"ine": "29086"
+},
+{
+"slug": "sedella",
+"nombre": "Sedella",
+"provincia": "Málaga",
+"ine": "29087"
+},
+{
+"slug": "serrato",
+"nombre": "Serrato",
+"provincia": "Málaga",
+"ine": "29904"
+},
+{
+"slug": "sierra-de-yeguas",
+"nombre": "Sierra de Yeguas",
+"provincia": "Málaga",
+"ine": "29088"
+},
+{
+"slug": "teba",
+"nombre": "Teba",
+"provincia": "Málaga",
+"ine": "29089"
+},
+{
+"slug": "tolox",
+"nombre": "Tolox",
+"provincia": "Málaga",
+"ine": "29090"
+},
+{
+"slug": "torremolinos",
+"nombre": "Torremolinos",
+"provincia": "Málaga",
+"ine": "29901"
+},
+{
+"slug": "torrox",
+"nombre": "Torrox",
+"provincia": "Málaga",
+"ine": "29091"
+},
+{
+"slug": "totalan",
+"nombre": "Totalán",
+"provincia": "Málaga",
+"ine": "29092"
+},
+{
+"slug": "valle-de-abdalajis",
+"nombre": "Valle de Abdalajís",
+"provincia": "Málaga",
+"ine": "29093"
+},
+{
+"slug": "velez-malaga",
+"nombre": "Vélez-Málaga",
+"provincia": "Málaga",
+"ine": "29094"
+},
+{
+"slug": "villanueva-de-algaidas",
+"nombre": "Villanueva de Algaidas",
+"provincia": "Málaga",
+"ine": "29095"
+},
+{
+"slug": "villanueva-de-la-concepcion",
+"nombre": "Villanueva de la Concepción",
+"provincia": "Málaga",
+"ine": "29902"
+},
+{
+"slug": "villanueva-de-tapia",
+"nombre": "Villanueva de Tapia",
+"provincia": "Málaga",
+"ine": "29098"
+},
+{
+"slug": "villanueva-del-rosario",
+"nombre": "Villanueva del Rosario",
+"provincia": "Málaga",
+"ine": "29096"
+},
+{
+"slug": "villanueva-del-trabuco",
+"nombre": "Villanueva del Trabuco",
+"provincia": "Málaga",
+"ine": "29097"
+},
+{
+"slug": "vinuela",
+"nombre": "Viñuela",
+"provincia": "Málaga",
+"ine": "29099"
+},
+{
+"slug": "yunquera",
+"nombre": "Yunquera",
+"provincia": "Málaga",
+"ine": "29100"
+},
+{
+"slug": "aguadulce",
+"nombre": "Aguadulce",
+"provincia": "Sevilla",
+"ine": "41001"
+},
+{
+"slug": "alanis",
+"nombre": "Alanís",
+"provincia": "Sevilla",
+"ine": "41002"
+},
+{
+"slug": "albaida-del-aljarafe",
+"nombre": "Albaida del Aljarafe",
+"provincia": "Sevilla",
+"ine": "41003"
+},
+{
+"slug": "alcala-de-guadaira",
+"nombre": "Alcalá de Guadaíra",
+"provincia": "Sevilla",
+"ine": "41004"
+},
+{
+"slug": "alcala-del-rio",
+"nombre": "Alcalá del Río",
+"provincia": "Sevilla",
+"ine": "41005"
+},
+{
+"slug": "alcolea-del-rio",
+"nombre": "Alcolea del Río",
+"provincia": "Sevilla",
+"ine": "41006"
+},
+{
+"slug": "la-algaba",
+"nombre": "La Algaba",
+"provincia": "Sevilla",
+"ine": "41007"
+},
+{
+"slug": "algamitas",
+"nombre": "Algámitas",
+"provincia": "Sevilla",
+"ine": "41008"
+},
+{
+"slug": "almaden-de-la-plata",
+"nombre": "Almadén de la Plata",
+"provincia": "Sevilla",
+"ine": "41009"
+},
+{
+"slug": "almensilla",
+"nombre": "Almensilla",
+"provincia": "Sevilla",
+"ine": "41010"
+},
+{
+"slug": "arahal",
+"nombre": "Arahal",
+"provincia": "Sevilla",
+"ine": "41011"
+},
+{
+"slug": "aznalcazar",
+"nombre": "Aznalcázar",
+"provincia": "Sevilla",
+"ine": "41012"
+},
+{
+"slug": "aznalcollar",
+"nombre": "Aznalcóllar",
+"provincia": "Sevilla",
+"ine": "41013"
+},
+{
+"slug": "badolatosa",
+"nombre": "Badolatosa",
+"provincia": "Sevilla",
+"ine": "41014"
+},
+{
+"slug": "benacazon",
+"nombre": "Benacazón",
+"provincia": "Sevilla",
+"ine": "41015"
+},
+{
+"slug": "bollullos-de-la-mitacion",
+"nombre": "Bollullos de la Mitación",
+"provincia": "Sevilla",
+"ine": "41016"
+},
+{
+"slug": "bormujos",
+"nombre": "Bormujos",
+"provincia": "Sevilla",
+"ine": "41017"
+},
+{
+"slug": "brenes",
+"nombre": "Brenes",
+"provincia": "Sevilla",
+"ine": "41018"
+},
+{
+"slug": "burguillos",
+"nombre": "Burguillos",
+"provincia": "Sevilla",
+"ine": "41019"
+},
+{
+"slug": "las-cabezas-de-san-juan",
+"nombre": "Las Cabezas de San Juan",
+"provincia": "Sevilla",
+"ine": "41020"
+},
+{
+"slug": "camas",
+"nombre": "Camas",
+"provincia": "Sevilla",
+"ine": "41021"
+},
+{
+"slug": "la-campana",
+"nombre": "La Campana",
+"provincia": "Sevilla",
+"ine": "41022"
+},
+{
+"slug": "cantillana",
+"nombre": "Cantillana",
+"provincia": "Sevilla",
+"ine": "41023"
+},
+{
+"slug": "canada-rosal",
+"nombre": "Cañada Rosal",
+"provincia": "Sevilla",
+"ine": "41901"
+},
+{
+"slug": "carmona",
+"nombre": "Carmona",
+"provincia": "Sevilla",
+"ine": "41024"
+},
+{
+"slug": "carrion-de-los-cespedes",
+"nombre": "Carrión de los Céspedes",
+"provincia": "Sevilla",
+"ine": "41025"
+},
+{
+"slug": "casariche",
+"nombre": "Casariche",
+"provincia": "Sevilla",
+"ine": "41026"
+},
+{
+"slug": "castilblanco-de-los-arroyos",
+"nombre": "Castilblanco de los Arroyos",
+"provincia": "Sevilla",
+"ine": "41027"
+},
+{
+"slug": "castilleja-de-guzman",
+"nombre": "Castilleja de Guzmán",
+"provincia": "Sevilla",
+"ine": "41028"
+},
+{
+"slug": "castilleja-de-la-cuesta",
+"nombre": "Castilleja de la Cuesta",
+"provincia": "Sevilla",
+"ine": "41029"
+},
+{
+"slug": "castilleja-del-campo",
+"nombre": "Castilleja del Campo",
+"provincia": "Sevilla",
+"ine": "41030"
+},
+{
+"slug": "el-castillo-de-las-guardas",
+"nombre": "El Castillo de las Guardas",
+"provincia": "Sevilla",
+"ine": "41031"
+},
+{
+"slug": "cazalla-de-la-sierra",
+"nombre": "Cazalla de la Sierra",
+"provincia": "Sevilla",
+"ine": "41032"
+},
+{
+"slug": "constantina",
+"nombre": "Constantina",
+"provincia": "Sevilla",
+"ine": "41033"
+},
+{
+"slug": "coria-del-rio",
+"nombre": "Coria del Río",
+"provincia": "Sevilla",
+"ine": "41034"
+},
+{
+"slug": "coripe",
+"nombre": "Coripe",
+"provincia": "Sevilla",
+"ine": "41035"
+},
+{
+"slug": "el-coronil",
+"nombre": "El Coronil",
+"provincia": "Sevilla",
+"ine": "41036"
+},
+{
+"slug": "los-corrales",
+"nombre": "Los Corrales",
+"provincia": "Sevilla",
+"ine": "41037"
+},
+{
+"slug": "el-cuervo-de-sevilla",
+"nombre": "El Cuervo de Sevilla",
+"provincia": "Sevilla",
+"ine": "41903"
+},
+{
+"slug": "dos-hermanas",
+"nombre": "Dos Hermanas",
+"provincia": "Sevilla",
+"ine": "41038"
+},
+{
+"slug": "ecija",
+"nombre": "Écija",
+"provincia": "Sevilla",
+"ine": "41039"
+},
+{
+"slug": "espartinas",
+"nombre": "Espartinas",
+"provincia": "Sevilla",
+"ine": "41040"
+},
+{
+"slug": "estepa",
+"nombre": "Estepa",
+"provincia": "Sevilla",
+"ine": "41041"
+},
+{
+"slug": "fuentes-de-andalucia",
+"nombre": "Fuentes de Andalucía",
+"provincia": "Sevilla",
+"ine": "41042"
+},
+{
+"slug": "el-garrobo",
+"nombre": "El Garrobo",
+"provincia": "Sevilla",
+"ine": "41043"
+},
+{
+"slug": "gelves",
+"nombre": "Gelves",
+"provincia": "Sevilla",
+"ine": "41044"
+},
+{
+"slug": "gerena",
+"nombre": "Gerena",
+"provincia": "Sevilla",
+"ine": "41045"
+},
+{
+"slug": "gilena",
+"nombre": "Gilena",
+"provincia": "Sevilla",
+"ine": "41046"
+},
+{
+"slug": "gines",
+"nombre": "Gines",
+"provincia": "Sevilla",
+"ine": "41047"
+},
+{
+"slug": "guadalcanal",
+"nombre": "Guadalcanal",
+"provincia": "Sevilla",
+"ine": "41048"
+},
+{
+"slug": "guillena",
+"nombre": "Guillena",
+"provincia": "Sevilla",
+"ine": "41049"
+},
+{
+"slug": "herrera",
+"nombre": "Herrera",
+"provincia": "Sevilla",
+"ine": "41050"
+},
+{
+"slug": "huevar-del-aljarafe",
+"nombre": "Huévar del Aljarafe",
+"provincia": "Sevilla",
+"ine": "41051"
+},
+{
+"slug": "isla-mayor",
+"nombre": "Isla Mayor",
+"provincia": "Sevilla",
+"ine": "41902"
+},
+{
+"slug": "lantejuela",
+"nombre": "Lantejuela",
+"provincia": "Sevilla",
+"ine": "41052"
+},
+{
+"slug": "lebrija",
+"nombre": "Lebrija",
+"provincia": "Sevilla",
+"ine": "41053"
+},
+{
+"slug": "lora-de-estepa",
+"nombre": "Lora de Estepa",
+"provincia": "Sevilla",
+"ine": "41054"
+},
+{
+"slug": "lora-del-rio",
+"nombre": "Lora del Río",
+"provincia": "Sevilla",
+"ine": "41055"
+},
+{
+"slug": "la-luisiana",
+"nombre": "La Luisiana",
+"provincia": "Sevilla",
+"ine": "41056"
+},
+{
+"slug": "el-madrono",
+"nombre": "El Madroño",
+"provincia": "Sevilla",
+"ine": "41057"
+},
+{
+"slug": "mairena-del-alcor",
+"nombre": "Mairena del Alcor",
+"provincia": "Sevilla",
+"ine": "41058"
+},
+{
+"slug": "mairena-del-aljarafe",
+"nombre": "Mairena del Aljarafe",
+"provincia": "Sevilla",
+"ine": "41059"
+},
+{
+"slug": "marchena",
+"nombre": "Marchena",
+"provincia": "Sevilla",
+"ine": "41060"
+},
+{
+"slug": "marinaleda",
+"nombre": "Marinaleda",
+"provincia": "Sevilla",
+"ine": "41061"
+},
+{
+"slug": "martin-de-la-jara",
+"nombre": "Martín de la Jara",
+"provincia": "Sevilla",
+"ine": "41062"
+},
+{
+"slug": "los-molares",
+"nombre": "Los Molares",
+"provincia": "Sevilla",
+"ine": "41063"
+},
+{
+"slug": "montellano",
+"nombre": "Montellano",
+"provincia": "Sevilla",
+"ine": "41064"
+},
+{
+"slug": "moron-de-la-frontera",
+"nombre": "Morón de la Frontera",
+"provincia": "Sevilla",
+"ine": "41065"
+},
+{
+"slug": "las-navas-de-la-concepcion",
+"nombre": "Las Navas de la Concepción",
+"provincia": "Sevilla",
+"ine": "41066"
+},
+{
+"slug": "olivares",
+"nombre": "Olivares",
+"provincia": "Sevilla",
+"ine": "41067"
+},
+{
+"slug": "osuna",
+"nombre": "Osuna",
+"provincia": "Sevilla",
+"ine": "41068"
+},
+{
+"slug": "los-palacios-y-villafranca",
+"nombre": "Los Palacios y Villafranca",
+"provincia": "Sevilla",
+"ine": "41069"
+},
+{
+"slug": "el-palmar-de-troya",
+"nombre": "El Palmar de Troya",
+"provincia": "Sevilla",
+"ine": "41904"
+},
+{
+"slug": "palomares-del-rio",
+"nombre": "Palomares del Río",
+"provincia": "Sevilla",
+"ine": "41070"
+},
+{
+"slug": "paradas",
+"nombre": "Paradas",
+"provincia": "Sevilla",
+"ine": "41071"
+},
+{
+"slug": "pedrera",
+"nombre": "Pedrera",
+"provincia": "Sevilla",
+"ine": "41072"
+},
+{
+"slug": "el-pedroso",
+"nombre": "El Pedroso",
+"provincia": "Sevilla",
+"ine": "41073"
+},
+{
+"slug": "penaflor",
+"nombre": "Peñaflor",
+"provincia": "Sevilla",
+"ine": "41074"
+},
+{
+"slug": "pilas",
+"nombre": "Pilas",
+"provincia": "Sevilla",
+"ine": "41075"
+},
+{
+"slug": "pruna",
+"nombre": "Pruna",
+"provincia": "Sevilla",
+"ine": "41076"
+},
+{
+"slug": "la-puebla-de-cazalla",
+"nombre": "La Puebla de Cazalla",
+"provincia": "Sevilla",
+"ine": "41077"
+},
+{
+"slug": "la-puebla-de-los-infantes",
+"nombre": "La Puebla de los Infantes",
+"provincia": "Sevilla",
+"ine": "41078"
+},
+{
+"slug": "la-puebla-del-rio",
+"nombre": "La Puebla del Río",
+"provincia": "Sevilla",
+"ine": "41079"
+},
+{
+"slug": "el-real-de-la-jara",
+"nombre": "El Real de la Jara",
+"provincia": "Sevilla",
+"ine": "41080"
+},
+{
+"slug": "la-rinconada",
+"nombre": "La Rinconada",
+"provincia": "Sevilla",
+"ine": "41081"
+},
+{
+"slug": "la-roda-de-andalucia",
+"nombre": "La Roda de Andalucía",
+"provincia": "Sevilla",
+"ine": "41082"
+},
+{
+"slug": "el-ronquillo",
+"nombre": "El Ronquillo",
+"provincia": "Sevilla",
+"ine": "41083"
+},
+{
+"slug": "el-rubio",
+"nombre": "El Rubio",
+"provincia": "Sevilla",
+"ine": "41084"
+},
+{
+"slug": "salteras",
+"nombre": "Salteras",
+"provincia": "Sevilla",
+"ine": "41085"
+},
+{
+"slug": "san-juan-de-aznalfarache",
+"nombre": "San Juan de Aznalfarache",
+"provincia": "Sevilla",
+"ine": "41086"
+},
+{
+"slug": "san-nicolas-del-puerto",
+"nombre": "San Nicolás del Puerto",
+"provincia": "Sevilla",
+"ine": "41088"
+},
+{
+"slug": "sanlucar-la-mayor",
+"nombre": "Sanlúcar la Mayor",
+"provincia": "Sevilla",
+"ine": "41087"
+},
+{
+"slug": "santiponce",
+"nombre": "Santiponce",
+"provincia": "Sevilla",
+"ine": "41089"
+},
+{
+"slug": "el-saucejo",
+"nombre": "El Saucejo",
+"provincia": "Sevilla",
+"ine": "41090"
+},
+{
+"slug": "sevilla",
+"nombre": "Sevilla",
+"provincia": "Sevilla",
+"ine": "41091"
+},
+{
+"slug": "tocina",
+"nombre": "Tocina",
+"provincia": "Sevilla",
+"ine": "41092"
+},
+{
+"slug": "tomares",
+"nombre": "Tomares",
+"provincia": "Sevilla",
+"ine": "41093"
+},
+{
+"slug": "umbrete",
+"nombre": "Umbrete",
+"provincia": "Sevilla",
+"ine": "41094"
+},
+{
+"slug": "utrera",
+"nombre": "Utrera",
+"provincia": "Sevilla",
+"ine": "41095"
+},
+{
+"slug": "valencina-de-la-concepcion",
+"nombre": "Valencina de la Concepción",
+"provincia": "Sevilla",
+"ine": "41096"
+},
+{
+"slug": "villamanrique-de-la-condesa",
+"nombre": "Villamanrique de la Condesa",
+"provincia": "Sevilla",
+"ine": "41097"
+},
+{
+"slug": "villanueva-de-san-juan",
+"nombre": "Villanueva de San Juan",
+"provincia": "Sevilla",
+"ine": "41100"
+},
+{
+"slug": "villanueva-del-ariscal",
+"nombre": "Villanueva del Ariscal",
+"provincia": "Sevilla",
+"ine": "41098"
+},
+{
+"slug": "villanueva-del-rio-y-minas",
+"nombre": "Villanueva del Río y Minas",
+"provincia": "Sevilla",
+"ine": "41099"
+},
+{
+"slug": "villaverde-del-rio",
+"nombre": "Villaverde del Río",
+"provincia": "Sevilla",
+"ine": "41101"
+},
+{
+"slug": "el-viso-del-alcor",
+"nombre": "El Viso del Alcor",
+"provincia": "Sevilla",
+"ine": "41102"
+}
+]

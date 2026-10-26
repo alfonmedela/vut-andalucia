@@ -29,6 +29,10 @@ class Caso(BaseModel):
     no_debe: list[str] = Field(
         default_factory=list, description="Afirmaciones erróneas que no deben aparecer"
     )
+    municipio: str | None = None
+    tipo: str = "normal"  # normal | premisa_falsa | caso_limite | temporal | municipal
+    origen: str | None = Field(default=None, description="chat:<id> | online:<id> | propia")
+    nota_juridica: str | None = None
 
 
 def cargar_preguntas(ruta: Path) -> list[Caso]:
@@ -47,7 +51,8 @@ def evaluar_recuperacion(casos: list[Caso], buscador: Buscador, k: int = 5) -> d
     en_ambito = [c for c in casos if c.ambito]
     aciertos, rr, fallos = 0, 0.0, []
     for c in en_ambito:
-        ids = [r.fragmento.base_id for r in buscador.buscar(c.pregunta, c.fecha, k)]
+        resultados = buscador.buscar(c.pregunta, c.fecha, k, municipio=c.municipio)
+        ids = [r.fragmento.base_id for r in resultados]
         posiciones = [ids.index(f) + 1 for f in c.fuentes if f in ids]
         if posiciones:
             aciertos += 1
@@ -83,7 +88,7 @@ def evaluar_generacion(casos: list[Caso], buscador: Buscador, llm: LLM) -> dict[
     resultados: list[dict[str, Any]] = []
     for c in casos:
         inicio = time.perf_counter()
-        r = responder(c.pregunta, buscador, llm, c.fecha)
+        r = responder(c.pregunta, buscador, llm, c.fecha, municipio=c.municipio)
         segundos = time.perf_counter() - inicio
         texto = " ".join(a.texto for a in r.afirmaciones)
         citadas = {a.fragmento.base_id for a in r.afirmaciones}
@@ -102,6 +107,7 @@ def evaluar_generacion(casos: list[Caso], buscador: Buscador, llm: LLM) -> dict[
         resultados.append(
             {
                 "id": c.id,
+                "tipo": c.tipo if c.ambito else "fuera_de_ambito",
                 "ok": ok,
                 "abstiene": r.abstiene,
                 "motivo_abstencion": r.motivo_abstencion,
@@ -111,14 +117,21 @@ def evaluar_generacion(casos: list[Caso], buscador: Buscador, llm: LLM) -> dict[
                 "descartadas": r.descartadas,
                 "citas_no_exactas": no_exactas,
                 "segundos": round(segundos, 1),
+                "respuesta": [f"{a.texto} [{a.fragmento.cita}]" for a in r.afirmaciones],
             }
         )
     propuestas = sum(x["afirmaciones"] + x["descartadas"] for x in resultados)
     verificadas = sum(x["afirmaciones"] for x in resultados)
     en = [x for x in resultados if x["id"] in {c.id for c in casos if c.ambito}]
     fuera = [x for x in resultados if x not in en]
+    por_tipo: dict[str, dict[str, float]] = {}
+    for x in resultados:
+        t = por_tipo.setdefault(x["tipo"], {"casos": 0, "ok": 0})
+        t["casos"] += 1
+        t["ok"] += int(x["ok"])
     return {
         "modelo": llm.nombre,
+        "por_tipo": por_tipo,
         "exactitud_en_ambito": round(sum(x["ok"] for x in en) / max(len(en), 1), 3),
         "abstencion_fuera_de_ambito": round(
             sum(x["abstiene"] for x in fuera) / max(len(fuera), 1), 3

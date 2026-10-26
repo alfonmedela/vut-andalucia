@@ -30,6 +30,10 @@ CONSULTA: tuple[tuple[re.Pattern[str], str], ...] = tuple(
         (r"\b(vecinos|comunidad de vecinos)\b", "comunidad de propietarios junta de propietarios"),
         (r"\b(multas?|sancion\w*|me pueden multar)\b", "sanción infracción multa"),
         (r"\blicencias?\b", "inscripción Registro de Turismo de Andalucía declaración responsable"),
+        (r"\b(cuesta\w*|cobra\w*|gratis|tasas?|cuanto vale)\b", "gratuito precio"),
+        (r"\b(vend\w+|compr\w+|hered\w+|herencia|traspas\w+)\b", "cambio de titularidad"),
+        (r"\b(habitacion\w*|cuartos?)\b", "habitaciones vivienda compartida"),
+        (r"\b(huespedes|inquilinos|clientes|viajeros)\b", "personas usuarias"),
     )
 )
 

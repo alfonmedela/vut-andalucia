@@ -8,7 +8,7 @@ import pytest
 
 from tests.conftest import FIXTURES
 from vut_andalucia import corpus as corpus_mod
-from vut_andalucia.ingest import boe, sincronizar
+from vut_andalucia.ingest import boe, comun, sincronizar
 from vut_andalucia.models import Fragmento, Norma
 from vut_andalucia.sources import por_id
 
@@ -90,6 +90,8 @@ def _transport(status: int = 200) -> httpx.MockTransport:
             return httpx.Response(status)
         if request.url.path.endswith("/metadatos"):
             return httpx.Response(200, content=meta, headers={"Content-Type": "application/json"})
+        if request.url.path.endswith("/analisis"):
+            return httpx.Response(200, json={"data": [{"referencias": {}}]})
         return httpx.Response(200, content=xml)
 
     return httpx.MockTransport(handler)
@@ -139,10 +141,10 @@ def test_apartados_con_lista_anidada() -> None:
         "3. Tres.",
         "4. Cuatro.",
     ]
-    assert [a for a, _ in boe._apartados(parrafos)] == ["1", "2", "3", "4"]
+    assert [a for a, _ in comun.apartados(parrafos)] == ["1", "2", "3", "4"]
     # Caso ambiguo sin letra que cierre la sublista: el «2.» siguiente a la sublista es apartado.
     parrafos = ["1. Intro:", "a) algo:", "1. sub uno", "2. sub dos", "2. Segundo apartado"]
-    grupos = boe._apartados(parrafos)
+    grupos = comun.apartados(parrafos)
     assert [a for a, _ in grupos] == ["1", "2"]
     assert grupos[1][1] == ["2. Segundo apartado"]
 
@@ -163,7 +165,7 @@ def _frag(texto: str, desde: dt.date, hasta: dt.date | None) -> Fragmento:
 
 def test_fusionar_une_solo_versiones_contiguas_e_iguales() -> None:
     d = [dt.date(2020, 1, 1), dt.date(2021, 1, 1), dt.date(2022, 1, 1), dt.date(2023, 1, 1)]
-    fusion = boe._fusionar(
+    fusion = comun.fusionar(
         iter(
             [
                 _frag("A", d[0], d[1]),
