@@ -41,6 +41,7 @@ changed over time**.
 - **Your town.** It detects the municipality in the question (or you pick one of Andalusia's 785) and adds its local rules. If the answer depends on the town and you didn't say which, it asks. If the corpus has no rules for your town, it says so.
 - **Law vs. case law vs. guidance.** Statutes and ordinances bind; court rulings interpret; the regional government's FAQ only guides. The answer labels each.
 - **Private and free.** Runs entirely on your laptop with Ollama, or with Claude for higher-quality answers.
+- **Knows when to stay quiet.** Before the model is called, a code gate catches questions about other Spanish regions, about the rules of a town the corpus doesn't have, or that try to give the assistant instructions. Afterwards a second review checks that each quote really proves what the claim says.
 
 ## How it works
 
@@ -54,23 +55,41 @@ changed over time**.
 
 ## Coverage
 
-**40 official sources, 2,252 versioned fragments** (as of 26 October 2026): Andalusia's Tourism Act and decrees on holiday flats (four versions since 2016), the tourism register, tourist apartments, rural tourism, complaint forms and inspection; local rules for **Málaga, Seville, Granada, Cádiz, El Puerto de Santa María, Chiclana and Jerez**; Spain's Horizontal Property Act, Urban Leases Act, national rental registry and the **three 2026 Supreme Court rulings** that partly annulled it, guest-registration rules, VAT, income tax, property and transfer taxes; and the EU Regulation 2024/1028 on short-term rental data. See [`fuentes.yaml`](src/vut_andalucia/data/fuentes.yaml).
+**40 official sources, 2,245 versioned fragments** (as of 26 October 2026): Andalusia's Tourism Act and decrees on holiday flats (four versions since 2016), the tourism register, tourist apartments, rural tourism, complaint forms and inspection; local rules for **Málaga, Seville, Granada, Cádiz, El Puerto de Santa María, Chiclana and Jerez**; Spain's Horizontal Property Act, Urban Leases Act, national rental registry and the **three 2026 Supreme Court rulings** that partly annulled it, guest-registration rules, VAT, income tax, property and transfer taxes; and the EU Regulation 2024/1028 on short-term rental data. See [`fuentes.yaml`](src/vut_andalucia/data/fuentes.yaml).
 
 ## Evaluation
 
 The evaluation questions are **real**: they come from a group of property owners advised by a
 specialist lawyer, and from public forums and FAQs, anonymised. Each one has its correct source and
 a **reference quote that a test checks verbatim** against the version in force on its date, so CI
-fails when the law changes. **105 cases**: 92 in scope (edge cases, false premises, point-in-time
-and municipal questions) and 10 out of scope (other regions, trivia, a prompt injection).
+fails when the law changes. **105 cases**: 93 in scope (edge cases, false premises, point-in-time
+and municipal questions) and 12 out of scope (other regions, towns with no rules in the corpus,
+trivia and two attempts to give the assistant instructions).
 
-| Retrieval (hybrid, 26 Oct 2026) | Result |
-|---|---|
-| Correct source in the top 5 | 77% |
-| Correct source in the 10 the model sees | 79% |
-| Exact reference sentence reaches the model | 63% |
+| Answers (26 Oct 2026) | qwen3:8b, local | Claude Opus |
+|---|---|---|
+| **Correct, in scope**, according to a judge that compares with the lawyer-style reference note | — | **80%** |
+| Correct according to the automatic grader (right source + literal key facts) | 28% | 62% |
+| Abstains when the question is outside the corpus | 31% | **100%** |
+| Quotes shown that are not verbatim in the official text | **0** | **0** ¹ |
+| Claims dropped by the meaning review | — | 75 of 821 |
+| Time per answer | ~80 s | ~40 s |
 
-<!-- GENERATION -->
+By question type (Claude, judge): plain 28/33, false premise 15/15, edge case 16/21,
+point-in-time 9/15, municipal 6/9, out of scope 12/12. Point-in-time questions ("what was required
+in 2017?") are the weakest spot.
+
+¹ One quote differs only in a typographic quotation mark that the official text itself mixes; no
+word changes.
+
+The automatic grader is deliberately strict and rejects paraphrases; the judge is another model and
+can be wrong. Both are published, with the full case-by-case report in
+[`eval/resultados/f3-claude-opus.json`](eval/resultados/f3-claude-opus.json).
+
+| Retrieval (hybrid) | 10 fragments (local model) | 25 fragments (Claude) |
+|---|---|---|
+| Correct source reaches the model | 81% | 90% |
+| Exact reference sentence reaches the model | 66% | 77% |
 
 With a hand-made set of 12 questions, retrieval scored 100%. Real questions are harder, and
 the numbers say so.
@@ -83,7 +102,9 @@ git clone https://github.com/alfonmedela/vut-andalucia && cd vut-andalucia
 uv run vut web          # then open http://127.0.0.1:8000
 ```
 
-With Claude: `uv sync --extra claude` and `ANTHROPIC_API_KEY=... uv run vut web --proveedor claude`.
+With your own Claude subscription (Claude Code installed and signed in, personal use only):
+`uv run vut web --proveedor suscripcion`. With an Anthropic API key, as the public demo does:
+`uv sync --extra claude` and `ANTHROPIC_API_KEY=... uv run vut web --proveedor claude`.
 CLI: `uv run vut preguntar "..." --municipio Cádiz --fecha 2024-06-01`.
 
 Adding a law or a municipality means editing [`fuentes.yaml`](src/vut_andalucia/data/fuentes.yaml)

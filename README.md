@@ -47,6 +47,7 @@ la fecha desde la que está vigente y **cómo ha cambiado ese artículo a lo lar
 | **Tu municipio** | Detecta el municipio en la pregunta (o lo eliges entre los 785 de Andalucía) y suma sus normas. Si la respuesta depende del municipio y no lo has dicho, te lo pregunta. Si el corpus no tiene normas de tu municipio, lo dice: que no estén no significa que no existan. |
 | **Norma, sentencia o criterio** | Distingue lo que obliga (leyes, decretos, ordenanzas), lo que lo interpreta (sentencias) y lo que solo orienta (las preguntas frecuentes de la Junta o una instrucción municipal). |
 | **Privado y gratis** | Funciona entero en tu ordenador con Ollama, sin enviar tus preguntas a nadie. Opcionalmente, con Claude para respuestas de mayor calidad. |
+| **Sabe cuándo callar** | Antes de llamar al modelo, una barrera de código detecta preguntas sobre otra comunidad autónoma, sobre normas de un municipio que no está en el corpus o que intentan darle instrucciones. Después, una segunda revisión comprueba que cada cita pruebe de verdad lo que se afirma. |
 
 ## Cómo funciona
 
@@ -62,7 +63,7 @@ la fecha desde la que está vigente y **cómo ha cambiado ese artículo a lo lar
 
 ## Qué cubre
 
-**40 fuentes oficiales, 2.252 fragmentos con su historia**, a 26 de octubre de 2026.
+**40 fuentes oficiales, 2.245 fragmentos con su historia**, a 26 de octubre de 2026.
 
 | Ámbito | Normas |
 |---|---|
@@ -80,16 +81,38 @@ asesorado por un abogado especialista y de foros y preguntas frecuentes pública
 Cada una lleva su fuente correcta y una **cita de referencia que un test comprueba literal** en la
 versión vigente en su fecha. Si la ley cambia, el CI falla.
 
-**105 casos**: 92 dentro de ámbito (36 normales, 21 casos límite, 15 premisas falsas, 14 por fecha,
-9 municipales) y 10 fuera de ámbito (otras comunidades, cultura general, una inyección de prompt).
+**105 casos**: 93 dentro de ámbito (33 normales, 21 casos límite, 15 premisas falsas, 15 por fecha,
+9 municipales) y 12 fuera de ámbito (otras comunidades, municipios sin normas en el corpus,
+cultura general y dos intentos de dar instrucciones al asistente).
 
-| Recuperación (búsqueda híbrida, 26/10/2026) | Resultado |
-|---|---|
-| Fuente correcta entre los 5 primeros | 77 % |
-| Fuente correcta entre los 10 que ve el modelo | 79 % |
-| La frase exacta de referencia llega al modelo | 63 % |
+### Respuestas (26/10/2026)
 
-<!-- GENERACION -->
+| | qwen3:8b en local | Claude Opus |
+|---|---|---|
+| **Correctas dentro de ámbito**, según un juez que compara con la nota del jurista | — | **80 %** |
+| Correctas según el corrector automático (fuente correcta + hechos clave literales) | 28 % | 62 % |
+| Se abstiene cuando la pregunta queda fuera del corpus | 31 % | **100 %** |
+| Citas mostradas que no están literalmente en el texto oficial | **0** | **0** ¹ |
+| Afirmaciones descartadas por la revisión de significado | — | 75 de 821 |
+| Tiempo por respuesta | ~80 s | ~40 s |
+
+Por tipo de pregunta, con Claude y según el juez: normales 28/33, premisas falsas 15/15, casos
+límite 16/21, por fecha 9/15, municipales 6/9 y fuera de ámbito 12/12. Las preguntas por fecha
+(«¿qué se exigía en 2017?») son hoy el punto más débil.
+
+¹ Una cita difiere solo en una comilla tipográfica (`"` frente a `”`), que el propio texto oficial
+mezcla; ninguna palabra cambia.
+
+El corrector automático es deliberadamente estricto (exige palabras concretas) y no admite
+paráfrasis; el juez es otro modelo y puede equivocarse. Por eso se publican los dos y el informe
+completo, caso a caso: [`eval/resultados/f3-claude-opus.json`](eval/resultados/f3-claude-opus.json).
+
+### Búsqueda
+
+| Recuperación (híbrida, 26/10/2026) | 10 fragmentos (modelo local) | 25 fragmentos (Claude) |
+|---|---|---|
+| La fuente correcta llega al modelo | 81 % | 90 % |
+| La frase exacta de referencia llega al modelo | 66 % | 77 % |
 
 Medir con preguntas reales en lugar de preguntas hechas a medida baja las cifras, y está bien que
 así sea: con el conjunto anterior, de 12 preguntas redactadas junto al sistema, la recuperación
@@ -111,7 +134,14 @@ uv run vut web
 
 3. Abre <http://127.0.0.1:8000> en el navegador.
 
-**Con Claude** (respuestas más finas; necesitas una clave de la API de Anthropic):
+**Con Claude** (respuestas más finas). Con tu suscripción de Claude, si tienes Claude Code
+instalado y la sesión iniciada, sin clave de API y solo para uso personal:
+
+```bash
+uv run vut web --proveedor suscripcion
+```
+
+O con una clave de la API de Anthropic, que es lo que usa la demo pública:
 
 ```bash
 uv sync --extra claude
@@ -131,8 +161,9 @@ uv run vut buscar "multa por no registrar viajeros"     # solo búsqueda, sin mo
 
 - **Añadir una norma o un municipio** es editar [`fuentes.yaml`](src/vut_andalucia/data/fuentes.yaml): id oficial, de dónde se descarga, municipio y por qué está. `uv run vut sync` lo descarga, lo trocea y falla si algo no cuadra; `uv run vut embed` actualiza los vectores.
 - **Por qué no hay base de datos vectorial.** Son unos miles de fragmentos: un índice en memoria se construye en milisegundos y tiene menos piezas que puedan fallar.
-- **Por qué el verificador es código.** Un LLM juez añade otra fuente de error. La comprobación es binaria y auditable. Lo que no garantiza es que la paráfrasis interprete bien la cita, y por eso la cita se muestra siempre al lado.
-- **Calidad:** ruff, mypy estricto, 200 tests (87 % de cobertura) y la evaluación de recuperación corren en cada commit. Las revisiones de código, de fallos silenciosos, de seguridad y del pipeline RAG de esta fase están resueltas en el historial.
+- **Tres capas, de la más fiable a la menos.** 1) Una barrera de código decide antes del modelo si la pregunta cae fuera del corpus. 2) Un verificador de código exige que cada cita esté literalmente en el texto oficial: es binario y auditable, y es lo único que se garantiza al 100 %. 3) Una segunda llamada al modelo revisa que cada cita pruebe lo que se afirma y descarta lo que no; si esa revisión falla, la respuesta se marca como no revisada. La cita se muestra siempre al lado, para que el lector juzgue.
+- **Lo que se probó y no compensó:** un reranker local (bge-reranker-v2-m3) subía la frase correcta en el contexto del 63 % al 66 % a cambio de 11 s más por pregunta. Dar más contexto a Claude (25 fragmentos en vez de 10) la sube al 77 % sin coste de búsqueda.
+- **Calidad:** ruff, mypy estricto, 237 tests (87 % de cobertura) y la evaluación de recuperación corren en cada commit. Las revisiones de código, de fallos silenciosos, de seguridad y del pipeline RAG de esta fase están resueltas en el historial.
 - **Demo pública:** [`space/`](space) contiene el Dockerfile para Hugging Face Spaces, con límites por IP y diarios, y modo solo búsqueda si no hay clave.
 
 ## Límites
@@ -141,7 +172,8 @@ uv run vut buscar "multa por no registrar viajeros"     # solo búsqueda, sin mo
 - **Municipios:** hay normas de 7 municipios. En el resto, el asistente avisa de que no las tiene. Faltan, por ejemplo, Córdoba (su edicto exige un código de verificación) y Manilva (el BOP de Málaga bloquea la descarga automática). Sevilla solo está por la instrucción de su Gerencia, porque su limitación por barrios se publicó como PDF escaneado.
 - **Fiscalidad:** cubre el IVA, el IRPF, el modelo 179, el ITP, el IBI y la plusvalía en lo que afecta a las VUT, no la fiscalidad general.
 - **Fechas:** cuando el BOE o un boletín no publican la fecha de efectos de una versión, se usa la de publicación y la respuesta lo advierte.
-- **Modelos locales pequeños:** qwen3:8b a veces mezcla una medida antigua con la vigente. El verificador garantiza que la cita es real, no que la frase la interprete bien; por eso la cita se muestra siempre al lado. Con Claude mejora.
+- **Modelos locales pequeños:** con qwen3:8b solo el 28 % de las respuestas es correcto y completo. Sus citas son reales, pero a menudo interpreta mal o incompleto: úsalo para buscar, y Claude para responder.
+- **Preguntas por fecha:** con Claude acierta 9 de 15. Razonar sobre qué redacción estaba vigente en una fecha pasada sigue siendo lo más difícil.
 
 ## Hoja de ruta
 
@@ -149,7 +181,9 @@ uv run vut buscar "multa por no registrar viajeros"     # solo búsqueda, sin mo
 - [x] Búsqueda híbrida por fecha y municipio, y respuesta con citas verificadas
 - [x] Interfaz web con panel de cita e historia de cada precepto
 - [x] Evaluación con preguntas reales
-- [ ] Reordenación con un reranker local y reescritura de consultas largas
+- [x] Barrera de ámbito, revisión de significado y juez en la evaluación
+- [ ] Reescritura de consultas largas en subpreguntas jurídicas
+- [ ] Revisión del conjunto de evaluación por un abogado
 - [ ] Remisiones entre artículos («letra e) del artículo 5 de la Ley 29/1994»)
 - [ ] Más municipios: Córdoba, Marbella, Estepona, Manilva y los que se sumen
 - [ ] Servidor MCP para usarlo desde Claude Desktop o Claude Code
