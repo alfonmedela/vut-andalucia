@@ -1,0 +1,47 @@
+{
+  "BOE-A-1960-10906": {
+    "norma": {
+      "id": "BOE-A-1960-10906",
+      "titulo": "Ley 49/1960, de 21 de julio, sobre propiedad horizontal.",
+      "corta": "LPH",
+      "rango": "Ley",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1960-10906",
+      "eli": "https://www.boe.es/eli/es/l/1960/07/21/49",
+      "fuente": "boe"
+    },
+    "sha256": "2198c17080e39747912cfc13ccf6c6fb16af71a1036790cf3d14918c391f83f7",
+    "descargado": "2026-10-26T09:41:19Z",
+    "fragmentos": 161
+  },
+  "BOE-A-1994-26003": {
+    "norma": {
+      "id": "BOE-A-1994-26003",
+      "titulo": "Ley 29/1994, de 24 de noviembre, de Arrendamientos Urbanos.",
+      "corta": "LAU",
+      "rango": "Ley",
+      "ambito": "Estatal",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-1994-26003",
+      "eli": "https://www.boe.es/eli/es/l/1994/11/24/29",
+      "fuente": "boe"
+    },
+    "sha256": "58db8fbfc38dd0bbe1d2bae25bf85208e19962f110fcd4bce907989e7db80eda",
+    "descargado": "2026-10-26T09:41:19Z",
+    "fragmentos": 417
+  },
+  "BOE-A-2012-876": {
+    "norma": {
+      "id": "BOE-A-2012-876",
+      "titulo": "Ley 13/2011, de 23 de diciembre, del Turismo de Andalucía.",
+      "corta": "Ley 13/2011",
+      "rango": "Ley",
+      "ambito": "Autonómico",
+      "url": "https://www.boe.es/buscar/act.php?id=BOE-A-2012-876",
+      "eli": "https://www.boe.es/eli/es-an/l/2011/12/23/13",
+      "fuente": "boe"
+    },
+    "sha256": "e01cd31edaef3513e485a4e90405c60c05000dc2d7b83b46cac72729683e8a7d",
+    "descargado": "2026-10-26T09:41:19Z",
+    "fragmentos": 304
+  }
+}

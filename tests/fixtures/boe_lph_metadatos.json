@@ -1,0 +1,40 @@
+{
+    "status": {
+        "code": "200",
+        "text": "ok"
+    },
+    "data": [
+        {
+            "fecha_actualizacion": "20261005T085250Z",
+            "identificador": "BOE-A-1960-10906",
+            "ambito": {
+                "codigo": "1",
+                "texto": "Estatal"
+            },
+            "departamento": {
+                "codigo": "7723",
+                "texto": "Jefatura del Estado"
+            },
+            "rango": {
+                "codigo": "1300",
+                "texto": "Ley"
+            },
+            "fecha_disposicion": "19600721",
+            "numero_oficial": "49\/1960",
+            "titulo": "Ley 49\/1960, de 21 de julio, sobre propiedad horizontal.",
+            "diario": "Bolet\u00edn Oficial del Estado",
+            "fecha_publicacion": "19600723",
+            "diario_numero": "176",
+            "fecha_vigencia": "19600812",
+            "estatus_derogacion": "N",
+            "estatus_anulacion": "N",
+            "vigencia_agotada": "N",
+            "estado_consolidacion": {
+                "codigo": "3",
+                "texto": "Finalizado"
+            },
+            "url_eli": "https:\/\/www.boe.es\/eli\/es\/l\/1960\/07\/21\/49",
+            "url_html_consolidada": "https:\/\/www.boe.es\/buscar\/act.php?id=BOE-A-1960-10906"
+        }
+    ]
+}
