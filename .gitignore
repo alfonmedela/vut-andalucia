@@ -11,3 +11,6 @@ build/
 *.egg-info/
 .env
 .DS_Store
+
+# PDF de prueba locales
+pruebas/
