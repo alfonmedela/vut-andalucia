@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import asyncio
 import datetime as dt
+import hashlib
 import json
 import logging
 import os
@@ -18,7 +19,7 @@ from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, HTTPException, Query, Request
-from fastapi.responses import FileResponse, StreamingResponse
+from fastapi.responses import HTMLResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -199,11 +200,14 @@ def _respuesta_json(r: Respuesta, normas: dict[str, Norma]) -> dict[str, Any]:
                 "texto": a.texto,
                 "tipo": a.tipo.value,
                 "cita_literal": a.cita_literal,
+                "corregida": a.corregida,
                 "fragmento": _fragmento_json(a.fragmento, normas),
             }
             for a in r.afirmaciones
         ],
         "descartadas": r.descartadas,
+        "no_respaldadas": r.no_respaldadas,
+        "revisada": r.revisada,
         "motivo_abstencion": r.motivo_abstencion.value if r.motivo_abstencion else None,
         "preguntas_pendientes": r.preguntas_pendientes,
         "avisos": r.avisos,
@@ -365,9 +369,19 @@ def api_estado() -> dict[str, Any]:
     }
 
 
+def _con_version(html: str, recurso: str) -> str:
+    # La huella del contenido en la URL obliga al navegador a pedir el recurso nuevo tras cada
+    # cambio, en vez de seguir usando la copia de su caché.
+    huella = hashlib.sha256((WEB / recurso).read_bytes()).hexdigest()[:10]
+    return html.replace(f"/static/{recurso}", f"/static/{recurso}?v={huella}")
+
+
 @app.get("/", include_in_schema=False)
-def inicio() -> FileResponse:
-    return FileResponse(WEB / "index.html")
+def inicio() -> HTMLResponse:
+    html = (WEB / "index.html").read_text(encoding="utf-8")
+    for recurso in ("app.css", "app.js"):
+        html = _con_version(html, recurso)
+    return HTMLResponse(html, headers={"Cache-Control": "no-cache"})
 
 
 app.mount("/static", StaticFiles(directory=WEB), name="static")

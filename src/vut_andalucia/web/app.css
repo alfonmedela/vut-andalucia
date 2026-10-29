@@ -159,6 +159,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -0.0
 
 .respuesta { margin-top: 18px; }
 .grupo + .grupo { margin-top: 28px; }
+.grupo--cambio { padding: 14px 18px 6px; margin-left: -18px; margin-right: -18px; background: var(--raised); border-left: 3px solid var(--accent); }
 .grupo h3 { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
 .afirmacion { position: relative; padding: 12px 0 12px 22px; border-top: 1px solid var(--tone); font-size: 18px; line-height: 1.55; }
 .afirmacion:first-of-type { border-top: 0; }
@@ -189,6 +190,13 @@ h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -0.0
 .consultadas button { border: 0; background: none; padding: 0; color: var(--ink-2); cursor: pointer; text-align: left; }
 .consultadas button:hover { color: var(--accent); }
 .pie-respuesta { margin-top: 18px; font-size: 13px; color: var(--ink-3); }
+.acciones { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--tone-2); }
+.acciones[hidden] { display: none; }
+.acciones p { flex: 1 1 220px; font-size: 13.5px; color: var(--ink-3); }
+.btn--informe { margin-left: 0; background: transparent; color: var(--accent); box-shadow: inset 0 0 0 1.5px var(--accent); }
+.btn--informe::after { content: "\2193"; }
+.btn--informe:hover { background: var(--accent); color: var(--raised); }
+.btn--informe:hover::after { transform: translateY(2px); }
 
 /* ── panel de cita ───────────────────────────────────── */
 .panel { position: relative; }
@@ -236,6 +244,82 @@ h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -0.0
 .pie__in { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; align-items: baseline; }
 .pie__aviso { max-width: 56ch; }
 
+/* ── informe: solo existe al imprimir o guardar como PDF ─ */
+.informe { display: none; }
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 18mm 20mm;
+    @bottom-left { content: "VUT Andalucía · Informe normativo · No es asesoramiento jurídico"; font-family: "IBM Plex Mono", monospace; font-size: 7pt; color: #7A7067; }
+    @bottom-right { content: counter(page) " / " counter(pages); font-family: "IBM Plex Mono", monospace; font-size: 7pt; color: #7A7067; }
+  }
+  body.con-informe { background: #fff; }
+  body.con-informe > :not(.informe) { display: none !important; }
+  body.con-informe .informe { display: block; }
+}
+/* Paleta clara fija: el papel no tiene modo oscuro. */
+.informe {
+  --ink: #1C1714; --ink-2: #4E4741; --ink-3: #7A7067; --accent: #7A1E2A; --tone: #E8E2D6;
+  --tone-2: #DCD4C5; --rule: #CBC1AF; --mark: #F6E3A9; --warn: #8A5A12; --warn-soft: #F5E9D2; --papel: #F6F2EA;
+  color: var(--ink); font: 400 9.6pt/1.5 var(--text);
+  -webkit-print-color-adjust: exact; print-color-adjust: exact;
+}
+.informe h1, .informe h2, .informe h3 { font-family: var(--display); font-weight: 400; }
+.inf-rotulo, .inf-eyebrow { font-family: var(--mono); font-size: 7pt; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+.inf-ref { display: inline-block; margin-left: 5pt; font-family: var(--mono); font-size: 7pt; letter-spacing: 0.02em; color: var(--accent); white-space: nowrap; }
+
+.inf-cab { display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 7pt; border-bottom: 0.6pt solid var(--rule); font-family: var(--mono); font-size: 7pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.inf-cab .wm { font-size: 13pt; letter-spacing: 0; text-transform: none; color: var(--ink); }
+.inf-portada { padding-top: 26pt; }
+.inf-portada h1 { margin: 8pt 0 18pt; font-size: 27pt; line-height: 1.08; letter-spacing: -0.01em; text-wrap: balance; }
+.inf-ficha { display: grid; grid-template-columns: 1fr 1.3fr 0.8fr 1.1fr; gap: 12pt; margin: 0; padding: 9pt 0; border-top: 0.6pt solid var(--ink); border-bottom: 0.6pt solid var(--rule); }
+.inf-ficha dt { font-family: var(--mono); font-size: 6.5pt; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); }
+.inf-ficha dd { margin: 2pt 0 0; font-size: 9pt; font-weight: 500; }
+
+.inf-resumen, .inf-abstencion { margin-top: 18pt; padding: 13pt 16pt 12pt; background: var(--papel); border-left: 2.5pt solid var(--accent); break-inside: avoid; }
+.inf-abstencion { border-left-color: var(--ink-3); }
+.inf-resumen__texto { margin: 5pt 0 4pt; font-family: var(--display); font-size: 15pt; line-height: 1.3; }
+.inf-resumen .inf-ref { margin-left: 0; }
+.inf-resumen__cambio { margin-top: 11pt; padding-top: 10pt; border-top: 0.6pt solid var(--rule); }
+.inf-resumen__cambio .inf-resumen__texto { font-size: 13pt; }
+.inf-abstencion h2 { margin: 4pt 0; font-size: 17pt; }
+
+.inf-sec { margin-top: 18pt; }
+.inf-sec > h2 { display: flex; align-items: baseline; gap: 8pt; margin-bottom: 4pt; padding-bottom: 4pt; border-bottom: 0.6pt solid var(--rule); font-size: 14pt; line-height: 1.2; break-after: avoid; }
+.inf-sec__n { font-family: var(--mono); font-size: 7.5pt; color: var(--accent); }
+.inf-af { position: relative; padding: 5pt 0 5pt 13pt; border-bottom: 0.4pt solid var(--tone); break-inside: avoid; }
+.inf-af:last-child { border-bottom: 0; }
+.inf-af::before { content: ""; position: absolute; left: 1pt; top: 10pt; width: 3.5pt; height: 3.5pt; transform: rotate(45deg); background: var(--accent); }
+.inf-aviso { position: relative; margin-top: 5pt; padding: 6pt 9pt 6pt 23pt; background: var(--warn-soft); font-size: 8.8pt; line-height: 1.45; break-inside: avoid; }
+.inf-aviso::before { content: "!"; position: absolute; left: 8pt; top: 6.5pt; width: 8pt; height: 8pt; display: grid; place-items: center; border: 0.9pt solid var(--warn); color: var(--warn); font: 700 6pt/1 var(--mono); transform: rotate(45deg); }
+.inf-pendientes li { position: relative; padding: 4pt 0 4pt 13pt; break-inside: avoid; }
+.inf-pendientes li::before { content: ""; position: absolute; left: 1pt; top: 9pt; width: 3.5pt; height: 3.5pt; transform: rotate(45deg); border: 0.8pt solid var(--accent); }
+
+.inf-fuente { display: grid; grid-template-columns: 20pt minmax(0, 1fr); gap: 6pt; padding: 8pt 0; border-bottom: 0.4pt solid var(--tone); break-inside: avoid; }
+.inf-fuente:last-child { border-bottom: 0; }
+.inf-fuente__n { font-family: var(--display); font-size: 17pt; line-height: 1; color: var(--accent); }
+.inf-fuente__cita { font-weight: 600; font-size: 10pt; }
+.inf-fuente__norma { color: var(--ink-2); font-size: 8.8pt; }
+.inf-fuente__meta { margin-top: 2pt; font-family: var(--mono); font-size: 6.8pt; letter-spacing: 0.02em; color: var(--ink-3); }
+.inf-fuente blockquote { margin: 6pt 0 0; padding: 1pt 0 1pt 9pt; border-left: 1.5pt solid var(--mark); font-family: var(--display); font-style: italic; font-size: 11pt; line-height: 1.35; }
+.inf-fuente blockquote::before { content: "«"; }
+.inf-fuente blockquote::after { content: "»"; }
+.inf-url { display: block; margin-top: 5pt; font-family: var(--mono); font-size: 6.5pt; color: var(--ink-3); text-decoration: none; word-break: break-all; }
+
+.inf-metodo { margin-top: 22pt; padding-top: 10pt; border-top: 0.6pt solid var(--ink); font-size: 8.5pt; color: var(--ink-2); break-inside: avoid; }
+.inf-metodo .inf-rotulo { margin-bottom: 4pt; }
+.inf-legal { margin-top: 6pt; font-weight: 500; color: var(--ink); }
+.inf-pie { margin-top: 8pt; font-family: var(--mono); font-size: 6.5pt; color: var(--ink-3); }
+
+.inf-anexo { break-before: page; }
+.inf-anexo > h2 { margin: 4pt 0 4pt; font-size: 22pt; }
+.inf-anexo__nota { margin-bottom: 10pt; font-size: 8.5pt; color: var(--ink-3); }
+.inf-texto { padding: 10pt 0; border-top: 0.6pt solid var(--rule); }
+.inf-texto h3 { font-size: 12.5pt; break-after: avoid; }
+.inf-texto__enc { margin-top: 2pt; font-size: 8.8pt; font-weight: 600; break-after: avoid; }
+.inf-texto__cuerpo { margin-top: 5pt; font-family: var(--mono); font-size: 7.4pt; line-height: 1.6; color: var(--ink-2); white-space: pre-wrap; orphans: 3; widows: 3; }
+.inf-texto mark { background: var(--mark); color: var(--ink); box-shadow: 0 0 0 1pt var(--mark); }
+
 @media (max-width: 960px) {
   .resultado { grid-template-columns: minmax(0, 1fr); }
   .panel__in { position: static; max-height: none; }
@@ -247,6 +331,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 400; letter-spacing: -0.0
   .wm { font-size: 21px; }
   .bar__nav a[href^="https"] { display: none; }
   .progreso { padding: 16px; }
+  .grupo--cambio { margin-left: 0; margin-right: 0; padding: 12px 14px 4px; }
   .campo { flex: 1 1 140px; }
   .campo input { min-width: 0; width: 100%; }
   .btn { width: 100%; justify-content: center; margin-left: 0; }

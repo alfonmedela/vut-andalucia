@@ -120,3 +120,7 @@ def test_fuentes_municipios_y_portada(cliente: TestClient) -> None:
     assert len(mun) == 785 and any(m["con_normas"] and m["slug"] == "malaga" for m in mun)
     portada = cliente.get("/")
     assert portada.status_code == 200 and "Pregunta a la ley" in portada.text
+    # Los recursos llevan la huella de su contenido para que la caché no sirva versiones viejas.
+    assert re.search(r'/static/app\.js\?v=[0-9a-f]{10}"', portada.text)
+    assert re.search(r'/static/app\.css\?v=[0-9a-f]{10}"', portada.text)
+    assert portada.headers["cache-control"] == "no-cache"

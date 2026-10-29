@@ -35,6 +35,11 @@ const ABSTENCION = {
 
 const fmtFecha = (iso) => iso ? new Date(iso + "T12:00:00").toLocaleDateString("es-ES", { day: "numeric", month: "short", year: "numeric" }) : "hoy";
 const hoyISO = () => new Date().toISOString().slice(0, 10);
+// Una redacción ya publicada que entra en vigor después de la fecha consultada.
+const esFutura = (f) => f.vigente_desde > (actual?.fecha || $("#fecha").value || hoyISO());
+const vigencia = (f) => esFutura(f)
+  ? `Entra en vigor el ${fmtFecha(f.vigente_desde)}`
+  : `${fmtFecha(f.vigente_desde)} → ${fmtFecha(f.vigente_hasta)}${f.vigencia_incierta ? " (fecha no publicada)" : ""}`;
 const seguro = (url) => (typeof url === "string" && /^https:\/\//.test(url) ? url : null);
 
 let municipios = [];
@@ -47,6 +52,7 @@ async function iniciar() {
   mostrarVista();
   rotarEjemplos();
   $("#formulario").addEventListener("submit", (e) => { e.preventDefault(); enviar(); });
+  $("#exportar").addEventListener("click", exportarInforme);
   $("#pregunta").addEventListener("keydown", (e) => {
     if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); enviar(); }
   });
@@ -129,6 +135,10 @@ async function enviar() {
   $("#pendientes").hidden = true;
   $("#consultadas").hidden = true;
   $("#pie-respuesta").textContent = "";
+  $("#acciones").hidden = true;
+  $("#informe").replaceChildren();
+  document.body.classList.remove("con-informe");
+  actual = null;
   pintarContexto(pregunta, cuerpo.fecha, m ? m.nombre : nombre, false);
   marcarPaso("buscar");
   $("#enviar").disabled = true;
@@ -246,11 +256,9 @@ function pintarRespuesta(r) {
   const numeros = new Map();
   for (const a of r.afirmaciones) if (!numeros.has(a.fragmento.id)) numeros.set(a.fragmento.id, numeros.size + 1);
 
-  for (const tipo of Object.keys(ROTULOS)) {
-    const grupo = r.afirmaciones.filter((a) => a.tipo === tipo);
-    if (!grupo.length) continue;
-    const varios = r.afirmaciones.some((a) => a.tipo !== "regla");
-    const sec = el("section", { class: `grupo grupo--${tipo}` }, varios ? el("h3", { text: ROTULOS[tipo] }) : null);
+  const grupos = agrupar(r.afirmaciones);
+  for (const { clave, titulo, lista: grupo } of grupos) {
+    const sec = el("section", { class: `grupo grupo--${clave}` }, grupos.length > 1 ? el("h3", { text: titulo }) : null);
     for (const a of grupo) {
       const n = numeros.get(a.fragmento.id);
       const ref = el("button", {
@@ -273,7 +281,14 @@ function pintarRespuesta(r) {
   pintarAvisos(r.avisos);
   const pie = ["Las frases las redacta el modelo; la prueba es la cita oficial, comprobada palabra por palabra", `Modelo: ${r.modelo}`, `búsqueda ${r.busqueda}`];
   if (r.descartadas) pie.push(`${r.descartadas} afirmación(es) descartada(s) por no poder verificar su cita`);
+  const corregidas = r.afirmaciones.filter((a) => a.corregida).length;
+  if (corregidas) pie.push(`${corregidas} afirmación(es) reformulada(s) en la revisión para ceñirlas a su cita`);
   $("#pie-respuesta").textContent = pie.join(" · ");
+
+  // El informe se monta ya, para que imprimir la página (⌘P) también lo produzca.
+  $("#informe").replaceChildren(...construirInforme(r));
+  document.body.classList.add("con-informe");
+  $("#acciones").hidden = false;
 
   const primera = cont.querySelector(".ref");
   if (primera && window.matchMedia("(min-width: 961px)").matches) primera.click();
@@ -307,18 +322,32 @@ function pintarError(mensaje) {
 }
 
 // ── panel de cita ──────────────────────────────────────
-function resaltar(texto, cita) {
-  // Devuelve nodos con la cita marcada; tolera mayúsculas, espacios, comillas y puntos suspensivos en los extremos.
-  const frag = document.createDocumentFragment();
-  if (!cita) { frag.append(texto); return [frag, false]; }
+function buscarCita(texto, cita) {
+  // Posición de la cita en el texto; tolera mayúsculas, espacios, comillas y puntos suspensivos en los extremos.
+  if (!cita) return null;
   const limpia = cita.replace(/^[\s«“"'(\[.…]+|[\s»”"')\].…]+$/g, "");
   const palabras = limpia.split(/\s+/).filter(Boolean).map((p) => p.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
-  if (!palabras.length) { frag.append(texto); return [frag, false]; }
+  if (!palabras.length) return null;
   const m = new RegExp(palabras.join("[\\s«»“”\"']+"), "i").exec(texto);
-  if (!m) { frag.append(texto); return [frag, false]; }
-  frag.append(texto.slice(0, m.index), el("mark", { text: m[0] }), texto.slice(m.index + m[0].length));
-  return [frag, true];
+  return m ? [m.index, m.index + m[0].length] : null;
 }
+
+function resaltarVarias(texto, citas) {
+  // Nodos del texto con cada cita marcada; los tramos solapados se funden.
+  const tramos = citas.map((c) => buscarCita(texto, c)).filter(Boolean).sort((a, b) => a[0] - b[0]);
+  const frag = document.createDocumentFragment();
+  let pos = 0;
+  for (const [ini, fin] of tramos) {
+    if (fin <= pos) continue;
+    const desde = Math.max(ini, pos);
+    frag.append(texto.slice(pos, desde), el("mark", { text: texto.slice(desde, fin) }));
+    pos = fin;
+  }
+  frag.append(texto.slice(pos));
+  return [frag, tramos.length > 0];
+}
+
+const resaltar = (texto, cita) => resaltarVarias(texto, cita ? [cita] : []);
 
 async function abrirPanel(f, cita) {
   const panel = $("#panel");
@@ -339,7 +368,7 @@ function pintarPanel(f, cita, versiones) {
     el("div", { class: "panel__insignias" },
       el("span", { class: "etiqueta etiqueta--acento", text: CLASES[n.clase] || "Norma" }),
       el("span", { class: "etiqueta", text: n.municipio ? `Municipal · ${n.municipio}` : (TERRITORIOS[n.territorio] || "") }),
-      el("span", { class: "etiqueta", text: `${fmtFecha(f.vigente_desde)} → ${fmtFecha(f.vigente_hasta)}${f.vigencia_incierta ? " (fecha no publicada)" : ""}` })),
+      el("span", { class: `etiqueta${esFutura(f) ? " etiqueta--acento" : ""}`, text: vigencia(f) })),
     el("h3", { text: f.cita }),
     el("p", { class: "norma", text: n.titulo || "" }),
     f.encabezado ? el("p", { class: "encabezado", text: f.encabezado }) : null,
@@ -372,6 +401,162 @@ function lineaTemporal(versiones, actualF, cita) {
     el("p", { class: "linea__titulo", text: "Historia de este precepto" }), barra,
     el("div", { class: "linea__fechas" }, el("span", { text: fmtFecha(versiones[0].vigente_desde) }), el("span", { text: "hoy" })),
     detalle);
+}
+
+// ── agrupación de la respuesta ─────────────────────────
+// Lo vigente se agrupa por tipo; lo que se apoya en una redacción ya publicada que aún no rige
+// va aparte, por fecha, justo después de la regla: es lo primero que necesita saber el usuario.
+function agrupar(afirmaciones) {
+  const actuales = afirmaciones.filter((a) => !esFutura(a.fragmento));
+  const fechas = [...new Set(afirmaciones.filter((a) => esFutura(a.fragmento)).map((a) => a.fragmento.vigente_desde))].sort();
+  const grupos = [];
+  const porTipo = (tipo) => actuales.filter((a) => a.tipo === tipo);
+  if (porTipo("regla").length) grupos.push({ clave: "regla", titulo: ROTULOS.regla, lista: porTipo("regla") });
+  for (const f of fechas) {
+    grupos.push({ clave: "cambio", titulo: `Lo que cambia el ${fmtLarga(f)}`, lista: afirmaciones.filter((a) => esFutura(a.fragmento) && a.fragmento.vigente_desde === f) });
+  }
+  for (const tipo of ["excepcion", "paso", "riesgo"]) {
+    if (porTipo(tipo).length) grupos.push({ clave: tipo, titulo: ROTULOS[tipo], lista: porTipo(tipo) });
+  }
+  return grupos;
+}
+
+// ── informe para imprimir o guardar en PDF ─────────────
+const fmtLarga = (iso) => new Date(iso + "T12:00:00").toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" });
+
+function referencia(r) {
+  // Identificador corto y estable para la misma consulta en el mismo día.
+  let h = 2166136261;
+  for (const c of `${r.pregunta}|${r.fecha}|${r.municipio?.slug || ""}`) h = Math.imul(h ^ c.codePointAt(0), 16777619);
+  return `VUT-${hoyISO().replaceAll("-", "")}-${(h >>> 0).toString(36).toUpperCase().padStart(7, "0").slice(-5)}`;
+}
+
+function construirInforme(r) {
+  // Fuentes numeradas por orden de aparición, como en pantalla, con todas sus citas.
+  const fuentes = new Map();
+  for (const a of r.afirmaciones) {
+    if (!fuentes.has(a.fragmento.id)) fuentes.set(a.fragmento.id, { n: fuentes.size + 1, f: a.fragmento, citas: [] });
+    const e = fuentes.get(a.fragmento.id);
+    if (!e.citas.includes(a.cita_literal)) e.citas.push(a.cita_literal);
+  }
+  const lista = [...fuentes.values()];
+  const dato = (rotulo, valor) => el("div", {}, el("dt", { text: rotulo }), el("dd", { text: valor }));
+  const afirmacion = (a) => {
+    const e = fuentes.get(a.fragmento.id);
+    return el("p", { class: "inf-af" }, a.texto, el("span", { class: "inf-ref", text: `[${e.n}] ${a.fragmento.cita}` }));
+  };
+  const seccion = (n, titulo, ...hijos) => el("section", { class: "inf-sec" },
+    el("h2", {}, el("span", { class: "inf-sec__n", text: String(n).padStart(2, "0") }), titulo), ...hijos);
+
+  const m = r.municipio;
+  const lugar = !m ? "Toda Andalucía" : (m.provincia && m.provincia !== m.nombre ? `${m.nombre} (${m.provincia})` : m.nombre);
+  const nCitas = r.afirmaciones.length;
+  const partes = [
+    el("header", { class: "inf-cab" },
+      el("span", { class: "wm" }, el("span", { text: "Alfonso" }), " ", el("span", { class: "wm__m", text: "Medela" })),
+      el("span", { text: "VUT Andalucía · Informe normativo" })),
+    el("section", { class: "inf-portada" },
+      el("p", { class: "inf-eyebrow", text: `Consulta · ${referencia(r)}` }),
+      el("h1", { text: r.pregunta }),
+      el("dl", { class: "inf-ficha" },
+        dato("Ley vigente a", fmtLarga(r.fecha)),
+        dato("Ámbito", r.municipio_detectado ? `${lugar} · deducido de la pregunta` : lugar),
+        dato("Fuentes citadas", String(lista.length)),
+        dato("Verificación", nCitas ? `${nCitas} ${nCitas === 1 ? "cita literal" : "citas literales"}${r.revisada ? ", revisadas" : ""}` : "Sin citas"))),
+  ];
+
+  let n = 0;
+  if (r.motivo_abstencion) {
+    partes.push(el("section", { class: "inf-abstencion" },
+      el("p", { class: "inf-rotulo", text: "Resultado" }),
+      el("h2", { text: "No puedo afirmarlo con una cita." }),
+      el("p", { text: ABSTENCION[r.motivo_abstencion] || "" })));
+  } else {
+    // El resumen es la primera regla vigente y, si ya hay publicado un cambio, su primera
+    // afirmación; ninguna se repite debajo.
+    const vigentes = r.afirmaciones.filter((a) => !esFutura(a.fragmento));
+    const principal = vigentes.find((a) => a.tipo === "regla") || vigentes[0] || r.afirmaciones[0];
+    const cambio = principal && !esFutura(principal.fragmento)
+      ? r.afirmaciones.find((a) => esFutura(a.fragmento) && a.tipo === "regla") || r.afirmaciones.find((a) => esFutura(a.fragmento))
+      : null;
+    const ref = (a) => el("p", { class: "inf-ref", text: `[${fuentes.get(a.fragmento.id).n}] ${a.fragmento.cita}` });
+    partes.push(el("section", { class: "inf-resumen" },
+      el("p", { class: "inf-rotulo", text: "En resumen" }),
+      el("p", { class: "inf-resumen__texto", text: principal.texto }), ref(principal),
+      cambio ? el("div", { class: "inf-resumen__cambio" },
+        el("p", { class: "inf-rotulo", text: `Cambia el ${fmtLarga(cambio.fragmento.vigente_desde)}` }),
+        el("p", { class: "inf-resumen__texto", text: cambio.texto }), ref(cambio)) : null));
+    for (const g of agrupar(r.afirmaciones.filter((a) => a !== principal && a !== cambio))) {
+      partes.push(seccion(++n, g.titulo, ...g.lista.map(afirmacion)));
+    }
+  }
+  // Los avisos de una fuente ya van junto a ella; aquí solo los generales.
+  const deFuente = new Set(lista.flatMap(({ f }) => f.avisos || []));
+  const generales = r.avisos.filter((a) => !deFuente.has(a));
+  if (generales.length) partes.push(seccion(++n, "Ten en cuenta", ...generales.map((a) => el("p", { class: "inf-aviso", text: a }))));
+  if (r.preguntas_pendientes.length) {
+    partes.push(seccion(++n, "Datos que afinarían la respuesta",
+      el("ul", { class: "inf-pendientes" }, ...r.preguntas_pendientes.map((q) => el("li", { text: q })))));
+  }
+  if (lista.length) {
+    partes.push(seccion(++n, "Fuentes citadas", ...lista.map(({ n: k, f, citas }) => {
+      const no = f.norma || {};
+      const territorio = no.municipio ? `Municipal · ${no.municipio}` : (TERRITORIOS[no.territorio] || "");
+      return el("article", { class: "inf-fuente" },
+        el("span", { class: "inf-fuente__n", text: String(k) }),
+        el("div", {},
+          el("p", { class: "inf-fuente__cita", text: f.cita }),
+          no.titulo ? el("p", { class: "inf-fuente__norma", text: no.titulo }) : null,
+          el("p", { class: "inf-fuente__meta", text: [CLASES[no.clase] || "Norma", territorio,
+            esFutura(f) ? `Entra en vigor el ${fmtFecha(f.vigente_desde)}, después de la fecha consultada`
+              : `Vigente del ${fmtFecha(f.vigente_desde)} al ${f.vigente_hasta ? fmtFecha(f.vigente_hasta) : "día de hoy"}${f.vigencia_incierta ? " (fecha no publicada)" : ""}`].filter(Boolean).join(" · ") }),
+          ...citas.map((c) => el("blockquote", { text: c })),
+          ...(f.avisos || []).map((a) => el("p", { class: "inf-aviso", text: a })),
+          seguro(f.url) ? el("a", { class: "inf-url", href: seguro(f.url), text: seguro(f.url) }) : null));
+    })));
+  }
+
+  const ahora = new Date();
+  const descartes = (r.descartadas || 0) + (r.no_respaldadas || 0);
+  const corregidas = r.afirmaciones.filter((a) => a.corregida).length;
+  partes.push(el("section", { class: "inf-metodo" },
+    el("p", { class: "inf-rotulo", text: "Cómo se ha elaborado" }),
+    el("p", { text: r.motivo_abstencion
+      ? "El asistente solo afirma lo que puede probar con una cita literal del texto oficial vigente. "
+        + "En esta consulta no ha podido hacerlo, así que no ofrece ninguna respuesta: es preferible a una que no se pueda comprobar."
+      : `Un modelo de lenguaje (${r.modelo}) redactó las afirmaciones a partir de las normas vigentes a ${fmtLarga(r.fecha)}. `
+        + "Un programa comprobó que cada cita aparece palabra por palabra en el texto oficial"
+        + (r.revisada ? " y una segunda revisión, que cada cita respalda lo que se afirma. " : ". ")
+        + (descartes === 1 ? "Se descartó 1 afirmación que no superó estas pruebas. " : "")
+        + (descartes > 1 ? `Se descartaron ${descartes} afirmaciones que no superaron estas pruebas. ` : "")
+        + (corregidas === 1 ? "La revisión reformuló 1 afirmación para ceñirla a su cita. " : "")
+        + (corregidas > 1 ? `La revisión reformuló ${corregidas} afirmaciones para ceñirlas a su cita. ` : "")
+        + "Las frases son una síntesis; la prueba es la cita, reproducida en el anexo dentro de su texto oficial." }),
+    el("p", { class: "inf-legal", text: "Este informe ofrece información sobre la normativa y no constituye asesoramiento jurídico. Antes de decidir, contrasta el texto oficial enlazado o consulta a un profesional." }),
+    el("p", { class: "inf-pie", text: `${referencia(r)} · Generado el ${ahora.toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" })} a las ${ahora.toLocaleTimeString("es-ES", { hour: "2-digit", minute: "2-digit" })} · github.com/alfonmedela/vut-andalucia` })));
+
+  if (lista.length) {
+    partes.push(el("section", { class: "inf-anexo" },
+      el("p", { class: "inf-eyebrow", text: "Anexo" }),
+      el("h2", { text: "Textos oficiales citados" }),
+      el("p", { class: "inf-anexo__nota", text: "Cada precepto en la versión vigente a la fecha de la consulta. Lo subrayado es lo que se cita en el informe." }),
+      ...lista.map(({ n: k, f, citas }) => el("article", { class: "inf-texto" },
+        el("h3", { text: `[${k}] ${f.cita}` }),
+        f.encabezado && !f.texto.trimStart().startsWith(f.encabezado.trim()) ? el("p", { class: "inf-texto__enc", text: f.encabezado }) : null,
+        el("div", { class: "inf-texto__cuerpo" }, resaltarVarias(f.texto, citas)[0])))));
+  }
+  return partes;
+}
+
+async function exportarInforme() {
+  if (!actual) return;
+  // El navegador propone el título como nombre del PDF.
+  const titulo = document.title;
+  const tema = actual.pregunta.replace(/[¿?¡!\\/:*"<>|]/g, "").trim().slice(0, 60);
+  document.title = `Informe VUT Andalucía · ${actual.fecha} · ${tema}`;
+  window.addEventListener("afterprint", () => { document.title = titulo; }, { once: true });
+  await document.fonts.ready;
+  window.print();
 }
 
 // ── fuentes ────────────────────────────────────────────

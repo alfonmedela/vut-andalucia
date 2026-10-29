@@ -86,6 +86,10 @@
         <ol id="lista-consultadas"></ol>
       </details>
       <p class="pie-respuesta" id="pie-respuesta"></p>
+      <div class="acciones" id="acciones" hidden>
+        <button class="btn btn--informe" id="exportar" type="button">Descargar informe PDF</button>
+        <p>Un informe A4 con la respuesta, cada cita literal y el texto oficial completo.</p>
+      </div>
     </div>
     <aside class="panel" id="panel" aria-label="Texto oficial citado" hidden>
       <div class="panel__in" id="panel-contenido"></div>
@@ -135,6 +139,9 @@
     <p>Hecho por <a class="wm wm--sm" href="https://alfonsomedela.com"><span>Alfonso</span> <span class="wm__m">Medela</span></a> · Código abierto (MIT) en <a href="https://github.com/alfonmedela/vut-andalucia">GitHub</a></p>
   </div>
 </footer>
+
+<!-- Informe para imprimir o guardar en PDF: solo se ve al imprimir -->
+<article class="informe" id="informe" aria-hidden="true"></article>
 
 <template id="t-error">
   <div class="tarjeta tarjeta--error" role="alert"></div>
