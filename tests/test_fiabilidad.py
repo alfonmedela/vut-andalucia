@@ -11,7 +11,15 @@ from typing import Any
 import pytest
 
 from vut_andalucia import ambito
-from vut_andalucia.answer import responder
+from vut_andalucia import answer as answer_mod
+from vut_andalucia.answer import (
+    _con_encabezados,
+    cita_verificada,
+    formatear_contexto,
+    preparar,
+    responder,
+    sin_conector,
+)
 from vut_andalucia.evaluation import Caso, evaluar_generacion
 from vut_andalucia.ingest.comun import cita, fragmentos_de_version
 from vut_andalucia.llm import ClaudeSuscripcion, Falso, LLMError
@@ -123,6 +131,28 @@ def test_revision_descarta_lo_que_la_cita_no_prueba(buscador: Buscador) -> None:
     assert [a.texto for a in r.afirmaciones] == ["Hacen falta tres quintas partes."]
     assert r.no_respaldadas == 1 and r.revisada
     assert '<fragmento ref="art. 17.12 LPH"' in vistos[0]
+    # El revisor ve el aviso oficial: lo que se apoya en él no es un añadido del modelo.
+    assert "<aviso_oficial>Redacción con efectos desde el 03/04/2025" in vistos[0]
+
+
+def test_revision_corrige_en_vez_de_perder_la_regla(buscador: Buscador) -> None:
+    def revisor(_s: str, _u: str) -> dict[str, Any]:
+        juicios = [
+            {"n": 1, "respaldada": False, "motivo": "añade «siempre»",
+             "correccion": "Hacen falta tres quintas partes de propietarios y cuotas."},
+            {"n": 2, "respaldada": False, "motivo": "la cita no dice eso", "correccion": ""},
+        ]  # fmt: skip
+        return {"juicios": juicios}
+
+    r = responder("¿Qué mayoría hace falta para prohibir pisos turísticos?", buscador,
+                  Falso(_respuesta_17_12, revisor), HOY)  # fmt: skip
+    assert [a.texto for a in r.afirmaciones] == [
+        "Hacen falta tres quintas partes de propietarios y cuotas."
+    ]
+    # La cita no cambia: sigue siendo la literal verificada.
+    assert r.afirmaciones[0].corregida
+    assert r.afirmaciones[0].cita_literal.startswith("requerirá el voto favorable")
+    assert r.no_respaldadas == 1 and not r.abstiene
 
 
 def test_revision_que_lo_rechaza_todo_abstiene(buscador: Buscador) -> None:
@@ -269,3 +299,82 @@ def test_error_inesperado_no_tumba_la_evaluacion(buscador: Buscador) -> None:
     assert informe["errores_generacion"] == 1
     assert informe["casos"][0]["error"].startswith("ValueError")
     assert informe["casos"][1]["ok"]
+
+
+# ── redacciones futuras y encabezados de apartado ─────────
+IVA = "BOE-A-1992-28740"
+PREGUNTA_IVA = "¿Estoy obligado a cobrar IVA de mi piso turístico?"
+
+
+def test_versiones_ordenadas_por_fecha(buscador: Buscador) -> None:
+    versiones = buscador.corpus.versiones(f"{IVA}#a20.uno.23")
+    assert len(versiones) >= 2
+    assert [v.vigente_desde for v in versiones] == sorted(v.vigente_desde for v in versiones)
+    assert buscador.corpus.versiones("no-existe") == []
+
+
+@pytest.fixture
+def hoy_29_oct(monkeypatch: pytest.MonkeyPatch) -> None:
+    # Los cambios solo se anuncian en consultas sobre hoy: se fija «hoy» para que el test no
+    # caduque cuando pase el 1-12-2026.
+    monkeypatch.setattr(answer_mod, "_hoy", lambda: dt.date(2026, 10, 29))
+
+
+@pytest.mark.usefixtures("hoy_29_oct")
+def test_contexto_anuncia_la_redaccion_ya_publicada(buscador: Buscador) -> None:
+    # A 29-10-2026 rige la exención; desde el 1-12-2026, las estancias de hasta 30 noches
+    # tributan al 10 %. El modelo debe ver ambas redacciones para poder decirlo.
+    prep = preparar(PREGUNTA_IVA, buscador, dt.date(2026, 10, 29), amplio=True)
+    futuras = {f.base_id for f in prep.fragmentos if f.vigente_desde > prep.fecha}
+    assert {f"{IVA}#a20.uno.23", f"{IVA}#a91.uno.2.2"} <= futuras
+    contexto = formatear_contexto(prep.fragmentos, prep.normas, prep.fecha)
+    assert 'futura="entra en vigor el 2026-12-01"' in contexto
+    # Pasado el cambio ya no hay nada «futuro» que añadir.
+    despues = preparar(PREGUNTA_IVA, buscador, dt.date(2026, 12, 9), amplio=True)
+    assert all(f.vigente_en(despues.fecha) for f in despues.fragmentos)
+
+
+@pytest.mark.usefixtures("hoy_29_oct")
+def test_pregunta_historica_sin_redacciones_posteriores(buscador: Buscador) -> None:
+    # A 1-6-2025, la reforma de la LAU de octubre de 2026 no es un aviso: es otra época.
+    prep = preparar(
+        "¿El alquiler de temporada se rige por la LAU o por el Código Civil?",
+        buscador, dt.date(2025, 6, 1), amplio=True,
+    )  # fmt: skip
+    assert all(f.vigente_en(prep.fecha) for f in prep.fragmentos)
+
+
+def test_el_apartado_lleva_el_encabezado_que_fija_el_tipo(buscador: Buscador) -> None:
+    fecha = dt.date(2026, 12, 9)
+    apartado = next(
+        v for v in buscador.corpus.versiones(f"{IVA}#a91.uno.2.2") if v.vigente_en(fecha)
+    )
+    completo = _con_encabezados(apartado, buscador, fecha)
+    assert completo.texto.startswith("Uno. Se aplicará el tipo del 10 por ciento")
+    assert completo.texto.endswith(apartado.texto) and completo.id == apartado.id
+    assert cita_verificada(
+        "Se aplicará el tipo del 10 por ciento a las operaciones", completo.texto
+    )
+    # El fragmento del corpus no se modifica.
+    assert not apartado.texto.startswith("Uno.")
+
+
+@pytest.mark.parametrize(
+    ("texto", "esperado"),
+    [
+        ("Tampoco está exento de IVA si se dan servicios de hotel.",
+         "No está exento de IVA si se dan servicios de hotel."),
+        ("También deja de estar exento si se dan servicios de hotel.",
+         "Deja de estar exento si se dan servicios de hotel."),
+        ("Además, hay que presentar la declaración responsable.",
+         "Hay que presentar la declaración responsable."),
+        # «Tampoco» ante algo que no es un verbo: reescribirlo cambiaría la frase, se deja.
+        ("Tampoco el alquiler de temporada está exento.",
+         "Tampoco el alquiler de temporada está exento."),
+        # Solo al principio, y sin tocar palabras que empiezan igual.
+        ("La ley también lo exige.", "La ley también lo exige."),
+        ("Ademásito no es un conector.", "Ademásito no es un conector."),
+    ],
+)  # fmt: skip
+def test_sin_conector(texto: str, esperado: str) -> None:
+    assert sin_conector(texto) == esperado

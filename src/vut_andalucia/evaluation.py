@@ -199,7 +199,11 @@ def _evaluar_caso(
         }
     # Control independiente del verificador: igualdad estricta salvo espacios.
     no_exactas = sum(not cita_exacta(a.cita_literal, a.fragmento.texto) for a in r.afirmaciones)
-    versiones_ok = all(a.fragmento.vigente_en(c.fecha) for a in r.afirmaciones)
+    # Se admite citar la redacción futura ya publicada (anuncia un cambio), nunca una derogada.
+    versiones_ok = all(
+        a.fragmento.vigente_en(c.fecha) or a.fragmento.vigente_desde > c.fecha
+        for a in r.afirmaciones
+    )
     if c.ambito:
         ok = (
             not r.abstiene

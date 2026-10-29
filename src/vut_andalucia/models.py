@@ -86,6 +86,9 @@ class Afirmacion(BaseModel):
     fragmento: Fragmento
     cita_literal: str
     tipo: TipoAfirmacion = TipoAfirmacion.REGLA
+    corregida: bool = Field(
+        default=False, description="La revisión de significado reescribió el texto del modelo"
+    )
 
 
 class MotivoAbstencion(StrEnum):

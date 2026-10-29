@@ -34,8 +34,21 @@ class Corpus:
                 return f
         raise KeyError(fragmento_id)
 
+    _por_base: dict[str, list[Fragmento]] | None = field(default=None, init=False, repr=False)
+
     def vigentes(self, fecha: dt.date) -> list[Fragmento]:
         return [f for f in self.fragmentos if f.vigente_en(fecha)]
+
+    def versiones(self, base_id: str) -> list[Fragmento]:
+        """Todas las versiones de un precepto, de la más antigua a la más reciente."""
+        if self._por_base is None:
+            indice: dict[str, list[Fragmento]] = {}
+            for f in self.fragmentos:
+                indice.setdefault(f.base_id, []).append(f)
+            for lista in indice.values():
+                lista.sort(key=lambda f: f.vigente_desde)
+            self._por_base = indice
+        return self._por_base.get(base_id, [])
 
 
 def sha256(contenido: bytes) -> str:
