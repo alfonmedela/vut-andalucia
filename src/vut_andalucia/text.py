@@ -3,8 +3,8 @@
 from __future__ import annotations
 
 import re
+import threading
 import unicodedata
-from functools import lru_cache
 
 import snowballstemmer  # type: ignore[import-untyped]
 
@@ -88,9 +88,15 @@ def sin_tildes(texto: str) -> str:
     return "".join(c for c in nfkd if not unicodedata.combining(c))
 
 
-@lru_cache(maxsize=1)
+# El lematizador guarda estado mientras trabaja: uno por hilo, porque la API atiende peticiones
+# en paralelo y compartirlo corrompe las raíces o lanza IndexError.
+_local = threading.local()
+
+
 def _stemmer() -> snowballstemmer.stemmer:
-    return snowballstemmer.stemmer("spanish")
+    if not hasattr(_local, "stemmer"):
+        _local.stemmer = snowballstemmer.stemmer("spanish")
+    return _local.stemmer
 
 
 def tokens(texto: str) -> list[str]:

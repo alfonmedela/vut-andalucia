@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor
+
 import pytest
 
 from vut_andalucia.text import cita_de_bloque, normaliza_cita, numero_en_palabras, tokens
@@ -38,6 +40,15 @@ def test_cita_de_bloque(titulo: str, cita: str) -> None:
 
 def test_tokens_ignora_tildes_mayusculas_y_vacias() -> None:
     assert tokens("Las VIVIENDAS turísticas") == tokens("vivienda turistica")
+
+
+def test_tokens_es_seguro_entre_hilos() -> None:
+    # La API atiende peticiones en paralelo: un lematizador compartido corrompía las raíces.
+    texto = "Las viviendas turísticas requieren la aprobación expresa de la comunidad " * 20
+    esperado = tokens(texto)
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        resultados = list(pool.map(tokens, [texto] * 400))
+    assert all(r == esperado for r in resultados)
 
 
 def test_normaliza_cita() -> None:
