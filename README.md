@@ -85,27 +85,31 @@ versión vigente en su fecha. Si la ley cambia, el CI falla.
 9 municipales) y 12 fuera de ámbito (otras comunidades, municipios sin normas en el corpus,
 cultura general y dos intentos de dar instrucciones al asistente).
 
-### Respuestas (26/10/2026)
+### Respuestas (29/10/2026)
 
 | | qwen3:8b en local | Claude Opus |
 |---|---|---|
-| **Correctas dentro de ámbito**, según un juez que compara con la nota del jurista | — | **80 %** |
-| Correctas según el corrector automático (fuente correcta + hechos clave literales) | 28 % | 62 % |
+| **Correctas dentro de ámbito**, según un juez que compara con la nota del jurista | — | **83 %** |
+| Correctas según el corrector automático (fuente correcta + hechos clave literales) | 28 % | 75 % |
 | Se abstiene cuando la pregunta queda fuera del corpus | 31 % | **100 %** |
 | Citas mostradas que no están literalmente en el texto oficial | **0** | **0** ¹ |
-| Afirmaciones descartadas por la revisión de significado | — | 75 de 821 |
+| Afirmaciones descartadas por la revisión de significado ² | — | 2 de 792 |
 | Tiempo por respuesta | ~80 s | ~40 s |
 
-Por tipo de pregunta, con Claude y según el juez: normales 28/33, premisas falsas 15/15, casos
-límite 16/21, por fecha 9/15, municipales 6/9 y fuera de ámbito 12/12. Las preguntas por fecha
+Por tipo de pregunta, con Claude y según el juez: normales 30/33, premisas falsas 14/15, casos
+límite 16/21, por fecha 10/15, municipales 7/9 y fuera de ámbito 12/12. Las preguntas por fecha
 («¿qué se exigía en 2017?») son hoy el punto más débil.
 
 ¹ Una cita difiere solo en una comilla tipográfica (`"` frente a `”`), que el propio texto oficial
 mezcla; ninguna palabra cambia.
 
+² La revisión ya no borra una afirmación por un matiz: si la cita prueba lo esencial, la
+reescribe ciñéndola a la cita (que no cambia). Antes descartaba 75 y a veces se llevaba la regla
+principal de la respuesta.
+
 El corrector automático es deliberadamente estricto (exige palabras concretas) y no admite
 paráfrasis; el juez es otro modelo y puede equivocarse. Por eso se publican los dos y el informe
-completo, caso a caso: [`eval/resultados/f3-claude-opus.json`](eval/resultados/f3-claude-opus.json).
+completo, caso a caso: [`eval/resultados/f4-claude-opus.json`](eval/resultados/f4-claude-opus.json).
 
 ### Búsqueda
 
@@ -163,7 +167,7 @@ uv run vut buscar "multa por no registrar viajeros"     # solo búsqueda, sin mo
 - **Por qué no hay base de datos vectorial.** Son unos miles de fragmentos: un índice en memoria se construye en milisegundos y tiene menos piezas que puedan fallar.
 - **Tres capas, de la más fiable a la menos.** 1) Una barrera de código decide antes del modelo si la pregunta cae fuera del corpus. 2) Un verificador de código exige que cada cita esté literalmente en el texto oficial: es binario y auditable, y es lo único que se garantiza al 100 %. 3) Una segunda llamada al modelo revisa que cada cita pruebe lo que se afirma y descarta lo que no; si esa revisión falla, la respuesta se marca como no revisada. La cita se muestra siempre al lado, para que el lector juzgue.
 - **Lo que se probó y no compensó:** un reranker local (bge-reranker-v2-m3) subía la frase correcta en el contexto del 63 % al 66 % a cambio de 11 s más por pregunta. Dar más contexto a Claude (25 fragmentos en vez de 10) la sube al 77 % sin coste de búsqueda.
-- **Calidad:** ruff, mypy estricto, 237 tests (87 % de cobertura) y la evaluación de recuperación corren en cada commit. Las revisiones de código, de fallos silenciosos, de seguridad y del pipeline RAG de esta fase están resueltas en el historial.
+- **Calidad:** ruff, mypy estricto, 249 tests y la evaluación de recuperación corren en cada commit. Las revisiones de código, de fallos silenciosos, de seguridad y del pipeline RAG de esta fase están resueltas en el historial.
 - **Demo pública:** [`space/`](space) contiene el Dockerfile para Hugging Face Spaces, con límites por IP y diarios, y modo solo búsqueda si no hay clave.
 
 ## Límites

@@ -66,25 +66,28 @@ fails when the law changes. **105 cases**: 93 in scope (edge cases, false premis
 and municipal questions) and 12 out of scope (other regions, towns with no rules in the corpus,
 trivia and two attempts to give the assistant instructions).
 
-| Answers (26 Oct 2026) | qwen3:8b, local | Claude Opus |
+| Answers (29 Oct 2026) | qwen3:8b, local | Claude Opus |
 |---|---|---|
-| **Correct, in scope**, according to a judge that compares with the lawyer-style reference note | — | **80%** |
-| Correct according to the automatic grader (right source + literal key facts) | 28% | 62% |
+| **Correct, in scope**, according to a judge that compares with the lawyer-style reference note | — | **83%** |
+| Correct according to the automatic grader (right source + literal key facts) | 28% | 75% |
 | Abstains when the question is outside the corpus | 31% | **100%** |
 | Quotes shown that are not verbatim in the official text | **0** | **0** ¹ |
-| Claims dropped by the meaning review | — | 75 of 821 |
+| Claims dropped by the meaning review ² | — | 2 of 792 |
 | Time per answer | ~80 s | ~40 s |
 
-By question type (Claude, judge): plain 28/33, false premise 15/15, edge case 16/21,
-point-in-time 9/15, municipal 6/9, out of scope 12/12. Point-in-time questions ("what was required
+By question type (Claude, judge): plain 30/33, false premise 14/15, edge case 16/21,
+point-in-time 10/15, municipal 7/9, out of scope 12/12. Point-in-time questions ("what was required
 in 2017?") are the weakest spot.
 
 ¹ One quote differs only in a typographic quotation mark that the official text itself mixes; no
 word changes.
 
+² The review no longer drops a claim over a nuance: if the quote proves the core of it, the claim
+is rewritten to fit the quote (which never changes). It used to drop 75, sometimes the main rule.
+
 The automatic grader is deliberately strict and rejects paraphrases; the judge is another model and
 can be wrong. Both are published, with the full case-by-case report in
-[`eval/resultados/f3-claude-opus.json`](eval/resultados/f3-claude-opus.json).
+[`eval/resultados/f4-claude-opus.json`](eval/resultados/f4-claude-opus.json).
 
 | Retrieval (hybrid) | 10 fragments (local model) | 25 fragments (Claude) |
 |---|---|---|
