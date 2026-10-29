@@ -1,8 +1,9 @@
 """Documentos oficiales sueltos: ordenanzas y acuerdos municipales (BOP), sentencias, criterios.
 
-No tienen API. El documento (PDF o HTML) se guarda en `data/fuentes/documentos/` para que el
-corpus sea reproducible aunque la web original cambie o desaparezca, y su sha256 queda en el
-manifiesto. El texto se trocea por artículos si los tiene, por fundamentos de derecho si es
+No tienen API. El documento (PDF o HTML) se guarda en `data/fuentes/documentos/` para no
+volver a descargarlo, y su sha256 queda en el manifiesto. Esa carpeta no se publica: un boletín
+completo trae datos de particulares que nada tienen que ver con la norma. El texto se anonimiza
+y se trocea por artículos si los tiene, por fundamentos de derecho si es
 una sentencia, o por párrafos en otro caso.
 """
 
@@ -248,6 +249,37 @@ def _partes(ident: str, base: str, cuerpo: list[str]) -> list[tuple[str, str, li
     return [(f"{ident}-p{i}", f"{base}, parte {i}", ps) for i, ps in enumerate(partes, 1)]
 
 
+# Un boletín publica alegaciones y notificaciones con el nombre y el DNI de particulares. El
+# corpus es público: esos datos no aportan nada a la norma y no se redistribuyen.
+_DNI = re.compile(r"\b(?:\d{8}|[XYZ]\d{7})\s?-?[A-HJ-NP-TV-Z]\b|\b\d{2}\.\d{3}\.\d{3}\s?-?[A-Z]\b")
+_NOMBRE_CON_DNI = re.compile(
+    r"\b(?:Don|Doña|D\.ª|Dña\.|D\.)\s+[A-ZÁÉÍÓÚÑ][\wáéíóúñü-]+"
+    r"(?:\s+(?:de\s+(?:la\s+|los\s+)?|del\s+)?[A-ZÁÉÍÓÚÑ][\wáéíóúñü-]+){1,4}"
+    r"(?=,?\s+con\s+(?:DNI|NIF|NIE|D\.N\.I))"
+)
+
+
+_PERSONA = (
+    r"(?:Don|Doña|D\.ª|Dña\.|D\.)\s?[A-ZÁÉÍÓÚÑ][\wáéíóúñü-]+"
+    r"(?:\s+(?:de\s+(?:la\s+|los\s+)?|del\s+)?[A-ZÁÉÍÓÚÑ][\wáéíóúñü-]+){1,4}"
+)
+# Quien formula una alegación o sugerencia es un particular («formuladas por D. … y D. …»);
+# los cargos públicos (magistrados, firmantes) no aparecen así.
+_AUTORES = re.compile(
+    r"((?:formulad|presentad|suscrit|interpuest|promovid)[ao]s?\s+por\s+)"
+    rf"((?:{_PERSONA}|[^,.\n]*?S\.[AL]\.)(?:\s*(?:,|\by\b|\be\b)\s*(?:{_PERSONA}|[^,.\n]*?S\.[AL]\.))*)"
+)
+_SOLO_PERSONA = re.compile(_PERSONA)
+
+
+def anonimizar(texto: str) -> str:
+    """Tacha el DNI/NIE de particulares, el nombre que lo acompaña y el de quien alega."""
+    texto = _AUTORES.sub(
+        lambda m: m.group(1) + _SOLO_PERSONA.sub("[nombre omitido]", m.group(2)), texto
+    )
+    return _DNI.sub("[DNI omitido]", _NOMBRE_CON_DNI.sub("[nombre omitido]", texto))
+
+
 def parsear(bruto: bytes, norma: Norma, fuente: Fuente) -> list[Fragmento]:
     if fuente.desde is None:  # pragma: no cover - lo exige el catálogo
         raise DocumentoError(f"{norma.id}: falta `desde`")
@@ -256,6 +288,7 @@ def parsear(bruto: bytes, norma: Norma, fuente: Fuente) -> list[Fragmento]:
         texto = texto.translate(_REPARACIONES)
     if fuente.extracto:
         texto = extraer(texto, fuente.extracto, fuente.extracto_fin)
+    texto = anonimizar(texto)
     ps = parrafos(texto)
     sentencia = fuente.troceo == "fundamentos" or norma.clase.value == "jurisprudencia"
     bloques = _preguntas(ps) if fuente.troceo == "preguntas" else _bloques(ps, sentencia)

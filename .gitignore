@@ -14,3 +14,7 @@ build/
 
 # PDF de prueba locales
 pruebas/
+
+# Copias de los documentos originales (boletines completos con datos de particulares):
+# se descargan al reconstruir el corpus y no se redistribuyen.
+src/vut_andalucia/data/fuentes/documentos/

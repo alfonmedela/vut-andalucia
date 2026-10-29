@@ -259,3 +259,22 @@ def test_documento_guarda_copia_y_la_reutiliza(tmp_path: Path) -> None:
     assert len(llamadas) == 1
     with pytest.raises(documento.DocumentoError):
         documento.obtener("local:no-existe.pdf", c, tmp_path)
+
+
+def test_documento_tacha_dni_y_nombre_de_particulares() -> None:
+    texto = (
+        "SUGERENCIA 1: Presentada por Don Fulano Ejemplo Ficticio, con DNI n.º 00000000T, y por "
+        "Doña Mengana de la Prueba, con NIF 12.345.678-Z. Alegaciones formuladas por "
+        "D.Zutano Inventado Pérez y D.Perengano Falso, y Empresa Ejemplo, S.L. "
+        "Ponente: D. José Luis Gil."
+    )
+    limpio = documento.anonimizar(texto)
+    for dato in ("Fulano", "Mengana", "Zutano", "Perengano", "00000000T", "12.345.678"):
+        assert dato not in limpio
+    assert limpio.count("[nombre omitido]") == 4 and limpio.count("[DNI omitido]") == 2
+    assert "Empresa Ejemplo, S.L." in limpio
+    # Un cargo público sin DNI y los identificadores de normas no se tocan.
+    assert "D. José Luis Gil" in limpio
+    assert documento.anonimizar("BOE-A-1992-28740, art. 20.Uno.23.º") == (
+        "BOE-A-1992-28740, art. 20.Uno.23.º"
+    )
